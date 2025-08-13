@@ -1,0 +1,1 @@
+read Fleet-Connect-1/CLAUDE.md and all related documents in this directory and sub directories and all documents in iMatrix and memory_test directories
