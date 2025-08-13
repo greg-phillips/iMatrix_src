@@ -1,0 +1,160 @@
+# Exclude existing git repositories (they have their own version control)
+# These directories should be cloned separately
+Fleet-Connect-1/
+iMatrix/
+iMatrix-Android-Mobile-App/
+iMatrix-Web-UI/
+imatrix-node-backend/
+mbedtls/
+
+# Build artifacts
+*.o
+*.a
+*.so
+*.out
+*.bin
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Executables (without extension)
+test_tty
+test_interface
+test_pty
+test_pty_connect
+test_pty_fixed
+test_pty_fixed2
+test_pty_master
+test_pty_routing
+test_pty_state
+test_tty_cli
+test_tty_output
+bare_minimal_test
+bucket_test
+clear_old_data
+comprehensive_memory_test
+diagnostic_test
+minimal_test
+module_link_test
+multi_bucket_test
+performance_test
+real_world_test
+simple_memory_test
+size_check_test
+spillover_test
+test_disk_batching
+test_disk_init
+test_shutdown
+tiered_storage_test
+ultra_minimal_test
+FC-1
+
+# Sensitive files - certificates and keys
+*.pem
+*.key
+*.crt
+*.p12
+*.keystore
+*.ca-bundle
+gcloud-access.json
+debug_keystore_password.txt
+
+# Log files
+*.log
+debug.log
+
+# IDE and workspace files
+*.code-workspace
+.vscode/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Node modules (if any)
+node_modules/
+
+# Test output
+test_results/
+test_output/
+test_write.bin
+
+# Documentation build artifacts
+docs/api/
+docs/_build/
+doxygen/
+
+# Zone identifier files (Windows WSL)
+*:Zone.Identifier
+*:com.dropbox.attrs
+
+# Backup files
+*.backup
+*.bak
+
+# Core dumps
+core
+core.*
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Package files
+*.tar.gz
+*.zip
+*.rar
+
+# Database files
+*.db
+*.sqlite
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Gradle files (from Android project)
+.gradle/
+gradlew
+gradlew.bat
+
+# iOS/macOS specific
+.DS_Store
+*.xcworkspace
+*.xcuserdata
+Pods/
+DerivedData/
+
+# Android specific
+*.apk
+*.aab
+*.keystore
+!debug.keystore
+
+# Yarn/npm
+yarn-error.log
+npm-debug.log
+package-lock.json
+yarn.lock
+
+# Docker
+Dockerfile
+docker-compose.yaml
+docker-compose.yml
+
+# Misc
+DartConfiguration.tcl
+*.orig

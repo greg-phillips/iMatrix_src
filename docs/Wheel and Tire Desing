@@ -1,0 +1,138 @@
+Here’s a unified document that combines all the key information we’ve discussed—complete with definitions, data models, SVG code, and a link to the Wikimedia Commons truck diagram:
+
+---
+
+## 🚛 1. Industry Classification
+
+**Axle and wheel configurations** are commonly noted in formats like **4×2**, **6×4**, **8×6**, etc., where:
+
+* The **first number** = total wheel ends (dual wheels count as one end),
+* The **second number** = driven wheel ends,
+* (Optionally a third) = steered wheel ends.
+
+However, dual wheels physically mean 4 tires per axle (2 on each side).
+You can categorize **single (2‑wheel)** vs **dual (4‑wheel)** axles to reflect this in both database and diagrams.
+
+---
+
+## 2. Data Model Examples
+
+### a) **Types & Interfaces (TypeScript)**
+
+```ts
+enum AxleWheelConfig {
+  SINGLE = "single",  // 2-wheel axle
+  DUAL   = "dual"     // 4-wheel axle
+}
+
+interface AxleDef {
+  position: number;            // 1 = front, 2, 3...
+  wheelConfig: AxleWheelConfig;
+  isDriven: boolean;
+  isSteered: boolean;
+  isLiftAxle?: boolean;
+}
+```
+
+Logic:
+
+* `SINGLE` → render 2 circles (one each side),
+* `DUAL` → 4 circles (two on each side).
+
+### b) **DB Schema Example**
+
+```sql
+CREATE TABLE axle_configs (
+  id SERIAL PRIMARY KEY,
+  position INTEGER NOT NULL,
+  wheel_config VARCHAR(20) NOT NULL,  -- "single" or "dual"
+  wheel_count INTEGER NOT NULL,        -- 2 or 4
+  is_driven BOOLEAN NOT NULL,
+  is_steered BOOLEAN NOT NULL,
+  is_lift_axle BOOLEAN DEFAULT FALSE
+);
+```
+
+You can compute `wheel_count = 2` if `wheel_config = 'single'`, else 4.
+
+---
+
+## 3. SVG Code Snippets
+
+### A. **Single-wheel axle (2 wheels)**
+
+```xml
+<g class="axle pos-3">
+  <circle cx="100" cy="50" r="8" fill="black"/>  <!-- left tire -->
+  <circle cx="120" cy="50" r="8" fill="black"/>  <!-- right tire -->
+</g>
+```
+
+### B. **Dual-wheel axle (4 wheels)**
+
+```xml
+<g class="axle pos-3">
+  <!-- Left side -->
+  <circle cx="95"  cy="50" r="8" fill="black"/>
+  <circle cx="105" cy="50" r="8" fill="black"/>
+  <!-- Right side -->
+  <circle cx="115" cy="50" r="8" fill="black"/>
+  <circle cx="125" cy="50" r="8" fill="black"/>
+</g>
+```
+
+Place `<g>` groups sequentially to depict spacing between axles.
+
+---
+
+## 4. Example Configurations
+
+| Config Code    | Axle Setup                                      | Total Tires   |
+| -------------- | ----------------------------------------------- | ------------- |
+| **4×2**        | Front: single, Rear: single                     | 4             |
+| **6×4**        | Front: single, Rear tandem: dual + dual         | 12            |
+| **8×6 (lift)** | Front: single, Tandem driven duals, lift single | 10 (lift off) |
+
+Your logic calculates total tires via the sum of each axle’s `wheelConfig`.
+
+---
+
+## 5. Wikimedia SVG Diagram
+
+For a real-world, full-scale example, check out this diagram on Wikimedia Commons:
+
+* **“Conventional 18-wheeler truck diagram.svg”** – shows side and underside views with all 18 tires, axles, driveshafts, etc.
+  ([en.wikipedia.org][1], [commons.wikimedia.org][2])
+
+Direct link to view/download:
+**[https://commons.wikimedia.org/wiki/File\:Conventional\_18-wheeler\_truck\_diagram.svg](https://commons.wikimedia.org/wiki/File:Conventional_18-wheeler_truck_diagram.svg)**
+
+It’s under **CC BY‑SA 3.0**, so you’re free to remix and adapt it.
+
+---
+
+## 6. How to Use in Node.js
+
+1. **Store** your axle definitions (position, config, flags) in your Node.js backend or database.
+2. **Parse** these configs and map `wheelConfig` to wheel count.
+3. **Generate** SVG dynamically—loop through axles and output `<g>` and `<circle>` elements.
+4. **Style** via CSS (e.g., `fill`, `stroke`), and label steering/driven axles if desired.
+5. **Embed** inside your web app and let users select configurations that auto-generate diagrams.
+
+---
+
+## ✅ Summary Checklist
+
+* [x] Enum or code for single vs dual wheels
+* [x] Clear TypeScript interface for axle definitions
+* [x] SQL schema storing wheel config & count
+* [x] SVG snippets for rendering wheels
+* [x] Full truck diagram reference from Wikimedia
+* [x] Step‑by‑step Node.js integration guidance
+
+---
+
+Need help producing a Node.js function that turns your `AxleDef[]` into a complete SVG, or parsing the Wikimedia SVG file to align with your data model? Just say the word—I’ve got code samples ready!
+
+[1]: https://en.wikipedia.org/wiki/File%3AConventional_18-wheeler_truck_diagram.svg?utm_source=chatgpt.com "File:Conventional 18-wheeler truck diagram.svg - Wikipedia"
+[2]: https://commons.wikimedia.org/wiki/File%3AConventional_18-wheeler_truck_diagram.svg?utm_source=chatgpt.com "File:Conventional 18-wheeler truck diagram.svg"

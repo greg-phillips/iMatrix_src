@@ -1,0 +1,19 @@
+Breakpoint 1 at 0x4900: file /home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c, line 3458.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, scan_disk_files (directory_path=directory_path@entry=0x55555555e008 "/tmp/imatrix_test_storage/history/") at /home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c:3458
+3458	{
+$1 = 0
+$2 = <optimized out>
+$3 = (disk_file_info_t *) 0x0
+
+Program received signal SIGSEGV, Segmentation fault.
+__strncpy_avx2 () at ../sysdeps/x86_64/multiarch/strcpy-avx2.S:320
+320	../sysdeps/x86_64/multiarch/strcpy-avx2.S: No such file or directory.
+#0  __strncpy_avx2 () at ../sysdeps/x86_64/multiarch/strcpy-avx2.S:320
+#1  0x0000555555558b38 in strncpy (__len=511, __src=0x7fffffffcec0 "/tmp/imatrix_test_storage/history/sector_276_sensor_100.imx", __dest=<optimized out>) at /usr/include/x86_64-linux-gnu/bits/string_fortified.h:95
+#2  scan_disk_files (directory_path=directory_path@entry=0x55555555e008 "/tmp/imatrix_test_storage/history/") at /home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c:3504
+#3  0x000055555555ca0f in perform_power_failure_recovery () at /home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c:3724
+#4  0x0000555555557999 in phase_4_recovery_testing () at /home/greg/iMatrix_src/memory_test/spillover_test.c:569
+#5  main (argc=<optimized out>, argv=<optimized out>) at /home/greg/iMatrix_src/memory_test/spillover_test.c:872

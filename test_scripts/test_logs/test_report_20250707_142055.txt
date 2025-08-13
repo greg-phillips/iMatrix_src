@@ -1,0 +1,11 @@
+iMatrix Tiered Storage Test Report - 20250707_142055
+================================================
+
+[PASS] memory_manager_basic
+  Metrics: Tests: 5/5
+[PASS] tiered_storage_complete
+  Metrics: Tests: 6/6
+[PASS] recovery_verification
+  Metrics: Tests: 6/6
+[PASS] performance_benchmark
+[FAIL] diagnostic_analysis (exit code: 1)

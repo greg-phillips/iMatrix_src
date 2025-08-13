@@ -1,0 +1,11 @@
+iMatrix Tiered Storage Test Report - 20250709_100938
+================================================
+
+[FAIL] memory_manager_basic (exit code: 134)
+[PASS] tiered_storage_complete
+  Metrics: Tests: 6/6
+[PASS] recovery_verification
+  Metrics: Tests: 6/6
+[PASS] performance_benchmark
+[FAIL] diagnostic_analysis (exit code: 1)
+[PASS] spillover_validation
