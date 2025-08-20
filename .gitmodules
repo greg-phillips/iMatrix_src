@@ -16,3 +16,9 @@
 	path = btstack
 	url = https://github.com/bluekitchen/btstack.git
 	branch = master
+[submodule "Fleet-Connect-1"]
+	path = Fleet-Connect-1
+	url = ./Fleet-Connect-1
+[submodule "iMatrix"]
+	path = iMatrix
+	url = ./iMatrix
