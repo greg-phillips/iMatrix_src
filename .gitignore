@@ -3,7 +3,6 @@
 iMatrix-Android-Mobile-App/
 iMatrix-Web-UI/
 imatrix-node-backend/
-mbedtls/
 
 # Build artifacts
 *.o

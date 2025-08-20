@@ -9,3 +9,10 @@
 	path = Fleet-Connect-1
 	url = https://github.com/sierratelecom/Fleet-Connect-1.git
 	branch = QConnect-Updates
+[submodule "mbedtls"]
+	path = mbedtls
+	url = https://github.com/Mbed-TLS/mbedtls.git
+[submodule "btstack"]
+	path = btstack
+	url = https://github.com/bluekitchen/btstack.git
+	branch = master
