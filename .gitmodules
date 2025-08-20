@@ -1,0 +1,3 @@
+[submodule "CAN_DM"]
+	path = CAN_DM
+	url = https://github.com/sierratelecom/CAN_DM.git
