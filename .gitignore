@@ -1,7 +1,5 @@
 # Exclude existing git repositories (they have their own version control)
 # These directories should be cloned separately
-Fleet-Connect-1/
-iMatrix/
 iMatrix-Android-Mobile-App/
 iMatrix-Web-UI/
 imatrix-node-backend/

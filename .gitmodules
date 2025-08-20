@@ -1,3 +1,11 @@
 [submodule "CAN_DM"]
 	path = CAN_DM
 	url = https://github.com/sierratelecom/CAN_DM.git
+[submodule "iMatrix"]
+	path = iMatrix
+	url = https://github.com/sierratelecom/iMatrix-WICED-6.6-Client.git
+	branch = feature/network-mode-switching
+[submodule "Fleet-Connect-1"]
+	path = Fleet-Connect-1
+	url = https://github.com/sierratelecom/Fleet-Connect-1.git
+	branch = QConnect-Updates
