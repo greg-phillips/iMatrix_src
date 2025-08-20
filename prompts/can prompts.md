@@ -196,5 +196,94 @@ Keep this as version 3 as we have not released any updates to the field.
 
 ***
 
+Write a python script to generate a default JSON file for the iMatrix Settings for all the signals in a DBC file.
+
+The command line should accept options from 0 to 9 and include a filename to process, for example
+
+pythion3 gen_default_json.py -0 file1.dbc -0 file2.dbc -1 file3.dbc
+
+the enties should be an array with the name "dbc_signals"
+
+The entry for each signal should follow the format shown below:
+
+{
+  "name": "TX Data Rate",
+  "defaultValue": 0,
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+  "thresholdQualificationTime": 0,
+  "minAdvisoryEnabled": false,
+  "minAdvisory": 0,
+  "minWarningEnabled": false,
+  "minWarning": 0,
+  "minAlarmEnabled": false,
+  "minAlarm": 0,
+  "maxAdvisoryEnabled": false,
+  "maxAdvisory": 0,
+  "maxWarningEnabled": false,
+  "maxWarning": 0,
+  "maxAlarmEnabled": false,
+  "maxAlarm": 0,
+  "calibrationMode": none,
+  "calibrateValue1": 0,
+  "calibrateValue2": 0,
+  "calibrateValue3": 0,
+  "calibrationRef1": 0,
+  "calibrationRef2": 0,
+  "calibrationRef3": 0
+  "visible" : true,
+  "enabled" : true,
+  "send_to_imatrix" : true
+}
+
+the name is generated from three items. The format is:
+<CAN BUS No.>:<CAN BUS Node ID>:<name>
+
+The CAN BUS No is the number of the can bus as passed on the command line, for example the -0 <dbc filename> is CAN BUS 0.
+The CAN BUS Node ID is the decimal value of the BO_ associated with the signals.
+The name is the DBC File Signal name (SG_).
+
+
+
+***
+
+Add Add support for reading the default sensor settings from the product JSON file. The format of the settings is shown in the following snip of json text.
+
+{
+  "dbc_signals": [
+    {
+      "name": "0:419368144:Vehicle_status",
+      "defaultValue": 0,
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "thresholdQualificationTime": 0,
+      "minAdvisoryEnabled": false,
+      "minAdvisory": 0,
+      "minWarningEnabled": false,
+      "minWarning": 0,
+      "minAlarmEnabled": false,
+      "minAlarm": 0,
+      "maxAdvisoryEnabled": false,
+      "maxAdvisory": 0,
+      "maxWarningEnabled": false,
+      "maxWarning": 0,
+      "maxAlarmEnabled": false,
+      "maxAlarm": 0,
+      "calibrationMode": "none",
+      "calibrateValue1": 0,
+      "calibrateValue2": 0,
+      "calibrateValue3": 0,
+      "calibrationRef1": 0,
+      "calibrationRef2": 0,
+      "calibrationRef3": 0,
+      "visible": true,
+      "enabled": true,
+      "send_to_imatrix": true
+    },
+
+modify the routine convert_to_imatrx in the source file convert_imatrix.c to use helper functions for the settings of the sensor values. Currently many of the sensor values are hard coded. match the entries in the dbc_signals JSON file to the hard coded entries. create helper routines for the setting of each sensor. If the name of the cds.can_bus_node[can_bus_entry].control_sensors[cs_index].name matches the name of an entry in the dbc_signals JSON then use the value from the JSON otherwise use the value that the sensor is currently initialized to. ask any questions needed to fully define this plan
+
+***
+
+add support to write the dbc_signals out to the config file. Output the data as binary structure. Do not include the name. subsitute the name with the imx_id (32 bit unsigned int) for the sensor. If there is no corresponding imx_id for the name of the signal abort with an error. the process to associate the imx_id with the name should be done prior to the saving of the config file.
+Add support to the print config to print all the entries. print the entries as a table and only print the name, imx_id, visible, enabled and send_to_imatrix flagas. ask any questions needed to develop a plan for this implemenation.
 
 ***
