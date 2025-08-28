@@ -5,7 +5,7 @@ This repository contains the main development environment for the iMatrix projec
 ## Project Structure
 
 ```
-iMatrix_src/
+iMatrix_Client/
 ├── Fleet-Connect-1/        # Fleet Connect gateway application (separate git repo)
 ├── iMatrix/               # Core iMatrix embedded system code (separate git repo)
 ├── iMatrix-Android-Mobile-App/  # Android mobile application (separate git repo)
@@ -34,8 +34,8 @@ iMatrix_src/
 
 1. Clone this repository:
 ```bash
-git clone <repository-url> iMatrix_src
-cd iMatrix_src
+git clone <repository-url> iMatrix_Client
+cd iMatrix_Client
 ```
 
 2. Initialize submodule repositories (if needed):

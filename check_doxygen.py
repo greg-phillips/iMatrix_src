@@ -47,7 +47,7 @@ def check_doxygen_docs(filename):
     return missing_docs
 
 # Check the file
-missing = check_doxygen_docs('/home/greg/iMatrix_src/iMatrix/imx_platform.h')
+missing = check_doxygen_docs('/home/greg/iMatrix/iMatrix_Client/iMatrix/imx_platform.h')
 
 if missing:
     print(f"Found {len(missing)} functions without proper Doxygen documentation:\n")

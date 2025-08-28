@@ -13,8 +13,8 @@
 
 ## User Development Project Source Code direcories
 Use the following directoies for all source code
-/home/greg/Fleet-Connect-1
-/home/greg/iMatrix
+/home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1
+/home/greg/iMatrix/iMatrix_Client/iMatrix
 
 The iMatrix directory contains the iMatrix Client that is used by several projects.
 This project uses the Fleet-Connect-1 directory as the main base of the project.

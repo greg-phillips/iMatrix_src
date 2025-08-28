@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/greg/iMatrix_src/memory_test
+CMAKE_SOURCE_DIR = /home/greg/iMatrix/iMatrix_Client/test_scripts
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/greg/iMatrix_src/memory_test
+CMAKE_BINARY_DIR = /home/greg/iMatrix/iMatrix_Client/test_scripts
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/greg/iMatrix_src/memory_test/CMakeFiles /home/greg/iMatrix_src/memory_test//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/greg/iMatrix/iMatrix_Client/test_scripts/CMakeFiles /home/greg/iMatrix/iMatrix_Client/test_scripts//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/greg/iMatrix_src/memory_test/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/greg/iMatrix/iMatrix_Client/test_scripts/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -357,6 +357,19 @@ test_shutdown/fast:
 .PHONY : test_shutdown/fast
 
 #=============================================================================
+# Target rules for targets named test_verify
+
+# Build rule for target.
+test_verify: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_verify
+.PHONY : test_verify
+
+# fast build rule for target.
+test_verify/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_verify.dir/build.make CMakeFiles/test_verify.dir/build
+.PHONY : test_verify/fast
+
+#=============================================================================
 # Target rules for targets named run_simple
 
 # Build rule for target.
@@ -545,797 +558,797 @@ diagnostic_test.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/diagnostic_test.c.s
 .PHONY : diagnostic_test.c.s
 
-home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.o: home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.o: home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.o
 
 # target to build an object file
-home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.o
 
-home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.i: home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.i: home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.i
 
 # target to preprocess a source file
-home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.i
 
-home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.s: home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.s: home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.s
 
 # target to generate assembly for a file
-home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.c.s
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.o: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.o: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.o
 
 # target to build an object file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.o
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.i: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.i: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.i
 
 # target to preprocess a source file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.i
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.s: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.s: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.s
 
 # target to generate assembly for a file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.c.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.c.s
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.o: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.o: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.o
 
 # target to build an object file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.o
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.i: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.i: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.i
 
 # target to preprocess a source file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.i
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.s: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.s: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.s
 
 # target to generate assembly for a file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.c.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.c.s
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.o: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.o: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.o
 
 # target to build an object file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.o
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.i: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.i: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.i
 
 # target to preprocess a source file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.i
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.s: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.s: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.s
 
 # target to generate assembly for a file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.c.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.c.s
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.o: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.o: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.o
 
 # target to build an object file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.o
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.i: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.i: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.i
 
 # target to preprocess a source file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.i
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.s: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.s: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.s
 
 # target to generate assembly for a file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.c.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.c.s
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.o: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.o: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.o
 
 # target to build an object file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.o
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.i: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.i: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.i
 
 # target to preprocess a source file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.i
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.s: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.s: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.s
 
 # target to generate assembly for a file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.c.s
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.o: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.o: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.o
 
 # target to build an object file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.o
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.i: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.i: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.i
 
 # target to preprocess a source file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.i
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.s: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.s: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.s
 
 # target to generate assembly for a file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.c.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.c.s
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.o: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.o: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.o
 
 # target to build an object file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.o
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.i: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.i: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.i
 
 # target to preprocess a source file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.i
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.s: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.s: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.s
 
 # target to generate assembly for a file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.c.s
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.o: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.o: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.o
 
 # target to build an object file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.o
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.i: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.i: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.i
 
 # target to preprocess a source file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.i
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.s: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.s: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.s
 
 # target to generate assembly for a file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.c.s
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.o: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.o: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.o
 
 # target to build an object file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.o
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.i: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.i: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.i
 
 # target to preprocess a source file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.i
 
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.s: home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.s: home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.s
 
 # target to generate assembly for a file
-home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.c.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.c.s
 
-home/greg/iMatrix_src/iMatrix/storage.o: home/greg/iMatrix_src/iMatrix/storage.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/storage.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/storage.o: home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/storage.o
 
 # target to build an object file
-home/greg/iMatrix_src/iMatrix/storage.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/storage.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/storage.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/storage.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/storage.c.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.o
 
-home/greg/iMatrix_src/iMatrix/storage.i: home/greg/iMatrix_src/iMatrix/storage.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/storage.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/storage.i: home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/storage.i
 
 # target to preprocess a source file
-home/greg/iMatrix_src/iMatrix/storage.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/storage.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/storage.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/storage.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/storage.c.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.i
 
-home/greg/iMatrix_src/iMatrix/storage.s: home/greg/iMatrix_src/iMatrix/storage.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/storage.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/storage.s: home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/storage.s
 
 # target to generate assembly for a file
-home/greg/iMatrix_src/iMatrix/storage.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/storage.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/storage.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/storage.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/storage.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/storage.c.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/storage.c.s
 
-home/greg/iMatrix_src/iMatrix/time/ck_time.o: home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/time/ck_time.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.o: home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.o
 
 # target to build an object file
-home/greg/iMatrix_src/iMatrix/time/ck_time.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
-.PHONY : home/greg/iMatrix_src/iMatrix/time/ck_time.c.o
+home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.o
 
-home/greg/iMatrix_src/iMatrix/time/ck_time.i: home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/time/ck_time.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.i: home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.i
 
 # target to preprocess a source file
-home/greg/iMatrix_src/iMatrix/time/ck_time.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
-.PHONY : home/greg/iMatrix_src/iMatrix/time/ck_time.c.i
+home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.i
 
-home/greg/iMatrix_src/iMatrix/time/ck_time.s: home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/time/ck_time.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.s: home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.s
 
 # target to generate assembly for a file
-home/greg/iMatrix_src/iMatrix/time/ck_time.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
-.PHONY : home/greg/iMatrix_src/iMatrix/time/ck_time.c.s
+home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_memory_test.dir/build.make CMakeFiles/simple_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tiered_storage_test.dir/build.make CMakeFiles/tiered_storage_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/performance_test.dir/build.make CMakeFiles/performance_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/diagnostic_test.dir/build.make CMakeFiles/diagnostic_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spillover_test.dir/build.make CMakeFiles/spillover_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/module_link_test.dir/build.make CMakeFiles/module_link_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimal_test.dir/build.make CMakeFiles/minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ultra_minimal_test.dir/build.make CMakeFiles/ultra_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/size_check_test.dir/build.make CMakeFiles/size_check_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bare_minimal_test.dir/build.make CMakeFiles/bare_minimal_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/real_world_test.dir/build.make CMakeFiles/real_world_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_init.dir/build.make CMakeFiles/test_disk_init.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disk_batching.dir/build.make CMakeFiles/test_disk_batching.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/comprehensive_memory_test.dir/build.make CMakeFiles/comprehensive_memory_test.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
+.PHONY : home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.c.s
 
 imatrix_stubs.o: imatrix_stubs.c.o
 .PHONY : imatrix_stubs.o
@@ -1865,6 +1878,30 @@ test_shutdown_helpers.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_shutdown.dir/build.make CMakeFiles/test_shutdown.dir/test_shutdown_helpers.c.s
 .PHONY : test_shutdown_helpers.c.s
 
+test_verify.o: test_verify.c.o
+.PHONY : test_verify.o
+
+# target to build an object file
+test_verify.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_verify.dir/build.make CMakeFiles/test_verify.dir/test_verify.c.o
+.PHONY : test_verify.c.o
+
+test_verify.i: test_verify.c.i
+.PHONY : test_verify.i
+
+# target to preprocess a source file
+test_verify.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_verify.dir/build.make CMakeFiles/test_verify.dir/test_verify.c.i
+.PHONY : test_verify.c.i
+
+test_verify.s: test_verify.c.s
+.PHONY : test_verify.s
+
+# target to generate assembly for a file
+test_verify.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_verify.dir/build.make CMakeFiles/test_verify.dir/test_verify.c.s
+.PHONY : test_verify.c.s
+
 tiered_storage_test.o: tiered_storage_test.c.o
 .PHONY : tiered_storage_test.o
 
@@ -1947,6 +1984,7 @@ help:
 	@echo "... test_disk_batching"
 	@echo "... test_disk_init"
 	@echo "... test_shutdown"
+	@echo "... test_verify"
 	@echo "... tiered_storage_test"
 	@echo "... ultra_minimal_test"
 	@echo "... bare_minimal_test.o"
@@ -1958,42 +1996,42 @@ help:
 	@echo "... diagnostic_test.o"
 	@echo "... diagnostic_test.i"
 	@echo "... diagnostic_test.s"
-	@echo "... home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.o"
-	@echo "... home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.i"
-	@echo "... home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.s"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.o"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.i"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager.s"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.o"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.i"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_core.s"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.o"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.i"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_disk.s"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.o"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.i"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_external.s"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.o"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.i"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_recovery.s"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.o"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.i"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_stats.s"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.o"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.i"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tiered.s"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.o"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.i"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_tsd_evt.s"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.o"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.i"
-	@echo "... home/greg/iMatrix_src/iMatrix/cs_ctrl/memory_manager_utils.s"
-	@echo "... home/greg/iMatrix_src/iMatrix/storage.o"
-	@echo "... home/greg/iMatrix_src/iMatrix/storage.i"
-	@echo "... home/greg/iMatrix_src/iMatrix/storage.s"
-	@echo "... home/greg/iMatrix_src/iMatrix/time/ck_time.o"
-	@echo "... home/greg/iMatrix_src/iMatrix/time/ck_time.i"
-	@echo "... home/greg/iMatrix_src/iMatrix/time/ck_time.s"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.o"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.i"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_platform.s"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.o"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.i"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager.s"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.o"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.i"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_core.s"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.o"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.i"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_disk.s"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.o"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.i"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_external.s"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.o"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.i"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_recovery.s"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.o"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.i"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_stats.s"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.o"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.i"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tiered.s"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.o"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.i"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_tsd_evt.s"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.o"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.i"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/memory_manager_utils.s"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/storage.o"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/storage.i"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/storage.s"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.o"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.i"
+	@echo "... home/greg/iMatrix/iMatrix_Client/iMatrix/time/ck_time.s"
 	@echo "... imatrix_stubs.o"
 	@echo "... imatrix_stubs.i"
 	@echo "... imatrix_stubs.s"
@@ -2039,6 +2077,9 @@ help:
 	@echo "... test_shutdown_helpers.o"
 	@echo "... test_shutdown_helpers.i"
 	@echo "... test_shutdown_helpers.s"
+	@echo "... test_verify.o"
+	@echo "... test_verify.i"
+	@echo "... test_verify.s"
 	@echo "... tiered_storage_test.o"
 	@echo "... tiered_storage_test.i"
 	@echo "... tiered_storage_test.s"

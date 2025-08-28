@@ -4,7 +4,7 @@ This file provides comprehensive guidance to Claude Code (claude.ai/code) when w
 
 ## Repository Overview
 
-The iMatrix_src repository is the master development environment containing three critical submodules for the iMatrix IoT platform:
+The iMatrix_Client repository is the master development environment containing three critical submodules for the iMatrix IoT platform:
 
 - **Fleet-Connect-1**: Gateway application for vehicle connectivity and OBD2/CAN bus processing
 - **iMatrix**: Core embedded system with memory management, networking, BLE, and cloud connectivity

@@ -15,8 +15,8 @@ Created Doxygen configuration files for both projects with:
 - Optimized for embedded systems documentation
 
 **Files Created:**
-- `/home/greg/iMatrix_src/iMatrix/Doxyfile`
-- `/home/greg/iMatrix_src/Fleet-Connect-1/Doxyfile`
+- `/home/greg/iMatrix/iMatrix_Client/iMatrix/Doxyfile`
+- `/home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/Doxyfile`
 
 ### 2. CMake Integration ✓
 
@@ -63,17 +63,17 @@ Added CMake targets for documentation generation:
 ### 4. Supporting Documentation ✓
 
 **Function Pointer Documentation**
-- Created `/home/greg/iMatrix_src/docs/function_pointers.md`
+- Created `/home/greg/iMatrix/iMatrix_Client/docs/function_pointers.md`
 - Comprehensive guide to all function pointer types
 - Includes usage examples and best practices
 
 **Call Graph Documentation**
-- Created `/home/greg/iMatrix_src/docs/call_graphs.md`
+- Created `/home/greg/iMatrix/iMatrix_Client/docs/call_graphs.md`
 - Instructions for generating and interpreting call graphs
 - Alternative tools and troubleshooting guide
 
 **Documentation Plan**
-- Created `/home/greg/iMatrix_src/docs/documentation_plan.md`
+- Created `/home/greg/iMatrix/iMatrix_Client/docs/documentation_plan.md`
 - Phased approach with clear deliverables
 - Success criteria and metrics
 

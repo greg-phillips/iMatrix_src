@@ -52,7 +52,7 @@ To generate call graphs, you need:
 
 Use the provided script:
 ```bash
-cd /home/greg/iMatrix_src
+cd /home/greg/iMatrix/iMatrix_Client
 ./scripts/generate_doxygen_docs.sh
 ```
 
@@ -65,11 +65,11 @@ This will:
 
 For a specific project:
 ```bash
-cd /home/greg/iMatrix_src/iMatrix
+cd /home/greg/iMatrix/iMatrix_Client/iMatrix
 doxygen Doxyfile
 
 # Or for Fleet-Connect-1
-cd /home/greg/iMatrix_src/Fleet-Connect-1
+cd /home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1
 doxygen Doxyfile
 ```
 
@@ -77,12 +77,12 @@ doxygen Doxyfile
 
 If you're using the CMake build system:
 ```bash
-cd /home/greg/iMatrix_src/iMatrix/build
+cd /home/greg/iMatrix/iMatrix_Client/iMatrix/build
 cmake ..
 make docs
 
 # Or for Fleet-Connect-1
-cd /home/greg/iMatrix_src/Fleet-Connect-1/build
+cd /home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/build
 cmake ..
 make docs
 ```
@@ -92,8 +92,8 @@ make docs
 ### HTML Documentation
 
 Open the generated HTML documentation:
-- iMatrix: `file:///home/greg/iMatrix_src/iMatrix/docs/doxygen/html/index.html`
-- Fleet-Connect-1: `file:///home/greg/iMatrix_src/Fleet-Connect-1/docs/doxygen/html/index.html`
+- iMatrix: `file:///home/greg/iMatrix/iMatrix_Client/iMatrix/docs/doxygen/html/index.html`
+- Fleet-Connect-1: `file:///home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/docs/doxygen/html/index.html`
 
 Navigate to any function documentation to see its call graphs.
 
