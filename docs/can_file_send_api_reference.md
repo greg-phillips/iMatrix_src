@@ -160,6 +160,7 @@ typedef enum {
     CAN_FILE_UPLOAD_SENDING,     // Transmitting
     CAN_FILE_UPLOAD_COMPLETE,    // Finished
     CAN_FILE_UPLOAD_ERROR        // Error occurred
+    CAN_FILE_MAX_STATE,
 } can_file_state_t;
 ```
 
