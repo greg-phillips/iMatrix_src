@@ -1,0 +1,26 @@
+# PCAN TRC Logger Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core CAN bus library
+python-can>=4.0.0
+
+# Optional dependencies for enhanced functionality
+# Uncomment if needed:
+
+# For configuration file support (future feature)
+# pyyaml>=6.0
+
+# For advanced logging features
+# colorlog>=6.0.0
+
+# For performance monitoring
+# psutil>=5.9.0
+
+# For unit testing (development only)
+# pytest>=7.0.0
+# pytest-cov>=4.0.0
+# pytest-mock>=3.10.0
+
+# For documentation generation (development only)  
+# sphinx>=5.0.0
+# sphinx-rtd-theme>=1.2.0
