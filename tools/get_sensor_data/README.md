@@ -137,15 +137,20 @@ python3 get_sensor_data.py -u user@example.com
 ================================================================================
   # Device Name                       Serial Number Product ID   Version
 --------------------------------------------------------------------------------
-[ 1] 1st Floor Micro Gateway          863095613     984993858    1.034.001
-[ 2] AGSoil-1                         81541896      3829380261   1.020.000
-[ 3] Greg's Desk NEO-1D               592978988     1349851161   1.023.000
-[ 4] Home Office                      955154708     1472614291   1.023.000
-[ 5] Kitchen                          296540475     1349851161   1.023.000
-[ 6] Kitchen Refrigerator Door        174959126     1272203777   1.020.001
+[ 1] 1st Floor Micro Gateway             863095613    984993858    1.034.001
+[ 2] AGSoil-1                            81541896     3829380261   1.020.000
+[ 3] AQM-1 #1                            815828186    548556236    1.020.000
+[ 4] Floor 1 Gateway 0456047521          456047521    984993858    1.022.033
+[ 5] Floor 2 Gateway 0915867336          915867336    984993858    1.022.038
+[ 6] Greg's Desk NEO-1D                  592978988    1349851161   1.023.000
+[ 7] Home Office                         955154708    1472614291   1.023.000
+[ 8] Home Office Desk - offline          600988347    1349851161   1.021.001
+[ 9] Office Kitchen                      296540475    1349851161   1.023.000
+[10] Kitchen  Refrigerator Door          174959126    1272203777   1.020.001
+
 --------------------------------------------------------------------------------
 Select a device [1-6], or 'q' to quit:
-Enter your choice: 3
+Enter your choice: 6
 ✅ Selected: Greg's Desk NEO-1D (Serial: 592978988)
 
 📱 Device Details:

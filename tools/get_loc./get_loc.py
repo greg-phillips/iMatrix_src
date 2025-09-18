@@ -58,7 +58,7 @@ def login_to_imatrix(email, password, use_development=False):
 
 def fetch_sensor_history(serial, sensor_id, start, end, token, use_development=False):
     base_url = get_api_base_url(use_development)
-    url = f"{base_url}/things/{serial}/sensor/{sensor_id}/history/{start}/{end}"
+    url = f"{base_url}/things/{serial}/sensor/{sensor_id}/history/{start}/{end}?group_by_time=1m"
     print(f"Fetching sensor {sensor_id} data from: {url}")
     headers = {
         'accept': 'application/json',
