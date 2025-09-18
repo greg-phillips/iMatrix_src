@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iMatrix Tools Suite - Complete Developer Toolkit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        .tool-card {
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .download-placeholder {
+            background-color: #e9ecef;
+            border: 2px dashed #6c757d;
+            padding: 1rem;
+            text-align: center;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-tools me-2"></i>iMatrix Tools Suite</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tools">Tools</a></li>
+                <li class="nav-item"><a class="nav-link" href="#quickstart">Quick Start</a></li>
+                <li class="nav-item"><a class="nav-link" href="#downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link" href="#api">API Reference</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section" id="overview">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-4">iMatrix Tools Suite</h1>
+                <p class="lead mb-4">Complete developer toolkit for iMatrix Cloud platform integration, sensor management, and data workflows</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <span class="badge bg-light text-dark fs-6 p-2">📊 Data Management</span>
+                    <span class="badge bg-light text-dark fs-6 p-2">🔗 Configuration</span>
+                    <span class="badge bg-light text-dark fs-6 p-2">🧪 Development</span>
+                    <span class="badge bg-light text-dark fs-6 p-2">⚙️ Automation</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tool Categories -->
+<section class="py-5" id="tools">
+    <div class="container">
+        <h2 class="text-center mb-5">Tool Categories</h2>
+
+        <!-- Data Management Tools -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0"><i class="fas fa-chart-line me-2"></i>📊 Data Management Tools</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card tool-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="fas fa-search me-2"></i>get_sensor_data.py</h5>
+                                        <p class="card-text">Interactive sensor data downloader with complete device discovery workflow.</p>
+                                        <ul class="list-unstyled">
+                                            <li>✅ Device discovery and selection</li>
+                                            <li>✅ Interactive sensor menus</li>
+                                            <li>✅ Flexible date entry</li>
+                                            <li>✅ JSON and CSV output</li>
+                                        </ul>
+                                        <div class="download-placeholder">
+                                            <i class="fas fa-download me-2"></i>
+                                            <strong>Download Link Placeholder</strong><br>
+                                            <small>get_sensor_data.py + documentation</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card tool-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="fas fa-map-marker-alt me-2"></i>get_loc.py</h5>
+                                        <p class="card-text">Download GPS location history and convert to GeoJSON for mapping applications.</p>
+                                        <ul class="list-unstyled">
+                                            <li>✅ GPS coordinate download</li>
+                                            <li>✅ GeoJSON conversion</li>
+                                            <li>✅ Google Maps compatible</li>
+                                            <li>✅ Timestamp matching</li>
+                                        </ul>
+                                        <div class="download-placeholder">
+                                            <i class="fas fa-download me-2"></i>
+                                            <strong>Download Link Placeholder</strong><br>
+                                            <small>get_loc.py + documentation</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card tool-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="fas fa-upload me-2"></i>upload_tsd.py</h5>
+                                        <p class="card-text">Upload time series data from CSV files with validation and error handling.</p>
+                                        <ul class="list-unstyled">
+                                            <li>✅ CSV file processing</li>
+                                            <li>✅ Data validation</li>
+                                            <li>✅ Batch uploading</li>
+                                            <li>✅ SQLite integration</li>
+                                        </ul>
+                                        <div class="download-placeholder">
+                                            <i class="fas fa-download me-2"></i>
+                                            <strong>Download Link Placeholder</strong><br>
+                                            <small>upload_tsd.py + documentation</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Configuration Tools -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card border-success">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="mb-0"><i class="fas fa-cog me-2"></i>🔗 Configuration Tools</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card tool-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="fas fa-link me-2"></i>link_sensor.py</h5>
+                                        <p class="card-text">Link individual sensors to iMatrix products with validation and error handling.</p>
+                                        <ul class="list-unstyled">
+                                            <li>✅ Individual sensor linking</li>
+                                            <li>✅ Product ID validation</li>
+                                            <li>✅ Error handling</li>
+                                            <li>✅ Batch script included</li>
+                                        </ul>
+                                        <div class="download-placeholder">
+                                            <i class="fas fa-download me-2"></i>
+                                            <strong>Download Link Placeholder</strong><br>
+                                            <small>link_sensor.py + batch scripts</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card tool-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="fas fa-database me-2"></i>upload_internal_sensor.py</h5>
+                                        <p class="card-text">Upload internal sensor definitions from JSON files with comprehensive validation.</p>
+                                        <ul class="list-unstyled">
+                                            <li>✅ JSON sensor definitions</li>
+                                            <li>✅ Validation engine</li>
+                                            <li>✅ Data type support</li>
+                                            <li>✅ Dry-run mode</li>
+                                        </ul>
+                                        <div class="download-placeholder">
+                                            <i class="fas fa-download me-2"></i>
+                                            <strong>Download Link Placeholder</strong><br>
+                                            <small>upload_internal_sensor.py + examples</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card tool-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="fas fa-file-excel me-2"></i>convert_sensor_list.py</h5>
+                                        <p class="card-text">Convert Excel sensor lists to C header files for embedded system integration.</p>
+                                        <ul class="list-unstyled">
+                                            <li>✅ Excel file processing</li>
+                                            <li>✅ C header generation</li>
+                                            <li>✅ Name sanitization</li>
+                                            <li>✅ Template integration</li>
+                                        </ul>
+                                        <div class="download-placeholder">
+                                            <i class="fas fa-download me-2"></i>
+                                            <strong>Download Link Placeholder</strong><br>
+                                            <small>convert_sensor_list.py + templates</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Development Tools -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card border-warning">
+                    <div class="card-header bg-warning text-dark">
+                        <h3 class="mb-0"><i class="fas fa-flask me-2"></i>🧪 Development Tools</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card tool-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="fas fa-wave-square me-2"></i>upload_sine_wave.py</h5>
+                                        <p class="card-text">Generate and upload mathematical test data patterns for development and testing.</p>
+                                        <ul class="list-unstyled">
+                                            <li>✅ Sine wave generation</li>
+                                            <li>✅ Marker values</li>
+                                            <li>✅ Configurable patterns</li>
+                                            <li>✅ Dry-run testing</li>
+                                        </ul>
+                                        <div class="download-placeholder">
+                                            <i class="fas fa-download me-2"></i>
+                                            <strong>Download Link Placeholder</strong><br>
+                                            <small>upload_sine_wave.py + examples</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card tool-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="fas fa-filter me-2"></i>filter_can.py</h5>
+                                        <p class="card-text">CAN traffic filtering and analysis tool for automotive data processing.</p>
+                                        <ul class="list-unstyled">
+                                            <li>✅ Message filtering</li>
+                                            <li>✅ Pattern analysis</li>
+                                            <li>✅ Statistical reporting</li>
+                                            <li>✅ Multiple export formats</li>
+                                        </ul>
+                                        <div class="download-placeholder">
+                                            <i class="fas fa-download me-2"></i>
+                                            <strong>Download Link Placeholder</strong><br>
+                                            <small>filter_can.py + documentation</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card tool-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="fas fa-tire me-2"></i>create_tire_sensors.py</h5>
+                                        <p class="card-text">Specialized tool for creating comprehensive tire monitoring sensor definitions.</p>
+                                        <ul class="list-unstyled">
+                                            <li>✅ Multi-axle support</li>
+                                            <li>✅ Position-aware naming</li>
+                                            <li>✅ Metric-specific ranges</li>
+                                            <li>✅ Batch creation</li>
+                                        </ul>
+                                        <div class="download-placeholder">
+                                            <i class="fas fa-download me-2"></i>
+                                            <strong>Download Link Placeholder</strong><br>
+                                            <small>create_tire_sensors.py + data files</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Media Tools -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card border-info">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="mb-0"><i class="fas fa-image me-2"></i>🖼️ Media Tools</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card tool-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="fas fa-cloud-upload-alt me-2"></i>upload_image.py</h5>
+                                        <p class="card-text">Upload images to iMatrix Cloud storage with registry management and URL tracking.</p>
+                                        <ul class="list-unstyled">
+                                            <li>✅ Multiple formats (PNG, JPG, SVG)</li>
+                                            <li>✅ Size validation (10MB max)</li>
+                                            <li>✅ Registry tracking</li>
+                                            <li>✅ URL management</li>
+                                        </ul>
+                                        <div class="download-placeholder">
+                                            <i class="fas fa-download me-2"></i>
+                                            <strong>Download Link Placeholder</strong><br>
+                                            <small>upload_image.py + registry tools</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Start Guide -->
+<section class="py-5 bg-light" id="quickstart">
+    <div class="container">
+        <h2 class="text-center mb-5">Quick Start Guide</h2>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h4>🚀 Get Started in 3 Steps</h4>
+
+                        <div class="row mt-4">
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="category-icon text-primary">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                                <h5>1. Install Dependencies</h5>
+                                <div class="code-block">
+                                    <code>pip3 install requests urllib3 pandas openpyxl</code>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="category-icon text-success">
+                                    <i class="fas fa-key"></i>
+                                </div>
+                                <h5>2. Get API Access</h5>
+                                <p class="text-muted">Your iMatrix Cloud email and password</p>
+                            </div>
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="category-icon text-info">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <h5>3. Run Tools</h5>
+                                <div class="code-block">
+                                    <code>python3 get_sensor_data.py -u your@email.com</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Common Workflows -->
+        <div class="row mt-5">
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">🔍 Explore Your Data</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Complete interactive workflow requiring no prior knowledge:</p>
+                        <div class="code-block">
+                            <strong>cd tools/get_sensor_data</strong><br>
+                            <strong>python3 get_sensor_data.py -u your@email.com</strong>
+                        </div>
+                        <small class="text-muted">Discovers devices → sensors → prompts for dates → downloads data</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">🗺️ Get Location Tracks</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Download GPS history as GeoJSON for Google Maps:</p>
+                        <div class="code-block">
+                            <strong>cd tools/get_loc.</strong><br>
+                            <strong>python3 get_loc.py -s 1234567890 -ts 1736899200000 -te 1736985600000 -u your@email.com</strong>
+                        </div>
+                        <small class="text-muted">Creates {serial}-{timestamp}.geojson file</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tool Selection Guide -->
+<section class="py-5" id="selector">
+    <div class="container">
+        <h2 class="text-center mb-5">Tool Selection Guide</h2>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mb-4">I want to...</h4>
+
+                        <div class="accordion" id="toolAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="dataHeading">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#dataCollapse">
+                                        📈 Download sensor data from my devices
+                                    </button>
+                                </h2>
+                                <div id="dataCollapse" class="accordion-collapse collapse show" data-bs-parent="#toolAccordion">
+                                    <div class="accordion-body">
+                                        <strong>Use get_sensor_data.py</strong> - Interactive device and sensor discovery
+                                        <div class="code-block mt-2">
+                                            <code>python3 get_sensor_data.py -u your@email.com</code>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="locationHeading">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#locationCollapse">
+                                        🗺️ Get GPS location history
+                                    </button>
+                                </h2>
+                                <div id="locationCollapse" class="accordion-collapse collapse" data-bs-parent="#toolAccordion">
+                                    <div class="accordion-body">
+                                        <strong>Use get_loc.py</strong> - Downloads lat/lon and creates GeoJSON
+                                        <div class="code-block mt-2">
+                                            <code>python3 get_loc.py -s {serial} -ts {start} -te {end} -u your@email.com</code>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="uploadHeading">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#uploadCollapse">
+                                        📤 Upload time series data
+                                    </button>
+                                </h2>
+                                <div id="uploadCollapse" class="accordion-collapse collapse" data-bs-parent="#toolAccordion">
+                                    <div class="accordion-body">
+                                        <strong>Use upload_tsd.py</strong> - CSV to iMatrix Cloud with validation
+                                        <div class="code-block mt-2">
+                                            <code>python3 upload_tsd.py -U your@email.com -G {gateway} -C {controller} -D data.csv</code>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="configHeading">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#configCollapse">
+                                        🔗 Configure sensor-to-product links
+                                    </button>
+                                </h2>
+                                <div id="configCollapse" class="accordion-collapse collapse" data-bs-parent="#toolAccordion">
+                                    <div class="accordion-body">
+                                        <strong>Use link_sensor.py</strong> - Individual or batch sensor linking
+                                        <div class="code-block mt-2">
+                                            <code>python3 link_sensor.py -u your@email.com -pid {product_id} -sid {sensor_id}</code>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Downloads Section -->
+<section class="py-5 bg-dark text-white" id="downloads">
+    <div class="container">
+        <h2 class="text-center mb-5">Downloads</h2>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="alert alert-info">
+                    <h5><i class="fas fa-info-circle me-2"></i>Download Instructions</h5>
+                    <p class="mb-0">All tools are part of the iMatrix Tools Suite. Contact your system administrator or check the iMatrix Developer Portal for access to the complete toolkit.</p>
+                </div>
+
+                <div class="card bg-secondary">
+                    <div class="card-body">
+                        <h4>📦 Complete Tool Suite</h4>
+                        <p>Download the entire iMatrix Tools directory with all scripts, documentation, and examples.</p>
+
+                        <div class="download-placeholder mb-3">
+                            <i class="fas fa-download me-2"></i>
+                            <strong>Download Complete Suite</strong><br>
+                            <small>iMatrix-Tools-Suite-v1.0.zip (All tools + documentation)</small>
+                        </div>
+
+                        <h5>Individual Tool Downloads</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="download-placeholder mb-2">
+                                    <small><i class="fas fa-download me-1"></i>get_sensor_data.py</small>
+                                </div>
+                                <div class="download-placeholder mb-2">
+                                    <small><i class="fas fa-download me-1"></i>get_loc.py</small>
+                                </div>
+                                <div class="download-placeholder mb-2">
+                                    <small><i class="fas fa-download me-1"></i>upload_tsd.py</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="download-placeholder mb-2">
+                                    <small><i class="fas fa-download me-1"></i>link_sensor.py</small>
+                                </div>
+                                <div class="download-placeholder mb-2">
+                                    <small><i class="fas fa-download me-1"></i>upload_internal_sensor.py</small>
+                                </div>
+                                <div class="download-placeholder mb-2">
+                                    <small><i class="fas fa-download me-1"></i>upload_image.py</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- API Reference -->
+<section class="py-5" id="api">
+    <div class="container">
+        <h2 class="text-center mb-5">API Reference</h2>
+
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h4>🔗 Common API Endpoints</h4>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h5>Authentication</h5>
+                                <div class="code-block">
+                                    <strong>POST</strong> /login<br>
+                                    <small>Used by: All tools</small>
+                                </div>
+
+                                <h5>Device Management</h5>
+                                <div class="code-block">
+                                    <strong>GET</strong> /things/<br>
+                                    <small>Used by: get_sensor_data.py</small>
+                                </div>
+                                <div class="code-block">
+                                    <strong>GET</strong> /products/{id}<br>
+                                    <small>Used by: get_sensor_data.py</small>
+                                </div>
+
+                                <h5>Sensor Management</h5>
+                                <div class="code-block">
+                                    <strong>GET</strong> /sensors/{id}<br>
+                                    <small>Used by: get_sensor_data.py</small>
+                                </div>
+                                <div class="code-block">
+                                    <strong>POST</strong> /sensors/predefined<br>
+                                    <small>Used by: upload_internal_sensor.py</small>
+                                </div>
+                                <div class="code-block">
+                                    <strong>POST</strong> /sensors/predefined/link<br>
+                                    <small>Used by: link_sensor.py</small>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5>Data Access</h5>
+                                <div class="code-block">
+                                    <strong>GET</strong> /things/{serial}/sensor/{id}/history/{start}/{end}<br>
+                                    <small>Used by: get_sensor_data.py, get_loc.py</small>
+                                </div>
+
+                                <h5>File Management</h5>
+                                <div class="code-block">
+                                    <strong>POST</strong> /files<br>
+                                    <small>Used by: upload_image.py</small>
+                                </div>
+
+                                <h5>Data Upload</h5>
+                                <div class="code-block">
+                                    <strong>POST</strong> /tsd/upload<br>
+                                    <small>Used by: upload_tsd.py, upload_sine_wave.py</small>
+                                </div>
+
+                                <h5>API Environments</h5>
+                                <div class="alert alert-warning">
+                                    <strong>Development:</strong> api-dev.imatrixsys.com<br>
+                                    <strong>Production:</strong> api.imatrixsys.com
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4">🔐 Authentication Pattern</h4>
+                        <p>All tools use the same authentication pattern:</p>
+                        <div class="code-block">
+                            <strong>Headers:</strong><br>
+                            Content-Type: application/json<br>
+                            x-auth-token: {token_from_login}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Examples -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Interactive Examples</h2>
+
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Complete Sensor Data Workflow</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-block">
+                            <strong>$ python3 get_sensor_data.py -u user@example.com</strong><br><br>
+                            🔍 Fetching your devices...<br>
+                            ✅ Found 6 devices in your account<br><br>
+                            <strong>USER DEVICES (6 found)</strong><br>
+                            [1] Greg's Desk NEO-1D (592978988)<br>
+                            [2] Kitchen Sensor (296540475)<br>
+                            [3] Home Office (955154708)<br><br>
+                            <strong>Select device [1-3]: 1</strong><br>
+                            ✅ Selected: Greg's Desk NEO-1D<br><br>
+                            📊 Available sensors (7 found):<br>
+                            [1] Temperature (ID: 58108062)<br>
+                            [2] Humidity (ID: 528597925)<br><br>
+                            <strong>Select sensor [1-7]: 1</strong><br>
+                            ✅ Selected: Temperature<br><br>
+                            📅 Enter start date: 01/15/25<br>
+                            ✅ Start: 2025-01-15T00:00:00Z<br>
+                            📅 Enter end date: 01/15/25<br>
+                            ✅ End: 2025-01-15T23:59:59Z<br><br>
+                            🚀 Downloading data...<br>
+                            ✅ Downloaded 1440 data points<br>
+                            💾 Saved: 592978988_Temperature_20250115.json
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">GPS Location Download</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-block">
+                            <strong>$ python3 get_loc.py -s 1234567890 -ts 1736899200000 -te 1736985600000 -u user@example.com</strong><br><br>
+                            🔐 Logging in to iMatrix API...<br>
+                            ✅ Login successful.<br><br>
+                            📡 Fetching latitude data...<br>
+                            ✅ Received latitude data<br><br>
+                            📡 Fetching longitude data...<br>
+                            ✅ Received longitude data<br><br>
+                            🗺️ Combining lat/lon data...<br>
+                            ✅ Matched 1440 coordinate pairs<br><br>
+                            📄 Generating GeoJSON...<br>
+                            ✅ GeoJSON written to 1234567890-1736899200000.geojson<br><br>
+                            ✨ Done! Import file into Google My Maps
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>iMatrix Tools Suite</h5>
+                <p class="text-muted">Complete developer toolkit for iMatrix Cloud platform integration</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <h5>Documentation</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-muted">API Documentation</a></li>
+                    <li><a href="#" class="text-muted">Developer Portal</a></li>
+                    <li><a href="#" class="text-muted">Support Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="text-muted mb-0">&copy; 2025 iMatrix Systems. All rights reserved. | Version 1.0 | Last updated: January 17, 2025</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
