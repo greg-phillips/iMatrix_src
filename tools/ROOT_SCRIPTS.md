@@ -38,7 +38,7 @@ python3 convert_sensor_list.py "Sensor List.xlsx"
 #### Output C Header
 ```c
 #define MPGE                     509
-#define TRIP_START_TIME          510
+#define TRIP_END_START_TIME          510
 #define TRIP_END_TIME            511
 ```
 
@@ -160,7 +160,7 @@ python3 convert_sensor_list.py sensor_list.xlsx
 #define SENSOR_LIST_DEFINES_H
 
 #define MPGE                     509
-#define TRIP_START_TIME          510
+#define TRIP_END_START_TIME          510
 #define TRIP_END_TIME            511
 #define TRIP_IDLE_TIME           512
 

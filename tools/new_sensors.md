@@ -17,7 +17,7 @@ For each new record use the INTERNAL_NAME for the first entry in the macro defin
 List of required new sensors.
 
 MPGE, "MPGe", "mpge"
-TRIP_START_TIME, "Trip UTC Start Time", "Time"
+TRIP_END_START_TIME, "Trip UTC Start Time", "Time"
 TRIP_END_TIME, "Trip UTC End Time", "Time"
 TRIP_IDLE_TIME, "Trip idle time", "Seconds"
 TRIP_KW_KM, "Trip Wh/km", "Wh/km"

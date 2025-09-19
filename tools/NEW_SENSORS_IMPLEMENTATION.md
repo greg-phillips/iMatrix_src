@@ -53,7 +53,7 @@ Updated `/home/greg/iMatrix/iMatrix_Client/iMatrix/internal_sensors_def.h` with 
 
 ```c
 X(MPGE,509,"MPGe")
-X(TRIP_START_TIME,510,"Trip UTC Start Time")
+X(TRIP_END_START_TIME,510,"Trip UTC Start Time")
 X(TRIP_END_TIME,511,"Trip UTC End Time")
 X(TRIP_IDLE_TIME,512,"Trip idle time")
 X(TRIP_KW_KM,513,"Trip Wh/km")
