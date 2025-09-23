@@ -60,6 +60,8 @@ import csv
 import urllib3
 import getpass
 import os
+import termios
+import tty
 from datetime import datetime
 from typing import List, Dict, Any, Tuple, Optional
 
@@ -199,7 +201,8 @@ def get_user_devices(token: str, verbose: bool = False, use_development: bool = 
             devices = data.get('list', [])
             total = data.get('total', len(devices))
 
-            print(f"✅ Found {len(devices)} devices in your account")
+            print(f"✅ Found {len(devices)} devices in your account" +
+                  (f" (out of {total} total)" if total != len(devices) else ""))
 
             if len(devices) == 0:
                 print("❌ No devices found in your account")
@@ -289,6 +292,59 @@ def get_product_info(product_id: int, token: str, verbose: bool = False, use_dev
         sys.exit(1)
 
 
+def get_predefined_sensors(product_id: int, token: str, verbose: bool = False, use_development: bool = False) -> List[Dict]:
+    """
+    Fetch predefined sensors for a product.
+
+    Args:
+        product_id: Product ID to get predefined sensors for
+        token: Authentication token
+        verbose: Print verbose output
+        use_development: Use development API instead of production
+
+    Returns:
+        List of predefined sensor IDs
+
+    Raises:
+        SystemExit: If API request fails
+    """
+    base_url = get_api_base_url(use_development)
+    url = f"{base_url}/sensors/predefined/product/{product_id}"
+
+    if verbose:
+        print(f"📡 Predefined Sensors URL: {url}")
+
+    headers = {
+        'accept': 'application/json',
+        'x-auth-token': token
+    }
+
+    try:
+        response = requests.get(url, timeout=30, verify=False, headers=headers)
+
+        if response.status_code == 200:
+            data = response.json()
+            if verbose:
+                print(f"   Retrieved {len(data)} predefined sensors")
+            return data
+        elif response.status_code == 404:
+            if verbose:
+                print(f"   No predefined sensors found for product {product_id}")
+            return []
+        else:
+            print(f"❌ Failed to fetch predefined sensors for product {product_id}")
+            print(f"   Status code: {response.status_code}")
+            print(f"   Response: {response.text}")
+            return []
+
+    except requests.exceptions.RequestException as e:
+        print(f"❌ Network error fetching predefined sensors: {e}")
+        return []
+    except Exception as e:
+        print(f"❌ Unexpected error fetching predefined sensors: {e}")
+        return []
+
+
 def get_sensor_details(sensor_id: int, token: str, verbose: bool = False, use_development: bool = False) -> Dict:
     """
     Fetch detailed information for a specific sensor ID.
@@ -362,9 +418,47 @@ def get_device_by_serial(serial: str, devices: List[Dict]) -> Dict:
     return device
 
 
+def prompt_sensor_type_selection() -> str:
+    """
+    Prompt user to select between predefined and native sensors.
+
+    Returns:
+        'predefined' or 'native'
+
+    Raises:
+        SystemExit: If user cancels
+    """
+    print("\n🎯 Sensor Type Selection")
+    print("=" * 50)
+    print("Choose sensor type to discover:")
+    print("  [P] Predefined sensors (configured for this product)")
+    print("  [N] Native sensors (available on this device)")
+    print("=" * 50)
+
+    while True:
+        try:
+            selection = input("Select [P]redefined or [N]ative: ").strip().lower()
+
+            if selection == 'q' or selection == 'quit':
+                print("👋 Cancelled by user")
+                sys.exit(0)
+            elif selection in ['p', 'predefined']:
+                print("✅ Selected: Predefined sensors")
+                return 'predefined'
+            elif selection in ['n', 'native']:
+                print("✅ Selected: Native sensors")
+                return 'native'
+            else:
+                print("❌ Please enter 'P' for predefined, 'N' for native, or 'q' to quit")
+
+        except KeyboardInterrupt:
+            print("\n👋 Cancelled by user")
+            sys.exit(0)
+
+
 def discover_device_sensors(serial: str, token: str, verbose: bool = False, devices: List[Dict] = None, use_development: bool = False) -> List[Dict]:
     """
-    Discover all sensors available for a device.
+    Discover all sensors available for a device with user choice of predefined or native.
 
     Args:
         serial: Device serial number
@@ -396,22 +490,54 @@ def discover_device_sensors(serial: str, token: str, verbose: bool = False, devi
     if verbose:
         print(f"   Device product ID: {product_id}")
 
-    # Get product information using correct productId
-    product_data = get_product_info(product_id, token, verbose, use_development)
+    # Ask user to choose sensor type
+    sensor_type = prompt_sensor_type_selection()
 
-    # Extract sensor IDs from product data
-    sensor_ids = product_data.get('controlSensorIds', [])
+    # Get sensor IDs based on user selection
+    if sensor_type == 'predefined':
+        print(f"📊 Fetching predefined sensors for product {product_id}...")
+        predefined_sensors = get_predefined_sensors(product_id, token, verbose, use_development)
 
-    if not sensor_ids:
-        print(f"❌ No sensors found for device {serial}")
-        sys.exit(1)
+        if not predefined_sensors:
+            print(f"❌ No predefined sensors found for product {product_id}")
+            print("💡 Try using Native sensors instead")
+            sys.exit(1)
 
-    print(f"📊 Found {len(sensor_ids)} sensors, fetching details...")
+        # Extract sensor IDs from predefined sensors response
+        # The API returns a list of sensor IDs (integers), not objects
+        sensor_ids = [sensor for sensor in predefined_sensors if isinstance(sensor, int) and sensor > 0]
+
+        if not sensor_ids:
+            print(f"❌ No valid sensor IDs found in predefined sensors")
+            sys.exit(1)
+
+        print(f"📊 Found {len(sensor_ids)} predefined sensors, fetching details...")
+
+    else:  # native sensors
+        # Get product information using correct productId for native sensors
+        product_data = get_product_info(product_id, token, verbose, use_development)
+
+        # Extract sensor IDs from product data
+        sensor_ids = product_data.get('controlSensorIds', [])
+
+        if not sensor_ids:
+            print(f"❌ No native sensors found for device {serial}")
+            sys.exit(1)
+
+        print(f"📊 Found {len(sensor_ids)} native sensors, fetching details...")
 
     # Fetch details for each sensor
     sensors = []
+    show_progress = len(sensor_ids) > 10
+
     for i, sensor_id in enumerate(sensor_ids, 1):
-        if verbose:
+        if show_progress:
+            # Show progress bar for > 10 sensors
+            progress = int((i / len(sensor_ids)) * 40)  # 40-char progress bar
+            bar = "█" * progress + "░" * (40 - progress)
+            percent = int((i / len(sensor_ids)) * 100)
+            print(f"\r📡 Fetching sensor details: [{bar}] {percent}% ({i}/{len(sensor_ids)})", end="", flush=True)
+        elif verbose:
             print(f"   Fetching sensor {i}/{len(sensor_ids)}: {sensor_id}")
 
         sensor_details = get_sensor_details(sensor_id, token, verbose, use_development)
@@ -419,16 +545,22 @@ def discover_device_sensors(serial: str, token: str, verbose: bool = False, devi
         if sensor_details:
             # Enhance with index for menu selection
             sensor_details['menu_index'] = len(sensors) + 1
+            # Add sensor type for display
+            sensor_details['sensor_type'] = sensor_type
             sensors.append(sensor_details)
         else:
             if verbose:
                 print(f"   ⚠️  Skipping sensor {sensor_id} (no details available)")
 
     if not sensors:
-        print(f"❌ Could not retrieve details for any sensors on device {serial}")
+        if show_progress:
+            print()  # New line after progress bar
+        print(f"❌ Could not retrieve details for any {sensor_type} sensors")
         sys.exit(1)
 
-    print(f"✅ Successfully discovered {len(sensors)} sensors")
+    if show_progress:
+        print()  # New line after progress bar
+    print(f"✅ Successfully discovered {len(sensors)} {sensor_type} sensors")
     return sensors
 
 
@@ -462,30 +594,29 @@ def print_product_info(product_data: Dict) -> None:
     print("="*80)
 
 
-def print_sensor_list(sensors: List[Dict]) -> None:
+def get_key():
     """
-    Display formatted list of available sensors.
+    Get a single keypress from stdin (Unix/Linux/macOS only).
 
-    Args:
-        sensors: List of sensor information dictionaries
+    Returns:
+        str: The pressed key
     """
-    print(f"\n📊 Available sensors ({len(sensors)} found):")
-    print("-" * 80)
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(sys.stdin.fileno())
+        key = sys.stdin.read(1)
+        # Handle arrow keys (they send escape sequences)
+        if ord(key) == 27:  # ESC sequence
+            key += sys.stdin.read(2)
+        return key
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 
-    for sensor in sensors:
-        sensor_id = sensor.get('id', 'Unknown')
-        name = sensor.get('name', 'Unknown')
-        units = sensor.get('units', 'Unknown')
-        data_type = sensor.get('dataType', 'Unknown')
-        menu_index = sensor.get('menu_index', 0)
 
-        print(f"[{menu_index}] {name} (ID: {sensor_id})")
-        print(f"    Units: {units} | Type: {data_type}")
-
-
-def display_sensor_menu(sensors: List[Dict]) -> int:
+def display_paginated_sensors(sensors: List[Dict]) -> int:
     """
-    Display interactive menu for sensor selection.
+    Display sensors in two-column paginated format with cursor navigation.
 
     Args:
         sensors: List of sensor information dictionaries
@@ -496,9 +627,261 @@ def display_sensor_menu(sensors: List[Dict]) -> int:
     Raises:
         SystemExit: If user cancels or invalid selection
     """
-    print_sensor_list(sensors)
+    if len(sensors) <= 80:
+        # Use simple display for <= 80 sensors
+        return display_sensor_menu_simple(sensors)
 
-    print("-" * 80)
+    sensors_per_page = 80
+    total_pages = (len(sensors) + sensors_per_page - 1) // sensors_per_page
+    current_page = 0
+
+    while True:
+        # Clear screen and show current page
+        os.system('clear' if os.name == 'posix' else 'cls')
+
+        start_idx = current_page * sensors_per_page
+        end_idx = min(start_idx + sensors_per_page, len(sensors))
+        page_sensors = sensors[start_idx:end_idx]
+
+        # Get sensor type for display
+        sensor_type = sensors[0].get('sensor_type', 'unknown') if sensors else 'unknown'
+        type_display = sensor_type.capitalize()
+
+        print(f"\n📊 Available {type_display} Sensors ({len(sensors)} found) - Page {current_page + 1}/{total_pages}")
+        print("=" * 220)
+
+        # Display sensors in two columns
+        mid_point = (len(page_sensors) + 1) // 2
+        left_column = page_sensors[:mid_point]
+        right_column = page_sensors[mid_point:] if mid_point < len(page_sensors) else []
+
+        # Print header for columns
+        print(f"{'LEFT COLUMN':<110} {'RIGHT COLUMN':<110}")
+        print("-" * 220)
+
+        # Display sensors side by side
+        max_rows = max(len(left_column), len(right_column))
+        for i in range(max_rows):
+            left_sensor = left_column[i] if i < len(left_column) else None
+            right_sensor = right_column[i] if i < len(right_column) else None
+
+            # Format left column
+            if left_sensor:
+                sensor_id = left_sensor.get('id', 'Unknown')
+                name = left_sensor.get('name', 'Unknown')
+                units = left_sensor.get('units', 'Unknown')
+                menu_index = left_sensor.get('menu_index', 0)
+
+                # Truncate name if too long
+                if len(name) > 64:
+                    name = name[:61] + "..."
+
+                # Truncate units if too long
+                if len(units) > 25:
+                    units = units[:22] + "..."
+
+                left_text = f"[{menu_index:3}] {name:<64} ({units})"
+                if len(left_text) > 108:
+                    left_text = left_text[:105] + "..."
+                left_display = f"{left_text:<110}"
+            else:
+                left_display = " " * 110
+
+            # Format right column
+            if right_sensor:
+                sensor_id = right_sensor.get('id', 'Unknown')
+                name = right_sensor.get('name', 'Unknown')
+                units = right_sensor.get('units', 'Unknown')
+                menu_index = right_sensor.get('menu_index', 0)
+
+                # Truncate name if too long
+                if len(name) > 64:
+                    name = name[:61] + "..."
+
+                # Truncate units if too long
+                if len(units) > 25:
+                    units = units[:22] + "..."
+
+                right_text = f"[{menu_index:3}] {name:<64} ({units})"
+                if len(right_text) > 108:
+                    right_text = right_text[:105] + "..."
+                right_display = f"{right_text:<110}"
+            else:
+                right_display = " " * 110
+
+            print(f"{left_display}{right_display}")
+
+        print("-" * 220)
+
+        # Navigation instructions
+        nav_text = []
+        if current_page > 0:
+            nav_text.append("↑ Up")
+        if current_page < total_pages - 1:
+            nav_text.append("↓ Down")
+        nav_text.extend(["Enter number to select", "'q' to quit"])
+
+        print(f"Navigation: {' | '.join(nav_text)}")
+        print(f"Enter sensor number [1-{len(sensors)}]: ", end="", flush=True)
+
+        # Get user input
+        try:
+            key = get_key()
+
+            if key == 'q' or key == 'Q':
+                print("\n👋 Cancelled by user")
+                sys.exit(0)
+            elif key == '\x1b[A':  # Up arrow
+                if current_page > 0:
+                    current_page -= 1
+            elif key == '\x1b[B':  # Down arrow
+                if current_page < total_pages - 1:
+                    current_page += 1
+            elif key == '\r' or key == '\n':  # Enter - prompt for number
+                print()
+                selection = input("Enter sensor number: ").strip()
+
+                if selection.lower() == 'q':
+                    print("👋 Cancelled by user")
+                    sys.exit(0)
+
+                try:
+                    choice = int(selection)
+                    if 1 <= choice <= len(sensors):
+                        selected_sensor = sensors[choice - 1]
+                        sensor_id = selected_sensor['id']
+                        sensor_name = selected_sensor.get('name', f'Sensor {sensor_id}')
+
+                        print(f"✅ Selected: {sensor_name} (ID: {sensor_id})")
+                        return sensor_id
+                    else:
+                        print(f"❌ Please enter a number between 1 and {len(sensors)}")
+                        input("Press Enter to continue...")
+                except ValueError:
+                    print("❌ Please enter a valid number")
+                    input("Press Enter to continue...")
+            elif key.isdigit():
+                # Start building number input
+                print(key, end="", flush=True)
+                number_input = key
+
+                while True:
+                    next_key = get_key()
+                    if next_key == '\r' or next_key == '\n':  # Enter
+                        try:
+                            choice = int(number_input)
+                            if 1 <= choice <= len(sensors):
+                                selected_sensor = sensors[choice - 1]
+                                sensor_id = selected_sensor['id']
+                                sensor_name = selected_sensor.get('name', f'Sensor {sensor_id}')
+
+                                print(f"\n✅ Selected: {sensor_name} (ID: {sensor_id})")
+                                return sensor_id
+                            else:
+                                print(f"\n❌ Please enter a number between 1 and {len(sensors)}")
+                                input("Press Enter to continue...")
+                                break
+                        except ValueError:
+                            print("\n❌ Please enter a valid number")
+                            input("Press Enter to continue...")
+                            break
+                    elif next_key.isdigit():
+                        print(next_key, end="", flush=True)
+                        number_input += next_key
+                    elif next_key == '\x7f':  # Backspace
+                        if number_input:
+                            number_input = number_input[:-1]
+                            print('\b \b', end="", flush=True)
+                    elif next_key == '\x1b':  # Escape - cancel input
+                        break
+                    elif next_key == 'q' or next_key == 'Q':
+                        print("\n👋 Cancelled by user")
+                        sys.exit(0)
+
+        except KeyboardInterrupt:
+            print("\n👋 Cancelled by user")
+            sys.exit(0)
+
+
+def display_sensor_menu_simple(sensors: List[Dict]) -> int:
+    """
+    Display simple sensor menu for <= 20 sensors in two columns.
+
+    Args:
+        sensors: List of sensor information dictionaries
+
+    Returns:
+        Selected sensor ID
+    """
+    # Get sensor type for display
+    sensor_type = sensors[0].get('sensor_type', 'unknown') if sensors else 'unknown'
+    type_display = sensor_type.capitalize()
+
+    print(f"\n📊 Available {type_display} Sensors ({len(sensors)} found):")
+    print("=" * 220)
+
+    # Display sensors in two columns
+    mid_point = (len(sensors) + 1) // 2
+    left_column = sensors[:mid_point]
+    right_column = sensors[mid_point:] if mid_point < len(sensors) else []
+
+    # Print header for columns
+    print(f"{'LEFT COLUMN':<110} {'RIGHT COLUMN':<110}")
+    print("-" * 220)
+
+    # Display sensors side by side
+    max_rows = max(len(left_column), len(right_column))
+    for i in range(max_rows):
+        left_sensor = left_column[i] if i < len(left_column) else None
+        right_sensor = right_column[i] if i < len(right_column) else None
+
+        # Format left column
+        if left_sensor:
+            sensor_id = left_sensor.get('id', 'Unknown')
+            name = left_sensor.get('name', 'Unknown')
+            units = left_sensor.get('units', 'Unknown')
+            menu_index = left_sensor.get('menu_index', 0)
+
+            # Truncate name if too long
+            if len(name) > 64:
+                name = name[:61] + "..."
+
+            # Truncate units if too long
+            if len(units) > 25:
+                units = units[:22] + "..."
+
+            left_text = f"[{menu_index:3}] {name:<64} ({units})"
+            if len(left_text) > 108:
+                left_text = left_text[:105] + "..."
+            left_display = f"{left_text:<110}"
+        else:
+            left_display = " " * 110
+
+        # Format right column
+        if right_sensor:
+            sensor_id = right_sensor.get('id', 'Unknown')
+            name = right_sensor.get('name', 'Unknown')
+            units = right_sensor.get('units', 'Unknown')
+            menu_index = right_sensor.get('menu_index', 0)
+
+            # Truncate name if too long
+            if len(name) > 64:
+                name = name[:61] + "..."
+
+            # Truncate units if too long
+            if len(units) > 25:
+                units = units[:22] + "..."
+
+            right_text = f"[{menu_index:3}] {name:<64} ({units})"
+            if len(right_text) > 108:
+                right_text = right_text[:105] + "..."
+            right_display = f"{right_text:<110}"
+        else:
+            right_display = " " * 110
+
+        print(f"{left_display}{right_display}")
+
+    print("-" * 220)
     print(f"Select a sensor to download [1-{len(sensors)}], or 'q' to quit:")
 
     while True:
@@ -529,6 +912,43 @@ def display_sensor_menu(sensors: List[Dict]) -> int:
             sys.exit(0)
 
 
+def print_sensor_list(sensors: List[Dict]) -> None:
+    """
+    Display formatted list of available sensors.
+
+    Args:
+        sensors: List of sensor information dictionaries
+    """
+    print(f"\n📊 Available sensors ({len(sensors)} found):")
+    print("-" * 80)
+
+    for sensor in sensors:
+        sensor_id = sensor.get('id', 'Unknown')
+        name = sensor.get('name', 'Unknown')
+        units = sensor.get('units', 'Unknown')
+        data_type = sensor.get('dataType', 'Unknown')
+        menu_index = sensor.get('menu_index', 0)
+
+        print(f"[{menu_index}] {name} (ID: {sensor_id})")
+        print(f"    Units: {units} | Type: {data_type}")
+
+
+def display_sensor_menu(sensors: List[Dict]) -> int:
+    """
+    Display interactive menu for sensor selection with pagination support.
+
+    Args:
+        sensors: List of sensor information dictionaries
+
+    Returns:
+        Selected sensor ID
+
+    Raises:
+        SystemExit: If user cancels or invalid selection
+    """
+    return display_paginated_sensors(sensors)
+
+
 def display_device_list(devices: List[Dict]) -> None:
     """
     Display devices in 4-column format with selection numbers.
@@ -536,27 +956,27 @@ def display_device_list(devices: List[Dict]) -> None:
     Args:
         devices: List of device dictionaries
     """
-    print(f"\n{'=' * 80}")
-    print(f"{'USER DEVICES':^80}")
-    print(f"{'(' + str(len(devices)) + ' found)':^80}")
-    print(f"{'=' * 80}")
+    print(f"\n{'=' * 109}")
+    print(f"{'USER DEVICES':^109}")
+    print(f"{'(' + str(len(devices)) + ' found)':^109}")
+    print(f"{'=' * 109}")
 
     # Header
-    print(f"{'#':>3} {'Device Name':<35} {'Serial Number':<12} {'Product ID':<12} {'Version':<10}")
-    print("-" * 80)
+    print(f"{'#':>3} {'Device Name':<64} {'Serial Number':<12} {'Product ID':<12} {'Version':<10}")
+    print("-" * 109)
 
     # Device list
     for i, device in enumerate(devices, 1):
         name = device.get('name', 'Unknown')
         serial = device.get('sn', 0)
         product_id = device.get('productId', 0)
-        version = device.get('currentVersion', 'Unknown')
+        version = device.get('currentVersion') or 'Unknown'
 
         # Truncate long names
-        if len(name) > 34:
-            name = name[:31] + "..."
+        if len(name) > 64:
+            name = name[:61] + "..."
 
-        print(f"[{i:2}] {name:<35} {serial:<12} {product_id:<12} {version:<10}")
+        print(f"[{i:2}] {name:<64} {serial:<12} {product_id:<12} {version:<10}")
 
 
 def select_device_interactive(devices: List[Dict]) -> str:
@@ -574,7 +994,7 @@ def select_device_interactive(devices: List[Dict]) -> str:
     """
     display_device_list(devices)
 
-    print("-" * 80)
+    print("-" * 109)
     print(f"Select a device [1-{len(devices)}], or 'q' to quit:")
 
     while True:
@@ -619,7 +1039,7 @@ def print_device_details(device: Dict) -> None:
     print(f"   Product ID:      {device.get('productId', 'Unknown')}")
     print(f"   Group ID:        {device.get('groupId', 'Unknown')}")
     print(f"   Organization:    {device.get('organizationId', 'Unknown')}")
-    print(f"   Version:         {device.get('currentVersion', 'Unknown')}")
+    print(f"   Version:         {device.get('currentVersion') or 'Unknown'}")
 
     # Format creation date
     created_at = device.get('createdAt')

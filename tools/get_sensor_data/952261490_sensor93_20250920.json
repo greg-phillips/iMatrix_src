@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "serial": "952261490",
+    "sensor_id": 93,
+    "sensor_name": "Ignition Status",
+    "sensor_units": "Ignition",
+    "start_time": "2025-09-20T00:00:00Z",
+    "end_time": "2025-09-23T23:59:59Z",
+    "download_time": "2025-09-23T08:31:20.993367Z",
+    "data_points": 20
+  },
+  "statistics": {
+    "min": 1,
+    "max": 2,
+    "average": 1.1,
+    "count": 20,
+    "first_time": "2025-09-20T13:20:00Z",
+    "last_time": "2025-09-22T18:08:00Z",
+    "duration_hours": 52.8
+  },
+  "data": [
+    {
+      "time": 1758399600000,
+      "value": 1,
+      "formatted_time": "2025-09-20T13:20:00Z"
+    },
+    {
+      "time": 1758402000000,
+      "value": 1,
+      "formatted_time": "2025-09-20T14:00:00Z"
+    },
+    {
+      "time": 1758402780000,
+      "value": 1,
+      "formatted_time": "2025-09-20T14:13:00Z"
+    },
+    {
+      "time": 1758406200000,
+      "value": 1,
+      "formatted_time": "2025-09-20T15:10:00Z"
+    },
+    {
+      "time": 1758406260000,
+      "value": 1,
+      "formatted_time": "2025-09-20T15:11:00Z"
+    },
+    {
+      "time": 1758406320000,
+      "value": 1,
+      "formatted_time": "2025-09-20T15:12:00Z"
+    },
+    {
+      "time": 1758406380000,
+      "value": 1,
+      "formatted_time": "2025-09-20T15:13:00Z"
+    },
+    {
+      "time": 1758406440000,
+      "value": 1,
+      "formatted_time": "2025-09-20T15:14:00Z"
+    },
+    {
+      "time": 1758406500000,
+      "value": 1,
+      "formatted_time": "2025-09-20T15:15:00Z"
+    },
+    {
+      "time": 1758406560000,
+      "value": 2,
+      "formatted_time": "2025-09-20T15:16:00Z"
+    },
+    {
+      "time": 1758407760000,
+      "value": 1,
+      "formatted_time": "2025-09-20T15:36:00Z"
+    },
+    {
+      "time": 1758408960000,
+      "value": 1,
+      "formatted_time": "2025-09-20T15:56:00Z"
+    },
+    {
+      "time": 1758410100000,
+      "value": 1,
+      "formatted_time": "2025-09-20T16:15:00Z"
+    },
+    {
+      "time": 1758411300000,
+      "value": 1,
+      "formatted_time": "2025-09-20T16:35:00Z"
+    },
+    {
+      "time": 1758412500000,
+      "value": 1,
+      "formatted_time": "2025-09-20T16:55:00Z"
+    },
+    {
+      "time": 1758414180000,
+      "value": 2,
+      "formatted_time": "2025-09-20T17:23:00Z"
+    },
+    {
+      "time": 1758415380000,
+      "value": 1,
+      "formatted_time": "2025-09-20T17:43:00Z"
+    },
+    {
+      "time": 1758416580000,
+      "value": 1,
+      "formatted_time": "2025-09-20T18:03:00Z"
+    },
+    {
+      "time": 1758417720000,
+      "value": 1,
+      "formatted_time": "2025-09-20T18:22:00Z"
+    },
+    {
+      "time": 1758589680000,
+      "value": 1,
+      "formatted_time": "2025-09-22T18:08:00Z"
+    }
+  ]
+}
