@@ -129,23 +129,15 @@ Expected output:
 - Staging: `/var/log/imatrix_staging.log`
 - Production: `/var/log/imatrix.log`
 
-## Rollback Procedure
+## Version Control
 
-If issues occur:
+The code is maintained in a GitHub repository. If any issues occur, revert using Git:
 
 ```bash
-# 1. Stop services
-systemctl stop imatrix
-
-# 2. Restore from backup (created automatically)
-cp -r /tmp/memory_manager_backup_*/cs_ctrl ../iMatrix/
-
-# 3. Rebuild
+# Revert to previous version
 cd ../iMatrix
-cmake . && make
-
-# 4. Restart services
-systemctl start imatrix
+git revert HEAD
+git push
 ```
 
 ## Support

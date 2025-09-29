@@ -84,16 +84,18 @@ else
     fi
 fi
 
-# Step 3: Backup existing memory manager
-echo -e "\n${GREEN}Phase 3: Backing Up Existing Memory Manager${NC}"
+# Step 3: Version control check
+echo -e "\n${GREEN}Phase 3: Version Control Check${NC}"
 
-if [ -d "$IMATRIX_DIR/cs_ctrl" ]; then
-    mkdir -p "$BACKUP_DIR"
-    cp -r "$IMATRIX_DIR/cs_ctrl" "$BACKUP_DIR/"
-    print_status "Backup created at $BACKUP_DIR"
+cd "$IMATRIX_DIR"
+if git status >/dev/null 2>&1; then
+    print_status "Git repository detected - changes can be reverted via Git"
+    CURRENT_COMMIT=$(git rev-parse HEAD)
+    print_status "Current commit: $CURRENT_COMMIT"
 else
-    print_warning "No existing cs_ctrl directory to backup"
+    print_warning "Not a Git repository - ensure backups exist elsewhere"
 fi
+cd - >/dev/null
 
 # Step 4: Deploy based on mode
 echo -e "\n${GREEN}Phase 4: Deploying Memory Manager v2 ($DEPLOY_MODE mode)${NC}"
@@ -208,7 +210,7 @@ Memory Manager v2 Deployment Report
 ====================================
 Date: $(date)
 Mode: $DEPLOY_MODE
-Backup: $BACKUP_DIR
+Git Commit: $CURRENT_COMMIT
 
 Deployment Status: SUCCESS
 - Tests Passed: 43/43
@@ -222,8 +224,8 @@ Next Steps:
 3. Verify flash wear reduction
 4. Monitor performance metrics
 
-To rollback if needed:
-  cp -r $BACKUP_DIR/cs_ctrl $IMATRIX_DIR/
+To revert if needed:
+  cd $IMATRIX_DIR && git revert HEAD
 
 EOF
 
@@ -236,7 +238,7 @@ echo -e "${GREEN}=========================================${NC}"
 echo ""
 echo "Summary:"
 echo "  - Mode: $DEPLOY_MODE"
-echo "  - Backup: $BACKUP_DIR"
+echo "  - Git Commit: $CURRENT_COMMIT"
 echo "  - Report: $REPORT_FILE"
 echo ""
 

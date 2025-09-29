@@ -294,29 +294,21 @@ Key metrics to track:
 - Create migration guide for developers
 - Update troubleshooting guides
 
-## Rollback Procedure (If Needed)
+## Version Control
 
-### Emergency Rollback Steps
+The codebase is maintained in GitHub. If issues arise, use Git to revert:
 
 ```bash
-# Step 1: Stop services
-systemctl stop imatrix
-
-# Step 2: Restore backup
+# Revert deployment
 cd /home/greg/iMatrix/iMatrix_Client/iMatrix
-rm -rf cs_ctrl
-mv cs_ctrl.backup.* cs_ctrl
+git revert HEAD
+git push origin main
 
-# Step 3: Rebuild with original
+# Rebuild and redeploy
 cmake -DCMAKE_BUILD_TYPE=Release .
 make -j8
-
-# Step 4: Deploy original
 scp build/imatrix_client root@target:/usr/bin/
-ssh root@target "systemctl start imatrix"
-
-# Step 5: Verify rollback
-ssh root@target "imatrix_client --version"
+ssh root@target "systemctl restart imatrix"
 ```
 
 ## Risk Assessment
@@ -334,7 +326,7 @@ ssh root@target "imatrix_client --version"
 ### Mitigation Strategies
 1. **Phased rollout** - Start with dev/staging
 2. **Monitoring** - Real-time metrics
-3. **Rollback ready** - Backup preserved
+3. **Git repository** - Version control for quick revert
 4. **Support team** - On standby during deployment
 
 ## Deployment Timeline

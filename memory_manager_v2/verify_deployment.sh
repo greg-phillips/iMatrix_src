@@ -182,7 +182,7 @@ else
 - Review failed tests before production use
 - Check deployment logs for errors
 - Verify all files were deployed correctly
-- Consider rolling back if critical tests failed
+- Use Git to revert if critical tests failed
 EOF
 fi
 
