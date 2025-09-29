@@ -36,6 +36,7 @@
 #ifdef LINUX_PLATFORM
     // LINUX Platform Configuration
     #define MAX_SECTORS                 1000000    // Extended sector addressing
+    #define MAX_RAM_SECTORS             100        // Maximum RAM sectors before flush
     #define SECTOR_SIZE                 32         // Bytes per sector
     #define MAX_RECORDS_PER_SECTOR      8          // TSD records per sector
     #define MAX_EVENT_RECORDS_PER_SECTOR 4        // Event records per sector

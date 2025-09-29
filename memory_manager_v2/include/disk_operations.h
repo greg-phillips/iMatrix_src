@@ -16,6 +16,10 @@
 #include <stdbool.h>
 #include <stddef.h>
 
+// Forward declaration for iMatrix types
+struct control_sensor_data;
+typedef struct control_sensor_data control_sensor_data_t;
+
 #ifdef LINUX_PLATFORM
 
 /******************************************************
@@ -52,10 +56,9 @@ uint32_t calculate_ram_usage_percent(unified_sensor_state_t *states[3]);
 
 /**
  * @brief Check if flush to disk should be triggered
- * @param states Array of 3 CSD states
  * @return true if any CSD reached 80% threshold
  */
-bool should_trigger_flush(unified_sensor_state_t *states[3]);
+bool should_trigger_flush(void);
 
 /**
  * @brief Check if consumption reached current disk sector
@@ -120,10 +123,9 @@ memory_error_t check_and_trigger_flush(void);
 
 /**
  * @brief Flush all RAM data to disk for all CSDs
- * @param states Array of 3 CSD states
  * @return MEMORY_SUCCESS or error code
  */
-memory_error_t flush_all_to_disk(unified_sensor_state_t *states[3]);
+memory_error_t flush_all_to_disk(void);
 
 /**
  * @brief Flush single CSD data from RAM to disk
