@@ -10,7 +10,7 @@
  * @brief TSD/EVT data operations using Memory Manager v2
  *
  * Drop-in replacement for the original memory_manager_tsd_evt.c
- * Uses the embedded v2_state in control_sensor_data_t for all operations
+ * Uses the embedded state in control_sensor_data_t for all operations
  *
  * @author Memory Manager v2 Team
  * @date 2025
@@ -141,27 +141,27 @@ void write_tsd_evt_time(imx_control_sensor_block_t *csb, control_sensor_data_t *
     IMX_MUTEX_LOCK(&data_store_mutex);
 
     // Direct access to embedded v2 state - no lookup needed!
-    unified_sensor_state_t *state = &csd[entry].v2_state;
+    unified_sensor_state_t *state = &csd[entry].state;
 
     // Write using v2
     memory_error_t result = write_tsd_evt_unified(state, value, utc_time);
 
     if (result == MEMORY_SUCCESS) {
-        // Update legacy fields to maintain compatibility
-        csd[entry].no_samples = GET_AVAILABLE_RECORDS(state);
+        // Update non-count fields
         csd[entry].last_sample_time = utc_time;
         csd[entry].last_value.uint_32bit = value;
         csd[entry].valid = 1;
+
+        // CRITICAL FIX: Sync ALL legacy fields properly from unified state
+        sync_legacy_fields(&csd[entry]);
 
         // Update data store info for compatibility
         #ifdef LINUX_PLATFORM
         csd[entry].ds.start_sector = state->first_sector;
         csd[entry].ds.end_sector = state->active_sector;
-        csd[entry].ds.count = state->records_in_active;
         #else
         csd[entry].ds.start_sector = state->sector_number;
         csd[entry].ds.end_sector = state->sector_number;
-        csd[entry].ds.count = GET_AVAILABLE_RECORDS(state);
         #endif
 
         PRINTF("Write TSD/EVT: Entry %u, Value %u, Time %u, Total records: %u\r\n",
@@ -198,7 +198,7 @@ void read_tsd_evt(imx_control_sensor_block_t *csb, control_sensor_data_t *csd,
     IMX_MUTEX_LOCK(&data_store_mutex);
 
     // Direct access to embedded v2 state
-    unified_sensor_state_t *state = &csd[entry].v2_state;
+    unified_sensor_state_t *state = &csd[entry].state;
 
     // Check if data is available
     if (GET_AVAILABLE_RECORDS(state) == 0) {
@@ -212,8 +212,8 @@ void read_tsd_evt(imx_control_sensor_block_t *csb, control_sensor_data_t *csd,
     memory_error_t result = read_tsd_evt_unified(state, value, &timestamp);
 
     if (result == MEMORY_SUCCESS) {
-        // Update pending count
-        csd[entry].no_pending++;
+        // CRITICAL FIX: Sync legacy fields from unified state instead of manual increment
+        sync_legacy_fields(&csd[entry]);
 
         PRINTF("Read TSD/EVT: Entry %u, Value %u, Pending: %u\r\n",
                entry, *value, csd[entry].no_pending);
@@ -240,13 +240,37 @@ void erase_tsd_evt(imx_control_sensor_block_t *csb, control_sensor_data_t *csd, 
     IMX_MUTEX_LOCK(&data_store_mutex);
 
     // Direct access to embedded v2 state
-    unified_sensor_state_t *state = &csd[entry].v2_state;
+    unified_sensor_state_t *state = &csd[entry].state;
 
-    // Check for impossible state
-    if (csd[entry].ds.count == 0 && csd[entry].no_pending > 0) {
-        imx_cli_log_printf(true, "IMPOSSIBLE STATE DETECTED: Entry %u (%s) has count=0 but pending=%u!\r\n",
+    // DIAGNOSTIC: Log state before sync
+    imx_cli_log_printf(true, "[PRE-SYNC DIAGNOSTIC] Entry %u (%s)\r\n", entry, csb[entry].name);
+    imx_cli_log_printf(true, "  UNIFIED: total=%u, consumed=%u, initialized=%s\r\n",
+                       csd[entry].state.total_records, csd[entry].state.consumed_records,
+                       csd[entry].state.flags.is_initialized ? "YES" : "NO");
+    imx_cli_log_printf(true, "  LEGACY: samples=%u, pending=%u, ds.count=%u\r\n",
+                       csd[entry].no_samples, csd[entry].no_pending, csd[entry].ds.count);
+
+    // PREVENTION-FIRST: Sync legacy fields with unified state before any checks
+    sync_legacy_fields(&csd[entry]);
+
+    // DIAGNOSTIC: Log state after sync
+    uint32_t available_after = get_available_records(&csd[entry].state);
+    imx_cli_log_printf(true, "[POST-SYNC DIAGNOSTIC] Entry %u (%s)\r\n", entry, csb[entry].name);
+    imx_cli_log_printf(true, "  UNIFIED: total=%u, consumed=%u, available=%u\r\n",
+                       csd[entry].state.total_records, csd[entry].state.consumed_records, available_after);
+    imx_cli_log_printf(true, "  LEGACY: samples=%u, pending=%u, ds.count=%u\r\n",
+                       csd[entry].no_samples, csd[entry].no_pending, csd[entry].ds.count);
+
+    // This check should now be mathematically impossible due to unified state
+    uint32_t available = get_available_records(&csd[entry].state);
+    if (available == 0 && csd[entry].no_pending > 0) {
+        imx_cli_log_printf(true, "IMPOSSIBLE STATE DETECTED: Entry %u (%s) has available=0 but pending=%u!\r\n",
                            entry, csb[entry].name, csd[entry].no_pending);
-        imx_cli_log_printf(true, "  EMERGENCY RESET: Forcing complete metadata synchronization\r\n");
+        imx_cli_log_printf(true, "  BUG: This should be mathematically impossible with unified state!\r\n");
+        imx_cli_log_printf(true, "  UNIFIED STATE: total=%u, consumed=%u, available=%u\r\n",
+                           csd[entry].state.total_records, csd[entry].state.consumed_records, available);
+        imx_cli_log_printf(true, "  LEGACY FIELDS: samples=%u, pending=%u, ds.count=%u\r\n",
+                           csd[entry].no_samples, csd[entry].no_pending, csd[entry].ds.count);
 
         // Reset to consistent state
         csd[entry].no_samples = 0;
@@ -373,7 +397,7 @@ void reset_csd_entry(control_sensor_data_t *csd, uint16_t entry)
     csd[entry].valid = 0;
 
     // Reset v2 state
-    reset_unified_state(&csd[entry].v2_state);
+    reset_unified_state(&csd[entry].state);
 }
 
 /**
@@ -395,9 +419,9 @@ void init_memory_manager_v2(void)
     if (host_cd) {
         uint16_t no_controls = get_host_no_controls();
         for (uint16_t i = 0; i < no_controls; i++) {
-            init_unified_state(&host_cd[i].v2_state, false);
-            host_cd[i].v2_state.csd_type = CSD_TYPE_HOST;
-            host_cd[i].v2_state.sensor_id = i;
+            init_unified_state(&host_cd[i].state, false);
+            host_cd[i].state.csd_type = CSD_TYPE_HOST;
+            host_cd[i].state.sensor_id = i;
         }
         imx_cli_log_printf(false, "Initialized %u HOST control v2 states\r\n", no_controls);
     }
@@ -405,9 +429,9 @@ void init_memory_manager_v2(void)
     if (host_sd) {
         uint16_t no_sensors = get_host_no_sensors();
         for (uint16_t i = 0; i < no_sensors; i++) {
-            init_unified_state(&host_sd[i].v2_state, true);  // Event data for sensors
-            host_sd[i].v2_state.csd_type = CSD_TYPE_HOST;
-            host_sd[i].v2_state.sensor_id = i + 1000;  // Offset to distinguish from controls
+            init_unified_state(&host_sd[i].state, true);  // Event data for sensors
+            host_sd[i].state.csd_type = CSD_TYPE_HOST;
+            host_sd[i].state.sensor_id = i + 1000;  // Offset to distinguish from controls
         }
         imx_cli_log_printf(false, "Initialized %u HOST sensor v2 states\r\n", no_sensors);
     }
@@ -420,9 +444,9 @@ void init_memory_manager_v2(void)
     if (can_cd) {
         uint16_t no_controls = get_can_no_controls();
         for (uint16_t i = 0; i < no_controls; i++) {
-            init_unified_state(&can_cd[i].v2_state, false);
-            can_cd[i].v2_state.csd_type = CSD_TYPE_CAN_CONTROLLER;
-            can_cd[i].v2_state.sensor_id = i + 2000;  // Offset for CAN controls
+            init_unified_state(&can_cd[i].state, false);
+            can_cd[i].state.csd_type = CSD_TYPE_CAN_CONTROLLER;
+            can_cd[i].state.sensor_id = i + 2000;  // Offset for CAN controls
         }
         imx_cli_log_printf(false, "Initialized %u CAN control v2 states\r\n", no_controls);
     }
@@ -430,9 +454,9 @@ void init_memory_manager_v2(void)
     if (can_sd) {
         uint16_t no_sensors = get_can_no_sensors();
         for (uint16_t i = 0; i < no_sensors; i++) {
-            init_unified_state(&can_sd[i].v2_state, true);
-            can_sd[i].v2_state.csd_type = CSD_TYPE_CAN_CONTROLLER;
-            can_sd[i].v2_state.sensor_id = i + 3000;  // Offset for CAN sensors
+            init_unified_state(&can_sd[i].state, true);
+            can_sd[i].state.csd_type = CSD_TYPE_CAN_CONTROLLER;
+            can_sd[i].state.sensor_id = i + 3000;  // Offset for CAN sensors
         }
         imx_cli_log_printf(false, "Initialized %u CAN sensor v2 states\r\n", no_sensors);
     }
