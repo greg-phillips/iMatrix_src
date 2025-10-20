@@ -5,6 +5,18 @@
 
 ---
 
+## Repositories
+
+### Primary Repositories
+- **Fleet-Connect-1**: Gateway application that implements the iMatrix client functionality
+- **iMatrix**: Core embedded system code with memory management and sensor control
+
+### Migration Branches
+- **iMatrix Repository**: `feature/mm2-integration` (from Qconnect-Updates2)
+- **Fleet-Connect-1 Repository**: `feature/mm2-integration` (from Qconnect-Updates2)
+
+---
+
 ## 1. Old MM Interface Summary
 
 The current memory management system in `iMatrix/cs_ctrl/` provides the following core functions that must be replaced:
