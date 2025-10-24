@@ -287,3 +287,20 @@ add support to write the dbc_signals out to the config file. Output the data as 
 Add support to the print config to print all the entries. print the entries as a table and only print the name, imx_id, visible, enabled and send_to_imatrix flagas. ask any questions needed to develop a plan for this implemenation.
 
 ***
+Add an index to the start of the configuratioin file. Include the number of sections and the offset for each section in the index.
+
+***
+
+Add a commandline option to exercise all the new read functions so we can test this on a configuration file once we create our first updated configuration file.
+
+***
+
+Write helper routines for the reading of the configuration. 
+Using the new index feature.
+Write a general routine that is passed the section number, a pointer to a uint32_t that will be the size of the returned data and a pointer to the data. the routine will return true if the section is read, false if it is not found or can not be read.
+Write a routine that will read a dbc default struture, the routine is passed the uint32_t imx_id for the desired item and a pointer to where the data should be returned. return true or false if the data is found and read correctly.
+write a routine that verifies and returns the checksum of the file. The routine is passed a pointer the uint32_t checksum to return the value and returns true if read successfuly and the checksum is good. False if not.
+
+***
+
+create a docker test environment to run and test the new code base.
