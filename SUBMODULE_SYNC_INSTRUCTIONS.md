@@ -68,16 +68,35 @@ Expected output should show:
 
 ### Commit Details
 - **Fleet-Connect-1 branch:** Aptera_1
-- **Fix commit:** 075533d97d16327d41351e7403123858399d4377
-- **Previous commit:** e7bf15c69c3ddcf0ac0f99f2e320e17ac84cfb58
-- **Commits ahead:** 3 commits (including the fix)
+- **Latest commit:** 992e573 (Remove LOGS_ENABLED from wrp_config.c)
+- **Previous commits:**
+  - 1843817 (Migrate CAN bus HW config to mgs structure)
+  - 6e705f4 (Fix C89 compliance)
+  - 075533d (Fix error_handler.h issue)
+- **Starting commit:** e7bf15c69c3ddcf0ac0f99f2e320e17ac84cfb58
+- **Total commits ahead:** 4 commits
+
+### Fixes Included in Latest Commits
+
+1. **075533d** - Missing error_handler.h
+   - Made wrp_config.c standalone with local error handling
+
+2. **6e705f4** - C89 compliance (label/declaration)
+   - Moved variable declarations to top of scope
+
+3. **1843817** - Global variable migration
+   - Moved g_canbus_hw_config to mgs structure
+   - Proper separation: config file I/O vs runtime state
+
+4. **992e573** - LOGS_ENABLED macro dependency
+   - Removed Fleet-Connect-1 specific macro from standalone file
 
 ### Alternative: Direct Checkout
-If the above doesn't work, directly checkout the commit:
+If the above doesn't work, directly checkout the latest commit:
 ```bash
 cd /home/quakeuser/qconnect_sw/svc_sdk/source/user/imatrix_dev/Fleet-Connect-1
 git fetch origin
-git checkout 075533d97d16327d41351e7403123858399d4377
+git checkout 992e573
 ```
 
 ---
