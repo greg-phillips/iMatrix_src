@@ -72,6 +72,59 @@ The iMatrix framework provides the connectivity and platform layer:
   - JSON data formatting
   - Secure data upload to cloud
 
+### Command Line Interface
+
+Fleet Connect supports command line options for configuration inspection and debugging:
+
+**Command Line Options:**
+
+- **-P**: Print configuration file details and exit
+  - Locates the configuration file in `IMATRIX_STORAGE_PATH` (/etc/imatrix)
+  - Displays comprehensive configuration information including:
+    - Product ID, Organization ID, and Name
+    - Control and Sensor block details (data types, poll rates, sample rates)
+    - CAN bus configurations for all 3 buses (CAN0, CAN1, CAN-Ethernet)
+    - **Network interface details** (name, mode, IP address, DHCP server status)
+    - Internal sensor definitions
+    - DBC signal settings and files
+    - CAN bus hardware configurations
+  - Useful for:
+    - Verifying configuration before deployment
+    - Troubleshooting configuration issues
+    - Documenting system setup
+    - Quick inspection without running the full gateway
+
+**Example Usage:**
+```bash
+# Print configuration and exit
+./Fleet-Connect -P
+
+# Normal operation
+./Fleet-Connect
+```
+
+**Configuration Statistics Output:**
+```
+================================================================================
+                        CONFIGURATION STATISTICS
+================================================================================
+Product:                 Aptera Production Intent-1 (ID: 2201718576)
+Control/Sensor Blocks:   1
+CAN Messages:            113
+  - CAN_BUS_0:           0
+  - CAN_BUS_1:           0
+  - CAN_BUS_ETH:         113
+CAN Signals:             1071
+Network Interfaces:      2
+  - eth0                Mode: static   IP: 192.168.1.100   DHCP: No
+  - wlan0               Mode: dhcp     IP: (none)          DHCP: Yes
+Internal Sensors:        60
+DBC Signal Settings:     1071
+DBC Files:               2
+CAN Bus HW Configs:      0
+================================================================================
+```
+
 ## Technical Architecture
 
 ### Directory Structure
