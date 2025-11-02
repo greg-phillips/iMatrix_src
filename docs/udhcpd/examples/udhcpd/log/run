@@ -1,0 +1,17 @@
+#!/bin/sh
+
+LOG_FOLDER=/var/log/udhcpd
+SERVER_FILE=/etc/syslogd/remote_server
+mkdir -p "${LOG_FOLDER}"
+
+printf "s500000\nn1\nN0\n" > "${LOG_FOLDER}"/config
+
+if [ -f "${SERVER_FILE}" ]; then
+	IPADDR_PORT=$(head -n 1 "${SERVER_FILE}")
+	{
+		printf "u%s>  \n" "$IPADDR_PORT"
+		printf "p%s>  \n" "$IPADDR_PORT"
+	} >> "${LOG_FOLDER}"/config
+fi
+
+exec svlogd -tt "${LOG_FOLDER}"
