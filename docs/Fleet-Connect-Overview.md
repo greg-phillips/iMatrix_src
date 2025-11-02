@@ -1,7 +1,7 @@
 # Fleet-Connect System Overview
 **Developer Onboarding Guide**
 
-*Last Updated: 2025-10-31*
+*Last Updated: 2025-11-02*
 
 ## Table of Contents
 
@@ -700,15 +700,23 @@ make -j$(nproc)
 # Normal operation (requires config file)
 ./Fleet-Connect
 
-# Print configuration and exit
+# Print full configuration details and exit
 ./Fleet-Connect -P
+
+# Print configuration summary and exit
+./Fleet-Connect -S
+
+# Display configuration file index (v4+ files) and exit
+./Fleet-Connect -I
 
 # With specific config file
 ./Fleet-Connect -c /path/to/config.cfg.bin
 ```
 
 **Common Command-Line Options:**
-- `-P`: Print configuration details and exit
+- `-P`: Print full configuration details (verbose) and exit
+- `-S`: Print configuration summary and exit (NEW - 2025-11-02)
+- `-I`: Display configuration file index and exit (NEW - 2025-11-02)
 - `-c <file>`: Specify configuration file
 - `-d`: Enable debug mode
 - `-v`: Verbose output
