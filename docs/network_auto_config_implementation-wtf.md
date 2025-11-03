@@ -160,12 +160,12 @@ static int save_network_hash(const char *hash)
 {
     FILE *fp = fopen(NETWORK_CONFIG_STATE_FILE, "w");
     if (fp == NULL) {
-        imx_cli_log_printf(true, "Error: Failed to open state file for writing: %s\n",
+        imx_cli_log_printf(true, "Error: Failed to open state file for writing: %s\r\r\n",
                           NETWORK_CONFIG_STATE_FILE);
         return -1;
     }
 
-    fprintf(fp, "%s\n", hash);
+    fprintf(fp, "%s\r\n", hash);
     fclose(fp);
 
     // Set proper permissions
@@ -184,7 +184,7 @@ static int apply_eth0_config(network_interfaces_t *iface)
 {
     int changes_made = 0;
 
-    imx_cli_log_printf(true, "Applying eth0 configuration: mode=%s, IP=%s\n",
+    imx_cli_log_printf(true, "Applying eth0 configuration: mode=%s, IP=%s\r\n",
                       iface->mode == IMX_IF_MODE_SERVER ? "server" : "client",
                       iface->mode == IMX_IF_MODE_SERVER ? iface->ip_address : "DHCP");
 
@@ -222,7 +222,7 @@ static int apply_wlan0_config(network_interfaces_t *iface)
 {
     int changes_made = 0;
 
-    imx_cli_log_printf(true, "Applying wlan0 configuration: mode=%s\n",
+    imx_cli_log_printf(true, "Applying wlan0 configuration: mode=%s\r\n",
                       iface->mode == IMX_IF_MODE_SERVER ? "AP" : "client");
 
     if (iface->mode == IMX_IF_MODE_SERVER) {
@@ -262,7 +262,7 @@ static int apply_wlan0_config(network_interfaces_t *iface)
  */
 static int apply_ppp0_config(network_interfaces_t *iface)
 {
-    imx_cli_log_printf(true, "PPP0 configuration: enabled=%d\n", iface->enabled);
+    imx_cli_log_printf(true, "PPP0 configuration: enabled=%d\r\n", iface->enabled);
 
     // PPP is handled by the cellular manager
     // Just ensure enabled state is correct
@@ -278,7 +278,7 @@ static int apply_network_configuration(void)
 {
     int changes_made = 0;
 
-    imx_cli_log_printf(true, "Applying network configuration from device_config\n");
+    imx_cli_log_printf(true, "Applying network configuration from device_config\r\n");
 
     // Process each interface in device_config
     for (int i = 0; i < device_config.no_interfaces && i < IMX_INTERFACE_MAX; i++) {
@@ -288,7 +288,7 @@ static int apply_network_configuration(void)
             continue;
         }
 
-        imx_cli_log_printf(true, "Processing interface %s (enabled=%d, mode=%d)\n",
+        imx_cli_log_printf(true, "Processing interface %s (enabled=%d, mode=%d)\r\n",
                           iface->name, iface->enabled, iface->mode);
 
         // Apply configuration based on interface
@@ -303,18 +303,18 @@ static int apply_network_configuration(void)
 
     if (changes_made) {
         // Generate network interfaces file
-        imx_cli_log_printf(true, "Writing network interfaces file\n");
+        imx_cli_log_printf(true, "Writing network interfaces file\r\n");
         if (write_network_interfaces_file() != 0) {
-            imx_cli_log_printf(true, "Error: Failed to write network interfaces file\n");
+            imx_cli_log_printf(true, "Error: Failed to write network interfaces file\r\n");
         }
 
         // Update blacklist configuration
         if (update_network_blacklist() != 0) {
-            imx_cli_log_printf(true, "Warning: Failed to update network blacklist\n");
+            imx_cli_log_printf(true, "Warning: Failed to update network blacklist\r\n");
         }
 
         // Restart network services
-        imx_cli_log_printf(true, "Restarting network services\n");
+        imx_cli_log_printf(true, "Restarting network services\r\n");
         system("sv restart networking 2>/dev/null");
     }
 
@@ -326,10 +326,10 @@ static int apply_network_configuration(void)
  */
 static void schedule_network_reboot(void)
 {
-    imx_cli_log_printf(true, "======================================\n");
-    imx_cli_log_printf(true, "NETWORK CONFIGURATION CHANGED\n");
-    imx_cli_log_printf(true, "System will reboot in %d seconds\n", NETWORK_REBOOT_DELAY_MS/1000);
-    imx_cli_log_printf(true, "======================================\n");
+    imx_cli_log_printf(true, "======================================\r\n");
+    imx_cli_log_printf(true, "NETWORK CONFIGURATION CHANGED\r\n");
+    imx_cli_log_printf(true, "System will reboot in %d seconds\r\n", NETWORK_REBOOT_DELAY_MS/1000);
+    imx_cli_log_printf(true, "======================================\r\n");
 
     // Set reboot flag and time
     icb.network_config_reboot = true;
@@ -339,8 +339,8 @@ static void schedule_network_reboot(void)
     // Save a marker file to indicate clean reboot
     FILE *fp = fopen(NETWORK_REBOOT_FLAG_FILE, "w");
     if (fp) {
-        fprintf(fp, "Network configuration change reboot\n");
-        fprintf(fp, "Timestamp: %lu\n", (unsigned long)time(NULL));
+        fprintf(fp, "Network configuration change reboot\r\n");
+        fprintf(fp, "Timestamp: %lu\r\n", (unsigned long)time(NULL));
         fclose(fp);
         chmod(NETWORK_REBOOT_FLAG_FILE, 0600);
     }
@@ -394,7 +394,7 @@ static void increment_reboot_attempt_count(void)
 
     FILE *fp = fopen("/usr/qk/etc/sv/reboot_count", "w");
     if (fp) {
-        fprintf(fp, "%d\n", count);
+        fprintf(fp, "%d\r\n", count);
         fclose(fp);
     }
 }
@@ -424,7 +424,7 @@ static bool validate_network_configuration(void)
             // Validate IP addresses if in server mode
             if (device_config.network_interfaces[i].mode == IMX_IF_MODE_SERVER) {
                 if (strlen(device_config.network_interfaces[i].ip_address) == 0) {
-                    imx_cli_log_printf(true, "Error: Server mode interface %s has no IP address\n",
+                    imx_cli_log_printf(true, "Error: Server mode interface %s has no IP address\r\n",
                                       device_config.network_interfaces[i].name);
                     return false;
                 }
@@ -433,7 +433,7 @@ static bool validate_network_configuration(void)
     }
 
     if (!has_valid_interface) {
-        imx_cli_log_printf(true, "Error: No enabled network interfaces found\n");
+        imx_cli_log_printf(true, "Error: No enabled network interfaces found\r\n");
         return false;
     }
 
@@ -454,14 +454,14 @@ int imx_apply_network_mode_from_config(void)
     char current_hash[33];
     char stored_hash[33];
 
-    imx_cli_log_printf(true, "Checking network configuration...\n");
+    imx_cli_log_printf(true, "Checking network configuration...\r\n");
 
     // Check if we're in a reboot loop
     int reboot_attempts = get_reboot_attempt_count();
     if (reboot_attempts >= MAX_REBOOT_ATTEMPTS) {
-        imx_cli_log_printf(true, "ERROR: Maximum reboot attempts (%d) exceeded!\n",
+        imx_cli_log_printf(true, "ERROR: Maximum reboot attempts (%d) exceeded!\r\n",
                           MAX_REBOOT_ATTEMPTS);
-        imx_cli_log_printf(true, "Falling back to default configuration\n");
+        imx_cli_log_printf(true, "Falling back to default configuration\r\n");
 
         // Clear the attempt counter
         clear_reboot_attempt_count();
@@ -474,34 +474,34 @@ int imx_apply_network_mode_from_config(void)
 
     // Check if this was a network configuration reboot
     if (is_network_reboot()) {
-        imx_cli_log_printf(true, "System rebooted for network configuration changes\n");
+        imx_cli_log_printf(true, "System rebooted for network configuration changes\r\n");
         // Clear reboot counter on successful reboot
         clear_reboot_attempt_count();
     }
 
     // Validate configuration before applying
     if (!validate_network_configuration()) {
-        imx_cli_log_printf(true, "Error: Invalid network configuration\n");
+        imx_cli_log_printf(true, "Error: Invalid network configuration\r\n");
         return -1;
     }
 
     // Calculate hash of current network configuration
     calculate_network_config_hash(current_hash);
-    imx_cli_log_printf(true, "Current config hash: %s\n", current_hash);
+    imx_cli_log_printf(true, "Current config hash: %s\r\n", current_hash);
 
     // Read stored hash from state file
     if (read_stored_network_hash(stored_hash) != 0) {
         // First boot or state file missing
-        imx_cli_log_printf(true, "No stored configuration hash found (first boot)\n");
+        imx_cli_log_printf(true, "No stored configuration hash found (first boot)\r\n");
         config_changed = true;
     } else {
-        imx_cli_log_printf(true, "Stored config hash: %s\n", stored_hash);
+        imx_cli_log_printf(true, "Stored config hash: %s\r\n", stored_hash);
         // Compare hashes
         config_changed = (strcmp(current_hash, stored_hash) != 0);
     }
 
     if (config_changed) {
-        imx_cli_log_printf(true, "Network configuration has changed\n");
+        imx_cli_log_printf(true, "Network configuration has changed\r\n");
 
         // Backup current configuration
         char cmd[256];
@@ -513,24 +513,24 @@ int imx_apply_network_mode_from_config(void)
         int changes_applied = apply_network_configuration();
 
         if (changes_applied > 0) {
-            imx_cli_log_printf(true, "Applied %d network configuration changes\n",
+            imx_cli_log_printf(true, "Applied %d network configuration changes\r\n",
                               changes_applied);
 
             // Save new hash
             if (save_network_hash(current_hash) != 0) {
-                imx_cli_log_printf(true, "Warning: Failed to save configuration hash\n");
+                imx_cli_log_printf(true, "Warning: Failed to save configuration hash\r\n");
             }
 
             // Schedule system reboot
             schedule_network_reboot();
             return 1; // Indicates reboot pending
         } else {
-            imx_cli_log_printf(true, "No actual changes applied\n");
+            imx_cli_log_printf(true, "No actual changes applied\r\n");
             // Save hash anyway to prevent repeated attempts
             save_network_hash(current_hash);
         }
     } else {
-        imx_cli_log_printf(true, "Network configuration unchanged\n");
+        imx_cli_log_printf(true, "Network configuration unchanged\r\n");
     }
 
     return 0; // No changes or error
@@ -552,7 +552,7 @@ bool imx_handle_network_reboot_pending(imx_time_t current_time)
     }
 
     if (imx_is_later(current_time, icb.network_reboot_time)) {
-        imx_cli_log_printf(true, "Executing network configuration reboot...\n");
+        imx_cli_log_printf(true, "Executing network configuration reboot...\r\r\n");
 
         // Sync filesystem buffers
         sync();
@@ -572,7 +572,7 @@ bool imx_handle_network_reboot_pending(imx_time_t current_time)
 
     static uint32_t last_displayed_sec = 0;
     if (remaining_sec != last_displayed_sec) {
-        imx_cli_log_printf(true, "Rebooting in %u seconds...\n", remaining_sec);
+        imx_cli_log_printf(true, "Rebooting in %u seconds...\r\r\n", remaining_sec);
         last_displayed_sec = remaining_sec;
     }
 
