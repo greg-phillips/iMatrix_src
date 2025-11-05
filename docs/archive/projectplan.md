@@ -1,542 +1,829 @@
-# iMatrix Tiered Storage System - Complete Implementation Plan
+# Network Configuration Diagnostic Messages Enhancement - Implementation Plan
 
-## Project Overview
-**Project**: iMatrix Memory Management Enhancement with Tiered Storage  
-**Status**: Implementation Complete  
-**Date Started**: 2025-01-04  
-**Date Completed**: 2025-01-04  
-**Platform**: Linux Only  
-
-## Executive Summary
-
-Successfully completed a comprehensive tiered storage system for the iMatrix memory management infrastructure. The implementation provides automatic RAM-to-disk migration, extended sector addressing for millions of sectors, atomic file operations with power failure recovery, and maintains all previously implemented security enhancements.
-
-## Technical Architecture
-
-### Core Components Implemented
-
-#### 1. Extended Sector Addressing System
-- **32-bit sector addressing** supporting billions of sectors
-- **Dual storage model**: RAM sectors (0 - SAT_NO_SECTORS) and Disk sectors (SAT_NO_SECTORS+)
-- **Location tracking** with comprehensive lookup table
-- **Cross-storage chain management** for seamless data access
-
-#### 2. State Machine-Driven Processing
-- **Background processing** with timing control (1-second intervals)
-- **Threshold-based triggers** at 80% RAM usage
-- **Batch processing** optimized for sensor types (TSD: 6 sectors, EVT: 3 sectors)
-- **Shutdown handling** with forced flush capabilities
-
-#### 3. Atomic File Operations
-- **Recovery journal system** tracking all file operations
-- **Temp-file and rename pattern** for atomic commits
-- **Power failure recovery** with incomplete operation rollback
-- **File validation** with magic numbers and checksums
-
-#### 4. Data Persistence Layer
-- **Linux POSIX file operations** for maximum compatibility
-- **Storage path**: `/usr/qk/etc/sv/FC-1/history/`
-- **File format**: Custom binary with sector data and metadata
-- **Automatic cleanup** of empty and corrupted files
-
-## Implementation Phases Completed
-
-### Phase 1: Core Infrastructure ✅ COMPLETED
-**Duration**: 2 hours  
-**Scope**: Foundation data structures and basic file operations
-
-#### Deliverables:
-- Extended data structures in `memory_manager.h`
-- Directory creation and validation functions
-- State machine framework with timing control
-- Basic file operation utilities
-
-#### Key Features:
-```c
-// Extended sector addressing
-typedef uint32_t extended_sector_t;
-
-// State machine structure  
-typedef struct {
-    memory_process_state_t state;
-    imx_time_t last_process_time;
-    uint16_t current_sensor_index;
-    uint16_t sectors_processed_this_cycle;
-    bool shutdown_requested;
-    uint32_t pending_sectors_for_shutdown;
-    // Statistics tracking
-    uint32_t total_files_created;
-    uint32_t total_files_deleted;
-    uint64_t total_bytes_written;
-    uint32_t power_failure_recoveries;
-} memory_state_machine_t;
-```
-
-### Phase 2: Extended Addressing and Chain Management ✅ COMPLETED
-**Duration**: 3 hours  
-**Scope**: Sector lookup table and cross-storage chain traversal
-
-#### Deliverables:
-- Sector location tracking with lookup table
-- Chain management across RAM/disk boundaries
-- Integration with existing memory functions
-- Extended sector operations (read/write/free)
-
-#### Key Features:
-```c
-// Sector location tracking
-typedef struct {
-    sector_location_t location;      // RAM, DISK, or FREED
-    char filename[MAX_FILENAME_LENGTH]; // Full path if on disk
-    uint32_t file_offset;            // Offset within file
-    uint16_t sensor_id;              // Associated sensor
-    imx_utc_time_t timestamp;        // When moved to disk
-} sector_lookup_entry_t;
-
-// Extended sector operations
-imx_memory_error_t read_sector_extended(extended_sector_t sector, uint16_t offset, 
-                                       uint32_t *data, uint16_t length, uint16_t data_buffer_size);
-imx_memory_error_t write_sector_extended(extended_sector_t sector, uint16_t offset, 
-                                        const uint32_t *data, uint16_t length, uint16_t data_buffer_size);
-```
-
-### Phase 3: Recovery Journal and Atomic Operations ✅ COMPLETED
-**Duration**: 4 hours  
-**Scope**: Power failure recovery with atomic file operations
-
-#### Deliverables:
-- Recovery journal system for tracking operations
-- Atomic file creation with temp/rename pattern
-- Complete power failure recovery procedures
-- Operation rollback and cleanup mechanisms
-
-#### Key Features:
-```c
-// Recovery journal entry
-typedef struct {
-    uint32_t magic;                  // JOURNAL_MAGIC_NUMBER
-    uint32_t sequence_number;
-    file_operation_state_t operation_type;
-    char temp_filename[256];
-    char final_filename[256];
-    uint32_t sectors_involved;
-    extended_sector_t sector_numbers[64];  // Batch of sectors being written
-    imx_utc_time_t timestamp;
-    uint32_t checksum;
-} journal_entry_t;
-
-// Atomic file operations
-static imx_memory_error_t create_disk_file_atomic(uint16_t sensor_id, 
-                                                 extended_evt_tsd_sector_t *sectors,
-                                                 uint32_t sector_count,
-                                                 char *filename,
-                                                 size_t filename_size);
-```
-
-### Phase 4: Shutdown Handling and Complete Integration ✅ COMPLETED
-**Duration**: 2 hours  
-**Scope**: Startup recovery, forced flushing, and system integration
-
-#### Deliverables:
-- Complete startup recovery with file scanning
-- Shutdown handling with forced disk flushing
-- Sector migration implementation
-- Statistics integration and progress reporting
-
-#### Key Features:
-```c
-// Main state machine function
-void process_memory(imx_time_t current_time);
-
-// Shutdown handling
-void flush_all_to_disk(void);
-uint32_t get_pending_disk_write_count(void);
-
-// Power failure recovery
-void perform_power_failure_recovery(void);
-
-// Sector migration
-imx_memory_error_t move_sectors_to_disk(uint16_t sensor_id, uint16_t max_sectors, bool force_all);
-```
-
-## Technical Specifications
-
-### File Format Structure
-```c
-// Disk file header
-typedef struct {
-    uint32_t magic;                  // FILE_MAGIC_NUMBER (0x494D5853 "IMXS")
-    uint16_t version;                // File format version
-    uint16_t sensor_id;              // Associated sensor ID
-    uint16_t sector_count;           // Number of sectors in file
-    uint16_t sector_size;            // Size of each sector (SRAM_SECTOR_SIZE)
-    uint16_t record_type;            // TSD_RECORD_SIZE or EVT_RECORD_SIZE
-    uint16_t entries_per_sector;     // NO_TSD_ENTRIES_PER_SECTOR or NO_EVT_ENTRIES_PER_SECTOR
-    imx_utc_time_t created;          // File creation timestamp
-    uint32_t file_checksum;          // Entire file checksum
-    uint32_t reserved[4];            // Future expansion
-    // Followed by sector data (SRAM_SECTOR_SIZE bytes each)...
-} disk_file_header_t;
-```
-
-### State Machine States
-1. **MEMORY_STATE_IDLE**: Monitor RAM usage and check for work
-2. **MEMORY_STATE_CHECK_USAGE**: Verify thresholds and prepare migration
-3. **MEMORY_STATE_MOVE_TO_DISK**: Execute sector migration to disk
-4. **MEMORY_STATE_CLEANUP_DISK**: Remove empty files and update tracking
-5. **MEMORY_STATE_FLUSH_ALL**: Force all data to disk during shutdown
-
-### Performance Characteristics
-- **Migration Threshold**: 80% RAM usage
-- **Processing Interval**: 1 second
-- **TSD Batch Size**: 6 sectors per iteration
-- **EVT Batch Size**: 3 sectors per iteration
-- **File Size**: Up to 32 sectors per file
-- **Shutdown Processing**: 10 sectors per iteration (aggressive)
-
-### Storage Layout
-```
-/usr/qk/etc/sv/FC-1/history/
-├── sensor_001_20250104_001.dat    # TSD data files
-├── sensor_002_20250104_001.dat    # EVT data files
-├── recovery.journal               # Recovery journal
-├── recovery.journal.bak           # Journal backup
-└── corrupted/                     # Corrupted files moved here
-    └── sensor_003_20250104_001.dat
-```
-
-## Security Features Maintained
-
-### All Previous Security Enhancements Preserved
-- **Buffer overflow protection** in all memory operations
-- **Integer overflow checking** in calculations
-- **Comprehensive input validation** for all parameters
-- **Secure error handling** with detailed logging
-- **Bounds checking** for array and sector access
-
-### Additional Security Features Added
-- **File validation** with magic numbers and checksums
-- **Atomic operations** preventing partial writes
-- **Corruption detection** and automatic file quarantine
-- **Recovery procedures** for incomplete operations
-- **Secure file paths** with validation
-
-## Statistics and Monitoring
-
-### Memory Usage Statistics
-```c
-typedef struct {
-    uint32_t total_sectors;           // Total sectors available (SAT_NO_SECTORS)
-    uint32_t available_sectors;       // Sectors available for allocation
-    uint32_t used_sectors;            // Currently allocated sectors
-    uint32_t free_sectors;            // Currently free sectors
-    uint32_t peak_usage;              // Maximum sectors used simultaneously
-    float usage_percentage;           // Current usage percentage
-    float peak_usage_percentage;      // Peak usage percentage
-    imx_utc_time_t last_updated;      // Last statistics update time
-} imx_memory_statistics_t;
-```
-
-### Tiered Storage Statistics
-- **Total files created/deleted** tracking
-- **Total bytes written** to disk
-- **Power failure recovery count** monitoring
-- **Pending sectors for shutdown** reporting
-- **Background processing statistics**
-
-## Integration Requirements
-
-### System Integration Points
-1. **Main Loop Integration**: Call `process_memory(current_time)` every second
-2. **Shutdown Integration**: Call `flush_all_to_disk()` during system shutdown
-3. **Startup Integration**: Call `perform_power_failure_recovery()` during system startup
-4. **Statistics Integration**: Use `imx_get_memory_statistics()` for monitoring
-
-### Configuration Requirements
-- **Linux platform** with POSIX file system support
-- **Storage directory** `/usr/qk/etc/sv/FC-1/history/` must be writable
-- **Disk space monitoring** for 80% threshold management
-- **Timing system** providing millisecond resolution
-
-### Dependencies
-- Existing iMatrix memory management system
-- Linux file system operations (open, write, fsync, rename)
-- iMatrix timing system (`imx_time_t`, `imx_is_later`)
-- iMatrix logging system (`imx_cli_log_printf`)
-
-## Testing Strategy
-
-### Unit Testing Requirements
-1. **State Machine Testing**: Verify all state transitions and timing
-2. **File Operation Testing**: Test atomic operations and rollback procedures
-3. **Recovery Testing**: Simulate power failures during file operations
-4. **Performance Testing**: Measure overhead and throughput under load
-5. **Integration Testing**: Test with real sensor data and sector chains
-
-### Validation Procedures
-1. **Power Failure Simulation**: Test recovery from all operation states
-2. **Disk Space Management**: Test behavior at storage limits
-3. **Corruption Handling**: Test detection and quarantine of bad files
-4. **Performance Validation**: Ensure <5% overhead in normal operation
-5. **Data Integrity**: Verify sector data consistency across migrations
-
-## Future Enhancements
-
-### Phase 5: Performance Optimization (Future)
-- **Compression** for archived sector data
-- **Background defragmentation** of disk files
-- **Intelligent caching** of frequently accessed disk sectors
-- **Adaptive batch sizing** based on system load
-
-### Phase 6: Advanced Features (Future)
-- **Remote storage** support for cloud backup
-- **Encryption** of sensitive sector data
-- **Real-time monitoring** dashboard
-- **Predictive analytics** for storage planning
-
-### Phase 7: High Availability (Future)
-- **Replication** to multiple storage locations
-- **Hot standby** systems for critical data
-- **Automated failover** procedures
-- **Distributed storage** across multiple nodes
-
-## Risk Mitigation
-
-### Identified Risks and Mitigations
-1. **Disk Space Exhaustion**: Monitoring and automatic cleanup procedures
-2. **File System Corruption**: Recovery journal and validation procedures
-3. **Power Failure**: Atomic operations and complete recovery system
-4. **Performance Impact**: Optimized batch processing and background operation
-5. **Data Loss**: Comprehensive backup and recovery procedures
-
-### Monitoring and Alerting
-- **Disk usage alerts** at 70% and 85% thresholds
-- **Recovery operation alerts** for power failure events
-- **Performance degradation alerts** for unusual processing times
-- **File corruption alerts** for validation failures
-
-## Success Criteria ✅ ALL ACHIEVED
-
-### Functional Requirements
-- ✅ **Automatic Migration**: RAM-to-disk at 80% threshold
-- ✅ **Extended Addressing**: Support for millions of disk sectors
-- ✅ **Power Failure Recovery**: Complete data consistency guarantee
-- ✅ **Shutdown Handling**: Forced flush with progress reporting
-- ✅ **Cross-Storage Chains**: Seamless sector traversal
-- ✅ **Linux Compatibility**: POSIX file operations only
-
-### Performance Requirements
-- ✅ **Background Processing**: Minimal main thread impact
-- ✅ **Batch Optimization**: Sensor-appropriate batch sizes
-- ✅ **Timing Control**: Precise 1-second processing intervals
-- ✅ **Storage Efficiency**: Optimal file sizes and organization
-
-### Reliability Requirements
-- ✅ **Atomic Operations**: No partial file states possible
-- ✅ **Error Recovery**: Graceful handling of all failure modes
-- ✅ **Data Validation**: Comprehensive integrity checking
-- ✅ **Corruption Detection**: Automatic quarantine procedures
-
-### Security Requirements
-- ✅ **Input Validation**: All parameters validated
-- ✅ **Buffer Protection**: No overflow vulnerabilities
-- ✅ **Path Security**: Validated storage locations only
-- ✅ **Error Handling**: Secure failure modes
-
-## Conclusion
-
-The iMatrix Tiered Storage System represents a comprehensive enhancement to the memory management infrastructure, providing robust data persistence, automatic storage management, and complete power failure recovery while maintaining all existing security protections. The implementation successfully addresses all original requirements and provides a solid foundation for future system scaling and enhancement.
-
-**Total Implementation Time**: 11 hours  
-**Lines of Code Added**: ~2,500 lines  
-**Test Coverage**: Framework implemented, full testing recommended  
-**Documentation Status**: Complete  
-**Production Readiness**: Integration testing required
+**Project**: Add extensive diagnostic messages and backup functionality during network configuration
+**Date**: 2025-11-01
+**Status**: Planning Phase - Awaiting User Approval
 
 ---
 
-# Network Interface Mode Switching Implementation
+## Table of Contents
 
-## Project Overview
-**Feature**: Dynamic client/server mode switching for eth0 and wlan0 interfaces  
-**Status**: Phase 1 Implementation Complete  
-**Date Started**: 2025-01-05  
-**Date Completed**: 2025-01-07 (Phase 1)  
-**Platform**: Linux with BusyBox/runit  
+1. [Background and Requirements](#background-and-requirements)
+2. [Current System Analysis](#current-system-analysis)
+3. [Implementation Approach](#implementation-approach)
+4. [Detailed Changes by File](#detailed-changes-by-file)
+5. [Testing Strategy](#testing-strategy)
+6. [Review and Verification](#review-and-verification)
 
-## Executive Summary
+---
 
-Successfully completed Phase 1 of the network interface mode switching system for the iMatrix Linux Client. The implementation enables dynamic reconfiguration of network interfaces between client (station) and server (AP/DHCP) modes, with full BusyBox and runit service management integration.
+## Background and Requirements
 
-## Technical Architecture
+### User Requirements (from plan_network_config_update.md)
 
-### Core Components Implemented
+The initialization sequence in `Fleet-Connect-1/init/imx_client_init.c` reads the configuration file and applies network settings. When the networking system initializes and determines that the network configuration has changed, we need to:
 
-#### 1. CLI Command System
-- **Command**: `net mode <interface> <client|server> [sharing <on|off>]`
-- **Multi-interface support**: Configure both interfaces in one command
-- **Atomic operations**: All changes staged before application
-- **Mandatory reboot**: Ensures clean state after configuration
+1. **Backup Configuration Files**: Before writing new configuration files, back them up with an incremented naming scheme (`-n.bak` where n is incremented based on existing backups)
 
-#### 2. BusyBox Service Management
-- **Blacklist System**: `/usr/qk/blacklist` for service control
-- **Service Management**:
-  - `hostapd`: Blacklisted when wlan0 in client mode
-  - `wpa`: Blacklisted when wlan0 in server mode
-  - `udhcpd`: Blacklisted when no interfaces in server mode
-- **Dynamic Run Scripts**: Generate `/etc/sv/udhcpd/run` based on configuration
+2. **Extensive Diagnostics**: As functions write new network configurations, use `imx_cli_print()` to provide extensive details of the new configuration being written
 
-#### 3. Configuration File Management
-- **Network Interfaces**: `/etc/network/interfaces` generation
-- **DHCP Configurations**:
-  - `/etc/network/udhcpd.eth0.conf` (192.168.8.100-110)
-  - `/etc/network/udhcpd.wlan0.conf` (192.168.7.100-110)
-- **WiFi AP Configuration**: `/etc/network/hostapd.conf`
-  - SSID: System hostname
-  - Password: "happydog"
-  - Channel: 6 (2.4GHz)
-  - Security: WPA2-PSK
+### Example Network Configuration
 
-#### 4. Critical Fixes Implemented
+```
+=== Network Configuration ===
+Network Interfaces: 2
+ Interface [0]:
+  Name:             eth0
+  Mode:             static
+  IP Address:       192.168.7.1
+  Netmask:          255.255.255.0
+  Gateway:          192.168.7.1
+  DHCP Server:      Enabled
+  Provide Internet: No
+  DHCP Range Start: 192.168.7.100
+  DHCP Range End:   192.168.7.200
+ Interface [1]:
+  Name:             wlan0
+  Mode:             dhcp_client
+  IP Address:       (none)
+  Netmask:          (none)
+  Gateway:          (none)
+  DHCP Server:      Disabled
+  Provide Internet: No
+```
 
-##### Issue 1: wpa_supplicant.conf Preservation
-- **Problem**: System was deleting user's WiFi network configurations
-- **Solution**: Removed file deletion when switching to server mode
-- **Location**: `network_mode_config.c`
+---
 
-##### Issue 2: BusyBox Path Corrections
-- **Problem**: Wrong path for wpa_supplicant.conf
-- **Solution**: Changed from `/etc/wpa_supplicant/` to `/etc/network/`
-- **Location**: `network_interface_writer.c:205`
+## Current System Analysis
 
-##### Issue 3: Blacklist Management System
-- **Problem**: Services not properly managed for BusyBox/runit
-- **Solution**: Complete blacklist manager implementation
-- **Files**: Created `network_blacklist_manager.c/h`
+### Network Configuration Flow
 
-##### Issue 4: Blacklist Logic Error
-- **Problem**: Wrong interface mode detection
-- **Solution**: Check specific interface indices instead of looping
-- **Code**: Fixed in `network_blacklist_manager.c`
+```
+Boot Sequence
+    ↓
+imx_apply_network_mode_from_config()  [network_auto_config.c]
+    ↓
+calculate_network_config_hash()       [Calculates MD5 hash]
+    ↓
+compare with stored hash              [Detects changes]
+    ↓
+apply_network_configuration()         [If changed]
+    ↓
+    ├── apply_eth0_config()           [Ethernet configuration]
+    ├── apply_wlan0_config()          [WiFi configuration]
+    ├── apply_ppp0_config()           [Cellular configuration]
+    ↓
+write_network_interfaces_file()       [network_interface_writer.c]
+    ↓
+    ├── write_eth0_interface()
+    ├── write_wlan0_interface()
+    └── write to /etc/network/interfaces
+    ↓
+generate_hostapd_config()             [If WiFi AP mode]
+    └── write to /etc/network/hostapd.conf
+    ↓
+generate_dhcp_server_config()         [If DHCP server enabled]
+    └── write to /etc/network/udhcpd.{interface}.conf
+    ↓
+update_network_blacklist()
+    ↓
+schedule_network_reboot()             [Reboot pending]
+```
 
-##### Issue 5: Service Restart Errors
-- **Problem**: Misleading errors for non-existent services
-- **Solution**: Check service existence before restart attempts
-- **Location**: `network_mode_config.c`
+### Configuration Files Written
 
-##### Issue 6: udhcpd Run Script Generation
-- **Problem**: Static run script couldn't handle dynamic configs
-- **Solution**: Generate `/etc/sv/udhcpd/run` based on interface modes
-- **Function**: `generate_udhcpd_run_script()`
+| File Path | Purpose | Current Backup | Writer Function |
+|-----------|---------|----------------|-----------------|
+| `/etc/network/interfaces` | Main network interfaces config | `.backup` | `write_network_interfaces_file()` |
+| `/etc/network/hostapd.conf` | WiFi AP mode configuration | `.orig` (on remove) | `generate_hostapd_config()` |
+| `/etc/network/udhcpd.eth0.conf` | DHCP server for eth0 | `.orig` (on remove) | `generate_dhcp_server_config()` |
+| `/etc/network/udhcpd.wlan0.conf` | DHCP server for wlan0 | `.orig` (on remove) | `generate_dhcp_server_config()` |
+| `/etc/sv/udhcpd/run` | Runit service script | None | `generate_udhcpd_run_script()` |
 
-##### Issue 7: wpa Service Blacklisting
-- **Problem**: wpa_supplicant interfering with hostapd
-- **Solution**: Added wpa to blacklist when wlan0 in server mode
-- **Location**: `network_blacklist_manager.c`
+### Current Limitations
 
-##### Issue 8: hostapd.conf Critical Settings
-- **Problem**: Generated config missing required settings
-- **Solution**: Added ctrl_interface, country_code, proper channel
-- **Location**: `network_interface_writer.c:generate_hostapd_config()`
+1. **Backup Strategy**:
+   - Uses simple `.backup` or `.orig` extensions
+   - Overwrites previous backups (no history)
+   - Only backs up on removal, not before writing
 
-##### Issue 9: poff Startup Error
-- **Problem**: "No pppd is running" error at startup
-- **Solution**: Check if pppd running before calling poff
-- **Location**: `cellular_man.c`
+2. **Diagnostic Messages**:
+   - Minimal logging during configuration writing
+   - No detailed display of configuration being applied
+   - Limited visibility into what changed
 
-##### Issue 10: Routing Table Constant Reset
-- **Problem**: Routes updating every ~40 seconds causing console spam
-- **Solution**: Check if route exists before modifying
-- **Function**: `set_default_via_iface()` in `process_network.c`
+---
 
-## Implementation Statistics
+## Implementation Approach
 
-### Files Created (14 files)
-- `/home/greg/iMatrix_src/iMatrix/cli/cli_network_mode.c/h`
-- `/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/networking/network_mode_config.c/h`
-- `/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/networking/network_interface_writer.c/h`
-- `/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/networking/dhcp_server_config.c/h`
-- `/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/networking/network_blacklist_manager.c/h`
-- `/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/networking/connection_sharing.c/h` (placeholder)
-- `/home/greg/iMatrix_src/iMatrix/cli/cli_net_wrapper.c`
+### Design Principles
 
-### Files Modified (6 files)
-- `/home/greg/iMatrix_src/iMatrix/CMakeLists.txt`
-- `/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/networking/process_network.c`
-- `/home/greg/iMatrix_src/iMatrix/IMX_Platform/LINUX_Platform/networking/cellular_man.c`
-- `/home/greg/iMatrix_src/iMatrix/imatrix_interface.c`
-- `/home/greg/iMatrix_src/iMatrix/cli/cli.c`
-- `/home/greg/iMatrix_src/iMatrix/cli/interface.h`
+1. **Minimal Code Impact**: Keep changes simple and focused
+2. **Non-Breaking**: Maintain backward compatibility
+3. **Reusable**: Create generic backup function for all files
+4. **Verbose**: Provide extensive diagnostic output using `imx_cli_print()`
+5. **Maintainable**: Follow existing code patterns and Doxygen documentation
 
-### Lines of Code
-- **New Code**: ~3,500 lines
-- **Modified Code**: ~200 lines
-- **Documentation**: ~500 lines
+### Key Components to Add
 
-## Key Technical Decisions
+#### 1. Generic Backup Utility Function
 
-1. **Atomic File Operations**: All config files written to .tmp then renamed
-2. **Service Management**: BusyBox blacklist instead of systemctl
-3. **State Persistence**: Linux config files provide persistence
-4. **Error Recovery**: Backup files maintained for rollback
-5. **Validation**: Comprehensive input validation and error checking
+Create a new utility module `network_config_backup.h/c` with:
 
-## Testing and Validation
+```c
+/**
+ * @brief Create incremented backup of a configuration file
+ *
+ * Searches for existing backups (-1.bak, -2.bak, etc.) and creates
+ * the next numbered backup. Example:
+ * - If file.conf-1.bak and file.conf-2.bak exist
+ * - Creates file.conf-3.bak
+ *
+ * @param filepath Path to file to backup
+ * @param backup_path_out Buffer to store backup path (optional, can be NULL)
+ * @param buffer_size Size of backup_path_out buffer
+ * @return 0 on success, -1 on error
+ */
+int backup_config_file_incremental(const char *filepath,
+                                   char *backup_path_out,
+                                   size_t buffer_size);
+```
 
-### Network Test Log Analysis (nt_32.txt)
-- **Duration**: 15 minutes of network operation
-- **Results**: 
-  - 0% packet loss throughout
-  - Stable 30-36ms latency
-  - Routing table fix confirmed working
-  - No console spam from route updates
+#### 2. Diagnostic Message Templates
 
-## Success Criteria Achieved ✅
+Create helper functions for consistent diagnostic output:
 
-### Phase 1 Requirements
-- ✅ **CLI Command Implementation**: Full command parsing and validation
-- ✅ **Configuration Management**: Atomic file operations with backups
-- ✅ **Service Integration**: BusyBox/runit service management
-- ✅ **Network Configuration**: Proper interfaces and DHCP setup
-- ✅ **WiFi AP Mode**: hostapd configuration with required settings
-- ✅ **Error Handling**: Comprehensive validation and recovery
+```c
+/**
+ * @brief Print network interface configuration details
+ *
+ * @param iface Pointer to interface configuration
+ */
+void print_interface_config_details(const network_interfaces_t *iface);
 
-### Performance Requirements
-- ✅ **Minimal Overhead**: Configuration changes require reboot
-- ✅ **Atomic Operations**: No partial configuration states
-- ✅ **Service Reliability**: Proper startup/shutdown sequencing
-- ✅ **Network Stability**: Verified through testing
+/**
+ * @brief Print DHCP server configuration details
+ *
+ * @param interface Interface name
+ * @param start_ip DHCP range start
+ * @param end_ip DHCP range end
+ * @param gateway Gateway address
+ */
+void print_dhcp_config_details(const char *interface,
+                               const char *start_ip,
+                               const char *end_ip,
+                               const char *gateway);
+```
 
-## Future Phases
+---
 
-### Phase 2: Connection Sharing (To Be Implemented)
-- NAT/Masquerading setup
-- iptables rule management
-- Dynamic ppp0 handling
-- DNS forwarding configuration
+## Detailed Changes by File
 
-### Phase 3: Enhanced Status Display (Partially Complete)
-- Extended network status information
-- DHCP client count display
-- Real-time mode monitoring
+### File 1: Create `network_config_backup.h` (NEW)
 
-## Lessons Learned
+**Location**: `iMatrix/IMX_Platform/LINUX_Platform/networking/network_config_backup.h`
 
-1. **BusyBox Differences**: Many assumptions about standard Linux don't apply
-2. **Service Management**: runit requires different approach than systemd
-3. **Path Locations**: BusyBox uses different standard paths
-4. **Atomic Operations**: Critical for embedded system reliability
-5. **User Feedback**: Iterative fixes based on testing improved quality
+**Purpose**: Header file for incremental backup functionality
 
-## Architecture Benefits
+**Content**:
+```c
+/*
+ * Copyright header...
+ */
 
-1. **Reliability**: Atomic operations prevent corruption
-2. **Maintainability**: Clear separation of concerns
-3. **Extensibility**: Easy to add new features
-4. **Compatibility**: Works with existing iMatrix systems
-5. **Performance**: Minimal runtime overhead
+/** @file network_config_backup.h
+ *
+ *  Network Configuration File Backup Utilities
+ *
+ *  Created on: 2025-11-01
+ *      Author: greg.phillips
+ *
+ *  @brief Utilities for backing up network configuration files
+ *
+ *  Provides incremental backup functionality for network configuration files.
+ *  Backups are numbered sequentially (-1.bak, -2.bak, etc.) to preserve history.
+ */
 
-**Phase 1 Total Implementation Time**: 3 days  
-**Issues Resolved**: 10 major fixes  
-**Test Coverage**: Validated with network testing  
-**Production Readiness**: Phase 1 complete and tested  
+#ifndef NETWORK_CONFIG_BACKUP_H_
+#define NETWORK_CONFIG_BACKUP_H_
+
+#ifdef LINUX_PLATFORM
+
+#include <stdint.h>
+#include <stdbool.h>
+
+/******************************************************
+ *                    Constants
+ ******************************************************/
+#define MAX_BACKUP_NUMBER    99     /* Maximum backup number to search for */
+#define BACKUP_EXTENSION     ".bak" /* Backup file extension */
+
+/******************************************************
+ *               Function Declarations
+ ******************************************************/
+
+/**
+ * @brief Create incremented backup of a configuration file
+ *
+ * Searches for existing backups with pattern: filename-N.bak (where N is 1, 2, 3, etc.)
+ * and creates the next numbered backup. Preserves file permissions.
+ *
+ * Example: If /etc/network/interfaces-1.bak and -2.bak exist,
+ *          creates /etc/network/interfaces-3.bak
+ *
+ * @param filepath          Path to file to backup
+ * @param backup_path_out   Buffer to store created backup path (optional, can be NULL)
+ * @param buffer_size       Size of backup_path_out buffer
+ *
+ * @return   0  Success - backup created
+ * @return  -1  Error - file doesn't exist or backup failed
+ *
+ * @note If filepath doesn't exist, returns -1 (not an error for first boot)
+ * @note Logs backup creation using imx_cli_print()
+ */
+int backup_config_file_incremental(const char *filepath,
+                                   char *backup_path_out,
+                                   size_t buffer_size);
+
+/**
+ * @brief Find the next available backup number for a file
+ *
+ * Searches for existing backup files with pattern filename-N.bak
+ * and returns the next available number.
+ *
+ * @param filepath  Path to original file
+ *
+ * @return  Next backup number (1 if no backups exist, 2 if -1.bak exists, etc.)
+ * @return  -1 if maximum backup number exceeded
+ *
+ * @note Checks up to MAX_BACKUP_NUMBER (99)
+ */
+int find_next_backup_number(const char *filepath);
+
+#endif /* LINUX_PLATFORM */
+
+#endif /* NETWORK_CONFIG_BACKUP_H_ */
+```
+
+### File 2: Create `network_config_backup.c` (NEW)
+
+**Location**: `iMatrix/IMX_Platform/LINUX_Platform/networking/network_config_backup.c`
+
+**Purpose**: Implementation of incremental backup functionality
+
+**Key Functions**:
+1. `find_next_backup_number()` - Scans for existing -N.bak files
+2. `backup_config_file_incremental()` - Creates next numbered backup
+
+**Implementation Details**:
+- Uses `stat()` to check for existing backup files
+- Uses `cp -p` to preserve permissions (BusyBox compatible)
+- Logs backup creation with `imx_cli_print()`
+- Returns -1 if file doesn't exist (normal for first boot)
+
+### File 3: Modify `network_interface_writer.c`
+
+**Location**: `iMatrix/IMX_Platform/LINUX_Platform/networking/network_interface_writer.c`
+
+**Changes**:
+
+#### A. Add header include
+```c
+#include "network_config_backup.h"
+```
+
+#### B. Enhance `backup_network_interfaces()` function
+**Current** (line 242):
+```c
+int backup_network_interfaces(void)
+{
+    char cmd[256];
+    int ret;
+
+    NETWORK_WRITER_DEBUG(("Backing up network interfaces file\n"));
+
+    // Use cp to preserve permissions
+    snprintf(cmd, sizeof(cmd), "cp -p %s %s 2>/dev/null",
+             NETWORK_INTERFACES_FILE, NETWORK_INTERFACES_BACKUP);
+
+    ret = system(cmd);
+    if (ret != 0) {
+        // File might not exist on first run
+        NETWORK_WRITER_DEBUG(("No existing interfaces file to backup\n"));
+        return 0;
+    }
+
+    return 0;
+}
+```
+
+**Modified**:
+```c
+int backup_network_interfaces(void)
+{
+    char backup_path[512];
+
+    imx_cli_print("=== Backing Up Network Interfaces Configuration ===\n");
+
+    // Create incremental backup
+    if (backup_config_file_incremental(NETWORK_INTERFACES_FILE,
+                                       backup_path,
+                                       sizeof(backup_path)) == 0) {
+        imx_cli_print("  Backup created: %s\n", backup_path);
+    } else {
+        imx_cli_print("  No existing file to backup (first boot)\n");
+    }
+
+    return 0;
+}
+```
+
+#### C. Enhance `write_network_interfaces_file()` function
+Add diagnostic messages before writing each interface:
+
+```c
+int write_network_interfaces_file(void)
+{
+    FILE *fp;
+    int ret = 0;
+
+    imx_cli_print("\n");
+    imx_cli_print("=======================================================\n");
+    imx_cli_print("   WRITING NETWORK INTERFACES CONFIGURATION\n");
+    imx_cli_print("   File: %s\n", NETWORK_INTERFACES_FILE);
+    imx_cli_print("=======================================================\n");
+
+    // Create backup of existing file
+    backup_network_interfaces();
+
+    // ... existing code ...
+
+    // Before write_eth0_interface():
+    imx_cli_print("\n--- Ethernet Interface (eth0) ---\n");
+
+    // Before write_wlan0_interface():
+    imx_cli_print("\n--- Wireless Interface (wlan0) ---\n");
+
+    // After successful write:
+    imx_cli_print("\n");
+    imx_cli_print("=== Network Interfaces File Written Successfully ===\n");
+    imx_cli_print("\n");
+
+    // ... rest of existing code ...
+}
+```
+
+#### D. Enhance `write_eth0_interface()` function
+Add detailed diagnostic output:
+
+```c
+static int write_eth0_interface(FILE *fp)
+{
+    interface_mode_t mode;
+    bool sharing;
+    network_interfaces_t *iface = NULL;
+
+    // Find the eth0 interface in device_config
+    for (int i = 0; i < device_config.no_interfaces && i < IMX_INTERFACE_MAX; i++) {
+        if (strcmp(device_config.network_interfaces[i].name, "eth0") == 0) {
+            iface = &device_config.network_interfaces[i];
+            break;
+        }
+    }
+
+    get_interface_config("eth0", &mode, &sharing);
+
+    // Print configuration details
+    imx_cli_print("  Interface:        eth0\n");
+    imx_cli_print("  Mode:             %s\n",
+                  mode == IMX_IF_MODE_SERVER ? "static (server)" : "dhcp (client)");
+
+    if (mode == IMX_IF_MODE_SERVER && iface) {
+        imx_cli_print("  IP Address:       %s\n", iface->ip_address);
+        imx_cli_print("  Netmask:          %s\n", iface->netmask);
+        imx_cli_print("  Gateway:          %s\n", iface->gateway);
+        if (iface->use_dhcp_server) {
+            imx_cli_print("  DHCP Server:      Enabled\n");
+            imx_cli_print("  DHCP Start:       %s\n", iface->dhcp_start);
+            imx_cli_print("  DHCP End:         %s\n", iface->dhcp_end);
+        } else {
+            imx_cli_print("  DHCP Server:      Disabled\n");
+        }
+        imx_cli_print("  Internet Sharing: %s\n", sharing ? "Yes" : "No");
+    } else {
+        imx_cli_print("  IP Assignment:    DHCP Client\n");
+    }
+
+    // ... existing fprintf() code ...
+}
+```
+
+#### E. Enhance `write_wlan0_interface()` function
+Similar detailed diagnostic output as eth0
+
+#### F. Enhance `generate_hostapd_config()` function
+Add backup and diagnostics:
+
+```c
+int generate_hostapd_config(void)
+{
+    FILE *fp;
+    char hostname[64];
+    char backup_path[512];
+    // ... existing variable declarations ...
+
+    imx_cli_print("\n");
+    imx_cli_print("=======================================================\n");
+    imx_cli_print("   WRITING WIFI ACCESS POINT CONFIGURATION\n");
+    imx_cli_print("   File: %s\n", HOSTAPD_CONFIG_FILE);
+    imx_cli_print("=======================================================\n");
+
+    // Backup existing config if it exists
+    if (backup_config_file_incremental(HOSTAPD_CONFIG_FILE,
+                                       backup_path,
+                                       sizeof(backup_path)) == 0) {
+        imx_cli_print("  Backup created: %s\n", backup_path);
+    }
+
+    // ... existing code to get hostname ...
+
+    // Print configuration details
+    imx_cli_print("\n--- WiFi Access Point Settings ---\n");
+    imx_cli_print("  Interface:        wlan0\n");
+    imx_cli_print("  SSID:             %s\n", hostname);
+    imx_cli_print("  Security:         WPA2-PSK\n");
+    imx_cli_print("  Password:         %s\n", device_config.wifi.ap_passphrase);
+    imx_cli_print("  Channel:          6\n");
+    imx_cli_print("  Mode:             802.11n (2.4GHz)\n");
+    imx_cli_print("  Country Code:     US\n");
+    imx_cli_print("  Control Interface: /var/run/hostapd\n");
+
+    // ... existing fprintf() code ...
+
+    imx_cli_print("\n=== WiFi Access Point Configuration Written Successfully ===\n");
+    imx_cli_print("\n");
+
+    // ... rest of existing code ...
+}
+```
+
+### File 4: Modify `dhcp_server_config.c`
+
+**Location**: `iMatrix/IMX_Platform/LINUX_Platform/networking/dhcp_server_config.c`
+
+**Changes**:
+
+#### A. Add header include
+```c
+#include "network_config_backup.h"
+```
+
+#### B. Enhance `write_dhcp_config_file()` function
+Add backup and diagnostics:
+
+```c
+static int write_dhcp_config_file(const char *interface, const dhcp_config_params_t *params)
+{
+    char config_path[256];
+    char temp_path[256];
+    char backup_path[512];
+    // ... existing declarations ...
+
+    // Create config file paths
+    snprintf(config_path, sizeof(config_path), "%s/udhcpd.%s.conf", DHCP_CONFIG_DIR, interface);
+    snprintf(temp_path, sizeof(temp_path), "%s/udhcpd.%s.conf.tmp", DHCP_CONFIG_DIR, interface);
+
+    imx_cli_print("\n");
+    imx_cli_print("=======================================================\n");
+    imx_cli_print("   WRITING DHCP SERVER CONFIGURATION\n");
+    imx_cli_print("   Interface: %s\n", interface);
+    imx_cli_print("   File: %s\n", config_path);
+    imx_cli_print("=======================================================\n");
+
+    // Backup existing config if it exists
+    if (backup_config_file_incremental(config_path, backup_path, sizeof(backup_path)) == 0) {
+        imx_cli_print("  Backup created: %s\n", backup_path);
+    }
+
+    // ... existing DNS server retrieval code ...
+
+    // Print configuration details
+    imx_cli_print("\n--- DHCP Server Settings ---\n");
+    imx_cli_print("  Interface:        %s\n", interface);
+    imx_cli_print("  IP Range Start:   %s\n", params->ip_start);
+    imx_cli_print("  IP Range End:     %s\n", params->ip_end);
+    imx_cli_print("  Subnet Mask:      %s\n", params->subnet);
+    imx_cli_print("  Gateway/Router:   %s\n", params->router);
+    imx_cli_print("  DNS Servers:      %s\n", dns_servers);
+    imx_cli_print("  Lease Time:       86400 seconds (24 hours)\n");
+    imx_cli_print("  Max Leases:       101\n");
+
+    // ... existing fprintf() code ...
+
+    imx_cli_print("\n=== DHCP Server Configuration Written Successfully ===\n");
+    imx_cli_print("\n");
+
+    // ... rest of existing code ...
+}
+```
+
+### File 5: Modify `network_auto_config.c`
+
+**Location**: `iMatrix/IMX_Platform/LINUX_Platform/networking/network_auto_config.c`
+
+**Changes**:
+
+#### A. Add header include
+```c
+#include "network_config_backup.h"
+```
+
+#### B. Enhance `apply_network_configuration()` function
+Add summary diagnostics:
+
+```c
+static int apply_network_configuration(void)
+{
+    int changes_made = 0;
+
+    imx_cli_print("\n");
+    imx_cli_print("*******************************************************\n");
+    imx_cli_print("*                                                     *\n");
+    imx_cli_print("*   APPLYING NETWORK CONFIGURATION CHANGES            *\n");
+    imx_cli_print("*                                                     *\n");
+    imx_cli_print("*******************************************************\n");
+    imx_cli_print("\n");
+    imx_cli_print("Network Configuration Source: Binary config file\n");
+    imx_cli_print("Number of Interfaces:         %d\n", device_config.no_interfaces);
+    imx_cli_print("\n");
+
+    // Process each interface in device_config
+    for (int i = 0; i < device_config.no_interfaces && i < IMX_INTERFACE_MAX; i++) {
+        network_interfaces_t *iface = &device_config.network_interfaces[i];
+
+        if (!iface->enabled || strlen(iface->name) == 0) {
+            imx_cli_print("Interface %d: %s (Disabled - Skipping)\n",
+                         i, strlen(iface->name) > 0 ? iface->name : "(unnamed)");
+            continue;
+        }
+
+        imx_cli_print("=== Processing Interface %d: %s ===\n", i, iface->name);
+        imx_cli_print("  Enabled:          Yes\n");
+        imx_cli_print("  Mode:             %s\n",
+                     iface->mode == IMX_IF_MODE_SERVER ? "server" : "client");
+
+        // Apply configuration based on interface
+        if (strcmp(iface->name, "eth0") == 0) {
+            changes_made |= apply_eth0_config(iface);
+        } else if (strcmp(iface->name, "wlan0") == 0) {
+            changes_made |= apply_wlan0_config(iface);
+        } else if (strcmp(iface->name, "ppp0") == 0) {
+            changes_made |= apply_ppp0_config(iface);
+        }
+
+        imx_cli_print("\n");
+    }
+
+    if (changes_made) {
+        imx_cli_print("=== Writing Master Network Interfaces File ===\n");
+
+        // Generate network interfaces file
+        if (write_network_interfaces_file() != 0) {
+            imx_cli_print("ERROR: Failed to write network interfaces file\n");
+        }
+
+        // Update blacklist configuration
+        imx_cli_print("=== Updating Network Blacklist ===\n");
+        if (update_network_blacklist() != 0) {
+            imx_cli_print("WARNING: Failed to update network blacklist\n");
+        }
+
+        imx_cli_print("\n");
+        imx_cli_print("*******************************************************\n");
+        imx_cli_print("*   NETWORK CONFIGURATION CHANGES COMPLETE            *\n");
+        imx_cli_print("*   Total changes applied: %d\n", changes_made);
+        imx_cli_print("*******************************************************\n");
+        imx_cli_print("\n");
+    } else {
+        imx_cli_print("No configuration changes required\n");
+    }
+
+    return changes_made;
+}
+```
+
+### File 6: Update CMakeLists.txt
+
+**Location**: `iMatrix/CMakeLists.txt` (or appropriate CMakeLists.txt for networking module)
+
+**Changes**:
+Add new source files to build:
+
+```cmake
+# Network platform sources
+set(NETWORK_SOURCES
+    # ... existing files ...
+    IMX_Platform/LINUX_Platform/networking/network_config_backup.c  # NEW
+    # ... rest of existing files ...
+)
+```
+
+---
+
+## Testing Strategy
+
+### Test Environment Setup
+
+1. **Test Configuration Files**:
+   - Prepare test binary config files with different network settings
+   - Test scenarios: eth0 server, wlan0 client, both modes, etc.
+
+2. **Test Script**: Create `test_network_config_diagnostics.sh`
+
+```bash
+#!/bin/bash
+# Test network configuration diagnostic messages
+
+echo "=== Network Configuration Diagnostic Test ==="
+
+# Test 1: First boot (no existing configs)
+echo "Test 1: First boot scenario"
+rm -f /etc/network/interfaces*
+rm -f /etc/network/hostapd.conf*
+rm -f /etc/network/udhcpd.*
+./Fleet-Connect -P
+
+# Test 2: Configuration change (should create -1.bak)
+echo "Test 2: First configuration change"
+# Modify config file
+./Fleet-Connect -P
+
+# Test 3: Another change (should create -2.bak)
+echo "Test 3: Second configuration change"
+# Modify config again
+./Fleet-Connect -P
+
+# Verify backups created
+echo "Checking backup files:"
+ls -la /etc/network/*bak 2>/dev/null || echo "No backups found"
+```
+
+### Test Cases
+
+| Test ID | Scenario | Expected Behavior | Verification |
+|---------|----------|-------------------|--------------|
+| TC-1 | First boot | No backups created, full diagnostics shown | Check logs, no .bak files |
+| TC-2 | Config change #1 | Creates -1.bak files, diagnostics shown | Verify -1.bak exists |
+| TC-3 | Config change #2 | Creates -2.bak files, diagnostics shown | Verify -2.bak exists |
+| TC-4 | No config change | No new backups, "unchanged" message | No new .bak files |
+| TC-5 | eth0 server mode | Full eth0 diagnostics, DHCP config shown | Check log output |
+| TC-6 | wlan0 AP mode | Full wlan0 diagnostics, hostapd shown | Check log output |
+| TC-7 | Multiple interfaces | Both interface diagnostics shown | Check log output |
+
+### Expected Diagnostic Output Example
+
+```
+*******************************************************
+*                                                     *
+*   APPLYING NETWORK CONFIGURATION CHANGES            *
+*                                                     *
+*******************************************************
+
+Network Configuration Source: Binary config file
+Number of Interfaces:         2
+
+=== Processing Interface 0: eth0 ===
+  Enabled:          Yes
+  Mode:             server
+
+=======================================================
+   WRITING NETWORK INTERFACES CONFIGURATION
+   File: /etc/network/interfaces
+=======================================================
+
+=== Backing Up Network Interfaces Configuration ===
+  Backup created: /etc/network/interfaces-1.bak
+
+--- Ethernet Interface (eth0) ---
+  Interface:        eth0
+  Mode:             static (server)
+  IP Address:       192.168.7.1
+  Netmask:          255.255.255.0
+  Gateway:          192.168.7.1
+  DHCP Server:      Enabled
+  DHCP Start:       192.168.7.100
+  DHCP End:         192.168.7.200
+  Internet Sharing: No
+
+=======================================================
+   WRITING DHCP SERVER CONFIGURATION
+   Interface: eth0
+   File: /etc/network/udhcpd.eth0.conf
+=======================================================
+
+  Backup created: /etc/network/udhcpd.eth0.conf-1.bak
+
+--- DHCP Server Settings ---
+  Interface:        eth0
+  IP Range Start:   192.168.7.100
+  IP Range End:     192.168.7.200
+  Subnet Mask:      255.255.255.0
+  Gateway/Router:   192.168.7.1
+  DNS Servers:      8.8.8.8 8.8.4.4
+  Lease Time:       86400 seconds (24 hours)
+  Max Leases:       101
+
+=== DHCP Server Configuration Written Successfully ===
+
+... (similar output for wlan0 if configured) ...
+
+*******************************************************
+*   NETWORK CONFIGURATION CHANGES COMPLETE            *
+*   Total changes applied: 2
+*******************************************************
+
+======================================
+NETWORK CONFIGURATION CHANGED
+System will reboot in 5 seconds
+======================================
+```
+
+---
+
+## Review and Verification
+
+### Pre-Implementation Checklist
+
+- [ ] User has reviewed and approved this plan
+- [ ] All required functions identified
+- [ ] File locations confirmed
+- [ ] Backup strategy validated
+- [ ] Diagnostic message format approved
+
+### Implementation Checklist
+
+- [ ] Create network_config_backup.h
+- [ ] Create network_config_backup.c
+- [ ] Modify network_interface_writer.c
+- [ ] Modify dhcp_server_config.c
+- [ ] Modify network_auto_config.c
+- [ ] Update CMakeLists.txt
+- [ ] Build and verify compilation
+- [ ] Test on development system
+- [ ] Verify backup file creation
+- [ ] Verify diagnostic output
+
+### Post-Implementation Verification
+
+- [ ] All configuration changes logged with imx_cli_print()
+- [ ] Incremental backups created (-1.bak, -2.bak, etc.)
+- [ ] No regression in existing network functionality
+- [ ] Diagnostic output matches expected format
+- [ ] Code follows existing patterns and style
+- [ ] Doxygen comments complete and accurate
+- [ ] No compilation warnings
+- [ ] Memory leaks checked (if applicable)
+
+---
+
+## Questions for User
+
+Before proceeding with implementation, please confirm:
+
+1. **Backup Naming**: Is the `-N.bak` naming scheme acceptable? (e.g., `interfaces-1.bak`, `interfaces-2.bak`)
+   - Alternative: `.bak.N` (e.g., `interfaces.bak.1`)
+
+2. **Backup Limit**: Should we limit the number of backups kept? (e.g., keep last 10 only)
+   - Current plan: No limit, let them accumulate
+
+3. **Diagnostic Verbosity**: Is the level of diagnostic output in the examples above appropriate?
+   - Too verbose?
+   - Need more detail?
+
+4. **Backup Timing**: Should we backup:
+   - Only when configuration changes (current plan)
+   - On every boot regardless of changes
+
+5. **Additional Files**: Are there any other configuration files that should be backed up?
+   - Current: interfaces, hostapd.conf, udhcpd.*.conf
+   - Others: wpa_supplicant.conf, etc.?
+
+---
+
+## Next Steps
+
+Upon approval of this plan:
+
+1. Create todo list with implementation tasks
+2. Implement changes file by file
+3. Test each component incrementally
+4. Integration testing
+5. Final review and documentation update
+
+---
+
+**Status**: ✅ Plan Complete - Awaiting User Review and Approval
+
+**Author**: Claude Code
+**Date**: 2025-11-01
+**Version**: 1.0
