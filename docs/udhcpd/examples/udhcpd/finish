@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "Finish Udhcpd runit service..."
+
+exec ifconfig wlan0 down

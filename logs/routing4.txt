@@ -1,0 +1,2247 @@
+
+Startup looking for lockfile: /usr/qk/etc/sv/FC-1/iMatrix.lock
+Lock acquired successfully. No other instance is running now.
+Fleet Connect built on Nov  6 2025 @ 08:47:46
+Display setup finished
+Commencing iMatrix Initialization Phase 0.0
+Initialization Phase 0.1
+Initialization Phase 0.2
+Initialization Phase 0.4
+Commencing iMatrix Initialization Sequence
+[00:00:00.000] [MM2-INFO] ========================================
+[00:00:00.016] [MM2-INFO] Creating upload source directory structure
+[00:00:00.016] [MM2-INFO] ========================================
+[00:00:00.016] [MM2-INFO] Base directory: /tmp/mm2
+[00:00:00.017] [MM2-INFO] Corrupted directory: /tmp/mm2/corrupted
+[00:00:00.017] [MM2-INFO] Created/verified source directory: /tmp/mm2/gateway
+[00:00:00.017] [MM2-INFO] Created/verified source directory: /tmp/mm2/hosted
+[00:00:00.017] [MM2-INFO] Created/verified source directory: /tmp/mm2/ble
+[00:00:00.017] [MM2-INFO] Created/verified source directory: /tmp/mm2/can
+[00:00:00.017] [MM2-INFO] Created/verified corrupted subdirectory: /tmp/mm2/corrupted/gateway
+[00:00:00.018] [MM2-INFO] Created/verified corrupted subdirectory: /tmp/mm2/corrupted/hosted
+[00:00:00.018] [MM2-INFO] Created/verified corrupted subdirectory: /tmp/mm2/corrupted/ble
+[00:00:00.018] [MM2-INFO] Created/verified corrupted subdirectory: /tmp/mm2/corrupted/can
+[00:00:00.018] [MM2-INFO] Directory structure created successfully
+[00:00:00.018] [MM2-INFO] ========================================
+[00:00:00.018] [MM2-RECOVERY] ========================================
+[00:00:00.018] [MM2-RECOVERY] WARNING: recover_disk_spooled_data() is DEPRECATED
+[00:00:00.018] [MM2-RECOVERY] Main app should call imx_recover_sensor_disk_data() per sensor
+[00:00:00.018] [MM2-RECOVERY] ========================================
+iMatrix Configuration size: 560648
+Read both pages, valid flag = 3, seq=[750, 749], using page 0
+[00:00:00.251] Restored configuration from SFLASH Configuration Loaded
+iMX6 Ultralite Failed to open OCOTP fileiMX6 Ultralite Failed to open OCOTP fileiMX6 Ultralite Serial Number: 0x0000000000000000
+iMatrix memory tracking initialized
+Using 8740 Bytes of storage for message queues
+Creating Lists
+25 message_t structs added to the free list.
+RTC using System time
+System time used
+Core System Initialized
+Command Line Processor
+Setting up Fleet Connect, Product ID: 374664309, Serial Number: 0131557250
+Initializing Variable length data pool, pool size: 5048 Bytes
+Variable Length Pools:  7 Bytes[ 8 ] 32 Bytes[ 6 ] 64 Bytes[ 0 ] 128 Bytes[ 10 ] 256 Bytes[ 0 ] 512 Bytes[ 0 ] 768 Bytes[ 4 ]
+System has 8 Controls, 46 Sensors and 0 Variables
+Initializing Controls & Sensors
+Setting up Control Data @: 0x9f1474 - Adding 8 entries
+Setting up Sensor Data @: 0x9f2234 - Adding 46 entries
+Setting up Variable Data @: 0x9f7144 - Adding 0 entries
+Initializing Location System
+system_init.c:1089 - force AP setup
+Initialization Complete, Thing will run in Wi-FI Setup mode
+iMatrix Gateway Configuration successfully Initialized
+Loading Application Config: 274360 Bytes
+System contains Application Configuration
+Magic: 0x87654321
+Linux Gateway Configuration loaded from iMatrix
+iMatrix memory tracking initialized
+Found matching file: /usr/qk/etc/sv/FC-1/Aptera_PI_1_cfg.bin
+[00:00:03.310] Opening /usr/qk/etc/sv/FC-1/Aptera_PI_1_cfg.bin to read configuration
+read_config_v12: Successfully read config file '/usr/qk/etc/sv/FC-1/Aptera_PI_1_cfg.bin'[00:00:03.430] Configuration file /usr/qk/etc/sv/FC-1/Aptera_PI_1_cfg.bin read successfully
+Loading 2 network interface(s) from configuration file
+  Mapping eth0 from config[0] to device_config[2]
+    DHCP range: 192.168.7.100 - 192.168.7.199
+  Config[0] → device_config[2]: eth0, mode=server, IP=192.168.7.1
+  Mapping wlan0 from config[1] to device_config[0]
+  Config[1] → device_config[0]: wlan0, mode=client, IP=DHCP
+Network configuration loaded successfully
+Total interfaces configured: 2 (max 4)
+Found 2 DBC file(s) for Ethernet CAN bus (bus 2)
+  Loaded DBC file: bus=2, name='Powertrain', alias='PT'
+  Loaded DBC file: bus=2, name='Infotainment', alias='IN'
+Configuration Summary:
+  Product ID: 2201718576
+  Organization ID: 250007060
+  Name: Aptera Production Intent-1
+  No. Predefined: 60
+  No. DBC Files: 2
+  No. Controls: 0
+  No. Sensors: 61
+  No. Control Sensors: 61
+  No. CAN Controls: 0
+  No. CAN Sensors: 1071
+  No. CAN Control Sensors: 1071
+  Check-in Period: 300 seconds
+Physical CAN bus 0: No nodes configured
+Physical CAN bus 1: No nodes configured
+Initializing 2 Ethernet CAN logical bus(es)
+  Ethernet logical bus 'PT' (62 nodes) → eth_index 0
+  Ethernet logical bus 'IN' (52 nodes) → eth_index 1
+Successfully allocated 2 Ethernet CAN logical bus(es)
+Physical CAN bus hash tables initialized
+Ethernet CAN bus hash tables initialized
+Loaded 3 CAN bus hardware configuration(s) into mgs
+CAN Application Configuration saved to file system with 60 predefined sensors
+Successfully initialized Aptera Solar EV through EV abstraction layer
+Successfully initialized Vehicle specific setup
+Configuring CAN bus speeds based on loaded configuration
+CAN Bus 0 speed from config: 0 bps
+CAN Bus 1 speed from config: 0 bps
+CAN Bus Ethernet server enabled
+iMatrix Application Configuration successfully processed
+Warning: Unknown vehicle type 2201718576, no sensor mappings initialized
+Initializing CAN BUS Handler for Aptera
+[00:00:03.795] CAN Controller Serial Number Set: 470709093
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+BTstack on LINUX
+Packet Log: /tmp/hci_dump.pklg
+[BTStack] Setting up stdin for console CLI input
+[BTStack] Also attempting to setup TTY interface for additional CLI input
+[TTY] Created pseudo-terminal - connect using: /dev/pts/2
+[TTY] Example: microcom /dev/pts/2
+[TTY] Waiting for connection...
+[BTStack] TTY interface initialized successfully
+[BTStack] TTY output mirroring enabled on fd 5
+[BTStack] TTY input thread created successfully
+[BTStack] Both stdin and TTY interfaces are now active
+[TTY Thread] Started - waiting for TTY connection
+Linux Gateway: Hardware Revision: 1, Development Build - Gateway Version: 1.005.321
+
+iMatrix Linux Gateway. Copyright (c) 2025 iMatrix Systems, Inc.
+[00:00:04.315] IMX Process Changing from state: UNKNOWN to MAIN_IMATRIX_SETUP
+[00:00:04.320] [NETMGR] State: NET_INIT | Loaded Wi-Fi interface state: enabled
+[00:00:04.321] [NETMGR] State: NET_INIT | Network manager initialized
+[00:00:04.321] Checking network configuration...
+[00:00:04.335] Current config hash: 68dc2eec401b3016f23c6c8d1dc7e866
+[00:00:04.337] Stored config hash: 68dc2eec401b3016f23c6c8d1dc7e866
+[00:00:04.337] Network configuration unchanged
+[00:00:06.337] Using NMEA Sentences
+[00:00:06.638] UBX 4.1 configuration set
+[00:00:06.638] GPS satellite constellation enabled
+[00:00:06.638] SBAS satellite constellation enabled
+[00:00:06.638] Galileo satellite constellation enabled
+[00:00:06.638] BeiDou satellite constellation enabled
+[00:00:07.840] GNSS Constellations set to: GPS,SBAS,Galileo,BeiDou
+[00:00:07.859] Created GPS reader thread
+[00:00:09.868] [WiFi list - Changing state from: 12 to 0]
+Detected Accelerometer chip
+[00:00:09.892] [ACCEL - Accelerometer detected - Configuring]
+Accelerometer enabled
+[00:00:11.007] IMX Process Changing from state: MAIN_IMATRIX_SETUP to MAIN_IMATRIX_PROVISION_INIT
+[00:00:11.007] Starting Provisioning, Scan for Access Points
+[00:00:11.009] [WiFi list - Changing state from: 0 to 1]
+[00:00:11.021] network 2 size 112
+[00:00:11.021] Created network id = 2
+[00:00:11.022] network 3 size 112
+[00:00:11.023] Created network id = 3
+[00:00:11.041] Energy trip manager initialized: /usr/qk/etc/sv/FC-1/energy_trips
+[00:00:11.042] Storage mode: summary, Upload mode: summary
+[00:00:11.145] IMX Process Changing from state: MAIN_IMATRIX_PROVISION_INIT to MAIN_IMATRIX_PROVISION_SCAN
+[CAN TCP Server: Using PCAN format parser]
+[CAN TCP Server thread started.]
+[00:00:11.148] [WiFi list - Changing state from: 1 to 2]
+[00:00:11.152] read 112 bytes from file wifi_network_3.bin, result 0
+[00:00:11.152] Network 3 security 3
+[CAN TCP Server listening on 192.168.7.1:5555]
+[00:00:11.252] IMX Process Changing from state: MAIN_IMATRIX_PROVISION_SCAN to MAIN_IMATRIX_PROVISION_SETUP
+[00:00:11.490] [NETMGR] State: NET_INIT | State changed from UNKNOWN to NET_INIT
+[00:00:11.490] [NET] DNS prime skipped: No active links
+[00:00:11.492] [NETMGR] State: NET_INIT | wlan0 obtained IP address, starting grace period
+[00:00:11.492] [NETMGR-WIFI0] State: NET_INIT | WiFi interface activated, resetting scan attempts
+[00:00:11.493] [NETMGR] State: NET_INIT | Initializing network manager
+[00:00:11.493] [NETMGR] State: NET_INIT | === Interface DHCP Server Status ===
+[00:00:11.494] [NETMGR] State: NET_INIT |   eth0: DHCP SERVER (excluded from Internet routing)
+[00:00:11.494] [NETMGR] State: NET_INIT |   wlan0: client mode
+[00:00:11.494] [NETMGR] State: NET_INIT |   ppp0: client mode
+[00:00:11.494] [NETMGR] State: NET_INIT | ====================================
+[00:00:11.494] [NETMGR] State: NET_INIT | State transition: NET_INIT -> NET_SELECT_INTERFACE
+[00:00:11.504] read 112 bytes from file wifi_network_2.bin, result 0
+[00:00:11.504] Network 2 security 3
+[00:00:11.707] [WiFi list - Changing state from: 2 to 3]
+[00:00:11.807] [WiFi list - Changing state from: 3 to 4]
+[00:00:11.808] Running... http_client_init_session(s)
+[00:00:11.808] WIFI_LIST Request: /api/v1/wifi/info?sn=0131557250
+[00:00:11.808] Running... http_client_prepare_request(s)
+[00:00:11.808] Running... http_client_connect(s)
+[00:00:11.968] Running... http_client_send_request(s)
+[00:00:11.968] Running... http_client_get_header(s)
+[00:00:12.274] Running... http_client_parse_header(s)
+[00:00:12.274] 
+Received 57 bytes response.
+[00:00:12.289] wifi_info.count = 3 (was 3), checksum = 'ec9bd95ff9c166b11d500c4b161c1909' (was 'ec9bd95ff9c166b11d500c4b161c1909')
+[00:00:12.289] Actual stored networks count = 2 (3 expected)
+[00:00:12.391] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_INIT to NET_SELECT_INTERFACE
+[00:00:12.392] [NET] DNS prime skipped: No active links
+[00:00:12.395] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for wlan0
+[00:00:12.395] [NET] get_ping_target_ip: No active links, using 34.94.71.128
+[00:00:12.395] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: launch_ping_thread called
+[00:00:12.402] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Creating new thread for ping test
+[00:00:12.403] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Thread created and detached successfully, thread_id=2921672068
+[00:00:12.403] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Thread state updated - running=true, thread_valid=true
+[00:00:12.403] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for wlan0
+[00:00:12.405] [NET] ping_thread_fn: Starting ping thread for wlan0 to IP 34.94.71.128
+[00:00:12.405] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Thread started, thread_id=2921672068, target_ip=34.94.71.128
+[00:00:12.405] [NET: wlan0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:00:12.407] [NET: wlan0] execute_ping: Target IP string: 34.94.71.128
+[00:00:12.407] [NET: wlan0] execute_ping: Executing command: ping -n -I wlan0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:00:12.414] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=NO, cellular_started=NO, has_ip=NO)
+[00:00:12.414] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:00:12.414] [WiFi list - Changing state from: 4 to 5]
+[00:00:12.414] Running... http_client_init_session(s)
+[00:00:12.415] WIFI_LIST Request: /api/v1/wifi/networks?sn=0131557250
+[00:00:12.415] Running... http_client_prepare_request(s)
+[00:00:12.415] Running... http_client_connect(s)
+[00:00:12.417] [NET: wlan0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:00:12.417] [NET: wlan0] execute_ping: Starting read loop with 18 second timeout
+[00:00:12.448] [NET: wlan0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:00:12.476] Running... http_client_send_request(s)
+[00:00:12.477] Running... http_client_get_header(s)
+[00:00:12.498] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=55 time=46.495 ms
+[00:00:12.499] [NET: wlan0] execute_ping: Found reply #1
+[00:00:12.499] [NET: wlan0] execute_ping: Latency: 46.495 ms
+[00:00:12.679] Running... http_client_parse_header(s)
+[00:00:12.679] 
+Received 167 bytes response:
+[{"id":2,"securityType":"WPA2","updatedAt":1741284694},{"id":3,"securityType":"WPA2","updatedAt":1741284728},{"id":10,"securityType":"WPA-EAP","updatedAt":1754902900}]EOF
+[00:00:12.680] Found network with id 2, timestamp 0 - set download_pending
+[00:00:12.680] Found network with id 3, timestamp 0 - set download_pending
+[00:00:12.680] Added network 10 to list, download_pending set
+[00:00:12.781] [WiFi list - Changing state from: 5 to 6]
+[00:00:12.882] [WiFi list - Changing state from: 6 to 7]
+[00:00:12.883] Running... http_client_init_session(s)
+[00:00:12.883] WIFI_LIST Request: /api/v1/wifi/network?id=10&sn=0131557250
+[00:00:12.883] Running... http_client_prepare_request(s)
+[00:00:12.883] Running... http_client_connect(s)
+[00:00:12.994] Running... http_client_send_request(s)
+[00:00:12.995] Running... http_client_get_header(s)
+[00:00:13.404] Running... http_client_parse_header(s)
+[00:00:13.404] 
+Received 56 bytes response:
+{"status":"error","err":"Network credentials not found"}EOF
+[00:00:13.404] Invalid response code 409
+[00:00:13.508] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:00:13.508] [NET] DNS prime skipped: No active links
+[00:00:13.510] Running... http_client_init_session(s)
+[00:00:13.510] WIFI_LIST Request: /api/v1/wifi/network?id=3&sn=0131557250
+[00:00:13.511] Running... http_client_prepare_request(s)
+[00:00:13.511] Running... http_client_connect(s)
+[00:00:13.513] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=55 time=60.213 ms
+[00:00:13.513] [NET: wlan0] execute_ping: Found reply #2
+[00:00:13.513] [NET: wlan0] execute_ping: Latency: 60.213 ms
+[00:00:13.557] Running... http_client_send_request(s)
+[00:00:13.558] Running... http_client_get_header(s)
+[00:00:13.807] Running... http_client_parse_header(s)
+[00:00:13.807] 
+Received 68 bytes response:
+{"ssid":"2ROOS-Tahoe","password":"happydog","updated_at":1741284728}EOF
+[00:00:13.818] write 112 bytes to file wifi_network_3.bin, result 0
+[00:00:13.919] Running... http_client_init_session(s)
+[00:00:13.921] WIFI_LIST Request: /api/v1/wifi/network?id=2&sn=0131557250
+[00:00:13.921] Running... http_client_prepare_request(s)
+[00:00:13.921] Running... http_client_connect(s)
+[00:00:13.963] Running... http_client_send_request(s)
+[00:00:13.964] Running... http_client_get_header(s)
+[00:00:14.219] Running... http_client_parse_header(s)
+[00:00:14.219] 
+Received 70 bytes response:
+{"ssid":"SierraTelecom","password":"happydog","updated_at":1741284694}EOF
+[00:00:14.225] write 112 bytes to file wifi_network_2.bin, result 0
+[00:00:14.427] [WiFi list - Changing state from: 7 to 8]
+[00:00:14.510] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=55 time=55.919 ms
+[00:00:14.510] [NET: wlan0] execute_ping: Found reply #3
+[00:00:14.510] [NET: wlan0] execute_ping: Latency: 55.919 ms
+[00:00:14.510] [NET: wlan0] execute_ping: Raw output: 
+[00:00:14.511] [NET: wlan0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:00:14.511] [NET: wlan0] execute_ping: Found ping statistics line
+[00:00:14.511] [NET: wlan0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:00:14.511] [NET: wlan0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:00:14.511] [NET: wlan0] execute_ping: Parsed packet loss: 0%
+[00:00:14.511] [NET: wlan0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:00:14.512] [NET: wlan0] execute_ping: Closing ping pipe...
+[00:00:14.512] [NET: wlan0] execute_ping: Ping command exited with status: 0
+[00:00:14.512] [NET: wlan0] execute_ping: Ping command completed normally with exit code: 0
+[00:00:14.512] [NET: wlan0] execute_ping: Final results - replies: 3, avg_latency: 54 ms, packet_loss: 0%
+[00:00:14.512] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:00:14.512] [NET] ping_thread_fn: wlan0 ping result - success:true replies:3 latency:54
+[00:00:14.512] [NET] wlan0: replies=3 avg_lat=54ms link_up=true
+[00:00:14.513] [NET] ping_thread_fn: wlan0 thread completed and marked as not running/invalid
+[00:00:14.513] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread exiting normally, thread_valid=false, thread_id=2921672068
+[00:00:14.513] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: cleanup_ping_thread called, thread_id=2921672068
+[00:00:14.513] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Cleanup complete, thread marked as not running/invalid
+[00:00:14.513] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread cleanup complete, exiting
+[00:00:14.538] [NET] DNS prime succeeded: coap-dev.imatrixsys.com => 225e4780
+[00:00:14.541] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 completed, score: 10, latency: 54
+[00:00:14.547] [NETMGR] State: NET_WAIT_RESULTS | eth0 has IP but is DHCP server, not marking active for Internet routing
+[00:00:14.554] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:00:14.554] [WiFi list - Changing state from: 8 to 10]
+[00:00:14.656] [WiFi list - Changing state from: 10 to 11]
+[00:00:15.566] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:00:15.568] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:00:15.569] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:00:15.569] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:00:15.569] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:00:15.569] [COMPUTE_BEST] Current interface states:
+[00:00:15.569] [COMPUTE_BEST]   eth0: active=NO, link_up=NO, score=0, latency=0
+[00:00:15.569] [COMPUTE_BEST]   wlan0: active=YES, link_up=YES, score=10, latency=54
+[00:00:15.569] [COMPUTE_BEST]   ppp0: active=NO, link_up=NO, score=0, latency=0
+[00:00:15.569] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:00:15.569] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:00:15.569] [COMPUTE_BEST]   Checking wlan0: score=10 >= good_thr=7? YES
+[00:00:15.569] [COMPUTE_BEST]   Found GOOD link by priority: wlan0 (score=10, latency=54)
+[00:00:15.570] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:00:15.570] [NETMGR] State: NET_ONLINE | Interface switch recorded: NONE -> wlan0 (count: 1 in window)
+[00:00:15.570] [APPLY_INTERFACE_EFFECTS] Deferring side effects on first test run with scores eth0: 0 and wlan0: 10
+[00:00:15.570] [NETMGR] State: NET_ONLINE | First test run detected - deferring interface side effects but allowing selection
+[00:00:15.576] [NETMGR] State: NET_ONLINE | Best interface: wlan0 (score: 10, latency: 54), going online
+[00:00:15.676] IMX Process Changing from state: MAIN_IMATRIX_PROVISION_SETUP to MAIN_IMATRIX_OTA_CHECK
+No OTA image URL on sflash
+[00:00:15.777] IMX Process Changing from state: MAIN_IMATRIX_OTA_CHECK to MAIN_IMATRIX_NORMAL
+[00:00:16.589] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:00:17.227] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+[00:00:17.327] [NETMGR] State: NET_ONLINE | Default route verified for wlan0
+[00:00:17.433] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP while online, marking for verification test
+[00:00:17.433] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:00:17.433] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:00:17.434] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+  | UDP Coordinator | Time to check (CT: 16589 UICT: 0 FS: 1)
+  | UDP Coordinator | Certificates valid. Start DTLS.
+Init UDP
+[00:00:17.644] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:00:17.645] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:00:17.646] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:00:17.646] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:00:18.910] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:00:18.914] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:00:18.915] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:00:18.917] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for wlan0
+[00:00:18.918] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:00:18.918] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: launch_ping_thread called
+[00:00:18.918] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Creating new thread for ping test
+[00:00:18.918] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Thread created and detached successfully, thread_id=2921618820
+[00:00:18.919] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Thread state updated - running=true, thread_valid=true
+[00:00:18.919] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for wlan0
+[00:00:18.924] [NET] ping_thread_fn: Starting ping thread for wlan0 to IP 34.94.71.128
+[00:00:18.924] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:00:18.924] [NET: wlan0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:00:18.924] [NET: wlan0] execute_ping: Target IP string: 34.94.71.128
+[00:00:18.925] [NET: wlan0] execute_ping: Executing command: ping -n -I wlan0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:00:18.935] [00:00:18.936] [NET: wlan0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:00:18.936] [NET: wlan0] execute_ping: Starting read loop with 18 second timeout
+[NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=NO, cellular_started=NO, has_ip=NO)
+[00:00:18.942] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:00:18.971] [NET: wlan0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:00:19.026] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=55 time=49.920 ms
+[00:00:19.026] [NET: wlan0] execute_ping: Found reply #1
+[00:00:19.027] [NET: wlan0] execute_ping: Latency: 49.920 ms
+[00:00:19.159] >?>uGW ADV UPDATE| Updated wifi_ext_state to 0x08 (icb.state-(6) MAIN_IMATRIX_NORMAL, Wi-Fi state-(0) (null), off=0, AP_setup_mode=0, scan_state=0)
+[00:00:19.973] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:00:20.042] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=55 time=59.926 ms
+[00:00:20.042] [NET: wlan0] execute_ping: Found reply #2
+[00:00:20.042] [NET: wlan0] execute_ping: Latency: 59.926 ms
+
+[00:00:20.981] [NETMGR-PPP0] State: NET_WAIT_RESULTS | Cellular transitioned from NOT_READY to READY, allowing PPP retry
+[00:00:21.033] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=55 time=48.777 ms
+[00:00:21.033] [NET: wlan0] execute_ping: Found reply #3
+[00:00:21.033] [NET: wlan0] execute_ping: Latency: 48.777 ms
+[00:00:21.033] [NET: wlan0] execute_ping: Raw output: 
+[00:00:21.033] [NET: wlan0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:00:21.033] [NET: wlan0] execute_ping: Found ping statistics line
+[00:00:21.033] [NET: wlan0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:00:21.034] [NET: wlan0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:00:21.034] [NET: wlan0] execute_ping: Parsed packet loss: 0%
+[00:00:21.034] [NET: wlan0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:00:21.034] [NET: wlan0] execute_ping: Closing ping pipe...
+[00:00:21.034] [NET: wlan0] execute_ping: Ping command exited with status: 0
+[00:00:21.034] [NET: wlan0] execute_ping: Ping command completed normally with exit code: 0
+[00:00:21.034] [NET: wlan0] execute_ping: Final results - replies: 3, avg_latency: 52 ms, packet_loss: 0%
+[00:00:21.034] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:00:21.034] [NET] ping_thread_fn: wlan0 ping result - success:true replies:3 latency:52
+[00:00:21.035] [NET] wlan0: replies=3 avg_lat=52ms link_up=true
+[00:00:21.035] [NET] ping_thread_fn: wlan0 thread completed and marked as not running/invalid
+[00:00:21.035] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:00:21.035] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: cleanup_ping_thread called, thread_id=2921618820
+[00:00:21.035] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Cleanup complete, thread marked as not running/invalid
+[00:00:21.035] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread cleanup complete, exiting
+[00:00:22.227] [NETMGR-PPP0] State: NET_WAIT_RESULTS | Started pppd, will monitor for PPP0 device creation
+[00:00:22.227] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 completed, score: 10, latency: 52
+[00:00:22.229] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:00:22.239] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:00:22.341] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:00:22.343] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:00:22.343] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:00:22.343] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:00:22.343] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:00:22.343] [COMPUTE_BEST] Current interface states:
+[00:00:22.344] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:00:22.344] [COMPUTE_BEST]   wlan0: active=YES, link_up=YES, score=10, latency=52
+[00:00:22.344] [COMPUTE_BEST]   ppp0: active=NO, link_up=NO, score=0, latency=0
+[00:00:22.344] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:00:22.344] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:00:22.344] [COMPUTE_BEST]   Checking wlan0: score=10 >= good_thr=7? YES
+[00:00:22.344] [COMPUTE_BEST]   Found GOOD link by priority: wlan0 (score=10, latency=52)
+[00:00:22.344] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:00:22.344] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:00:22.344] [NETMGR] State: NET_ONLINE | wlan0 score was good, setting as default route
+[00:00:22.697] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+[00:00:22.805] [NET] Default route already exists for wlan0, skipping route update
+[00:00:22.888] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+[00:00:22.980] [NETMGR] State: NET_ONLINE | Current routing table:
+default via 10.2.0.1 dev wlan0 
+10.2.0.0/24 dev wlan0 proto kernel scope link src 10.2.0.18 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:00:23.048] [NETMGR] State: NET_ONLINE | Setting current interface to wlan0
+[00:00:23.048] [NET] Notifying link type change to wlan0
+[00:00:23.048] [NETMGR] State: NET_ONLINE | Best interface: wlan0 (score: 10, latency: 52), going online
+[00:00:23.379] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:00:23.488] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+[00:00:23.665] [NETMGR] State: NET_ONLINE | Default route verified for wlan0
+[00:00:23.781] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:00:23.786] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:00:23.786] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:00:23.786] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:00:24.394] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:00:24.396] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:00:24.396] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:00:24.396] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+Nov  6 23:22:28 iMatrix:FC-1:0131557250 daemon.err pppd[1164]: not replacing default route to wlan0 [10.2.0.1]
+[00:00:25.412] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:00:25.414] [NETMGR] State: NET_SELECT_INTERFACE | ppp0 obtained IP address, starting grace period
+[00:00:25.414] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:00:25.414] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:00:25.421] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for wlan0
+[00:00:25.421] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:00:25.421] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: launch_ping_thread called
+[00:00:25.421] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Creating new thread for ping test
+[00:00:25.422] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Thread created and detached successfully, thread_id=2921618820
+[00:00:25.422] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Thread state updated - running=true, thread_valid=true
+[00:00:25.422] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for wlan0
+[00:00:25.422] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:00:25.422] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:00:25.422] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:00:25.423] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:00:25.423] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921475460
+[00:00:25.423] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:00:25.423] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:00:25.423] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:00:25.424] [NET] ping_thread_fn: Starting ping thread for wlan0 to IP 34.94.71.128
+[00:00:25.424] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:00:25.424] [NET: wlan0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:00:25.424] [NET: wlan0] execute_ping: Target IP string: 34.94.71.128
+[00:00:25.424] [NET: wlan0] execute_ping: Executing command: ping -n -I wlan0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:00:25.425] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:00:25.425] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921475460, target_ip=34.94.71.128
+[00:00:25.432] [NET: wlan0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:00:25.433] [NET: wlan0] execute_ping: Starting read loop with 18 second timeout
+[00:00:25.481] [NET: wlan0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:00:25.543] [NETMGR-PPP0] State: NET_WAIT_RESULTS | PPP0 using peer address as gateway: 10.64.64.64
+[00:00:25.545] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=55 time=57.855 ms
+[00:00:25.545] [NET: wlan0] execute_ping: Found reply #1
+[00:00:25.545] [NET: wlan0] execute_ping: Latency: 57.855 ms
+[00:00:25.548] [NETMGR] State: NET_WAIT_RESULTS | Adding test route: ip route add 34.94.71.128/32 dev ppp0 2>/dev/null
+[00:00:25.592] [NETMGR] State: NET_WAIT_RESULTS | Adding gateway test route: ip route add 34.94.71.128/32 via 10.64.64.64 dev ppp0 metric 100 2>/dev/null
+[00:00:25.645] [NETMGR] State: NET_WAIT_RESULTS | Test route added successfully for ppp0
+[00:00:25.645] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:00:25.645] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:00:25.645] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:00:25.655] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:00:25.655] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:00:25.681] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:00:26.024] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=341.824 ms
+[00:00:26.024] [NET: ppp0] execute_ping: Found reply #1
+[00:00:26.024] [NET: ppp0] execute_ping: Latency: 341.824 ms
+[00:00:26.437] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:00:26.921] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=239.014 ms
+[00:00:26.922] [NET: ppp0] execute_ping: Found reply #2
+[00:00:26.922] [NET: ppp0] execute_ping: Latency: 239.014 ms
+[00:00:27.906] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=223.261 ms
+[00:00:27.906] [NET: ppp0] execute_ping: Found reply #3
+[00:00:27.907] [NET: ppp0] execute_ping: Latency: 223.261 ms
+[00:00:27.907] [NET: ppp0] execute_ping: Raw output: 
+[00:00:27.908] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:00:27.908] [NET: ppp0] execute_ping: Found ping statistics line
+[00:00:27.908] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:00:27.908] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:00:27.908] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:00:27.908] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:00:27.908] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:00:27.909] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:00:27.909] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:00:27.909] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 268 ms, packet_loss: 0%
+[00:00:27.910] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:00:27.910] [NETMGR] State: NET_WAIT_RESULTS | Removing test route: ip route del 34.94.71.128/32 dev ppp0 2>/dev/null
+[00:00:27.999] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:268
+[00:00:27.999] [NET] ppp0: replies=3 avg_lat=268ms link_up=true
+[00:00:27.999] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:00:28.000] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921475460
+[00:00:28.000] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921475460
+[00:00:28.000] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:00:28.000] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:00:28.469] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 268
+[00:00:28.490] [NET: wlan0] execute_ping: Raw output: 
+[00:00:28.490] [NET: wlan0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:00:28.490] [NET: wlan0] execute_ping: Found ping statistics line
+[00:00:28.490] [NET: wlan0] execute_ping: Raw output: 3 packets transmitted, 1 packets received, 66% packet loss
+[00:00:28.490] [NET: wlan0] execute_ping: Found summary line for 3 packets transmitted, 1 packets received, 66% packet loss
+[00:00:28.490] [NET: wlan0] execute_ping: Parsed packet loss: 66%
+[00:00:28.491] [NET: wlan0] execute_ping: Finished reading output after 5 lines, total replies: 1, found_summary: true, packet_loss: 66, found_error: false
+[00:00:28.491] [NET: wlan0] execute_ping: Closing ping pipe...
+[00:00:28.491] [NET: wlan0] execute_ping: Ping command exited with status: 0
+[00:00:28.491] [NET: wlan0] execute_ping: Ping command completed normally with exit code: 0
+[00:00:28.491] [NET: wlan0] execute_ping: Final results - replies: 1, avg_latency: 57 ms, packet_loss: 66%
+[00:00:28.491] [NET] execute_ping: Returning true (replies:1 summary:true)
+[00:00:28.492] [NET] ping_thread_fn: wlan0 ping result - success:true replies:1 latency:57
+[00:00:28.492] [NET] wlan0: replies=1 avg_lat=57ms link_up=true
+[00:00:28.492] [NET] ping_thread_fn: wlan0 thread completed and marked as not running/invalid
+[00:00:28.492] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:00:28.492] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: cleanup_ping_thread called, thread_id=2921618820
+[00:00:28.492] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Cleanup complete, thread marked as not running/invalid
+[00:00:28.492] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread cleanup complete, exiting
+[00:00:29.484] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 completed, score: 3, latency: 57
+[00:00:29.484] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 268
+[00:00:29.487] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:00:29.495] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:00:30.512] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:00:30.512] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:00:30.512] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:00:30.513] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:00:30.513] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:00:30.513] [COMPUTE_BEST] Current interface states:
+[00:00:30.513] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:00:30.513] [COMPUTE_BEST]   wlan0: active=YES, link_up=YES, score=3, latency=57
+[00:00:30.513] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=268
+[00:00:30.513] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:00:30.513] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:00:30.513] [COMPUTE_BEST]   Checking wlan0: score=3 >= good_thr=7? NO
+[00:00:30.513] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:00:30.514] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=268)
+[00:00:30.514] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:00:30.514] [NETMGR] State: NET_ONLINE | Interface switch recorded: wlan0 -> ppp0 (count: 2 in window)
+[00:00:30.514] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:00:30.514] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:00:30.636] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:00:30.737] [NET] Default route already exists for ppp0, skipping route update
+[00:00:30.805] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:00:30.908] [NETMGR] State: NET_ONLINE | Current routing table:
+default via 10.2.0.1 dev wlan0 
+default dev ppp0 scope link metric 5 
+10.2.0.0/24 dev wlan0 proto kernel scope link src 10.2.0.18 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:00:30.969] [NETMGR] State: NET_ONLINE | Switching from wlan0 to ppp0, cleaning up routes
+[00:00:30.969] [NETMGR] State: NET_ONLINE | Removing default route for wlan0: ip route del default dev wlan0 2>/dev/null
+[00:00:31.122] [NETMGR] State: NET_ONLINE | Routing table after cleanup:
+[00:00:31.123] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.2.0.0/24 dev wlan0 proto kernel scope link src 10.2.0.18 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:00:31.188] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:00:31.188] [NET] Notifying link type change to ppp0
+[00:00:31.188] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 268), going online
+[00:00:31.598] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:00:31.657] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:00:31.770] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:00:32.003] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:00:32.004] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:00:32.004] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:00:32.004] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:00:32.619] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:00:32.619] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:00:32.619] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:00:32.620] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:00:33.636] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:00:33.637] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:00:33.637] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:00:33.639] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for wlan0
+[00:00:33.639] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:00:33.639] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: launch_ping_thread called
+[00:00:33.639] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Creating new thread for ping test
+[00:00:33.639] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Thread created and detached successfully, thread_id=2921618820
+[00:00:33.639] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Thread state updated - running=true, thread_valid=true
+[00:00:33.640] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for wlan0
+[00:00:33.640] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:00:33.640] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:00:33.640] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:00:33.640] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:00:33.640] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921475460
+[00:00:33.641] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:00:33.641] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:00:33.641] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:00:33.646] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:00:33.646] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921475460, target_ip=34.94.71.128
+[00:00:33.647] [NET] ping_thread_fn: Starting ping thread for wlan0 to IP 34.94.71.128
+[00:00:33.647] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:00:33.647] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:00:33.647] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:00:33.647] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:00:33.655] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:00:33.655] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:00:33.684] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:00:33.881] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=168.426 ms
+[00:00:33.881] [NET: ppp0] execute_ping: Found reply #1
+[00:00:33.881] [NET: ppp0] execute_ping: Latency: 168.426 ms
+[00:00:33.900] [NETMGR] State: NET_WAIT_RESULTS | Adding test route: ip route add 34.94.71.128/32 dev wlan0 2>/dev/null
+[00:00:33.940] [NETMGR] State: NET_WAIT_RESULTS | Adding gateway test route: ip route add 34.94.71.128/32 via 10.2.0.1 dev wlan0 metric 100 2>/dev/null
+[00:00:33.977] [NETMGR] State: NET_WAIT_RESULTS | Test route added successfully for wlan0
+[00:00:33.978] [NET: wlan0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:00:33.978] [NET: wlan0] execute_ping: Target IP string: 34.94.71.128
+[00:00:33.978] [NET: wlan0] execute_ping: Executing command: ping -n -I wlan0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:00:33.986] [NET: wlan0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:00:33.986] [NET: wlan0] execute_ping: Starting read loop with 18 second timeout
+[00:00:34.013] [NET: wlan0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:00:34.659] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:00:36.715] [NET: ppp0] execute_ping: Raw output: 
+[00:00:36.716] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:00:36.716] [NET: ppp0] execute_ping: Found ping statistics line
+[00:00:36.716] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 1 packets received, 66% packet loss
+[00:00:36.716] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 1 packets received, 66% packet loss
+[00:00:36.716] [NET: ppp0] execute_ping: Parsed packet loss: 66%
+[00:00:36.717] [NET: ppp0] execute_ping: Finished reading output after 5 lines, total replies: 1, found_summary: true, packet_loss: 66, found_error: false
+[00:00:36.717] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:00:36.720] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:00:36.721] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:00:36.721] [NET: ppp0] execute_ping: Final results - replies: 1, avg_latency: 168 ms, packet_loss: 66%
+[00:00:36.721] [NET] execute_ping: Returning true (replies:1 summary:true)
+[00:00:36.721] [NET] ping_thread_fn: ppp0 ping result - success:true replies:1 latency:168
+[00:00:36.721] [NET] ppp0: replies=1 avg_lat=168ms link_up=true
+[00:00:36.721] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:00:36.722] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921475460
+[00:00:36.722] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921475460
+[00:00:36.722] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:00:36.725] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:00:37.017] [NET: wlan0] execute_ping: Raw output: 
+[00:00:37.017] [NET: wlan0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:00:37.017] [NET: wlan0] execute_ping: Found ping statistics line
+[00:00:37.017] [NET: wlan0] execute_ping: Raw output: 3 packets transmitted, 0 packets received, 100% packet loss
+[00:00:37.017] [NET: wlan0] execute_ping: 100% packet loss detected
+[00:00:37.018] [NET: wlan0] execute_ping: Finished reading output after 4 lines, total replies: 0, found_summary: false, packet_loss: 0, found_error: true
+[00:00:37.018] [NET: wlan0] execute_ping: Closing ping pipe...
+[00:00:37.018] [NET: wlan0] execute_ping: Ping command exited with status: 256
+[00:00:37.019] [NET: wlan0] execute_ping: Ping command completed normally with exit code: 1
+[00:00:37.019] [NET: wlan0] execute_ping: Final results - replies: 0, avg_latency: 0 ms, packet_loss: 0%
+[00:00:37.019] [NET] execute_ping: Returning false (replies:0 summary:false)
+[00:00:37.019] [NETMGR] State: NET_WAIT_RESULTS | Removing test route: ip route del 34.94.71.128/32 dev wlan0 2>/dev/null
+[00:00:37.096] [NET] ping_thread_fn: wlan0 ping result - success:false replies:0 latency:0
+[00:00:37.096] [NET] wlan0: ping execution failed
+[00:00:37.096] [NET] wlan0: marked as failed - score=0 latency=0 link_up=false
+[00:00:37.096] [NET] ping_thread_fn: wlan0 thread completed and marked as not running/invalid
+[00:00:37.096] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:00:37.096] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: cleanup_ping_thread called, thread_id=2921618820
+[00:00:37.097] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Cleanup complete, thread marked as not running/invalid
+[00:00:37.097] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread cleanup complete, exiting
+[00:00:37.703] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 completed, score: 0, latency: 0
+[00:00:37.703] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 3, latency: 168
+[00:00:37.705] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:00:37.716] [NETMGR] State: NET_WAIT_RESULTS | wlan0 failed test but has valid IP, keeping active for retry
+[00:00:37.718] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:00:38.734] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:00:38.734] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:00:38.734] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:00:38.734] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:00:38.734] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:00:38.734] [COMPUTE_BEST] Current interface states:
+[00:00:38.734] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:00:38.734] [COMPUTE_BEST]   wlan0: active=YES, link_up=NO, score=0, latency=0
+[00:00:38.734] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=3, latency=168
+[00:00:38.735] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:00:38.735] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:00:38.735] [COMPUTE_BEST]   Skipping wlan0: active=YES, link_up=NO, disabled=NO
+[00:00:38.735] [COMPUTE_BEST]   Checking ppp0: score=3 >= good_thr=7? NO
+[00:00:38.735] [COMPUTE_BEST] Phase 1b: Looking for MINIMUM acceptable links
+[00:00:38.735] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:00:38.735] [COMPUTE_BEST]   Skipping wlan0: active=YES, link_up=NO, disabled=NO
+[00:00:38.735] [COMPUTE_BEST]   Checking ppp0: score=3 >= min_thr=3? YES
+[00:00:38.735] [COMPUTE_BEST]   First MIN candidate: ppp0 (score=3, latency=168)
+[00:00:38.735] [COMPUTE_BEST] Phase 1b complete: Selected ppp0 (score=3, latency=168)
+[00:00:38.735] [COMPUTE_BEST] Returning early with MINIMUM threshold selection
+[00:00:38.736] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:00:38.736] [NETMGR-WIFI0] State: NET_ONLINE | WiFi failed, forcing reassociation using wpa_cli method
+[00:00:38.736] [WIFI_REASSOC] Starting wpa_cli reassociation on wlan0
+[00:00:38.736] [WIFI_REASSOC] Executing: wpa_cli -i wlan0 disconnect
+[00:00:39.802] [WIFI_REASSOC] Executing: wpa_cli -i wlan0 scan
+[00:00:41.866] [WIFI_REASSOC] Executing: wpa_cli -i wlan0 reconnect
+[00:00:41.932] [WIFI_REASSOC] wpa_cli reassociation initiated successfully
+[00:00:41.932] [NETMGR] State: NET_ONLINE | Started cooldown of: wlan0 for 10 seconds
+[00:00:41.932] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:00:42.048] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:00:42.151] [NET] Default route already exists for ppp0, skipping route update
+[00:00:42.207] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:00:42.299] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.2.0.0/24 dev wlan0 proto kernel scope link src 10.2.0.18 linkdown 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:00:42.352] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:00:42.352] [NET] Notifying link type change to ppp0
+[00:00:42.352] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 3, latency: 168), going online
+[00:00:42.455] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:00:42.507] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:00:42.597] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:00:42.829] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:00:42.829] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:00:42.829] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:00:42.829] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:00:43.554] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:00:43.554] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:00:43.554] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:00:43.554] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:00:44.582] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:00:44.582] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:00:44.583] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:00:44.583] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:00:44.583] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:00:44.583] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:00:44.583] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:00:44.583] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:00:44.584] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:00:44.584] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:00:44.584] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:00:44.586] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:00:44.587] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:00:44.587] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:00:44.587] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:00:44.587] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:00:44.593] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:00:44.594] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:00:44.619] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:00:44.944] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=324.681 ms
+[00:00:44.944] [NET: ppp0] execute_ping: Found reply #1
+[00:00:44.944] [NET: ppp0] execute_ping: Latency: 324.681 ms
+[00:00:45.602] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:00:45.602] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 completed, score: 0, latency: 0
+[00:00:45.824] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=204.298 ms
+[00:00:45.824] [NET: ppp0] execute_ping: Found reply #2
+[00:00:45.824] [NET: ppp0] execute_ping: Latency: 204.298 ms
+[00:00:46.616] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 completed, score: 0, latency: 0
+[00:00:46.998] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=377.283 ms
+[00:00:46.999] [NET: ppp0] execute_ping: Found reply #3
+[00:00:46.999] [NET: ppp0] execute_ping: Latency: 377.283 ms
+[00:00:46.999] [NET: ppp0] execute_ping: Raw output: 
+[00:00:46.999] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:00:46.999] [NET: ppp0] execute_ping: Found ping statistics line
+[00:00:46.999] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:00:46.999] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:00:46.999] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:00:46.999] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:00:46.999] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:00:47.000] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:00:47.000] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:00:47.000] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 302 ms, packet_loss: 0%
+[00:00:47.000] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:00:47.000] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:302
+[00:00:47.000] [NET] ppp0: replies=3 avg_lat=302ms link_up=true
+[00:00:47.000] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:00:47.000] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:00:47.000] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921618820
+[00:00:47.001] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:00:47.001] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:00:47.633] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 completed, score: 0, latency: 0
+[00:00:47.633] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 302
+[00:00:47.635] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:00:47.636] [NETMGR] State: NET_WAIT_RESULTS | wlan0 acquired IP address during testing, marking active for next cycle
+[00:00:47.636] [NETMGR-WIFI0] State: NET_WAIT_RESULTS | WiFi active during testing, resetting scan attempts
+[00:00:47.639] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:00:48.653] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:00:48.654] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:00:48.654] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:00:48.654] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:00:48.654] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:00:48.655] [COMPUTE_BEST] Current interface states:
+[00:00:48.655] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:00:48.655] [COMPUTE_BEST]   wlan0: active=YES, link_up=NO, score=0, latency=0
+[00:00:48.655] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=302
+[00:00:48.655] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:00:48.655] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:00:48.655] [COMPUTE_BEST]   Skipping wlan0: active=YES, link_up=NO, disabled=NO
+[00:00:48.655] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:00:48.655] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=302)
+[00:00:48.655] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:00:48.655] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:00:48.656] [NETMGR-WIFI0] State: NET_ONLINE | WiFi failed, forcing reassociation using wpa_cli method
+[00:00:48.656] [WIFI_REASSOC] Too soon since last reassociation (9920 ms)
+[00:00:48.656] [NETMGR] State: NET_ONLINE | Reassociation failed (-11), falling back to flush
+[00:00:48.656] [NET] Flushing interface addresses for wlan0
+[00:00:48.947] [NET] Removing default routes for wlan0
+[00:00:49.087] [NETMGR] State: NET_ONLINE | Started cooldown of: wlan0 for 30 seconds
+[00:00:49.088] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:00:49.180] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:00:49.270] [NET] Default route already exists for ppp0, skipping route update
+[00:00:49.321] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:00:49.417] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:00:49.497] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:00:49.498] [NET] Notifying link type change to ppp0
+[00:00:49.498] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 302), going online
+[00:00:49.702] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:00:49.754] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:00:49.844] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:00:49.991] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:00:49.991] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:00:49.991] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:00:49.991] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:00:50.803] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:00:50.803] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:00:50.803] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:00:50.803] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:00:51.818] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:00:51.818] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:00:51.818] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:00:51.818] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:00:51.818] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:00:51.818] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:00:51.818] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:00:51.819] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:00:51.819] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:00:51.819] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:00:51.819] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:00:51.826] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:00:51.826] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:00:51.826] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:00:51.826] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:00:51.826] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:00:51.830] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:00:51.830] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:00:51.854] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:00:52.057] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=201.314 ms
+[00:00:52.058] [NET: ppp0] execute_ping: Found reply #1
+[00:00:52.058] [NET: ppp0] execute_ping: Latency: 201.314 ms
+[00:00:52.832] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:00:52.833] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 completed, score: 0, latency: 0
+[00:00:53.157] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=300.930 ms
+[00:00:53.158] [NET: ppp0] execute_ping: Found reply #2
+[00:00:53.158] [NET: ppp0] execute_ping: Latency: 300.930 ms
+[00:00:53.852] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 completed, score: 0, latency: 0
+[00:00:54.038] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=180.581 ms
+[00:00:54.039] [NET: ppp0] execute_ping: Found reply #3
+[00:00:54.039] [NET: ppp0] execute_ping: Latency: 180.581 ms
+[00:00:54.039] [NET: ppp0] execute_ping: Raw output: 
+[00:00:54.039] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:00:54.039] [NET: ppp0] execute_ping: Found ping statistics line
+[00:00:54.039] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:00:54.039] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:00:54.039] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:00:54.039] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:00:54.039] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:00:54.040] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:00:54.040] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:00:54.040] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 227 ms, packet_loss: 0%
+[00:00:54.040] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:00:54.040] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:227
+[00:00:54.040] [NET] ppp0: replies=3 avg_lat=227ms link_up=true
+[00:00:54.040] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:00:54.040] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:00:54.040] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921618820
+[00:00:54.041] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:00:54.041] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:00:54.871] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 completed, score: 0, latency: 0
+[00:00:54.872] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 227
+[00:00:54.873] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:00:54.877] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:00:55.890] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:00:55.890] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:00:55.891] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:00:55.891] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:00:55.891] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:00:55.891] [COMPUTE_BEST] Current interface states:
+[00:00:55.891] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:00:55.891] [COMPUTE_BEST]   wlan0: active=NO, link_up=NO, score=0, latency=0
+[00:00:55.891] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=227
+[00:00:55.891] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:00:55.891] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:00:55.891] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[00:00:55.892] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:00:55.892] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=227)
+[00:00:55.892] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:00:55.892] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:00:55.892] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:00:55.981] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:00:56.072] [NET] Default route already exists for ppp0, skipping route update
+[00:00:56.122] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:00:56.207] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:00:56.267] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:00:56.267] [NET] Notifying link type change to ppp0
+[00:00:56.267] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 227), going online
+[00:00:56.977] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:00:57.027] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:00:57.115] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:00:57.261] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:00:57.262] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:00:57.262] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:00:57.262] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:00:58.073] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:00:58.073] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:00:58.074] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:00:58.074] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:00:59.087] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:00:59.088] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:00:59.088] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:00:59.088] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:00:59.088] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:00:59.088] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:00:59.088] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:00:59.089] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:00:59.089] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:00:59.089] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:00:59.089] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:00:59.096] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:00:59.096] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:00:59.096] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:00:59.096] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:00:59.096] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:00:59.102] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:00:59.102] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:00:59.124] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:00:59.318] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=191.486 ms
+[00:00:59.319] [NET: ppp0] execute_ping: Found reply #1
+[00:00:59.319] [NET: ppp0] execute_ping: Latency: 191.486 ms
+[00:01:00.102] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:01:00.102] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:00.102] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:00.102] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:00.491] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=362.353 ms
+[00:01:00.491] [NET: ppp0] execute_ping: Found reply #2
+[00:01:00.491] [NET: ppp0] execute_ping: Latency: 362.353 ms
+[00:01:01.117] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:01.117] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:01.117] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:01.372] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=241.912 ms
+[00:01:01.372] [NET: ppp0] execute_ping: Found reply #3
+[00:01:01.372] [NET: ppp0] execute_ping: Latency: 241.912 ms
+[00:01:01.372] [NET: ppp0] execute_ping: Raw output: 
+[00:01:01.372] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:01:01.372] [NET: ppp0] execute_ping: Found ping statistics line
+[00:01:01.373] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:01.373] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:01.373] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:01:01.373] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:01:01.373] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:01:01.373] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:01:01.373] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:01:01.373] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 265 ms, packet_loss: 0%
+[00:01:01.374] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:01:01.374] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:265
+[00:01:01.374] [NET] ppp0: replies=3 avg_lat=265ms link_up=true
+[00:01:01.374] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:01:01.374] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:01:01.374] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921618820
+[00:01:01.374] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:01:01.374] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:01:02.131] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:02.132] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:02.132] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:02.132] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 265
+[00:01:02.133] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:01:02.145] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:01:03.158] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:01:03.159] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:01:03.159] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:01:03.159] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:01:03.159] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:01:03.159] [COMPUTE_BEST] Current interface states:
+[00:01:03.159] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:01:03.159] [COMPUTE_BEST]   wlan0: active=NO, link_up=NO, score=0, latency=0
+[00:01:03.159] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=265
+[00:01:03.159] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:01:03.160] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:01:03.160] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[00:01:03.160] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:01:03.160] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=265)
+[00:01:03.160] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:01:03.160] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:01:03.160] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:01:03.264] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:03.365] [NET] Default route already exists for ppp0, skipping route update
+[00:01:03.417] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:03.504] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:01:03.565] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:01:03.565] [NET] Notifying link type change to ppp0
+[00:01:03.565] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 265), going online
+[00:01:04.175] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:01:04.229] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:04.343] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:01:04.491] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:01:04.491] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:01:04.491] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:04.491] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:01:05.202] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:01:05.203] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:01:05.203] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:01:05.203] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:01:06.218] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:01:06.218] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:01:06.218] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:06.218] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:01:06.218] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:01:06.218] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:01:06.218] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:01:06.219] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:01:06.219] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:01:06.219] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:01:06.219] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:01:06.222] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:01:06.222] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:01:06.223] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:01:06.223] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:01:06.223] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:01:06.232] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:01:06.233] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:01:06.253] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:01:06.440] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=186.436 ms
+[00:01:06.441] [NET: ppp0] execute_ping: Found reply #1
+[00:01:06.441] [NET: ppp0] execute_ping: Latency: 186.436 ms
+[00:01:07.237] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:01:07.237] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:07.237] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:07.237] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:07.458] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=203.299 ms
+[00:01:07.458] [NET: ppp0] execute_ping: Found reply #2
+[00:01:07.458] [NET: ppp0] execute_ping: Latency: 203.299 ms
+[00:01:08.249] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:08.249] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:08.249] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:08.705] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=449.516 ms
+[00:01:08.705] [NET: ppp0] execute_ping: Found reply #3
+[00:01:08.705] [NET: ppp0] execute_ping: Latency: 449.516 ms
+[00:01:08.706] [NET: ppp0] execute_ping: Raw output: 
+[00:01:08.706] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:01:08.706] [NET: ppp0] execute_ping: Found ping statistics line
+[00:01:08.706] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:08.707] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:08.707] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:01:08.707] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:01:08.707] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:01:08.707] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:01:08.707] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:01:08.707] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 279 ms, packet_loss: 0%
+[00:01:08.708] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:01:08.708] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:279
+[00:01:08.708] [NET] ppp0: replies=3 avg_lat=279ms link_up=true
+[00:01:08.708] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:01:08.708] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:01:08.708] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921618820
+[00:01:08.708] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:01:08.708] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:01:09.263] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:09.263] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:09.264] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:09.264] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 279
+[00:01:09.265] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:01:09.273] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:01:10.289] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:01:10.289] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:01:10.289] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:01:10.289] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:01:10.289] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:01:10.289] [COMPUTE_BEST] Current interface states:
+[00:01:10.290] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:01:10.290] [COMPUTE_BEST]   wlan0: active=NO, link_up=NO, score=0, latency=0
+[00:01:10.290] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=279
+[00:01:10.290] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:01:10.290] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:01:10.290] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[00:01:10.290] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:01:10.290] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=279)
+[00:01:10.290] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:01:10.290] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:01:10.290] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:01:10.390] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:10.478] [NET] Default route already exists for ppp0, skipping route update
+[00:01:10.525] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:10.619] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:01:10.704] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:01:10.704] [NET] Notifying link type change to ppp0
+[00:01:10.705] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 279), going online
+[00:01:11.315] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:01:11.370] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:11.459] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:01:11.611] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:01:11.611] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:01:11.612] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:11.612] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:01:12.321] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:01:12.321] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:01:12.321] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:01:12.321] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:01:13.334] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:01:13.334] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:01:13.335] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:13.335] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:01:13.335] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:01:13.335] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:01:13.335] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:01:13.335] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:01:13.336] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:01:13.336] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:01:13.337] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:01:13.343] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:01:13.344] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:01:13.344] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:01:13.344] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:01:13.344] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:01:13.347] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:01:13.347] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:01:13.374] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:01:13.549] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=173.627 ms
+[00:01:13.549] [NET: ppp0] execute_ping: Found reply #1
+[00:01:13.549] [NET: ppp0] execute_ping: Latency: 173.627 ms
+[00:01:14.354] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:01:14.354] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:14.354] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:14.354] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:14.568] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=186.860 ms
+[00:01:14.569] [NET: ppp0] execute_ping: Found reply #2
+[00:01:14.569] [NET: ppp0] execute_ping: Latency: 186.860 ms
+[00:01:15.379] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:15.379] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:15.379] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:15.602] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=218.671 ms
+[00:01:15.602] [NET: ppp0] execute_ping: Found reply #3
+[00:01:15.602] [NET: ppp0] execute_ping: Latency: 218.671 ms
+[00:01:15.602] [NET: ppp0] execute_ping: Raw output: 
+[00:01:15.602] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:01:15.602] [NET: ppp0] execute_ping: Found ping statistics line
+[00:01:15.602] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:15.603] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:15.603] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:01:15.603] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:01:15.603] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:01:15.603] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:01:15.603] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:01:15.604] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 193 ms, packet_loss: 0%
+[00:01:15.604] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:01:15.604] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:193
+[00:01:15.604] [NET] ppp0: replies=3 avg_lat=193ms link_up=true
+[00:01:15.604] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:01:15.604] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:01:15.604] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921618820
+[00:01:15.604] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:01:15.604] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:01:16.395] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:16.395] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:16.395] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:16.395] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 193
+[00:01:16.397] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:01:16.409] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:01:17.424] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:01:17.424] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:01:17.424] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:01:17.424] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:01:17.424] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:01:17.424] [COMPUTE_BEST] Current interface states:
+[00:01:17.424] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:01:17.424] [COMPUTE_BEST]   wlan0: active=NO, link_up=NO, score=0, latency=0
+[00:01:17.424] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=193
+[00:01:17.425] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:01:17.425] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:01:17.425] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[00:01:17.425] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:01:17.425] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=193)
+[00:01:17.425] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:01:17.425] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:01:17.425] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:01:17.524] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:17.621] [NET] Default route already exists for ppp0, skipping route update
+[00:01:17.682] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:17.780] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:01:17.837] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:01:17.838] [NET] Notifying link type change to ppp0
+[00:01:17.838] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 193), going online
+[00:01:18.449] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:01:18.505] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:18.602] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:01:18.772] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:01:18.772] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:01:18.772] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:18.772] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:01:19.492] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:01:19.494] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:01:19.494] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:01:19.494] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:01:20.513] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:01:20.585] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | Triggered WiFi scan while interface down (attempt 1/10)
+[00:01:20.585] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:01:20.585] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:20.585] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:01:20.585] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:01:20.586] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:01:20.590] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:01:20.590] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:01:20.590] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:01:20.591] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:01:20.591] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:01:20.595] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:01:20.595] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:01:20.595] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:01:20.595] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:01:20.596] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:01:20.602] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:01:20.602] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:01:20.631] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:01:20.830] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=197.812 ms
+[00:01:20.830] [NET: ppp0] execute_ping: Found reply #1
+[00:01:20.830] [NET: ppp0] execute_ping: Latency: 197.812 ms
+[00:01:21.611] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:01:21.613] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:21.613] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:21.613] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:21.864] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=232.235 ms
+[00:01:21.865] [NET: ppp0] execute_ping: Found reply #2
+[00:01:21.865] [NET: ppp0] execute_ping: Latency: 232.235 ms
+[00:01:22.632] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:22.633] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:22.633] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:22.824] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=190.397 ms
+[00:01:22.824] [NET: ppp0] execute_ping: Found reply #3
+[00:01:22.824] [NET: ppp0] execute_ping: Latency: 190.397 ms
+[00:01:22.825] [NET: ppp0] execute_ping: Raw output: 
+[00:01:22.825] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:01:22.825] [NET: ppp0] execute_ping: Found ping statistics line
+[00:01:22.825] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:22.825] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:22.825] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:01:22.825] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:01:22.825] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:01:22.826] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:01:22.826] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:01:22.826] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 206 ms, packet_loss: 0%
+[00:01:22.826] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:01:22.827] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:206
+[00:01:22.827] [NET] ppp0: replies=3 avg_lat=206ms link_up=true
+[00:01:22.827] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:01:22.827] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:01:22.827] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921618820
+[00:01:22.827] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:01:22.827] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:01:23.650] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:23.650] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:23.650] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:23.650] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 206
+[00:01:23.652] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:01:23.658] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:01:24.674] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:01:24.679] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:01:24.679] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:01:24.679] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:01:24.679] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:01:24.679] [COMPUTE_BEST] Current interface states:
+[00:01:24.679] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:01:24.679] [COMPUTE_BEST]   wlan0: active=NO, link_up=NO, score=0, latency=0
+[00:01:24.679] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=206
+[00:01:24.679] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:01:24.680] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:01:24.680] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[00:01:24.680] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:01:24.680] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=206)
+[00:01:24.680] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:01:24.680] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:01:24.680] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:01:24.784] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:24.882] [NET] Default route already exists for ppp0, skipping route update
+[00:01:24.942] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:25.037] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:01:25.096] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:01:25.096] [NET] Notifying link type change to ppp0
+[00:01:25.097] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 206), going online
+[00:01:25.711] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:01:25.770] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:25.868] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:01:26.024] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:01:26.024] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:01:26.024] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:26.024] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:01:26.739] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:01:26.741] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:01:26.741] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:01:26.741] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:01:27.756] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:01:27.858] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | WiFi scan found 43 APs, triggering reconnection
+[00:01:27.922] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:01:27.922] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:27.922] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:01:27.922] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:01:27.922] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:01:27.923] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:01:27.923] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:01:27.923] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:01:27.923] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:01:27.923] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:01:27.932] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:01:27.932] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:01:27.932] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:01:27.932] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:01:27.932] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:01:27.936] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:01:27.936] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:01:27.964] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:01:28.469] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=503.879 ms
+[00:01:28.469] [NET: ppp0] execute_ping: Found reply #1
+[00:01:28.469] [NET: ppp0] execute_ping: Latency: 503.879 ms
+[00:01:28.836] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:01:28.838] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:28.838] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:28.838] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:29.183] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=217.601 ms
+[00:01:29.183] [NET: ppp0] execute_ping: Found reply #2
+[00:01:29.183] [NET: ppp0] execute_ping: Latency: 217.601 ms
+[00:01:29.857] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:29.857] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:29.858] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:30.225] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=258.559 ms
+[00:01:30.225] [NET: ppp0] execute_ping: Found reply #3
+[00:01:30.225] [NET: ppp0] execute_ping: Latency: 258.559 ms
+[00:01:30.225] [NET: ppp0] execute_ping: Raw output: 
+[00:01:30.225] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:01:30.226] [NET: ppp0] execute_ping: Found ping statistics line
+[00:01:30.226] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:30.226] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:30.227] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:01:30.227] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:01:30.227] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:01:30.227] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:01:30.227] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:01:30.228] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 326 ms, packet_loss: 0%
+[00:01:30.228] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:01:30.228] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:326
+[00:01:30.228] [NET] ppp0: replies=3 avg_lat=326ms link_up=true
+[00:01:30.228] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:01:30.228] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:01:30.228] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921618820
+[00:01:30.228] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:01:30.228] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:01:30.878] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:30.878] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:30.879] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:30.879] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 326
+[00:01:30.881] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:01:30.893] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:01:31.907] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:01:31.909] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:01:31.909] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:01:31.910] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:01:31.910] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:01:31.910] [COMPUTE_BEST] Current interface states:
+[00:01:31.910] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:01:31.910] [COMPUTE_BEST]   wlan0: active=NO, link_up=NO, score=0, latency=0
+[00:01:31.910] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=326
+[00:01:31.910] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:01:31.910] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:01:31.910] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[00:01:31.911] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:01:31.911] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=326)
+[00:01:31.911] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:01:31.911] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:01:31.911] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:01:32.042] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:32.137] [NET] Default route already exists for ppp0, skipping route update
+[00:01:32.192] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:32.287] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:01:32.342] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:01:32.342] [NET] Notifying link type change to ppp0
+[00:01:32.343] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 326), going online
+[00:01:32.955] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:01:33.018] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:33.142] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:01:33.301] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:01:33.302] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:01:33.302] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:33.302] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:01:34.013] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:01:34.015] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:01:34.015] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:01:34.015] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:01:35.030] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:01:35.032] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:01:35.032] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:35.032] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:01:35.033] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:01:35.033] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:01:35.033] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:01:35.033] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:01:35.033] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:01:35.033] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:01:35.034] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:01:35.038] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:01:35.038] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:01:35.038] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:01:35.038] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:01:35.038] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:01:35.048] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:01:35.048] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:01:35.076] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:01:35.340] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=263.798 ms
+[00:01:35.341] [NET: ppp0] execute_ping: Found reply #1
+[00:01:35.341] [NET: ppp0] execute_ping: Latency: 263.798 ms
+[00:01:36.048] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:01:36.050] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:36.050] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:36.050] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:36.296] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=219.311 ms
+[00:01:36.297] [NET: ppp0] execute_ping: Found reply #2
+[00:01:36.297] [NET: ppp0] execute_ping: Latency: 219.311 ms
+[00:01:37.064] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:37.064] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:37.065] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:37.275] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=194.676 ms
+[00:01:37.275] [NET: ppp0] execute_ping: Found reply #3
+[00:01:37.275] [NET: ppp0] execute_ping: Latency: 194.676 ms
+[00:01:37.275] [NET: ppp0] execute_ping: Raw output: 
+[00:01:37.275] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:01:37.276] [NET: ppp0] execute_ping: Found ping statistics line
+[00:01:37.276] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:37.277] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:37.277] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:01:37.277] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:01:37.277] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:01:37.281] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:01:37.281] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:01:37.281] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 225 ms, packet_loss: 0%
+[00:01:37.281] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:01:37.281] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:225
+[00:01:37.281] [NET] ppp0: replies=3 avg_lat=225ms link_up=true
+[00:01:37.281] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:01:37.282] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:01:37.282] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921618820
+[00:01:37.282] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:01:37.282] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:01:38.086] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:38.086] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:38.087] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:38.087] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 225
+[00:01:38.088] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:01:38.099] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:01:39.113] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:01:39.115] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:01:39.115] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:01:39.115] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:01:39.115] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:01:39.115] [COMPUTE_BEST] Current interface states:
+[00:01:39.115] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:01:39.115] [COMPUTE_BEST]   wlan0: active=NO, link_up=NO, score=0, latency=0
+[00:01:39.115] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=225
+[00:01:39.115] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:01:39.116] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:01:39.116] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[00:01:39.116] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:01:39.116] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=225)
+[00:01:39.116] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:01:39.116] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:01:39.116] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:01:39.217] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:39.317] [NET] Default route already exists for ppp0, skipping route update
+[00:01:39.374] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:39.500] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:01:39.558] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:01:39.558] [NET] Notifying link type change to ppp0
+[00:01:39.558] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 225), going online
+[00:01:40.168] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:01:40.227] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:40.321] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:01:40.491] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:01:40.492] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:01:40.492] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:40.492] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:01:41.209] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:01:41.211] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:01:41.211] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:01:41.211] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:01:42.226] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:01:42.228] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:01:42.228] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:42.229] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:01:42.229] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:01:42.229] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:01:42.229] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:01:42.229] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:01:42.230] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:01:42.230] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:01:42.230] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:01:42.236] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:01:42.236] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:01:42.236] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:01:42.236] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:01:42.236] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:01:42.245] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:01:42.245] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:01:42.269] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:01:42.515] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=245.259 ms
+[00:01:42.515] [NET: ppp0] execute_ping: Found reply #1
+[00:01:42.515] [NET: ppp0] execute_ping: Latency: 245.259 ms
+[00:01:43.246] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:01:43.248] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:43.248] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:43.249] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:43.476] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=205.766 ms
+[00:01:43.476] [NET: ppp0] execute_ping: Found reply #2
+[00:01:43.476] [NET: ppp0] execute_ping: Latency: 205.766 ms
+[00:01:44.265] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:44.265] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:44.265] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:44.452] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=180.099 ms
+[00:01:44.452] [NET: ppp0] execute_ping: Found reply #3
+[00:01:44.452] [NET: ppp0] execute_ping: Latency: 180.099 ms
+[00:01:44.452] [NET: ppp0] execute_ping: Raw output: 
+[00:01:44.452] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:01:44.452] [NET: ppp0] execute_ping: Found ping statistics line
+[00:01:44.452] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:44.452] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:44.453] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:01:44.453] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:01:44.453] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:01:44.453] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:01:44.453] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:01:44.454] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 210 ms, packet_loss: 0%
+[00:01:44.454] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:01:44.454] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:210
+[00:01:44.454] [NET] ppp0: replies=3 avg_lat=210ms link_up=true
+[00:01:44.454] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:01:44.454] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:01:44.454] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921618820
+[00:01:44.454] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:01:44.454] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:01:45.286] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:45.287] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:45.287] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:45.287] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 210
+[00:01:45.295] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:01:45.298] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:01:46.315] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:01:46.317] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:01:46.317] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:01:46.317] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:01:46.317] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:01:46.317] [COMPUTE_BEST] Current interface states:
+[00:01:46.317] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:01:46.318] [COMPUTE_BEST]   wlan0: active=NO, link_up=NO, score=0, latency=0
+[00:01:46.318] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=210
+[00:01:46.318] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:01:46.318] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:01:46.318] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[00:01:46.318] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:01:46.318] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=210)
+[00:01:46.318] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:01:46.318] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:01:46.318] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:01:46.417] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:46.510] [NET] Default route already exists for ppp0, skipping route update
+[00:01:46.563] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:46.657] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:01:46.717] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:01:46.717] [NET] Notifying link type change to ppp0
+[00:01:46.717] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 210), going online
+[00:01:47.328] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:01:47.388] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:47.479] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:01:47.644] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:01:47.644] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:01:47.644] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:47.644] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:01:48.357] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:01:48.359] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:01:48.359] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:01:48.359] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:01:49.374] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:01:49.377] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:01:49.377] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:49.377] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:01:49.377] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:01:49.377] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:01:49.377] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:01:49.378] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:01:49.378] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:01:49.378] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:01:49.378] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:01:49.388] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:01:49.388] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:01:49.388] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:01:49.388] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:01:49.388] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:01:49.390] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:01:49.391] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:01:49.417] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:01:49.606] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=185.898 ms
+[00:01:49.607] [NET: ppp0] execute_ping: Found reply #1
+[00:01:49.607] [NET: ppp0] execute_ping: Latency: 185.898 ms
+[00:01:50.400] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:01:50.402] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:50.402] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:50.402] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:50.594] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=173.229 ms
+[00:01:50.594] [NET: ppp0] execute_ping: Found reply #2
+[00:01:50.594] [NET: ppp0] execute_ping: Latency: 173.229 ms
+[00:01:51.422] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:51.422] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:51.422] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:51.646] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=220.297 ms
+[00:01:51.646] [NET: ppp0] execute_ping: Found reply #3
+[00:01:51.646] [NET: ppp0] execute_ping: Latency: 220.297 ms
+[00:01:51.647] [NET: ppp0] execute_ping: Raw output: 
+[00:01:51.648] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:01:51.648] [NET: ppp0] execute_ping: Found ping statistics line
+[00:01:51.648] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:51.648] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:51.648] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:01:51.648] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:01:51.648] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:01:51.649] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:01:51.649] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:01:51.649] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 193 ms, packet_loss: 0%
+[00:01:51.649] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:01:51.649] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:193
+[00:01:51.649] [NET] ppp0: replies=3 avg_lat=193ms link_up=true
+[00:01:51.649] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:01:51.649] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:01:51.650] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921618820
+[00:01:51.650] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:01:51.650] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:01:52.443] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:52.443] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:52.443] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:52.443] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 193
+[00:01:52.445] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:01:52.456] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:01:53.471] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:01:53.473] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:01:53.473] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:01:53.473] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:01:53.473] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:01:53.474] [COMPUTE_BEST] Current interface states:
+[00:01:53.474] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:01:53.474] [COMPUTE_BEST]   wlan0: active=NO, link_up=NO, score=0, latency=0
+[00:01:53.474] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=193
+[00:01:53.474] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:01:53.474] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:01:53.474] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[00:01:53.474] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:01:53.474] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=193)
+[00:01:53.474] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:01:53.474] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:01:53.475] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:01:53.572] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:53.670] [NET] Default route already exists for ppp0, skipping route update
+[00:01:53.727] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:53.833] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:01:53.897] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:01:53.897] [NET] Notifying link type change to ppp0
+[00:01:53.897] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 193), going online
+[00:01:54.512] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:01:54.568] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:01:54.664] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:01:54.829] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:01:54.829] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:01:54.829] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:54.829] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:01:55.542] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:01:55.544] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:01:55.544] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:01:55.544] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:01:56.562] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:01:56.630] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | Triggered WiFi scan while interface down (attempt 1/10)
+[00:01:56.630] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:01:56.631] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:01:56.631] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:01:56.631] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:01:56.631] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:01:56.631] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:01:56.631] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:01:56.632] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:01:56.632] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:01:56.632] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:01:56.636] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:01:56.636] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:01:56.637] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:01:56.640] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:01:56.640] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:01:56.647] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:01:56.647] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:01:56.679] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:01:56.953] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=272.655 ms
+[00:01:56.953] [NET: ppp0] execute_ping: Found reply #1
+[00:01:56.953] [NET: ppp0] execute_ping: Latency: 272.655 ms
+[00:01:57.654] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:01:57.655] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:57.656] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:57.656] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:57.913] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=232.350 ms
+[00:01:57.913] [NET: ppp0] execute_ping: Found reply #2
+[00:01:57.913] [NET: ppp0] execute_ping: Latency: 232.350 ms
+[00:01:58.673] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:58.674] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:58.674] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:58.877] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=194.814 ms
+[00:01:58.877] [NET: ppp0] execute_ping: Found reply #3
+[00:01:58.877] [NET: ppp0] execute_ping: Latency: 194.814 ms
+[00:01:58.877] [NET: ppp0] execute_ping: Raw output: 
+[00:01:58.877] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:01:58.877] [NET: ppp0] execute_ping: Found ping statistics line
+[00:01:58.877] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:58.878] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:01:58.878] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:01:58.878] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:01:58.878] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:01:58.879] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:01:58.879] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:01:58.879] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 233 ms, packet_loss: 0%
+[00:01:58.879] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:01:58.879] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:233
+[00:01:58.879] [NET] ppp0: replies=3 avg_lat=233ms link_up=true
+[00:01:58.879] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:01:58.880] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:01:58.880] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921618820
+[00:01:58.880] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:01:58.880] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:01:59.691] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:01:59.692] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:01:59.692] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:01:59.692] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 233
+[00:01:59.697] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:01:59.705] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:02:00.722] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:02:00.725] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:02:00.725] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:02:00.725] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:02:00.725] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:02:00.725] [COMPUTE_BEST] Current interface states:
+[00:02:00.725] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:02:00.726] [COMPUTE_BEST]   wlan0: active=NO, link_up=NO, score=0, latency=0
+[00:02:00.726] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=233
+[00:02:00.727] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:02:00.728] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:02:00.728] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[00:02:00.728] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:02:00.730] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=233)
+[00:02:00.731] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:02:00.731] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:02:00.731] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:02:00.884] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:02:01.122] [NET] Default route already exists for ppp0, skipping route update
+[00:02:01.227] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:02:01.324] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:02:01.379] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:02:01.379] [NET] Notifying link type change to ppp0
+[00:02:01.379] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 233), going online
+[00:02:01.791] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:02:01.864] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:02:01.960] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:02:02.120] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:02:02.126] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:02:02.126] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:02:02.126] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:02:02.835] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:02:02.838] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:02:02.839] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:02:02.839] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:02:03.857] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:02:03.980] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | WiFi scan found 47 APs, triggering reconnection
+[00:02:04.046] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:02:04.046] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:02:04.046] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:02:04.047] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:02:04.047] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:02:04.047] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:02:04.047] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:02:04.048] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:02:04.048] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:02:04.048] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:02:04.052] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:02:04.052] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:02:04.053] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:02:04.053] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:02:04.053] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:02:04.063] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:02:04.064] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:02:04.088] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:02:04.295] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=201.423 ms
+[00:02:04.295] [NET: ppp0] execute_ping: Found reply #1
+[00:02:04.295] [NET: ppp0] execute_ping: Latency: 201.423 ms
+[00:02:04.860] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:02:04.862] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:02:04.862] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:02:04.862] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:02:05.279] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=185.478 ms
+[00:02:05.279] [NET: ppp0] execute_ping: Found reply #2
+[00:02:05.280] [NET: ppp0] execute_ping: Latency: 185.478 ms
+[00:02:05.884] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:02:05.885] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:02:05.885] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:02:06.526] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=431.060 ms
+[00:02:06.526] [NET: ppp0] execute_ping: Found reply #3
+[00:02:06.526] [NET: ppp0] execute_ping: Latency: 431.060 ms
+[00:02:06.526] [NET: ppp0] execute_ping: Raw output: 
+[00:02:06.527] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:02:06.528] [NET: ppp0] execute_ping: Found ping statistics line
+[00:02:06.528] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:02:06.528] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:02:06.528] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:02:06.528] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:02:06.528] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:02:06.528] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:02:06.528] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:02:06.529] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 272 ms, packet_loss: 0%
+[00:02:06.529] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:02:06.529] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:272
+[00:02:06.529] [NET] ppp0: replies=3 avg_lat=272ms link_up=true
+[00:02:06.529] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:02:06.529] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:02:06.529] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921618820
+[00:02:06.529] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:02:06.529] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:02:06.903] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:02:06.903] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:02:06.903] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:02:06.903] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 272
+[00:02:06.905] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:02:06.918] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:02:07.933] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:02:07.935] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:02:07.935] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:02:07.935] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:02:07.935] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:02:07.935] [COMPUTE_BEST] Current interface states:
+[00:02:07.936] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:02:07.936] [COMPUTE_BEST]   wlan0: active=NO, link_up=NO, score=0, latency=0
+[00:02:07.936] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=272
+[00:02:07.936] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:02:07.936] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:02:07.936] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[00:02:07.936] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:02:07.936] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=272)
+[00:02:07.937] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:02:07.937] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:02:07.937] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:02:08.032] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:02:08.128] [NET] Default route already exists for ppp0, skipping route update
+[00:02:08.207] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:02:08.315] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:02:08.370] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:02:08.370] [NET] Notifying link type change to ppp0
+[00:02:08.370] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 272), going online
+[00:02:08.980] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:02:09.040] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:02:09.137] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:02:09.319] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:02:09.319] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:02:09.319] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:02:09.319] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:02:10.031] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:02:10.033] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:02:10.033] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:02:10.033] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:02:11.050] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:02:11.052] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:02:11.052] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:02:11.052] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:02:11.053] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:02:11.053] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:02:11.053] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:02:11.053] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:02:11.053] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:02:11.053] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:02:11.054] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:02:11.058] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:02:11.058] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:02:11.059] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:02:11.059] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:02:11.059] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:02:11.068] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:02:11.068] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:02:11.090] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:02:11.301] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=208.821 ms
+[00:02:11.302] [NET: ppp0] execute_ping: Found reply #1
+[00:02:11.302] [NET: ppp0] execute_ping: Latency: 208.821 ms
+[00:02:12.070] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:02:12.072] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:02:12.072] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:02:12.072] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:02:12.268] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=175.094 ms
+[00:02:12.268] [NET: ppp0] execute_ping: Found reply #2
+[00:02:12.268] [NET: ppp0] execute_ping: Latency: 175.094 ms
+[00:02:13.096] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:02:13.096] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:02:13.096] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:02:13.281] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=186.378 ms
+[00:02:13.281] [NET: ppp0] execute_ping: Found reply #3
+[00:02:13.281] [NET: ppp0] execute_ping: Latency: 186.378 ms
+[00:02:13.281] [NET: ppp0] execute_ping: Raw output: 
+[00:02:13.281] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:02:13.281] [NET: ppp0] execute_ping: Found ping statistics line
+[00:02:13.281] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:02:13.282] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:02:13.282] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:02:13.282] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:02:13.282] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:02:13.282] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:02:13.282] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:02:13.282] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 190 ms, packet_loss: 0%
+[00:02:13.282] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:02:13.283] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:190
+[00:02:13.283] [NET] ppp0: replies=3 avg_lat=190ms link_up=true
+[00:02:13.283] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:02:13.283] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:02:13.283] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921618820
+[00:02:13.283] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:02:13.283] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:02:14.113] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:02:14.113] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:02:14.113] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:02:14.113] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 190
+[00:02:14.115] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:02:14.123] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:02:15.138] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:02:15.142] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:02:15.142] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:02:15.143] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:02:15.143] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:02:15.143] [COMPUTE_BEST] Current interface states:
+[00:02:15.143] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:02:15.146] [COMPUTE_BEST]   wlan0: active=NO, link_up=NO, score=0, latency=0
+[00:02:15.146] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=190
+[00:02:15.147] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:02:15.147] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:02:15.147] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[00:02:15.147] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:02:15.147] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=190)
+[00:02:15.147] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:02:15.148] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:02:15.148] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:02:15.257] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:02:15.354] [NET] Default route already exists for ppp0, skipping route update
+[00:02:15.412] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:02:15.507] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:02:15.559] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:02:15.559] [NET] Notifying link type change to ppp0
+[00:02:15.560] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 190), going online
+[00:02:16.170] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:02:16.227] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:02:16.319] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:02:16.474] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:02:16.475] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:02:16.475] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:02:16.475] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:02:17.186] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:02:17.188] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:02:17.188] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:02:17.189] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:02:18.204] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:02:18.206] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:02:18.207] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:02:18.207] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:02:18.207] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:02:18.207] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:02:18.207] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:02:18.208] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:02:18.208] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:02:18.208] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:02:18.208] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:02:18.212] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:02:18.212] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:02:18.213] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:02:18.213] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:02:18.213] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:02:18.218] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:02:18.218] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:02:18.246] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:02:18.426] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=178.615 ms
+[00:02:18.426] [NET: ppp0] execute_ping: Found reply #1
+[00:02:18.426] [NET: ppp0] execute_ping: Latency: 178.615 ms
+[00:02:19.223] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:02:19.225] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:02:19.225] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:02:19.225] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:02:19.449] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=201.414 ms
+[00:02:19.449] [NET: ppp0] execute_ping: Found reply #2
+[00:02:19.449] [NET: ppp0] execute_ping: Latency: 201.414 ms
+[00:02:20.240] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:02:20.240] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:02:20.240] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:02:20.483] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=234.565 ms
+[00:02:20.484] [NET: ppp0] execute_ping: Found reply #3
+[00:02:20.484] [NET: ppp0] execute_ping: Latency: 234.565 ms
+[00:02:20.484] [NET: ppp0] execute_ping: Raw output: 
+[00:02:20.484] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:02:20.484] [NET: ppp0] execute_ping: Found ping statistics line
+[00:02:20.485] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:02:20.485] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:02:20.485] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:02:20.485] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:02:20.485] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:02:20.485] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:02:20.485] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:02:20.485] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 204 ms, packet_loss: 0%
+[00:02:20.486] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:02:20.486] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:204
+[00:02:20.486] [NET] ppp0: replies=3 avg_lat=204ms link_up=true
+[00:02:20.486] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:02:20.487] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:02:20.487] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921618820
+[00:02:20.487] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:02:20.487] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:02:21.260] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:02:21.261] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:02:21.261] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:02:21.261] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 204
+[00:02:21.263] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:02:21.276] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:02:22.292] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:02:22.293] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:02:22.294] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:02:22.294] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:02:22.294] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:02:22.294] [COMPUTE_BEST] Current interface states:
+[00:02:22.294] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:02:22.294] [COMPUTE_BEST]   wlan0: active=NO, link_up=NO, score=0, latency=0
+[00:02:22.294] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=204
+[00:02:22.294] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:02:22.294] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:02:22.294] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[00:02:22.295] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:02:22.295] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=204)
+[00:02:22.295] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:02:22.295] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:02:22.295] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:02:22.392] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:02:22.494] [NET] Default route already exists for ppp0, skipping route update
+[00:02:22.546] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:02:22.643] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:02:22.703] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:02:22.703] [NET] Notifying link type change to ppp0
+[00:02:22.704] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 204), going online
+[00:02:23.314] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:02:23.369] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:02:23.468] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:02:23.633] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:02:23.633] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:02:23.633] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:02:23.633] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:02:24.347] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:02:24.349] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:02:24.349] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:02:24.349] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:02:25.364] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:02:25.365] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:02:25.366] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:02:25.366] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:02:25.367] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:02:25.367] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:02:25.367] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:02:25.368] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:02:25.368] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:02:25.368] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:02:25.368] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:02:25.374] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:02:25.374] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:02:25.374] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:02:25.374] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:02:25.374] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:02:25.379] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:02:25.379] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:02:25.402] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:02:25.623] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=216.912 ms
+[00:02:25.623] [NET: ppp0] execute_ping: Found reply #1
+[00:02:25.624] [NET: ppp0] execute_ping: Latency: 216.912 ms
+[00:02:26.389] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[00:02:26.391] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:02:26.391] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:02:26.391] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:02:26.599] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=56 time=191.820 ms
+[00:02:26.599] [NET: ppp0] execute_ping: Found reply #2
+[00:02:26.599] [NET: ppp0] execute_ping: Latency: 191.820 ms
+[00:02:27.405] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:02:27.405] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:02:27.405] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:02:27.627] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=56 time=219.627 ms
+[00:02:27.627] [NET: ppp0] execute_ping: Found reply #3
+[00:02:27.627] [NET: ppp0] execute_ping: Latency: 219.627 ms
+[00:02:27.629] [NET: ppp0] execute_ping: Raw output: 
+[00:02:27.629] [NET: ppp0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+[00:02:27.629] [NET: ppp0] execute_ping: Found ping statistics line
+[00:02:27.629] [NET: ppp0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+[00:02:27.629] [NET: ppp0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[00:02:27.629] [NET: ppp0] execute_ping: Parsed packet loss: 0%
+[00:02:27.629] [NET: ppp0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[00:02:27.630] [NET: ppp0] execute_ping: Closing ping pipe...
+[00:02:27.630] [NET: ppp0] execute_ping: Ping command exited with status: 0
+[00:02:27.630] [NET: ppp0] execute_ping: Ping command completed normally with exit code: 0
+[00:02:27.630] [NET: ppp0] execute_ping: Final results - replies: 3, avg_latency: 209 ms, packet_loss: 0%
+[00:02:27.630] [NET] execute_ping: Returning true (replies:3 summary:true)
+[00:02:27.630] [NET] ping_thread_fn: ppp0 ping result - success:true replies:3 latency:209
+[00:02:27.630] [NET] ppp0: replies=3 avg_lat=209ms link_up=true
+[00:02:27.631] [NET] ping_thread_fn: ppp0 thread completed and marked as not running/invalid
+[00:02:27.631] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread exiting normally, thread_valid=false, thread_id=2921618820
+[00:02:27.631] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: cleanup_ping_thread called, thread_id=2921618820
+[00:02:27.631] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Cleanup complete, thread marked as not running/invalid
+[00:02:27.631] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread cleanup complete, exiting
+[00:02:28.425] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 timed out
+[00:02:28.425] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread already completed (thread_valid=false), skipping cancel
+[00:02:28.425] [NETMGR] State: NET_WAIT_RESULTS | Thread wlan0 timed out and was cancelled
+
+[00:02:28.426] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 completed, score: 10, latency: 209
+[00:02:28.431] [NETMGR] State: NET_WAIT_RESULTS | eth0 failed test but has valid IP, keeping active for retry
+[00:02:28.440] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[00:02:29.457] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[00:02:29.459] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[00:02:29.459] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[00:02:29.459] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[00:02:29.459] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[00:02:29.459] [COMPUTE_BEST] Current interface states:
+[00:02:29.459] [COMPUTE_BEST]   eth0: active=YES, link_up=NO, score=0, latency=0
+[00:02:29.459] [COMPUTE_BEST]   wlan0: active=NO, link_up=NO, score=0, latency=0
+[00:02:29.460] [COMPUTE_BEST]   ppp0: active=YES, link_up=YES, score=10, latency=209
+[00:02:29.460] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[00:02:29.460] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[00:02:29.460] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[00:02:29.460] [COMPUTE_BEST]   Checking ppp0: score=10 >= good_thr=7? YES
+[00:02:29.460] [COMPUTE_BEST]   Found GOOD link by priority: ppp0 (score=10, latency=209)
+[00:02:29.460] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[00:02:29.460] [NETMGR-ETH0] State: NET_ONLINE | ETH0 has score=0 but is DHCP server, skipping cooldown (not a failure)
+[00:02:29.460] [NETMGR-PPP0] State: NET_ONLINE | PPP0 score was good, setting as default route
+[00:02:29.588] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:02:29.688] [NET] Default route already exists for ppp0, skipping route update
+[00:02:29.742] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:02:29.843] [NETMGR] State: NET_ONLINE | Current routing table:
+default dev ppp0 scope link metric 5 
+10.64.64.64 dev ppp0 proto kernel scope link src 10.183.106.95 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[00:02:29.901] [NETMGR] State: NET_ONLINE | Setting current interface to ppp0
+[00:02:29.901] [NET] Notifying link type change to ppp0
+[00:02:29.901] [NETMGR] State: NET_ONLINE | Best interface: ppp0 (score: 10, latency: 209), going online
+[00:02:30.513] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[00:02:30.607] [NET] Verified default route exists for ppp0: default dev ppp0 scope link metric 5 
+[00:02:30.703] [NETMGR] State: NET_ONLINE | Default route verified for ppp0
+[00:02:30.870] [NETMGR] State: NET_ONLINE | eth0 is active with valid IP but never tested, scheduling verification test
+[00:02:30.870] [NETMGR] State: NET_ONLINE | eth0 detected with valid IP, testing as potential backup immediately
+[00:02:30.870] [NETMGR] State: NET_ONLINE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:02:30.870] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_VERIFY_RESULTS
+[00:02:31.582] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State changed from NET_ONLINE to NET_ONLINE_VERIFY_RESULTS
+[00:02:31.583] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface verify test on eth0 complete - score:0, latency: 0
+[00:02:31.584] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | Interface eth0 score was not good, need to select new interface
+[00:02:31.584] [NETMGR] State: NET_ONLINE_VERIFY_RESULTS | State transition: NET_ONLINE_VERIFY_RESULTS -> NET_SELECT_INTERFACE
+[00:02:32.598] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_VERIFY_RESULTS to NET_SELECT_INTERFACE
+[00:02:32.680] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | Triggered WiFi scan while interface down (attempt 1/10)
+[00:02:32.680] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for eth0
+[00:02:32.680] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ping test for eth0 (DHCP server mode - serves local clients)
+[00:02:32.680] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Starting interface test for ppp0
+[00:02:32.680] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[00:02:32.681] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: launch_ping_thread called
+[00:02:32.681] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Creating new thread for ping test
+[00:02:32.681] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread created and detached successfully, thread_id=2921618820
+[00:02:32.682] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] ppp0: Thread state updated - running=true, thread_valid=true
+[00:02:32.682] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for ppp0
+[00:02:32.682] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[00:02:32.691] [NET] ping_thread_fn: Starting ping thread for ppp0 to IP 34.94.71.128
+[00:02:32.691] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread started, thread_id=2921618820, target_ip=34.94.71.128
+[00:02:32.692] [NET: ppp0] execute_ping: Starting ping to IP: 34.94.71.128
+[00:02:32.692] [NET: ppp0] execute_ping: Target IP string: 34.94.71.128
+[00:02:32.692] [NET: ppp0] execute_ping: Executing command: ping -n -I ppp0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[00:02:32.703] [NET: ppp0] execute_ping: Ping command started (PID ~1053), reading output...
+[00:02:32.703] [NET: ppp0] execute_ping: Starting read loop with 18 second timeout
+[00:02:32.743] [NET: ppp0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+[00:02:32.956] [NET: ppp0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=56 time=212.001 ms
+[00:02:32.956] [NET: ppp0] execute_ping: Found reply #1
+[00:02:32.957] [NET: ppp0] execute_ping: Latency: 212.001 ms
+
+[1;35mroot@iMatrix:FC-1:0131557250:[1;34m/home[0;39m# 
