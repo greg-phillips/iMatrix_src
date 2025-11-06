@@ -993,3 +993,10 @@ This is a design flaw in the threshold checking logic.
 ---
 
 **END OF REVIEW**
+
+Debug flags are active as seen here
+ Current debug flags: 0x0000000000004000
+0x0000000000004000 - Debugs for Memory Manager
+Note: the log contains these messages indicating that the memrory should be freed: [00:00:39.262] [MM2-PEND] erase_all: ENTRY - sensor=Host, src=GATEWAY, pending_count=1 
+
+think ultrahard and create a very detail docment to fix the issues identified and create an extensive todo list  for me to review before starting the implementation. Use the proposed **Alternative Fix (Better):** options
