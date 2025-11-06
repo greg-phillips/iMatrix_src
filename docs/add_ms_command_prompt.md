@@ -16,6 +16,7 @@ Read and understand the following
 docs/comprehensive_code_review_report.md
 docs/developer_onboarding_guide.md
 docs/comprehensive_code_review_report.md
+docs/CLI_and_Debug_System_Complete_Guide.md
 
 use the template files as a base for any new files created
 iMatrix/templates/blank.c

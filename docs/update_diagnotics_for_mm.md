@@ -10,6 +10,7 @@ Read and understand the following
 docs/comprehensive_code_review_report.md
 docs/developer_onboarding_guide.md
 docs/comprehensive_code_review_report.md
+docs/CLI_and_Debug_System_Complete_Guide.md
 
 ## Task
 When a new sector is allocated output a message using the PRINTF macro each time the memory passes each incremental 10% threshold
