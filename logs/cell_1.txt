@@ -1,0 +1,107 @@
+[11:02:03.294] [Cellular Connection - Line: OK]
+[11:02:03.296] [Cellular Connection - Final 'OK' detected. Ending read.]
+[11:02:03.299] [Cellular Connection - AT command response successfully received.]
+[11:02:03.402] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 4 (PROCESS_RESPONSE)]
+[11:02:03.404] [Cellular Connection - AT command response received.]
+[11:02:03.406] Line 0: AT+COPS=?
+[11:02:03.408] Line 1: +COPS: (2,"AT&T","AT&T","310410",7),(3,"313 100","313 100","313100",7),(1,"Verizon","Verizon","311480",7),(1,"T-Mobile","T-Mobile","310260",7),,(0,1,2,3,4),(0,1,2)
+[11:02:03.410] Line 2: OK
+[11:02:03.411] [Cellular COPS Operator: AT&T (310410) - Status: 2, Technology: 7]
+[11:02:03.413] [Cellular COPS Operator: 313 100 (313100) - Status: 3, Technology: 7]
+[11:02:03.415] [Cellular COPS Operator: Verizon (311480) - Status: 1, Technology: 7]
+[11:02:03.415] [Cellular COPS Operator: T-Mobile (310260) - Status: 1, Technology: 7]
+[11:02:03.416] [Cellular COPS Operator: 1 (3) - Status: 0, Technology: 4]
+[11:02:03.417] [ERROR] Failed to parse operator entry: (2,"AT&T","AT&T","310410",7),(3,"313 100","313 100","313100",7),(1,"Verizon","Verizon","311480",7),(1,"T-Mobile","T-Mobile","310260",7),,(0,1,2,3,4),(0,1,2)
+[11:02:03.525] [Cellular Connection - Cellular state changed from 4 (PROCESS_RESPONSE) to 2 (PROCIESS_INITIALIZATION)]
+[11:02:03.629] [Cellular Connection - Cellular state changed from 2 (PROCIESS_INITIALIZATION) to 5 (TEST_NETWORK_SETUP)]
+[11:02:03.630] [Cellular Connection - Testing Network Operators]
+[11:02:03.632] [Cellular Connection - Operator 1]
+[11:02:03.634]   Status: 2 (Current)
+[11:02:03.636]   Long Alphanumeric: AT&T
+[11:02:03.638]   Short Alphanumeric: AT&T
+[11:02:03.640]   Numeric: 310410
+[11:02:03.641]   Network Access Technology: 7 (E-UTRAN)
+
+[11:02:03.642] [Cellular Connection - Operator 2]
+[11:02:03.642]   Status: 3 (Forbidden)
+[11:02:03.643]   Long Alphanumeric: 313 100
+[11:02:03.643]   Short Alphanumeric: 313 100
+[11:02:03.644]   Numeric: 313100
+[11:02:03.645]   Network Access Technology: 7 (E-UTRAN)
+
+[11:02:03.646] [Cellular Connection - Operator 3]
+[11:02:03.647]   Status: 1 (Available)
+[11:02:03.649]   Long Alphanumeric: Verizon
+[11:02:03.651]   Short Alphanumeric: Verizon
+[11:02:03.651]   Numeric: 311480
+[11:02:03.652]   Network Access Technology: 7 (E-UTRAN)
+
+[11:02:03.654] [Cellular Connection - Operator 4]
+[11:02:03.656]   Status: 1 (Available)
+[11:02:03.657]   Long Alphanumeric: T-Mobile
+[11:02:03.658]   Short Alphanumeric: T-Mobile
+[11:02:03.660]   Numeric: 310260
+[11:02:03.662]   Network Access Technology: 7 (E-UTRAN)
+
+[11:02:03.665] [Cellular Connection - Operator 5]
+[11:02:03.666]   Status: 0 (Unknown)
+[11:02:03.668]   Long Alphanumeric: 1
+[11:02:03.668]   Short Alphanumeric: 2
+[11:02:03.669]   Numeric: 3
+[11:02:03.670]   Network Access Technology: 4 (UTRAN w/HSDPA)
+
+[11:02:03.782] [Cellular Connection - Cellular state changed from 5 (TEST_NETWORK_SETUP) to 6 (SETUP_OPERATOR)]
+[11:02:03.784] [Cellular Connection - Testing Operator 1:AT&T]
+[11:02:03.786] [Cellular Connection - Sending AT command: AT+COPS=1,2,"310410",7]
+[11:02:03.787] [NET] DNS prime skipped: No active links
+[11:02:03.793] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | No valid interface available, returning to NET_INIT
+                                                                                                             [11:02:03.795] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Invalid transition from ONLINE_CHECK_RESULTS to NET_INIT
+                                                                                                                                                                                                                               [11:02:03.797] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State transition blocked: NET_ONLINE_CHECK_RESULTS -> NET_INIT
+                                                                                  [11:02:03.901] [Cellular Connection - Cellular state changed from 6 (SETUP_OPERATOR) to 3 (GET_RESPONSE)]
+[11:02:03.903]     [Returning to cellular state: PROCESS_OPERATOR_SETUP]
+[11:02:03.905] [Cellular Connection - Line: AT+COPS=1,2,"310410",7]
+[11:02:03.908] [Cellular Connection - Line: OK]
+[11:02:03.910] [Cellular Connection - Final 'OK' detected. Ending read.]
+[11:02:03.912] [Cellular Connection - AT command response successfully received.]
+[11:02:04.019] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 7 (PROCESS_OPERATOR_SETUP)]
+[11:02:04.021] [Cellular Connection - AT+COPS command response received.]
+[11:02:04.123] [Cellular Connection - Ready state changed from NOT_READY to READY]
+[11:02:04.125] [Cellular Connection - Link reset state changed from RESET to NORMAL]
+[11:02:04.127] [Cellular Connection - Cellular state changed from 7 (PROCESS_OPERATOR_SETUP) to 8 (CONNECTED)]
+[11:02:04.129] [Cellular Connection - Sending AT command: AT+CSQ]
+[11:02:04.235] [Cellular Connection - Cellular state changed from 8 (CONNECTED) to 3 (GET_RESPONSE)]
+[11:02:04.237]     [Returning to cellular state: PROCESS_CSQ]
+[11:02:04.239] [Cellular Connection - Line: AT+CSQ]
+[11:02:04.861] [NET] DNS prime skipped: No active links
+[11:02:04.862] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular transitioned from NOT_READY to READY, allowing PPP retry
+                                                                                                                                [11:02:05.369] [Cellular Connection - PPPD started (count=1)]
+[11:02:05.371] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Started pppd, will monitor for PPP0 device creation
+                                                                                                                  [11:02:05.373] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | No valid interface available, returning to NET_INIT
+                                                                                                                                                                                                                               [11:02:05.374] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Invalid transition from ONLINE_CHECK_RESULTS to NET_INIT
+                                                                            [11:02:05.376] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State transition blocked: NET_ONLINE_CHECK_RESULTS -> NET_INIT
+                                                                                                                                                                                                    [11:02:05.482] [Cellular Connection - Line: +CSQ: 24,99]
+[11:02:05.484] [Cellular Connection - Line: OK]
+[11:02:05.486] [Cellular Connection - Final 'OK' detected. Ending read.]
+[11:02:05.488] [Cellular Connection - AT command response successfully received.]
+[11:02:05.596] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 9 (PROCESS_CSQ)]
+[11:02:05.598] [Cellular Connection - AT+CSQ command response received.]
+[11:02:05.601] [Cellular Connection to Operator AT&T - CSQ: 24, BER: 99]
+[11:02:05.603] [Cellular Connection - Operator 1 (AT&T) selected as first valid operator - RSSI: -65, BER: 99]
+[11:02:05.707] [Cellular Connection - Cellular state changed from 9 (PROCESS_CSQ) to 6 (SETUP_OPERATOR)]
+[11:02:05.711] [Cellular Connection - Operator 2:313 100 not suitable for testing, Status: 3(Operator forbidden)]
+[11:02:05.820] [Cellular Connection - Testing Operator 3:Verizon]
+[11:02:05.821] [Cellular Connection - Sending AT command: AT+COPS=1,2,"311480",7]
+[11:02:05.927] [Cellular Connection - Cellular state changed from 6 (SETUP_OPERATOR) to 3 (GET_RESPONSE)]
+[11:02:05.929]     [Returning to cellular state: PROCESS_OPERATOR_SETUP]
+[11:02:05.931] [Cellular Connection - Line: AT+COPS=1,2,"311480",7]
+[11:02:05.933] [NET] DNS prime skipped: No active links
+[11:02:05.939] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | No valid interface available, returning to NET_INIT
+                                                                                                             [11:02:05.942] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Invalid transition from ONLINE_CHECK_RESULTS to NET_INIT
+                                                                                                                                                                                                                               [11:02:05.944] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State transition blocked: NET_ONLINE_CHECK_RESULTS -> NET_INIT
+                                                                                  [11:02:06.975] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State timeout after 20 seconds, forcing transition to NET_INIT
+                                                                                                                                                                                                          [11:02:06.976] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Invalid transition from ONLINE_CHECK_RESULTS to NET_INIT
+                                                       [11:02:06.978] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State transition blocked: NET_ONLINE_CHECK_RESULTS -> NET_INIT
+                                                                                                                                                                               [11:02:06.981] [NET] DNS prime skipped: No active links
+[11:02:06.986] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | No valid interface available, returning to NET_INIT
+                                                                                                             [11:02:06.989] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Invalid transition from ONLINE_CHECK_RESULTS to NET_INIT
+                                                                                                                                                                                                                               [11:02:06.991] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State transition blocked: NET_ONLINE_CHECK_RESULTS -> NET_INIT
