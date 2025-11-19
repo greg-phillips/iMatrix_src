@@ -1,0 +1,310 @@
+# Advanced Example: PPP Connection Refactoring
+# This demonstrates all advanced features: variables, includes, multi-phase tasks,
+# architecture definitions, design decisions, and conditional sections
+
+complexity_level: "advanced"
+
+# Variables for path reuse
+variables:
+  project_root: "~/iMatrix/iMatrix_Client"
+  imatrix_path: "${project_root}/iMatrix"
+  fleet_path: "${project_root}/Fleet-Connect-1"
+  log_dir: "${project_root}/logs"
+  network_path: "${imatrix_path}/IMX_Platform/LINUX_Platform/networking"
+
+# Include standard templates
+includes:
+  - "specs/templates/standard_imatrix_context.yaml"
+  - "specs/templates/network_debugging_setup.yaml"
+
+# Metadata
+metadata:
+  title: "PPP0 Connection Refactoring Plan"
+  date: "2025-11-16"
+  branch: "bugfix/network-stability"
+  objective: "Refactor PPP connection management to use PPPD Daemon approach for better logging and control"
+  estimated_effort: "4-6 hours development + 2 hours testing"
+  priority: "high"
+
+prompt_name: "ppp_connection_refactoring_plan"
+
+# Task type enables conditional sections
+task_type: "refactor"
+
+# Override included project context with specific info
+project:
+  additional_context: |
+    This refactoring focuses specifically on the cellular PPP0 connection
+    management subsystem within the network manager. The goal is to replace
+    the simple pon/poff approach with a robust daemon-based system that
+    provides detailed logging and state visibility.
+
+# Current implementation analysis
+current_state:
+  workflow:
+    - step: "cellular_man.c state machine initializes modem and registers with carrier (AT&T)"
+      location: "cellular_man.c:2064"
+
+    - step: "At DONE_INIT_REGISTER state: Sets cellular_now_ready = true"
+      location: "cellular_man.c:2064"
+
+    - step: "process_network.c detects ready flag via imx_is_cellular_now_ready()"
+      location: "process_network.c:4531"
+
+    - step: "Calls start_pppd() from cellular_man.c"
+      location: "cellular_man.c:1797"
+
+    - step: "start_pppd() executes 'pon' command"
+      location: "cellular_man.c:1797"
+
+    - step: "Waits up to 30 seconds for ppp0 device with IP address"
+      location: "cellular_man.c:1800-1816"
+
+  problems:
+    - issue: "Missing Configuration"
+      description: "pon requires /etc/ppp/peers/provider which doesn't exist"
+      severity: "high"
+
+    - issue: "No Logging"
+      description: "Cannot see chat script execution, LCP/IPCP negotiation"
+      severity: "high"
+
+    - issue: "No State Visibility"
+      description: "Just waiting for IP, no intermediate status"
+      severity: "medium"
+
+    - issue: "Limited Diagnostics"
+      description: "Connect script failed with no details"
+      severity: "high"
+
+    - issue: "No Error Recovery"
+      description: "Cannot distinguish between different failure modes"
+      severity: "medium"
+
+# Proposed architecture
+architecture:
+  new_module:
+    name: "ppp_connection.c"
+    location: "${network_path}/ppp_connection.c"
+    responsibilities:
+      - "Start/stop PPPD daemon via /etc/start_pppd.sh"
+      - "Parse /var/log/pppd/current for connection state"
+      - "Extract IP addresses, DNS servers, error messages"
+      - "Provide structured status to callers"
+      - "Comprehensive logging with PPP-specific debug flags"
+
+  data_structures:
+    - name: "ppp_state_t"
+      type: "enum"
+      file: "ppp_connection.h"
+      description: "PPP connection states derived from log parsing"
+      values:
+        - "PPP_STATE_STOPPED"
+        - "PPP_STATE_STARTING"
+        - "PPP_STATE_CHAT_RUNNING"
+        - "PPP_STATE_LCP_NEGOTIATION"
+        - "PPP_STATE_IPCP_NEGOTIATION"
+        - "PPP_STATE_CONNECTED"
+        - "PPP_STATE_ERROR"
+
+    - name: "ppp_connection_status_t"
+      type: "struct"
+      file: "ppp_connection.h"
+      description: "PPP connection status information"
+      fields:
+        state: "ppp_state_t"
+        pppd_running: "bool"
+        ppp0_device_exists: "bool"
+        ppp0_has_ip: "bool"
+        local_ip: "char[16]"
+        remote_ip: "char[16]"
+        dns_primary: "char[16]"
+        dns_secondary: "char[16]"
+        connection_time_ms: "uint32_t"
+        last_error: "char[256]"
+
+    - name: "ppp_health_check_t"
+      type: "struct"
+      file: "ppp_connection.h"
+      description: "PPP connection health indicators from log analysis"
+      fields:
+        chat_script_ok: "bool"
+        lcp_negotiated: "bool"
+        ipcp_negotiated: "bool"
+        ip_assigned: "bool"
+        ip_up_script_ok: "bool"
+        failure_reason: "char[128]"
+
+# Multi-phase task
+task:
+  phases:
+    - phase: 1
+      name: "Create New Module (ppp_connection.c/h)"
+      tasks:
+        - "Define data structures in header"
+        - "Implement ppp_connection_init() - prerequisite checking"
+        - "Implement ppp_connection_start() - daemon startup"
+        - "Implement ppp_connection_stop() - daemon shutdown"
+        - "Implement log parsing: ppp_connection_parse_log()"
+        - "Implement status: ppp_connection_get_status()"
+        - "Implement health check: ppp_connection_check_health()"
+        - "Add helper functions"
+        - "Add comprehensive Doxygen comments"
+        - "Update CMakeLists.txt to include new source file"
+      deliverable: "Working ppp_connection module with comprehensive logging"
+
+    - phase: 2
+      name: "Deprecate Old Functions in cellular_man.c"
+      tasks:
+        - "Rename start_pppd() to start_pppd_deprecated()"
+        - "Rename stop_pppd() to stop_pppd_deprecated()"
+        - "Add @deprecated Doxygen tags"
+        - "Create new wrapper functions calling ppp_connection module"
+        - "Update cellular_man.h function declarations"
+        - "Add #include ppp_connection.h"
+      deliverable: "Backward compatible API with deprecated old functions"
+
+    - phase: 3
+      name: "Enhance process_network.c Monitoring"
+      tasks:
+        - "Replace simple device check with detailed status monitoring"
+        - "Add state-aware logging for each PPP state"
+        - "Add health check on timeout/failure"
+        - "Include recent log output in error diagnostics"
+        - "Add ppp_connection_init() call in network_manager_init()"
+      deliverable: "Enhanced monitoring with detailed state-aware logs"
+
+    - phase: 4
+      name: "Testing and Validation"
+      tasks:
+        - "Test normal connection flow (STARTING → CONNECTED)"
+        - "Test connection failures (chat script, LCP, IPCP)"
+        - "Test connection drop and recovery"
+        - "Verify log parsing accuracy"
+        - "Long-run test: 30+ minutes with multiple cycles"
+      deliverable: "Fully tested and validated refactored system"
+
+# Conditional sections for refactoring tasks
+conditional_sections:
+  when_refactoring:
+    design_decisions:
+      - decision: "Wrapper Functions (Chosen Approach)"
+        rationale: |
+          Keep start_pppd() / stop_pppd() names in cellular_man.c as thin wrappers.
+          - Zero changes required in process_network.c call sites
+          - Maintains API compatibility
+          - Easy to switch back if issues found
+          - Clear separation: cellular_man.c owns interface, ppp_connection.c owns implementation
+
+      - decision: "Log Read Caching (1 Second)"
+        rationale: |
+          Cache log file reads for 1 second to reduce I/O.
+          - process_network() calls every 1 second
+          - Log file doesn't change faster than that
+          - Reduces filesystem I/O
+          - Still responsive (1s max staleness)
+
+      - decision: "Retry Logic in process_network.c"
+        rationale: |
+          Keep retry management in process_network.c, not ppp_connection.c.
+          - Retry policy tied to network manager state machine
+          - Needs coordination with interface selection
+          - Cellular blacklisting logic already in process_network
+          - Separation of concerns: ppp_connection manages daemon, network manager manages policy
+
+      - decision: "30-Second Timeout (Keep Current)"
+        rationale: |
+          Maintain 30-second timeout despite 3-second normal connection time.
+          - Working log shows 3 seconds in ideal conditions
+          - Weak signal areas may take longer
+          - Chat script retries AT commands
+          - LCP/IPCP can timeout and retry
+          - Conservative timeout prevents premature failures
+
+    risk_mitigation:
+      - risk: "Log parsing errors crash system"
+        mitigation: "Robust error handling, bounds checking, fopen error checks"
+
+      - risk: "Log file too large causes memory issues"
+        mitigation: "Read only last N lines (default 100), limit buffer sizes"
+
+      - risk: "Cache causes stale state data"
+        mitigation: "1-second cache timeout, invalidate on explicit calls"
+
+      - risk: "Breaking existing PPP functionality"
+        mitigation: "Keep deprecated functions, use wrappers for compatibility"
+
+      - risk: "/etc/start_pppd.sh doesn't exist"
+        mitigation: "Check in init, fail gracefully with clear error message"
+
+# Success criteria
+success_criteria:
+  functional:
+    - "PPP0 connects successfully using /etc/start_pppd.sh"
+    - "Logs show clear state progression: CHAT → LCP → IPCP → CONNECTED"
+    - "IP address, DNS servers logged on successful connection"
+    - "Connection failures show detailed error messages with actionable diagnostics"
+    - "No 'Connect script failed' without explanation"
+    - "State timeouts identify exact stuck state"
+
+  quality:
+    - "Backward compatible - no changes required in cellular_man state machine"
+    - "Build clean with zero warnings"
+    - "Works in headless/production environment"
+    - "Memory-safe log parsing (no leaks, no crashes)"
+
+  performance:
+    - "Normal connection time: 3-5 seconds"
+    - "Log parsing overhead: < 10ms per check"
+    - "Memory footprint: < 50KB additional"
+
+# Deliverables with custom metrics
+deliverables:
+  plan_document: "docs/${prompt_name}.md"
+  use_standard_workflow: true
+
+  additional_deliverables:
+    - "ppp_connection.c module with comprehensive Doxygen comments"
+    - "Integration test results showing state transitions"
+    - "Performance comparison: old vs new approach"
+    - "Updated CLAUDE.md with PPP connection module info"
+
+  metrics:
+    - "Connection time: old vs new (expect <3s with new approach)"
+    - "Log verbosity: lines per connection attempt"
+    - "Error diagnosis time: time to identify failure root cause"
+    - "Number of recompilations required for syntax errors"
+    - "Time taken in both elapsed and actual work time"
+
+# Configuration requirements
+special_instructions:
+  pre_implementation:
+    - "Review /var/log/pppd/current log files from working system"
+    - "Understand chat script flow and AT command sequence"
+    - "Familiarize with LCP/IPCP negotiation process"
+
+  system_files_required:
+    - path: "/etc/start_pppd.sh"
+      description: "PPPD startup script (must be executable)"
+    - path: "/var/log/pppd/"
+      description: "Log directory (must be writable)"
+    - path: "/etc/chatscripts/quake-gemalto"
+      description: "Chat script with AT commands"
+    - path: "/etc/ppp/ip-up"
+      description: "Script executed when connection established"
+    - path: "/etc/ppp/ip-down"
+      description: "Script executed when connection terminated"
+
+# Questions (for implementation clarifications)
+questions:
+  - question: "Cache timeout for log reads?"
+    suggested_answer: "1 second (matches process_network call frequency)"
+    answer: "1 second"
+
+  - question: "Timeout before declaring connection failed?"
+    suggested_answer: "30 seconds (current value, conservative)"
+    answer: "30 seconds"
+
+  - question: "Should we add CLI command to view PPP status?"
+    suggested_answer: "Yes, useful for diagnostics"
+    answer: ""  # Empty - will prompt during implementation

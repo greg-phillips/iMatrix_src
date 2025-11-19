@@ -1,0 +1,508 @@
+# iMatrix Prompt Generation Schema v1.0
+# This file defines the complete YAML schema for generating development prompts
+
+schema_version: "1.0"
+created: "2025-11-17"
+description: "Complete schema for iMatrix development prompt generation supporting three complexity levels"
+
+# =============================================================================
+# COMPLEXITY LEVELS
+# =============================================================================
+# simple:   Flat structure, minimal fields, auto-generated deliverables
+# moderate: Nested sections, organized structure, auto-population from CLAUDE.md
+# advanced: Variables, includes, conditionals, multi-phase tasks
+
+# =============================================================================
+# REQUIRED FIELDS BY COMPLEXITY LEVEL
+# =============================================================================
+
+required_fields:
+  simple:
+    - title
+    - task
+
+  moderate:
+    - title
+    - task
+    - deliverables
+
+  advanced:
+    - title
+    - task
+    - metadata
+    # Must have either:
+    - phases_or_architecture  # At least one of: task.phases OR architecture section
+
+# =============================================================================
+# RECOMMENDED FIELDS (Generate warnings if missing)
+# =============================================================================
+
+recommended_fields:
+  all_levels:
+    - prompt_name      # Auto-generated from title if missing
+    - branch           # Auto-generated from title if missing
+    - date             # Auto-filled with current date if missing
+
+  moderate_and_above:
+    - objective
+    - references
+    - deliverables.plan_document
+
+  advanced:
+    - metadata.estimated_effort
+    - success_criteria
+
+# =============================================================================
+# FIELD DEFINITIONS
+# =============================================================================
+
+fields:
+  # Top-level configuration
+  complexity_level:
+    type: string
+    values: [simple, moderate, advanced]
+    default: moderate
+    description: "Determines which schema features are available"
+
+  prompt_name:
+    type: string
+    pattern: "^[a-z0-9_]+$"
+    description: "Output filename (without .md extension)"
+    auto_generate: true
+    auto_generate_from: title
+
+  title:
+    type: string
+    required: true
+    description: "Main prompt title/aim"
+
+  date:
+    type: string
+    format: "YYYY-MM-DD"
+    auto_fill: true
+    description: "Prompt creation date"
+
+  branch:
+    type: string
+    pattern: "^(feature|bugfix|refactor|debug)/[a-z0-9-]+$"
+    auto_generate: true
+    description: "Git branch name for this work"
+
+  objective:
+    type: string
+    description: "High-level objective statement"
+
+  # Project structure
+  project:
+    type: object
+    auto_populate: true
+    auto_populate_source: CLAUDE.md
+    fields:
+      core_library:
+        type: string_or_object
+        default: "iMatrix"
+      main_application:
+        type: string_or_object
+        default: "Fleet-Connect-1"
+      auto_populate_standard_info:
+        type: boolean
+        default: true
+        description: "Pull standard info from CLAUDE.md"
+      additional_context:
+        type: string
+        description: "Additional project-specific context"
+
+  # Hardware/background
+  hardware:
+    type: object
+    auto_populate: true
+    auto_populate_source: CLAUDE.md
+    fields:
+      processor: {type: string, default: "iMX6"}
+      ram: {type: string, default: "512MB"}
+      flash: {type: string, default: "512MB"}
+      wifi_chipset: {type: string}
+      cellular_chipset: {type: string}
+      additional_info: {type: array}
+      additional_notes: {type: array}
+
+  # User information
+  user:
+    type: object
+    auto_populate: true
+    fields:
+      name: {type: string, default: "Greg"}
+
+  # References
+  references:
+    type: object
+    fields:
+      documentation:
+        type: array
+        items: string_or_object
+        description: "Paths to documentation files"
+
+      source_files:
+        type: array
+        items: string_or_object
+        description: "Source files to review"
+        supports_advanced:
+          pattern: string  # Glob pattern
+          focus: array     # Specific files to focus on
+          exclude: array   # Files to exclude
+
+      templates:
+        type: array
+        items: string
+        default: ["iMatrix/templates/blank.c", "iMatrix/templates/blank.h"]
+        description: "Template files to use as base"
+
+      read_first:
+        type: array
+        items: string
+        description: "Documents to read before starting"
+
+      use_standard:
+        type: boolean
+        description: "Auto-include standard blank.c/blank.h templates"
+
+  # Debug configuration
+  debug:
+    type: object
+    fields:
+      flags:
+        type: array
+        items:
+          value: string
+          description: string
+
+      active_flags:
+        type: string
+        description: "Currently active debug flags"
+
+      log_directory:
+        type: string
+        supports_variables: true
+
+      log_files:
+        type: array
+        items: string
+
+      analysis_files:
+        type: object
+        fields:
+          use_agent: boolean
+          files: array
+
+  # Guidelines
+  guidelines:
+    type: object
+    auto_populate: true
+    fields:
+      principles:
+        type: array
+        items: string
+        default:
+          - "KISS principle - do not over-engineer. Keep it simple and maintainable."
+          - "Always create extensive comments using Doxygen style"
+          - "Use template files as base for any new files created"
+
+      code_runtime:
+        type: object
+        fields:
+          directory: {type: string, default: "/home"}
+          platform: {type: string, default: "Embedded Linux system"}
+
+  # Additional background (free-form)
+  additional_background:
+    type: array
+    items: string
+    description: "Additional background information as paragraphs"
+
+  # Task definition (varies by complexity)
+  task:
+    type: object
+    required: true
+
+    # Simple mode fields
+    simple_mode:
+      summary: string
+      description: string
+
+    # Moderate mode fields
+    moderate_mode:
+      summary: string
+      description: string
+      requirements: array
+      implementation_notes: array
+      detailed_specifications: array
+
+    # Advanced mode fields
+    advanced_mode:
+      phases:
+        type: array
+        items:
+          phase: number
+          name: string
+          tasks: array
+          deliverable: string
+
+      summary: string
+      description: string
+      requirements: array
+
+  # Current state (advanced mode)
+  current_state:
+    type: object
+    complexity: advanced
+    fields:
+      workflow:
+        type: array
+        items:
+          step: string
+          location: string
+
+      problems:
+        type: array
+        items:
+          issue: string
+          description: string
+          severity: string
+
+  # Architecture (advanced mode)
+  architecture:
+    type: object
+    complexity: advanced
+    fields:
+      new_module:
+        type: object
+        fields:
+          name: string
+          location: string
+          responsibilities: array
+
+      data_structures:
+        type: array
+        items:
+          name: string
+          type: string
+          file: string
+          values: array
+          fields: object
+
+  # Deliverables
+  deliverables:
+    type: object
+    fields:
+      plan_document:
+        type: string
+        auto_generate: true
+        description: "Path to plan document"
+
+      use_standard_workflow:
+        type: boolean
+        default: true
+        description: "Include standard iMatrix development workflow"
+
+      workflow_template:
+        type: string
+        description: "Named workflow template to use"
+
+      steps:
+        type: array
+        items: string
+
+      additional_steps:
+        type: array
+        items: string
+
+      additional_deliverables:
+        type: array
+        items: string
+
+      build_verification:
+        type: array
+        items: string
+        auto_populate: true
+
+      metrics:
+        type: array
+        items: string
+
+  # Questions
+  questions:
+    type: array
+    items:
+      question: string
+      answer: string
+      suggested_answer: string
+      conditional: string  # Advanced: only ask if condition met
+
+  # Metadata (advanced mode)
+  metadata:
+    type: object
+    complexity: advanced
+    fields:
+      title: string
+      date: string
+      branch: string
+      objective: string
+      estimated_effort: string
+      priority: {type: string, values: [low, medium, high, critical]}
+
+  # Variables (advanced mode)
+  variables:
+    type: object
+    complexity: advanced
+    description: "Variable definitions for substitution"
+    supports_nested: true
+
+  # Includes (advanced mode)
+  includes:
+    type: array
+    complexity: advanced
+    items: string
+    description: "YAML files to include and merge"
+
+  # Conditional sections (advanced mode)
+  conditional_sections:
+    type: object
+    complexity: advanced
+    description: "Sections included based on conditions"
+
+  # Task type (advanced mode)
+  task_type:
+    type: string
+    complexity: advanced
+    values: [feature, bugfix, refactor, debug, documentation]
+    description: "Type of task for conditional logic"
+
+  # Success criteria (advanced mode)
+  success_criteria:
+    type: object
+    complexity: advanced
+    fields:
+      functional: array
+      quality: array
+      performance: array
+      usability: array
+
+  # Special instructions
+  special_instructions:
+    type: object
+    fields:
+      pre_implementation: array
+      post_implementation: array
+      agent_usage: array
+
+# =============================================================================
+# AUTO-POPULATION SOURCES
+# =============================================================================
+
+auto_populate_sources:
+  CLAUDE.md:
+    location: "~/iMatrix/iMatrix_Client/CLAUDE.md"
+    sections:
+      - name: "Repository Overview"
+        maps_to: project
+      - name: "Hardware/Background"
+        maps_to: hardware
+      - name: "Development Guidelines"
+        maps_to: guidelines.principles
+      - name: "Build Systems"
+        maps_to: guidelines.build_info
+
+  standard_deliverables:
+    workflow_steps:
+      - "Note current branches for iMatrix and Fleet-Connect-1"
+      - "Create new git branches for work"
+      - "Create detailed plan document with comprehensive todo list"
+      - "Get plan approval before implementation"
+      - "Implement and check off todo items as completed"
+      - "Build verification after every code change"
+      - "Fix compile errors/warnings immediately"
+      - "Final clean build verification before completion"
+      - "Add concise work description to plan document"
+      - "Include metrics: tokens used, recompilations, time taken"
+      - "Merge branch back to original branch"
+      - "Update all relevant documents"
+
+    build_verification:
+      - "Zero compilation errors"
+      - "Zero compilation warnings"
+      - "All modified files compile successfully"
+      - "Build completes without issues"
+
+# =============================================================================
+# VALIDATION RULES
+# =============================================================================
+
+validation:
+  strict_mode: true  # Fail on warnings in non-interactive mode
+
+  rules:
+    - field: title
+      rule: not_empty
+      message: "Title is required"
+
+    - field: task
+      rule: not_empty
+      message: "Task description is required"
+
+    - field: prompt_name
+      rule: valid_filename
+      message: "Prompt name must be valid filename (lowercase, numbers, underscores only)"
+
+    - field: date
+      rule: valid_date_format
+      message: "Date must be in YYYY-MM-DD format"
+
+    - field: branch
+      rule: valid_branch_name
+      message: "Branch must match pattern: (feature|bugfix|refactor|debug)/name"
+
+    - field: references.documentation
+      rule: files_exist
+      severity: warning
+      message: "Referenced documentation files should exist"
+
+    - field: deliverables.plan_document
+      rule: recommended
+      severity: warning
+      message: "Recommend specifying plan document path"
+
+    - field: questions[].answer
+      rule: check_empty
+      severity: warning
+      message: "Question has no answer - will prompt during implementation"
+
+# =============================================================================
+# OUTPUT CONFIGURATION
+# =============================================================================
+
+output:
+  directory: "~/iMatrix/iMatrix_Client/docs/gen/"
+  filename_pattern: "{prompt_name}.md"
+
+  header_comment: true
+  header_template: |
+    <!--
+    AUTO-GENERATED PROMPT
+    Generated from: {yaml_source_file}
+    Generated on: {generation_timestamp}
+    Schema version: {schema_version}
+    Complexity level: {complexity_level}
+    Auto-populated sections: {auto_populated_list}
+
+    To modify this prompt, edit the source YAML file and regenerate.
+    -->
+
+  footer: true
+  footer_template: |
+    ---
+
+    **Plan Created By:** Claude Code (via YAML specification)
+    **Source Specification:** {yaml_source_file}
+    **Generated:** {generation_timestamp}
+    **Schema Version:** {schema_version}
+    **Auto-populated:** {auto_populated_count} sections

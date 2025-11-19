@@ -1,0 +1,108 @@
+# Moderate Example: New Feature - Ping Command
+# This demonstrates a standard feature development workflow
+
+complexity_level: "moderate"
+
+prompt_name: "new_feature_ping_prompt"
+title: "Add new ping command to CLI"
+date: "2025-11-17"
+branch: "feature/cli-ping-command"
+objective: "Implement Linux-style ping command for network diagnostics"
+
+# Auto-populate standard project info from CLAUDE.md
+project:
+  auto_populate_standard_info: true
+  additional_context: |
+    This feature adds network diagnostic capabilities directly to the CLI,
+    allowing field technicians to troubleshoot connectivity without shell access.
+
+# Hardware note specific to this feature
+hardware:
+  additional_notes:
+    - "Limited to LINUX_PLATFORM only"
+
+# Specific references for this feature
+references:
+  read_first:
+    - "docs/CLI_and_Debug_System_Complete_Guide.md"
+    - "iMatrix/cli/cli_commands.c"
+    - "iMatrix/IMX_Platform/LINUX_Platform/networking/process_network.c"
+
+  source_files:
+    - path: "iMatrix/cli"
+      focus: ["cli_commands.c", "cli_handler.h"]
+
+# Task definition
+task:
+  summary: "Implement ping command with standard Linux-style output format"
+
+  requirements:
+    - "Support -c <count> flag for packet count (default: 4)"
+    - "Support -I <interface> flag for specific interface selection"
+    - "Support -s <size> flag for packet size (default: 56 bytes)"
+    - "Check network state before starting - abort if no active interface"
+    - "Ping rate: 1 ping per second (matches standard ping)"
+    - "Standard timeout of 2 seconds per ping attempt"
+    - "Provide 'cancel' sub-command to abort running ping test"
+
+  implementation_notes:
+    - "Use existing ping functionality from process_network.c as reference"
+    - "Function must run in non-blocking mode (refer to 'can monitor' command)"
+    - "Coordinate with network manager state machine"
+    - "Add WAIT_FOR_CLI_PING_TO_END state to process_network"
+    - "Use helper function to prevent process_network running ping tests"
+    - "Calculate expected duration: (count × 3000ms) + 5000ms"
+
+  detailed_specifications:
+    - section: "Output Format"
+      details: |
+        PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+        64 bytes from 8.8.8.8: icmp_seq=1 ttl=113 time=20.3 ms
+        64 bytes from 8.8.8.8: icmp_seq=2 ttl=113 time=18.4 ms
+        <User Aborted>
+        --- 8.8.8.8 ping statistics ---
+        2 packets transmitted, 2 received, 0% packet loss, time 1080ms
+        rtt min/avg/max/mdev = 18.373/19.345/20.317/0.972 ms
+
+    - section: "State Machine Integration"
+      details:
+        - "In process_network NET_ONLINE state, check ping command flag"
+        - "If set, store current_time and expected duration"
+        - "Transition to new state WAIT_FOR_CLI_PING_TO_END"
+        - "State checks for flag clear or timeout exceeded"
+        - "Use helper to terminate background execution on timeout"
+        - "Stall ping command start until process_network is in correct state"
+        - "Notify user every second while waiting"
+
+# Deliverables
+deliverables:
+  plan_document: "docs/new_feature_ping_plan.md"
+  use_standard_workflow: true
+
+  additional_steps:
+    - "Create integration tests for ping command"
+    - "Update CLI help documentation"
+    - "Test with various network states (connected, disconnected, switching)"
+
+# Questions with answers
+questions:
+  - question: "Ping Interface: Always use current active interface, or support -I <interface> flag?"
+    answer: "support -I <interface> flag"
+
+  - question: "Waiting Timeout: If network manager doesn't acknowledge in 10s, abort or keep waiting?"
+    answer: "If network manager doesn't acknowledge in 10s, abort"
+
+  - question: "Concurrent Pings: Allow only one ping at a time, or support multiple?"
+    answer: "Allow only one ping at a time"
+
+  - question: "Statistics Logging: Display only, or also log to system log/file?"
+    answer: "statistics only"
+
+  - question: "Packet Size: Fixed 56 bytes, or support -s <size> flag?"
+    answer: "support -s <size> flag"
+
+  - question: "Extended Features: Add flood ping or interval customization, or keep simple?"
+    answer: "keep simple"
+
+  - question: "Timeout Duration: Current calculation is (count × 3000ms) + 5000ms. Acceptable?"
+    answer: "yes"

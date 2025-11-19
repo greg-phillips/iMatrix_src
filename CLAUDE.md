@@ -49,9 +49,34 @@ git pull origin <branch>
 
 ## Common Development Workflow
 
+### Prompt Generator System (NEW!)
+
+**iMatrix now includes a comprehensive YAML-to-Markdown prompt generation system!**
+
+Create structured development prompts quickly using YAML specifications:
+
+```bash
+# Generate prompt from YAML
+python3 scripts/build_prompt.py specs/my_feature.yaml
+
+# Or use Claude slash command
+/build_imatrix_client_prompt specs/my_feature.yaml
+```
+
+**Three complexity levels:**
+- **Simple**: Quick fixes and small tasks (15-line YAML → 2-page prompt)
+- **Moderate**: Standard features (100-line YAML → 8-page prompt)
+- **Advanced**: Complex refactoring (300-line YAML → 25-page prompt)
+
+**Documentation:**
+- Quick Start: `README_PROMPT_GENERATOR.md`
+- Complete Guide: `docs/prompt_yaml_guide.md`
+- Examples: `specs/examples/`
+
 ### Implementation Guidelines
 
 1. **Think and Plan First**: Read the codebase for relevant files and write a plan to projectplan.md
+   - **NEW**: Consider using the prompt generator to create structured planning prompts
 2. **Create Todo Lists**: Break down tasks into manageable items that can be checked off
 3. **Get Verification**: Check with the user before beginning major work
 4. **Work Incrementally**: Complete todo items one at a time, marking as complete

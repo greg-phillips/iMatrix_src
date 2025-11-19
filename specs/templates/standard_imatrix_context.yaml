@@ -1,0 +1,82 @@
+# Standard iMatrix Project Context Template
+# This template provides common context used across all iMatrix development prompts
+# Include this in your YAML specs with: includes: ["specs/templates/standard_imatrix_context.yaml"]
+
+# Project structure
+project:
+  core_library:
+    name: "iMatrix"
+    description: "Contains all core telematics functionality (data logging, comms, peripherals)"
+
+  main_application:
+    name: "Fleet-Connect-1"
+    description: "Contains main system management logic and utilizes the iMatrix API to handle data uploading to servers"
+
+# Hardware information
+hardware:
+  processor: "iMX6"
+  ram: "512MB"
+  flash: "512MB"
+  wifi_chipset: "Combination Wi-Fi/Bluetooth chipset"
+  cellular_chipset: "PLS62/63 from TELIT CINTERION using AAT Command set"
+  additional_info:
+    - "Code is cross-compiled for ARM"
+    - "Manual transfer to test system required"
+
+# User information
+user:
+  name: "Greg"
+
+# Standard reference documents
+references:
+  documentation:
+    - "~/iMatrix/iMatrix_Client/docs/comprehensive_code_review_report.md"
+    - "~/iMatrix/iMatrix_Client/docs/developer_onboarding_guide.md"
+    - "~/iMatrix/iMatrix_Client/Fleet-Connect-1/Fleet-Connect-1_Developer_Overview.md"
+    - "~/iMatrix/iMatrix_Client/iMatrix/docs/imatrix_api.md"
+    - "~/iMatrix/iMatrix_Client/Fleet-Connect-1/docs/ARM_CROSS_COMPILE_DETAILS.md"
+    - "~/iMatrix/iMatrix_Client/Fleet-Connect-1/docs/BUILD_SYSTEM_DOCUMENTATION.md"
+    - "~/iMatrix/iMatrix_Client/Fleet-Connect-1/docs/VSCODE_CMAKE_SETUP.md"
+    - "~/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md"
+
+  templates:
+    - "iMatrix/templates/blank.c"
+    - "iMatrix/templates/blank.h"
+
+# Development guidelines
+guidelines:
+  principles:
+    - "Think ultrahard as you read and implement"
+    - "Stop and ask questions if any failure to find background material"
+    - "KISS principle - do not over-engineer. Keep it simple and maintainable"
+    - "Always create extensive comments using Doxygen style"
+    - "Use template files as base for any new files created"
+    - "This is an embedded system requiring optimal efficiency"
+
+  code_runtime:
+    directory: "/home"
+    platform: "Embedded Linux system"
+
+# Standard deliverables workflow
+deliverables:
+  use_standard_workflow: true
+
+  steps:
+    - "Note current branches for iMatrix and Fleet-Connect-1"
+    - "Create new git branches for work"
+    - "Create detailed plan document with comprehensive todo list"
+    - "Get plan approval before implementation"
+    - "Implement and check off todo items as completed"
+    - "Build verification after every code change (linter + compile)"
+    - "Fix compile errors/warnings immediately"
+    - "Final clean build verification before completion"
+    - "Add concise work description to plan document"
+    - "Include metrics: tokens used, recompilations, time taken, waiting time"
+    - "Merge branch back to original branch"
+    - "Update all relevant documents"
+
+  build_verification:
+    - "Zero compilation errors"
+    - "Zero compilation warnings"
+    - "All modified files compile successfully"
+    - "Build completes without issues"

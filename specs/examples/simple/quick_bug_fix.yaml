@@ -1,0 +1,31 @@
+# Simple Example: Quick Bug Fix
+# This demonstrates the minimal YAML structure for a straightforward bug fix
+
+complexity_level: "simple"
+
+title: "Fix memory leak in CAN processing"
+
+task: |
+  Fix the memory leak occurring in can_process.c when processing high-frequency
+  CAN messages. The leak was identified at line 245 where allocated buffers are
+  not being freed after processing.
+
+  Steps:
+  1. Review can_process.c line 245 and surrounding code
+  2. Identify where buffer allocation occurs
+  3. Add proper cleanup/free calls
+  4. Verify with valgrind that leak is resolved
+
+branch: "bugfix/can-memory-leak"
+
+notes:
+  - "Issue reported in production vehicles"
+  - "Affects vehicles with high CAN traffic (>1000 msgs/sec)"
+  - "Memory consumption grows ~10MB/hour under load"
+
+files_to_modify:
+  - "iMatrix/canbus/can_process.c"
+  - "iMatrix/canbus/can_process.h"
+
+# Optional: Override default branch if needed
+# prompt_name will be auto-generated from title as: fix_memory_leak_in_can_processing

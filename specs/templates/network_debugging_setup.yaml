@@ -1,0 +1,42 @@
+# Network Debugging Template
+# Common debug configuration for network-related tasks
+# Include this with: includes: ["specs/templates/network_debugging_setup.yaml"]
+
+debug:
+  flags:
+    - value: "0x0000000000010000"
+      description: "Debugs for Wi-Fi Connections"
+    - value: "0x0000000000020000"
+      description: "Debugs for ETH0 Networking"
+    - value: "0x0000000000040000"
+      description: "Debugs for WIFI0 Networking"
+    - value: "0x0000000000080000"
+      description: "Debugs for PPP0 Networking"
+    - value: "0x0000000000100000"
+      description: "Debugs for Networking Switch"
+    - value: "0x0000000800000000"
+      description: "Debugs for Cellular"
+
+  active_flags: "0x00000008001F0000"
+
+  log_directory: "~/iMatrix/iMatrix_Client/logs"
+
+# Network-specific references
+references:
+  source_files:
+    - path: "~/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/networking"
+      focus:
+        - "process_network.c"
+        - "cellular_man.c"
+
+# Additional background for networking tasks
+additional_background:
+  - |
+    The Cellular system uses AT commands to control the cellular radio.
+    The cellular code initializes, if already connected keeps carrier.
+    If not then scans for best and selects that.
+  - |
+    The cellular code will set flags that the process_network monitors
+    with helper functions. If the process_network cannot connect on the
+    ppp0 link it will blacklist the carrier. The cellular system is then
+    responsible for connection to the next non-blocklisted carrier.
