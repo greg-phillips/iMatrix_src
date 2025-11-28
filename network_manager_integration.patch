@@ -1,0 +1,144 @@
+--- process_network.c.orig	2025-11-22 12:00:00.000000000 +0000
++++ process_network.c	2025-11-22 12:15:00.000000000 +0000
+@@ -45,6 +45,7 @@
+ #include "networking/process_network.h"
+ #include "networking/network_manager.h"
+ #include "networking/cellular_man.h"
++#include "networking/cellular_blacklist.h"
+ #include "imx_log.h"
+ #include "imx_time.h"
+
+@@ -75,6 +76,13 @@ typedef struct {
+
+ static NetworkInterface interfaces[MAX_INTERFACES];
+ static int interface_count = 0;
++
++/* PPP failure tracking */
++static int ppp_failure_count = 0;
++static uint32_t last_ppp_failure_time = 0;
++
++/* External coordination */
++extern bool cellular_request_rescan;
++extern bool cellular_ppp_ready;
+
+ /**
+  * @brief Main network processing state machine
+@@ -185,10 +193,30 @@ void process_network(void) {
+
+         case NET_SELECT_INTERFACE:
+             /* Special handling for PPP0 */
+-            if (current_interface == PPP0_INTERFACE && cellular_ready) {
++            if (current_interface == PPP0_INTERFACE) {
++                /* Check if cellular scan just completed */
++                if (cellular_ready && !cellular_ppp_ready) {
++                    static bool ppp_wait_logged = false;
++                    if (!ppp_wait_logged) {
++                        PRINTF("[NETMGR-PPP0] Waiting for PPP interface after scan\n");
++                        ppp_wait_logged = true;
++                    }
++                    /* Don't test yet, wait for cellular_ppp_ready flag */
++                    break;
++                }
++
++                /* Reset wait flag when PPP is ready */
++                if (cellular_ppp_ready) {
++                    cellular_ppp_ready = false;  /* Acknowledge */
++                }
++
+                 /* Check if PPP interface exists before testing */
+                 if (system("ip link show ppp0 >/dev/null 2>&1") != 0) {
+-                    PRINTF("[NETMGR-PPP0] Interface not present\n");
++                    PRINTF("[NETMGR-PPP0] Interface not present, deferring test\n");
++                    /* Don't count as failure yet */
++                    break;
++                }
++
++                /* PPP exists, proceed with connectivity test */
+                     network_state = NET_TEST_CONNECTIVITY;
+                 } else {
+                     /* PPP not ready */
+@@ -215,6 +243,32 @@ void process_network(void) {
+                 if (ping_test_passed) {
+                     PRINTF("[NETMGR] Interface %s passed connectivity test\n",
+                            get_interface_name(current_interface));
++
++                    /* Reset PPP failure count on success */
++                    if (current_interface == PPP0_INTERFACE) {
++                        ppp_failure_count = 0;
++                    }
++
++                    network_state = NET_ONLINE;
++                } else {
++                    /* Handle PPP failures specially */
++                    if (current_interface == PPP0_INTERFACE) {
++                        ppp_failure_count++;
++                        last_ppp_failure_time = imx_get_ms_ticks();
++
++                        PRINTF("[NETMGR-PPP0] Connectivity test failed (count=%d)\n",
++                               ppp_failure_count);
++
++                        /* Request carrier change after multiple failures */
++                        if (ppp_failure_count >= 3) {
++                            PRINTF("[NETMGR-PPP0] Multiple failures, requesting carrier change\n");
++                            cellular_request_rescan = true;
++                            ppp_failure_count = 0;  /* Reset for next carrier */
++                        }
++                    }
++
++                    /* Try next interface */
++                    current_interface = INVALID_INTERFACE;
+                     network_state = NET_SELECT_INTERFACE;
+                 } else {
+                     PRINTF("[NETMGR] Interface %s failed connectivity test\n",
+@@ -228,6 +282,18 @@ void process_network(void) {
+             /* Monitor active connection */
+             if (!check_interface_health(current_interface)) {
+                 PRINTF("[NETMGR] Lost connection on %s\n",
++                       get_interface_name(current_interface));
++
++                /* Special handling for PPP failure */
++                if (current_interface == PPP0_INTERFACE) {
++                    ppp_failure_count++;
++                    PRINTF("[NETMGR-PPP0] Connection lost, requesting carrier change\n");
++                    cellular_request_rescan = true;
++                }
++
++                network_state = NET_SELECT_INTERFACE;
++            }
++
++            /* Periodic health check */
+                        get_interface_name(current_interface));
+                 network_state = NET_SELECT_INTERFACE;
+             }
+@@ -352,4 +418,29 @@ static bool check_interface_health(InterfaceType iface) {
+     return false;
+ }
+
++/**
++ * @brief Get PPP failure statistics for monitoring
++ */
++void get_ppp_failure_stats(int* failure_count, uint32_t* last_failure) {
++    if (failure_count) {
++        *failure_count = ppp_failure_count;
++    }
++    if (last_failure) {
++        *last_failure = last_ppp_failure_time;
++    }
++}
++
++/**
++ * @brief Reset PPP failure tracking
++ */
++void reset_ppp_failure_tracking(void) {
++    ppp_failure_count = 0;
++    last_ppp_failure_time = 0;
++    PRINTF("[NETMGR-PPP0] Failure tracking reset\n");
++}
++
++/**
++ * @brief Check if we should wait for cellular
++ */
++bool should_wait_for_cellular(void) {
++    return (cellular_ready && !cellular_ppp_ready);
++}
+ /* End of process_network.c */

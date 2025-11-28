@@ -1,0 +1,1203 @@
+
+Startup looking for lockfile: /usr/qk/etc/sv/FC-1/iMatrix.lock
+Lock acquired successfully. No other instance is running now.
+Async log queue initialized (10000 message capacity)
+Fleet Connect built on Nov 24 2025 @ 06:33:41
+Display setup finished
+Commencing iMatrix Initialization Phase 0.0
+Initialization Phase 0.1
+Initialization Phase 0.2
+Initialization Phase 0.4
+Commencing iMatrix Initialization Sequence
+iMatrix Configuration size: 560648
+Read both pages, valid flag = 3, seq=[2231, 2232], using page 1
+Configuration Loaded
+iMX6 Ultralite Failed to open OCOTP fileiMX6 Ultralite Failed to open OCOTP fileiMX6 Ultralite Serial Number: 0x0000000000000000
+iMatrix memory tracking initialized
+Using 8740 Bytes of storage for message queues
+Creating Lists
+25 message_t structs added to the free list.
+RTC using System time
+System time used
+Core System Initialized
+Command Line Processor
+Setting up Fleet Connect, Product ID: 374664309, Serial Number: 0131557250
+Initializing Variable length data pool, pool size: 5048 Bytes
+Variable Length Pools:  7 Bytes[ 8 ] 32 Bytes[ 6 ] 64 Bytes[ 0 ] 128 Bytes[ 10 ] 256 Bytes[ 0 ] 512 Bytes[ 0 ] 768 Bytes[ 4 ]
+System has 8 Controls, 48 Sensors and 0 Variables
+Initializing Controls & Sensors
+Setting up Control Data @: 0x9d917c - Adding 8 entries
+Setting up Sensor Data @: 0x9d9f3c - Adding 48 entries
+Setting up Variable Data @: 0x9df1bc - Adding 0 entries
+Initializing Location System
+system_init.c:1089 - force AP setup
+Initialization Complete, Thing will run in Wi-FI Setup mode
+iMatrix Gateway Configuration successfully Initialized
+Loading Application Config: 274360 Bytes
+System contains Application Configuration
+Magic: 0x87654321
+Linux Gateway Configuration loaded from iMatrix
+iMatrix memory tracking initialized
+Found matching file: /usr/qk/etc/sv/FC-1/Aptera_PI_1_cfg.bin
+read_config: Successfully read config file '/usr/qk/etc/sv/FC-1/Aptera_PI_1_cfg.bin'Loading 2 network interface(s) from configuration file
+  Mapping eth0 from config[0] to device_config[2]
+    DHCP range: 192.168.7.100 - 192.168.7.199
+  Config[0] → device_config[2]: eth0, mode=server, IP=192.168.7.1
+  Mapping wlan0 from config[1] to device_config[0]
+  Config[1] → device_config[0]: wlan0, mode=client, IP=DHCP
+Network configuration loaded successfully
+Total interfaces configured: 2 (max 4)
+Found 2 DBC file(s) for Ethernet CAN bus (bus 2)
+  Loaded DBC file: bus=2, name='Powertrain', alias='PT'
+  Loaded DBC file: bus=2, name='Infotainment', alias='IN'
+Ethernet CAN format: aptera (CAN_FORMAT_APTERA = 2)
+OBD2 frame processing: DISABLED (support_obd2 = 0)
+Configuration Summary:
+  Product ID: 2201718576
+  Organization ID: 250007060
+  Name: Aptera Production Intent-1
+  No. Predefined: 60
+  No. DBC Files: 2
+  No. Controls: 0
+  No. Sensors: 61
+  No. Control Sensors: 61
+  No. CAN Controls: 0
+  No. CAN Sensors: 1071
+  No. CAN Control Sensors: 1071
+  Check-in Period: 300 seconds
+  Ethernet CAN Format: aptera (2)
+  OBD2 Processing: DISABLED (0)
+Physical CAN bus 0: No nodes configured
+Physical CAN bus 1: No nodes configured
+Initializing 2 Ethernet CAN logical bus(es)
+  Ethernet logical bus 'PT' (62 nodes) → eth_index 0
+  Ethernet logical bus 'IN' (52 nodes) → eth_index 1
+Successfully allocated 2 Ethernet CAN logical bus(es)
+Physical CAN bus hash tables initialized
+Ethernet CAN bus hash tables initialized
+Loaded 3 CAN bus hardware configuration(s) into mgs
+CAN Application Configuration saved to file system with 60 predefined sensors
+Successfully initialized Aptera Solar EV through EV abstraction layer
+Successfully initialized Vehicle specific setup
+Configuring CAN bus speeds based on loaded configuration
+CAN Bus 0 speed from config: 0 bps
+CAN Bus 1 speed from config: 0 bps
+CAN Bus Ethernet server enabled
+iMatrix Application Configuration successfully processed
+Warning: Unknown vehicle type 2201718576, no sensor mappings initialized
+FC-1 details written to /root/FC-1_details.txt
+Initializing CAN BUS Handler for Aptera
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+sh: write error: Resource busy
+BTstack on LINUX
+Packet Log: /tmp/hci_dump.pklg
+Called hci_init()
+dl->dev_num=1
+di.dev_id=0, di.flags=0x5, name=hci0
+hci_init(): dev_id=0
+hci_init(): hciconfig done, ret=0
+hci_init(dev_id=0, sock=5)
+Called hci_add_event_handler(0x8744f0)
+[BTStack] Setting up stdin for console CLI input
+[BTStack] Also attempting to setup TTY interface for additional CLI input
+[TTY] Created pseudo-terminal - connect using: /dev/pts/2
+[TTY] Example: microcom /dev/pts/2
+[TTY] Waiting for connection...
+[BTStack] TTY interface initialized successfully
+[BTStack] TTY output mirroring enabled on fd 6
+[BTStack] TTY input thread created successfully
+[BTStack] Both stdin and TTY interfaces are now active
+Called hci_power_control(1)
+hci_power_control(): HCIDEVUP ret=-1, errno=114 (Operation already in progress)
+Called gap_local_bd_addr()
+BTstack up and running on 4C:BC:97:2F:C3:7E.
+Called att_server_init()
+Called att_server_register_packet_handler(0xa8d44)
+Called gap_advertisements_set_params(512 1536 0 0)
+Called gap_scan_response_set_data(length=31)
+Called hci_add_event_handler(0x86c944)
+Called l2cap_init()
+Called hci_add_event_handler(0x8a0c48)
+Called sm_add_event_handler(0x8a0c50)
+Called att_dispatch_register_client(0x178c6c)
+Called sm_init()
+Called sm_set_io_capabilities()
+Called hci_add_event_handler(0x94675c)
+Linux Gateway: Hardware Revision: 1, Development Build - Gateway Version: 1.005.374
+
+iMatrix Linux Gateway. Copyright (c) 2025 iMatrix Systems, Inc.
+[TTY Thread] Started - waiting for TTY connection
+Mutex tracker initialized (max: 50 mutexes)
+Detected Accelerometer chip
+Accelerometer enabled
+[1764002241.630] [00:00:00.000] [MM2-INFO] ========================================
+[1764002241.630] [00:00:00.017] [MM2-INFO] Creating upload source directory structure
+[1764002241.630] [00:00:00.017] [MM2-INFO] ========================================
+[1764002241.630] [00:00:00.017] [MM2-INFO] Base directory: /tmp/mm2
+[1764002241.630] [00:00:00.018] [MM2-INFO] Corrupted directory: /tmp/mm2/corrupted
+[1764002241.630] [00:00:00.018] [MM2-INFO] Created/verified source directory: /tmp/mm2/gateway
+[1764002241.630] [00:00:00.018] [MM2-INFO] Created/verified source directory: /tmp/mm2/hosted
+[1764002241.630] [00:00:00.018] [MM2-INFO] Created/verified source directory: /tmp/mm2/ble
+[1764002241.630] [00:00:00.018] [MM2-INFO] Created/verified source directory: /tmp/mm2/can
+[1764002241.630] [00:00:00.018] [MM2-INFO] Created/verified corrupted subdirectory: /tmp/mm2/corrupted/gateway
+[1764002241.631] [00:00:00.018] [MM2-INFO] Created/verified corrupted subdirectory: /tmp/mm2/corrupted/hosted
+[1764002241.631] [00:00:00.018] [MM2-INFO] Created/verified corrupted subdirectory: /tmp/mm2/corrupted/ble
+[1764002241.631] [00:00:00.018] [MM2-INFO] Created/verified corrupted subdirectory: /tmp/mm2/corrupted/can
+[1764002241.631] [00:00:00.018] [MM2-INFO] Directory structure created successfully
+[1764002241.631] [00:00:00.018] [MM2-INFO] ========================================
+[1764002241.648] [00:00:00.019] [MM2-RECOVERY] ========================================
+[1764002241.648] [00:00:00.035] [MM2-RECOVERY] WARNING: recover_disk_spooled_data() is DEPRECATED
+[1764002241.648] [00:00:00.035] [MM2-RECOVERY] Main app should call imx_recover_sensor_disk_data() per sensor
+[1764002241.648] [00:00:00.035] [MM2-RECOVERY] ========================================
+[1764002241.976] [00:00:00.364] Restored configuration from SFLASH [CAN TCP Server: Using APTERA format parser]
+[CAN TCP Server thread started.]
+[1764002245.093] [00:00:03.481] Opening /usr/qk/etc/sv/FC-1/Aptera_PI_1_cfg.bin to read configuration
+[1764002245.222] [00:00:03.610] Configuration file /usr/qk/etc/sv/FC-1/Aptera_PI_1_cfg.bin read successfully
+[1764002245.615] [00:00:04.002] CAN Controller Serial Number Set: 470709093
+[1764002246.135] [00:00:04.522] IMX Process Changing from state: UNKNOWN to MAIN_IMATRIX_SETUP
+[1764002246.135] [00:00:04.522] >?>uGW ADV UPDATE| Updated wifi_ext_state to 0x01 (icb.state-(0) MAIN_IMATRIX_SETUP, Wi-Fi state-(0) (null), off=0, AP_setup_mode=0, scan_state=0)
+[1764002246.135] [00:00:04.523] [NETMGR] State: NET_INIT | Loaded Wi-Fi interface state: enabled
+[1764002246.135] [00:00:04.523] [NETMGR] State: NET_INIT | Network manager initialized
+[1764002246.135] [00:00:04.523] Checking network configuration...
+[1764002246.149] [00:00:04.536] Current config hash: 68dc2eec401b3016f23c6c8d1dc7e866
+[1764002246.151] [00:00:04.538] Stored config hash: 68dc2eec401b3016f23c6c8d1dc7e866
+[CAN TCP Server listening on 192.168.7.1:5555]
+Called gap_scan_response_set_data(length=31)
+Called gap_advertisements_enable(1)
+[1764002246.151] [00:00:04.538] Network configuration unchanged
+[1764002248.151] [00:00:06.539] Using NMEA Sentences
+[1764002248.451] [00:00:06.839] UBX 4.1 configuration set
+[1764002248.451] [00:00:06.839] GPS satellite constellation enabled
+[1764002248.451] [00:00:06.839] SBAS satellite constellation enabled
+[1764002248.451] [00:00:06.839] Galileo satellite constellation enabled
+[1764002248.451] [00:00:06.839] BeiDou satellite constellation enabled
+[1764002249.652] [00:00:08.040] GNSS Constellations set to: GPS,SBAS,Galileo,BeiDou
+[1764002249.670] [00:00:08.057] Created GPS reader thread
+[1764002251.681] [00:00:10.069] [WiFi list - Changing state from: 12 to 0]
+
+Unable to get IP address for host coap-dev.imatrixsys.com
+[1764002251.693] [00:00:10.081] [ACCEL - Accelerometer detected - Configuring]
+[1764002252.716] [00:00:11.104] Energy trip manager initialized: /usr/qk/etc/sv/FC-1/energy_trips
+[1764002252.716] [00:00:11.104] Storage mode: summary, Upload mode: summary
+[1764002252.822] [00:00:11.209] IMX Process Changing from state: MAIN_IMATRIX_SETUP to MAIN_IMATRIX_PROVISION_INIT
+[1764002252.822] [00:00:11.209] >?>uGW ADV UPDATE| Updated wifi_ext_state to 0x02 (icb.state-(1) MAIN_IMATRIX_PROVISION_INIT, Wi-Fi state-(0) (null), off=0, AP_setup_mode=0, scan_state=0)
+[1764002252.822] [00:00:11.210] Starting Provisioning, Scan for Access Points
+[1764002252.826] [00:00:11.214] [CAN PROC] Dedicated processing thread created
+[1764002252.826] [00:00:11.214] [WiFi list - Changing state from: 0 to 1]
+[1764002252.826] [00:00:11.214] [CAN PROC] Processing thread started
+[1764002252.948] [00:00:11.335] IMX Process Changing from state: MAIN_IMATRIX_PROVISION_INIT to MAIN_IMATRIX_PROVISION_SCAN
+Called gap_advertisements_set_params(48 256 0 0)
+[1764002252.951] [00:00:11.339] [WiFi list - Changing state from: 1 to 2]
+[1764002253.052] [00:00:11.440] IMX Process Changing from state: MAIN_IMATRIX_PROVISION_SCAN to MAIN_IMATRIX_PROVISION_SETUP
+[1764002253.052] [00:00:11.440] >?>uGW ADV UPDATE| Updated wifi_ext_state to 0x03 (icb.state-(3) MAIN_IMATRIX_PROVISION_SETUP, Wi-Fi state-(0) (null), off=0, AP_setup_mode=0, scan_state=0)
+[1764002253.053] [00:00:11.441] [Cellular Connection - Cellular state changed from 41 (READY) to 0 (INIT)]
+[1764002253.151] [00:00:11.538] [Cellular Connection - PPPD not running, skipping stop]
+[1764002253.202] [00:00:11.590] [NETMGR] State: NET_INIT | State changed from UNKNOWN to NET_INIT
+[1764002253.203] [00:00:11.591] [NET] DNS prime skipped: No active links
+[1764002253.206] [00:00:11.593] [NETMGR-PPP0] State: NET_INIT | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1764002253.206] [00:00:11.593] [NETMGR] State: NET_INIT | Initializing network manager
+[1764002253.206] [00:00:11.593] [NETMGR-WIFI0] State: NET_INIT | === WiFi Hardware Information ===
+[1764002253.507] [00:00:11.895] [NETMGR-WIFI0] State: NET_INIT | driver: wl18xx_driver
+[1764002253.509] [00:00:11.897] [NETMGR-WIFI0] State: NET_INIT | version: 6.1.55-QConnect_v4.0.0
+[1764002253.509] [00:00:11.897] [NETMGR-WIFI0] State: NET_INIT | firmware-version: Rev 8.9.0.0.90
+[1764002253.509] [00:00:11.897] [NETMGR-WIFI0] State: NET_INIT | expansion-rom-version: 
+[1764002253.571] [00:00:11.959] [NETMGR-WIFI0] State: NET_INIT | 	type managed
+[1764002253.573] [00:00:11.961] [NETMGR-WIFI0] State: NET_INIT | 	wiphy 0
+[1764002253.573] [00:00:11.961] [NETMGR-WIFI0] State: NET_INIT | 	txpower 0.00 dBm
+[1764002253.575] [00:00:11.963] [NETMGR-WIFI0] State: NET_INIT | === End Hardware Information ===
+[1764002253.575] [00:00:11.963] [NETMGR] State: NET_INIT | === Interface DHCP Server Status ===
+[1764002253.575] [00:00:11.963] [NETMGR] State: NET_INIT |   eth0: DHCP SERVER (excluded from Internet routing)
+[1764002253.575] [00:00:11.963] [NETMGR] State: NET_INIT |   wlan0: client mode
+[1764002253.575] [00:00:11.963] [NETMGR] State: NET_INIT |   ppp0: client mode
+[1764002253.575] [00:00:11.963] [NETMGR] State: NET_INIT | ====================================
+[1764002253.575] [00:00:11.963] [NETMGR] State: NET_INIT | State transition: NET_INIT -> NET_SELECT_INTERFACE
+[1764002253.579] [00:00:11.966] [WiFi list - Changing state from: 2 to 3]
+[1764002253.680] [00:00:12.067] [Cellular Connection - Cellular state changed from 0 (INIT) to 1 (PURGE_PORT)]
+[1764002253.683] [00:00:12.070] [WiFi list - Changing state from: 3 to 4]
+[1764002253.683] [00:00:12.070] Running... http_client_init_session(s)
+[1764002253.683] [00:00:12.071] WIFI_LIST Request: /api/v1/wifi/info?sn=0131557250
+[1764002253.683] [00:00:12.071] Running... http_client_prepare_request(s)
+[1764002253.683] [00:00:12.071] Running... http_client_connect(s)
+[1764002258.691] [00:00:17.079] 
+http_client_connect(s) err=-1, state=HTTP_STATE_DNS
+[1764002258.794] [00:00:17.181] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_INIT to NET_SELECT_INTERFACE
+[1764002258.794] [00:00:17.182] [NET] DNS prime skipped: No active links
+[1764002258.797] [00:00:17.184] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1764002258.802] [00:00:17.190] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=NO, cellular_started=NO, has_ip=NO)
+[1764002258.802] [00:00:17.190] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002258.802] [00:00:17.190] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002258.802] [00:00:17.190] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002258.805] [00:00:17.192] [WiFi list - Changing state from: 4 to 9]
+[1764002258.805] [00:00:17.193] Failed to receive wifi_list from the cloud.
+[1764002258.906] [00:00:17.293] [Cellular Connection - Cellular state changed from 1 (PURGE_PORT) to 2 (PROCIESS_INITIALIZATION)]
+[1764002258.906] [00:00:17.293] [Cellular Connection - Sending dummy AT command]
+[1764002258.906] [00:00:17.293] [DEBUG] Wrote dummy AT successfully (3 bytes)
+[1764002258.906] [00:00:17.293] [Cellular Connection - Getting response, timeout 5s
+[1764002258.909] [00:00:17.296] [WiFi list - Changing state from: 9 to 11]
+[1764002259.010] [00:00:17.397] [Cellular Connection - Cellular state changed from 2 (PROCIESS_INITIALIZATION) to 3 (GET_RESPONSE)]
+[1764002259.010] [00:00:17.397]     [Returning to cellular state: PROCESS_RESPONSE]
+[1764002259.010] [00:00:17.397] [Cellular Connection - Line: AT]
+[1764002259.010] [00:00:17.398] [Cellular Connection - Line: OK]
+[1764002259.010] [00:00:17.398] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1764002259.010] [00:00:17.398] [Cellular Connection - AT command response successfully received.]
+[1764002259.115] [00:00:17.502] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 4 (PROCESS_RESPONSE)]
+[1764002259.115] [00:00:17.502] [Cellular Connection - AT command response received.]
+[1764002259.115] [00:00:17.502] Line 0: AT
+[1764002259.115] [00:00:17.503] Line 1: OK
+[1764002259.115] [00:00:17.503] [Cellular Connection - Dummy AT Processed]
+[1764002259.217] [00:00:17.605] [Cellular Connection - Cellular state changed from 4 (PROCESS_RESPONSE) to 2 (PROCIESS_INITIALIZATION)]
+[1764002259.217] [00:00:17.605] [Cellular Connection - Sending AT command: ATZ]
+[1764002259.217] [00:00:17.605] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1764002259.217] [00:00:17.605] [DEBUG] Wrote command 'Z' successfully (1 bytes)
+[1764002259.217] [00:00:17.605] [DEBUG] Wrote CR successfully (1 bytes)
+[1764002259.218] [00:00:17.605] [Cellular Connection - Getting response, timeout 5s
+[1764002259.318] [00:00:17.706] [Cellular Connection - Cellular state changed from 2 (PROCIESS_INITIALIZATION) to 3 (GET_RESPONSE)]
+[1764002259.318] [00:00:17.706]     [Returning to cellular state: PROCESS_RESPONSE]
+[1764002259.318] [00:00:17.706] [Cellular Connection - Line: ATZ]
+[1764002259.319] [00:00:17.706] [Cellular Connection - Line: OK]
+[1764002259.319] [00:00:17.706] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1764002259.319] [00:00:17.706] [Cellular Connection - AT command response successfully received.]
+[1764002259.420] [00:00:17.808] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 4 (PROCESS_RESPONSE)]
+[1764002259.420] [00:00:17.808] [Cellular Connection - AT command response received.]
+[1764002259.420] [00:00:17.808] Line 0: ATZ
+[1764002259.420] [00:00:17.808] Line 1: OK
+[1764002259.420] [00:00:17.808] [Cellular Connection - ATZ Processed]
+[1764002259.522] [00:00:17.909] [Cellular Connection - Cellular state changed from 4 (PROCESS_RESPONSE) to 2 (PROCIESS_INITIALIZATION)]
+[1764002259.522] [00:00:17.909] [Cellular Connection - Sending AT command: AT+CPIN?]
+[1764002259.522] [00:00:17.910] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1764002259.522] [00:00:17.910] [DEBUG] Wrote command '+CPIN?' successfully (6 bytes)
+[1764002259.522] [00:00:17.910] [DEBUG] Wrote CR successfully (1 bytes)
+[1764002259.522] [00:00:17.910] [Cellular Connection - Getting response, timeout 10s
+[1764002259.623] [00:00:18.011] [Cellular Connection - Cellular state changed from 2 (PROCIESS_INITIALIZATION) to 3 (GET_RESPONSE)]
+[1764002259.624] [00:00:18.011]     [Returning to cellular state: PROCESS_RESPONSE]
+[1764002259.624] [00:00:18.012] [Cellular Connection - Line: AT+CPIN?]
+[1764002259.624] [00:00:18.012] [Cellular Connection - Line: +CPIN: READY]
+[1764002259.624] [00:00:18.012] [Cellular Connection - Line: OK]
+[1764002259.624] [00:00:18.012] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1764002259.624] [00:00:18.012] [Cellular Connection - AT command response successfully received.]
+[1764002259.726] [00:00:18.113] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 4 (PROCESS_RESPONSE)]
+[1764002259.726] [00:00:18.113] [Cellular Connection - AT command response received.]
+[1764002259.726] [00:00:18.113] Line 0: AT+CPIN?
+[1764002259.726] [00:00:18.114] Line 1: +CPIN: READY
+[1764002259.726] [00:00:18.114] Line 2: OK
+[1764002259.726] [00:00:18.114] [Cellular Connection - SIM state: +CPIN: READY]
+[1764002259.726] [00:00:18.114] [Cellular Connection - SIM is ready.]
+[1764002259.829] [00:00:18.217] [Cellular Connection - Cellular state changed from 4 (PROCESS_RESPONSE) to 2 (PROCIESS_INITIALIZATION)]
+[1764002259.829] [00:00:18.217] [Cellular Connection - Sending AT command: ATI]
+[1764002259.829] [00:00:18.217] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1764002259.829] [00:00:18.217] [DEBUG] Wrote command 'I' successfully (1 bytes)
+[1764002259.829] [00:00:18.217] [DEBUG] Wrote CR successfully (1 bytes)
+[1764002259.829] [00:00:18.217] [Cellular Connection - Getting response, timeout 5s
+[1764002259.830] [00:00:18.217] [NET] DNS prime skipped: No active links
+[1764002259.833] [00:00:18.220] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1764002259.837] [00:00:18.225] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=NO, cellular_started=NO, has_ip=NO)
+[1764002259.837] [00:00:18.225] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002259.837] [00:00:18.225] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002259.837] [00:00:18.225] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002259.939] [00:00:18.326] [Cellular Connection - Cellular state changed from 2 (PROCIESS_INITIALIZATION) to 3 (GET_RESPONSE)]
+[1764002259.939] [00:00:18.326]     [Returning to cellular state: PROCESS_RESPONSE]
+[1764002259.939] [00:00:18.327] [Cellular Connection - Line: ATI]
+[1764002259.939] [00:00:18.327] [Cellular Connection - Line: Cinterion]
+[1764002259.939] [00:00:18.327] [Cellular Connection - Line: PLS63-W]
+[1764002259.940] [00:00:18.327] [Cellular Connection - Line: REVISION 01.202]
+[1764002259.940] [00:00:18.328] [Cellular Connection - Line: OK]
+[1764002259.940] [00:00:18.328] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1764002259.940] [00:00:18.328] [Cellular Connection - AT command response successfully received.]
+[1764002260.042] [00:00:18.430] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 4 (PROCESS_RESPONSE)]
+[1764002260.042] [00:00:18.430] [Cellular Connection - AT command response received.]
+[1764002260.042] [00:00:18.430] Line 0: ATI
+[1764002260.042] [00:00:18.430] Line 1: Cinterion
+[1764002260.042] [00:00:18.430] Line 2: PLS63-W
+[1764002260.042] [00:00:18.430] Line 3: REVISION 01.202
+[1764002260.042] [00:00:18.430] Line 4: OK
+[1764002260.042] [00:00:18.430] [Cellular Connection - Modem type: PLS63-W]
+[1764002260.042] [00:00:18.430] [Cellular Connection - Version: PLS63-W]
+[1764002260.144] [00:00:18.532] [Cellular Connection - Cellular state changed from 4 (PROCESS_RESPONSE) to 2 (PROCIESS_INITIALIZATION)]
+[1764002260.144] [00:00:18.532] [Cellular Connection - Sending AT command: AT+CFUN=1,0]
+[1764002260.144] [00:00:18.532] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1764002260.144] [00:00:18.532] [DEBUG] Wrote command '+CFUN=1,0' successfully (9 bytes)
+[1764002260.144] [00:00:18.532] [DEBUG] Wrote CR successfully (1 bytes)
+[1764002260.144] [00:00:18.532] [Cellular Connection - Getting response, timeout 10s
+[1764002260.246] [00:00:18.633] [Cellular Connection - Cellular state changed from 2 (PROCIESS_INITIALIZATION) to 3 (GET_RESPONSE)]
+[1764002260.246] [00:00:18.633]     [Returning to cellular state: PROCESS_RESPONSE]
+[1764002260.246] [00:00:18.634] [Cellular Connection - Line: AT+CFUN=1,0]
+[1764002260.246] [00:00:18.634] [Cellular Connection - Line: OK]
+[1764002260.246] [00:00:18.634] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1764002260.246] [00:00:18.634] [Cellular Connection - AT command response successfully received.]
+[1764002260.348] [00:00:18.736] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 4 (PROCESS_RESPONSE)]
+[1764002260.349] [00:00:18.736] [Cellular Connection - AT command response received.]
+[1764002260.349] [00:00:18.736] Line 0: AT+CFUN=1,0
+[1764002260.349] [00:00:18.736] Line 1: OK
+[1764002260.349] [00:00:18.736] [Cellular Connection - Modem successfully powered on.]
+[1764002260.450] [00:00:18.837] [Cellular Connection - Cellular state changed from 4 (PROCESS_RESPONSE) to 2 (PROCIESS_INITIALIZATION)]
+[1764002260.450] [00:00:18.837] [Cellular Connection - Sending AT command: AT+CGDCONT?]
+[1764002260.450] [00:00:18.838] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1764002260.450] [00:00:18.838] [DEBUG] Wrote command '+CGDCONT?' successfully (9 bytes)
+[1764002260.450] [00:00:18.838] [DEBUG] Wrote CR successfully (1 bytes)
+[1764002260.450] [00:00:18.838] [Cellular Connection - Getting response, timeout 10s
+[1764002260.551] [00:00:18.939] [Cellular Connection - Cellular state changed from 2 (PROCIESS_INITIALIZATION) to 3 (GET_RESPONSE)]
+[1764002260.551] [00:00:18.939]     [Returning to cellular state: PROCESS_RESPONSE]
+[1764002260.551] [00:00:18.939] [Cellular Connection - Line: AT+CGDCONT?]
+[1764002260.553] [00:00:18.940] [Cellular Connection - Line: +CGDCONT: 1,"IP","Globaldata.iot","0.0.0.0",0,0,0,0,0,0]
+[1764002260.554] [00:00:18.942] [Cellular Connection - Line: +CGDCONT: 2,"IPV4V6","ims","0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0",0,0,0,0,1,0]
+[1764002260.554] [00:00:18.942] [Cellular Connection - Line: OK]
+[1764002260.554] [00:00:18.942] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1764002260.554] [00:00:18.942] [Cellular Connection - AT command response successfully received.]
+[1764002260.655] [00:00:19.043] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 4 (PROCESS_RESPONSE)]
+[1764002260.655] [00:00:19.043] [Cellular Connection - AT command response received.]
+[1764002260.655] [00:00:19.043] Line 0: AT+CGDCONT?
+[1764002260.655] [00:00:19.043] Line 1: +CGDCONT: 1,"IP","Globaldata.iot","0.0.0.0",0,0,0,0,0,0
+[1764002260.655] [00:00:19.043] Line 2: +CGDCONT: 2,"IPV4V6","ims","0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0",0,0,0,0,1,0
+[1764002260.655] [00:00:19.043] Line 3: OK
+[1764002260.655] [00:00:19.043] [Cellular Connection - APN is already set to Globaldata.iot.]
+[1764002260.757] [00:00:19.145] [Cellular Connection - Cellular state changed from 4 (PROCESS_RESPONSE) to 2 (PROCIESS_INITIALIZATION)]
+[1764002260.757] [00:00:19.145] [Cellular Connection - Sending AT command: AT+CGSN]
+[1764002260.757] [00:00:19.145] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1764002260.757] [00:00:19.145] [DEBUG] Wrote command '+CGSN' successfully (5 bytes)
+[1764002260.757] [00:00:19.145] [DEBUG] Wrote CR successfully (1 bytes)
+[1764002260.757] [00:00:19.145] [Cellular Connection - Getting response, timeout 20s
+[1764002260.861] [00:00:19.248] [Cellular Connection - Cellular state changed from 2 (PROCIESS_INITIALIZATION) to 3 (GET_RESPONSE)]
+[1764002260.861] [00:00:19.249]     [Returning to cellular state: PROCESS_RESPONSE]
+[1764002260.861] [00:00:19.249] [Cellular Connection - Line: AT+CGSN]
+[1764002260.862] [00:00:19.250] [Cellular Connection - Line: 358088755854471]
+[1764002260.862] [00:00:19.250] [Cellular Connection - Line: OK]
+[1764002260.862] [00:00:19.250] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1764002260.862] [00:00:19.250] [Cellular Connection - AT command response successfully received.]
+[1764002260.863] [00:00:19.251] [NET] DNS prime skipped: No active links
+[1764002260.865] [00:00:19.253] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1764002260.870] [00:00:19.258] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=NO, cellular_started=NO, has_ip=NO)
+[1764002260.870] [00:00:19.258] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002260.870] [00:00:19.258] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002260.871] [00:00:19.258] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002260.971] [00:00:19.359] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 4 (PROCESS_RESPONSE)]
+[1764002260.971] [00:00:19.359] [Cellular Connection - AT command response received.]
+[1764002260.971] [00:00:19.359] Line 0: AT+CGSN
+[1764002260.971] [00:00:19.359] Line 1: 358088755854471
+[1764002260.972] [00:00:19.359] Line 2: OK
+[1764002260.972] [00:00:19.359] [Cellular Connection - IMEI: 358088755854471]
+[1764002261.073] [00:00:19.460] [Cellular Connection - Cellular state changed from 4 (PROCESS_RESPONSE) to 2 (PROCIESS_INITIALIZATION)]
+[1764002261.073] [00:00:19.460] [Cellular Connection - Sending AT command: AT+CNUM]
+[1764002261.073] [00:00:19.460] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1764002261.073] [00:00:19.461] [DEBUG] Wrote command '+CNUM' successfully (5 bytes)
+[1764002261.073] [00:00:19.461] [DEBUG] Wrote CR successfully (1 bytes)
+[1764002261.073] [00:00:19.461] [Cellular Connection - Getting response, timeout 20s
+[1764002261.175] [00:00:19.562] [Cellular Connection - Cellular state changed from 2 (PROCIESS_INITIALIZATION) to 3 (GET_RESPONSE)]
+[1764002261.175] [00:00:19.562]     [Returning to cellular state: PROCESS_RESPONSE]
+[1764002261.175] [00:00:19.563] [Cellular Connection - Line: AT+CNUM]
+[1764002261.175] [00:00:19.563] [Cellular Connection - Line: OK]
+[1764002261.175] [00:00:19.563] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1764002261.175] [00:00:19.563] [Cellular Connection - AT command response successfully received.]
+[1764002261.276] [00:00:19.664] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 4 (PROCESS_RESPONSE)]
+[1764002261.276] [00:00:19.664] [Cellular Connection - AT command response received.]
+[1764002261.276] [00:00:19.664] Line 0: AT+CNUM
+[1764002261.276] [00:00:19.664] Line 1: OK
+[1764002261.276] [00:00:19.664] [Cellular Connection - Phone number (OK, Only): Not available]
+[1764002261.378] [00:00:19.765] [Cellular Connection - Cellular state changed from 4 (PROCESS_RESPONSE) to 2 (PROCIESS_INITIALIZATION)]
+[1764002261.378] [00:00:19.766] [Cellular Connection - Sending AT command: AT+CIMI]
+[1764002261.378] [00:00:19.766] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1764002261.378] [00:00:19.766] [DEBUG] Wrote command '+CIMI' successfully (5 bytes)
+[1764002261.378] [00:00:19.766] [DEBUG] Wrote CR successfully (1 bytes)
+[1764002261.378] [00:00:19.766] [Cellular Connection - Getting response, timeout 20s
+[1764002261.480] [00:00:19.868] [Cellular Connection - Cellular state changed from 2 (PROCIESS_INITIALIZATION) to 3 (GET_RESPONSE)]
+[1764002261.480] [00:00:19.868]     [Returning to cellular state: PROCESS_RESPONSE]
+[1764002261.481] [00:00:19.868] [Cellular Connection - Line: AT+CIMI]
+[1764002261.481] [00:00:19.869] [Cellular Connection - Line: 234106229503021]
+[1764002261.482] [00:00:19.869] [Cellular Connection - Line: OK]
+[1764002261.482] [00:00:19.869] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1764002261.482] [00:00:19.869] [Cellular Connection - AT command response successfully received.]
+[1764002261.583] [00:00:19.970] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 4 (PROCESS_RESPONSE)]
+[1764002261.583] [00:00:19.970] [Cellular Connection - AT command response received.]
+[1764002261.583] [00:00:19.970] Line 0: AT+CIMI
+[1764002261.583] [00:00:19.970] Line 1: 234106229503021
+[1764002261.583] [00:00:19.970] Line 2: OK
+[1764002261.684] [00:00:20.071] [Cellular Connection - Cellular state changed from 4 (PROCESS_RESPONSE) to 2 (PROCIESS_INITIALIZATION)]
+[1764002261.684] [00:00:20.071] [Cellular Connection - Sending AT command: AT+CCID]
+[1764002261.684] [00:00:20.071] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1764002261.684] [00:00:20.071] [DEBUG] Wrote command '+CCID' successfully (5 bytes)
+[1764002261.684] [00:00:20.072] [DEBUG] Wrote CR successfully (1 bytes)
+[1764002261.684] [00:00:20.072] [Cellular Connection - Getting response, timeout 10s
+[1764002261.784] [00:00:20.172] [Cellular Connection - Cellular state changed from 2 (PROCIESS_INITIALIZATION) to 3 (GET_RESPONSE)]
+[1764002261.784] [00:00:20.172]     [Returning to cellular state: PROCESS_RESPONSE]
+[1764002261.785] [00:00:20.172] [Cellular Connection - Line: AT+CCID]
+[1764002261.785] [00:00:20.173] [Cellular Connection - Line: +CCID: 8931681011105068390]
+[1764002261.785] [00:00:20.173] [Cellular Connection - Line: OK]
+[1764002261.785] [00:00:20.173] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1764002261.786] [00:00:20.173] [Cellular Connection - AT command response successfully received.]
+[1764002261.887] [00:00:20.275] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 4 (PROCESS_RESPONSE)]
+[1764002261.887] [00:00:20.275] [Cellular Connection - AT command response received.]
+[1764002261.887] [00:00:20.275] Line 0: AT+CCID
+[1764002261.887] [00:00:20.275] Line 1: +CCID: 8931681011105068390
+[1764002261.887] [00:00:20.275] Line 2: OK
+[1764002261.887] [00:00:20.275] [Cellular Connection - CCID number: 8931681011105068390]
+[1764002261.888] [00:00:20.275] [NET] DNS prime skipped: No active links
+[1764002261.891] [00:00:20.279] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1764002261.895] [00:00:20.283] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=NO, cellular_started=NO, has_ip=NO)
+[1764002261.895] [00:00:20.283] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002261.895] [00:00:20.283] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002261.895] [00:00:20.283] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002261.997] [00:00:20.384] [Cellular Connection - Cellular state changed from 4 (PROCESS_RESPONSE) to 2 (PROCIESS_INITIALIZATION)]
+[1764002261.997] [00:00:20.385] [Cellular Connection - Sending AT command: AT+COPS=3,2]
+[1764002261.997] [00:00:20.385] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1764002261.997] [00:00:20.385] [DEBUG] Wrote command '+COPS=3,2' successfully (9 bytes)
+[1764002261.997] [00:00:20.385] [DEBUG] Wrote CR successfully (1 bytes)
+[1764002261.997] [00:00:20.385] [Cellular Connection - Getting response, timeout 10s
+[1764002262.099] [00:00:20.486] [Cellular Connection - Cellular state changed from 2 (PROCIESS_INITIALIZATION) to 3 (GET_RESPONSE)]
+[1764002262.099] [00:00:20.486]     [Returning to cellular state: PROCESS_RESPONSE]
+[1764002262.099] [00:00:20.487] [Cellular Connection - Line: AT+COPS=3,2]
+[1764002262.099] [00:00:20.487] [Cellular Connection - Line: OK]
+[1764002262.099] [00:00:20.487] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1764002262.099] [00:00:20.487] [Cellular Connection - AT command response successfully received.]
+[1764002262.200] [00:00:20.588] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 4 (PROCESS_RESPONSE)]
+[1764002262.201] [00:00:20.588] [Cellular Connection - AT command response received.]
+[1764002262.201] [00:00:20.588] Line 0: AT+COPS=3,2
+[1764002262.201] [00:00:20.588] Line 1: OK
+[1764002262.201] [00:00:20.588] [Cellular Connection - COPS set to numeric mode.]
+[1764002262.301] [00:00:20.689] [Cellular Connection - Cellular state changed from 4 (PROCESS_RESPONSE) to 2 (PROCIESS_INITIALIZATION)]
+[1764002262.301] [00:00:20.689] [Cellular Connection - Sending AT command: AT+COPS?]
+[1764002262.302] [00:00:20.689] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1764002262.302] [00:00:20.689] [DEBUG] Wrote command '+COPS?' successfully (6 bytes)
+[1764002262.302] [00:00:20.689] [DEBUG] Wrote CR successfully (1 bytes)
+[1764002262.302] [00:00:20.690] [Cellular Connection - Getting response, timeout 10s
+[1764002262.403] [00:00:20.791] [Cellular Connection - Cellular state changed from 2 (PROCIESS_INITIALIZATION) to 3 (GET_RESPONSE)]
+[1764002262.403] [00:00:20.791]     [Returning to cellular state: PROCESS_RESPONSE]
+[1764002262.404] [00:00:20.791] [Cellular Connection - Line: AT+COPS?]
+[1764002262.404] [00:00:20.792] [Cellular Connection - Line: +COPS: 1,2,"311480",7]
+[1764002262.404] [00:00:20.792] [Cellular Connection - Line: OK]
+[1764002262.404] [00:00:20.792] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1764002262.404] [00:00:20.792] [Cellular Connection - AT command response successfully received.]
+[1764002262.506] [00:00:20.894] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 4 (PROCESS_RESPONSE)]
+[1764002262.506] [00:00:20.894] [Cellular Connection - AT command response received.]
+[1764002262.506] [00:00:20.894] Line 0: AT+COPS?
+[1764002262.506] [00:00:20.894] Line 1: +COPS: 1,2,"311480",7
+[1764002262.506] [00:00:20.894] Line 2: OK
+[1764002262.506] [00:00:20.894] [Cellular COPS Operator: Verizon (311480) - Status: 0, Technology: 7]
+[1764002262.609] [00:00:20.996] [Cellular Connection - Cellular state changed from 4 (PROCESS_RESPONSE) to 2 (PROCIESS_INITIALIZATION)]
+[1764002262.609] [00:00:20.996] [Cellular Connection - Sending AT command: AT+CSQ]
+[1764002262.609] [00:00:20.996] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1764002262.609] [00:00:20.996] [DEBUG] Wrote command '+CSQ' successfully (4 bytes)
+[1764002262.609] [00:00:20.997] [DEBUG] Wrote CR successfully (1 bytes)
+[1764002262.609] [00:00:20.997] [Cellular Connection - Getting response, timeout 10s
+[1764002262.709] [00:00:21.097] [Cellular Connection - Cellular state changed from 2 (PROCIESS_INITIALIZATION) to 3 (GET_RESPONSE)]
+[1764002262.709] [00:00:21.097]     [Returning to cellular state: PROCESS_RESPONSE]
+[1764002262.710] [00:00:21.097] [Cellular Connection - Line: AT+CSQ]
+[1764002262.710] [00:00:21.098] [Cellular Connection - Line: +CSQ: 20,99]
+[1764002262.710] [00:00:21.098] [Cellular Connection - Line: OK]
+[1764002262.710] [00:00:21.098] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1764002262.710] [00:00:21.098] [Cellular Connection - AT command response successfully received.]
+[1764002262.811] [00:00:21.199] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 4 (PROCESS_RESPONSE)]
+[1764002262.811] [00:00:21.199] [Cellular Connection - AT command response received.]
+[1764002262.811] [00:00:21.199] Line 0: AT+CSQ
+[1764002262.811] [00:00:21.199] Line 1: +CSQ: 20,99
+[1764002262.811] [00:00:21.199] Line 2: OK
+[1764002262.812] [00:00:21.199] [Cellular Connection to Operator Verizon - CSQ: 20, BER: 99]
+[1764002262.915] [00:00:21.302] [Cellular Connection - Ready state changed from NOT_READY to READY]
+[1764002262.915] [00:00:21.302] [Cellular Connection - Link reset state changed from RESET to NORMAL]
+[1764002262.915] [00:00:21.302] [Cellular Connection - Cellular state changed from 4 (PROCESS_RESPONSE) to 12 (INIT_REGISTER)]
+[1764002262.915] [00:00:21.303] [NET] DNS prime skipped: No active links
+[1764002262.915] [00:00:21.303] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular transitioned from NOT_READY to READY, allowing PPP retry
+[1764002262.996] [00:00:21.383] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Activating cellular: cellular_ready=YES, state=NET_SELECT_INTERFACE
+[1764002263.078] [00:00:21.465] [Cellular Connection - AT command port remains open (fd=12) during PPP]
+[1764002263.106] [00:00:21.494] [Cellular Connection - Starting PPPD: /etc/start_pppd.sh]
+[1764002263.141] [00:00:21.528] [Cellular Connection - PPPD start initiated (count=1)]
+[1764002263.141] [00:00:21.529] [Cellular Connection - PPPD started (count=1)]
+[1764002263.141] [00:00:21.529] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Started pppd, will monitor for PPP0 device creation
+[1764002263.143] [00:00:21.531] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 Status: NO_LOG_FILE (0 ms elapsed)
+[1764002263.147] [00:00:21.534] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002263.147] [00:00:21.535] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002263.147] [00:00:21.535] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002263.147] [00:00:21.535] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002263.957] [00:00:22.345] [NET] DNS prime skipped: No active links
+[1764002263.965] [00:00:22.353] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002263.965] [00:00:22.353] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002263.965] [00:00:22.353] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002263.965] [00:00:22.353] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002264.974] [00:00:23.361] [NET] DNS prime skipped: No active links
+[1764002264.985] [00:00:23.372] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002264.985] [00:00:23.372] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002264.985] [00:00:23.372] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002264.985] [00:00:23.372] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002265.994] [00:00:24.381] [NET] DNS prime skipped: No active links
+[1764002266.195] [00:00:24.582] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002266.195] [00:00:24.582] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002266.195] [00:00:24.582] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002266.195] [00:00:24.582] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002267.003] [00:00:25.391] [NET] DNS prime skipped: No active links
+[1764002267.199] [00:00:25.587] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002267.199] [00:00:25.587] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002267.199] [00:00:25.587] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002267.199] [00:00:25.587] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002268.010] [00:00:26.398] [NET] DNS prime skipped: No active links
+[1764002268.117] [00:00:26.505] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 Status: STARTING (5095 ms elapsed)
+[1764002268.221] [00:00:26.608] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002268.221] [00:00:26.608] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002268.221] [00:00:26.608] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002268.221] [00:00:26.608] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002269.034] [00:00:27.422] [NET] DNS prime skipped: No active links
+[1764002269.246] [00:00:27.634] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002269.246] [00:00:27.634] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002269.246] [00:00:27.634] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 11 attempts, adding 2 second delay
+[1764002271.246] [00:00:29.634] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002271.246] [00:00:29.634] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002271.349] [00:00:29.736] [NET] DNS prime skipped: No active links
+[1764002271.561] [00:00:29.948] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002271.561] [00:00:29.948] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002271.561] [00:00:29.948] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 12 attempts, adding 2 second delay
+[1764002273.561] [00:00:31.949] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002273.561] [00:00:31.949] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002273.665] [00:00:32.053] [NET] DNS prime skipped: No active links
+[1764002273.769] [00:00:32.157] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 Status: STARTING (10750 ms elapsed)
+[1764002274.355] [00:00:32.742] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | Triggered WiFi scan while interface down (attempt 1/10)
+[1764002274.466] [00:00:32.853] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002274.466] [00:00:32.853] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002274.466] [00:00:32.853] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 13 attempts, adding 2 second delay
+[1764002276.466] [00:00:34.854] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002276.466] [00:00:34.854] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+Nov 24 16:37:56 iMatrix:FC-1:0131557250 daemon.err pppd[1203]: Connect script failed
+[1764002276.572] [00:00:34.960] [NET] DNS prime skipped: No active links
+[1764002276.850] [00:00:35.237] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002276.850] [00:00:35.237] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002276.850] [00:00:35.237] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 14 attempts, adding 2 second delay
+[1764002278.850] [00:00:37.238] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002278.850] [00:00:37.238] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002278.957] [00:00:37.344] [NETMGR] State: NET_SELECT_INTERFACE | State timeout after 20 seconds, forcing transition to NET_INIT
+[1764002278.957] [00:00:37.344] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002278.957] [00:00:37.344] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002278.957] [00:00:37.345] [NET] DNS prime skipped: No active links
+[1764002279.008] [00:00:37.395] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002279.008] [00:00:37.395] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002279.728] [00:00:38.116] [Cellular Connection - Force killing pppd]
+[1764002279.999] [00:00:38.386] [Cellular Connection - Killing runsv pppd (PID: 1200)]
+[1764002280.193] [00:00:38.581] [Cellular Connection - PPP cleanup complete]
+[1764002280.265] [00:00:38.653] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | WiFi scan found 11 APs, triggering reconnection
+Nov 24 16:38:03 iMatrix:FC-1:0131557250 local2.err chat[1309]: SIGTERM
+Nov 24 16:38:03 iMatrix:FC-1:0131557250 daemon.err pppd[1306]: Connect script failed
+Nov 24 16:38:05 iMatrix:FC-1:0131557250 local2.err chat[1344]: Can't restore terminal parameters: I/O error
+Nov 24 16:38:05 iMatrix:FC-1:0131557250 local2.err chat[1345]: SIGHUP
+Nov 24 16:38:05 iMatrix:FC-1:0131557250 local2.err chat[1345]: Can't restore terminal parameters: I/O error
+[1764002280.367] [00:00:38.755] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002280.367] [00:00:38.755] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002281.048] [00:00:39.436] [Cellular Connection - Force killing pppd]
+[1764002281.311] [00:00:39.699] [Cellular Connection - Killing runsv pppd (PID: 1283)]
+[1764002281.507] [00:00:39.895] [Cellular Connection - PPP cleanup complete]
+[1764002281.509] [00:00:39.896] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002281.509] [00:00:39.897] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002281.509] [00:00:39.897] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 15 attempts, adding 2 second delay
+[1764002283.509] [00:00:41.897] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002283.509] [00:00:41.897] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+Nov 24 16:38:08 iMatrix:FC-1:0131557250 local2.err chat[1368]: SIGTERM
+Nov 24 16:38:08 iMatrix:FC-1:0131557250 daemon.err pppd[1365]: Connect script failed
+Nov 24 16:38:10 iMatrix:FC-1:0131557250 local2.err chat[1394]: SIGHUP
+Nov 24 16:38:10 iMatrix:FC-1:0131557250 local2.err chat[1394]: Can't restore terminal parameters: I/O error
+[1764002283.616] [00:00:42.004] [NET] DNS prime skipped: No active links
+[1764002283.664] [00:00:42.051] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002283.664] [00:00:42.051] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002284.348] [00:00:42.736] [Cellular Connection - Force killing pppd]
+[1764002284.659] [00:00:43.047] [Cellular Connection - Killing runsv pppd (PID: 1304)]
+[1764002284.852] [00:00:43.240] [Cellular Connection - PPP cleanup complete]
+[1764002284.852] [00:00:43.240] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 Status: ERROR (Connect script failed - handled) (20702 ms elapsed)
+[1764002284.852] [00:00:43.240] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection failed - will retry
+[1764002284.852] [00:00:43.240] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Check /var/log/pppd/current for details
+[1764002284.922] [00:00:43.310] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | WiFi scan found 11 APs, triggering reconnection
+Nov 24 16:38:13 iMatrix:FC-1:0131557250 local2.err chat[1421]: SIGTERM
+Nov 24 16:38:13 iMatrix:FC-1:0131557250 daemon.err pppd[1418]: Connect script failed
+[1764002285.096] [00:00:43.483] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002285.096] [00:00:43.483] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002285.845] [00:00:44.233] [Cellular Connection - Force killing pppd]
+[1764002286.129] [00:00:44.517] [Cellular Connection - Killing runsv pppd (PID: 1338)]
+[1764002286.324] [00:00:44.712] [Cellular Connection - PPP cleanup complete]
+[1764002286.325] [00:00:44.713] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002286.325] [00:00:44.713] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002286.325] [00:00:44.713] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 16 attempts, adding 2 second delay
+[1764002288.326] [00:00:46.713] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002288.326] [00:00:46.713] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002288.433] [00:00:46.820] [NET] DNS prime skipped: No active links
+[1764002288.529] [00:00:46.916] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002288.574] [00:00:46.962] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002288.574] [00:00:46.962] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002289.253] [00:00:47.640] [Cellular Connection - Force killing pppd]
+[1764002289.605] [00:00:47.992] [Cellular Connection - Killing runsv pppd (PID: 1363)]
+[1764002289.799] [00:00:48.187] [Cellular Connection - PPP cleanup complete]
+[1764002289.799] [00:00:48.187] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 Status: ERROR (Connect script failed - handled) (25518 ms elapsed)
+[1764002289.799] [00:00:48.187] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection failed - will retry
+[1764002289.799] [00:00:48.187] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Check /var/log/pppd/current for details
+[1764002289.848] [00:00:48.235] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002289.848] [00:00:48.235] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002290.612] [00:00:49.000] [Cellular Connection - Force killing pppd]
+[1764002290.854] [00:00:49.242] [Cellular Connection - Killing runsv pppd (PID: 1396)]
+[1764002291.049] [00:00:49.437] [Cellular Connection - PPP cleanup complete]
+[1764002291.051] [00:00:49.438] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002291.051] [00:00:49.438] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002291.051] [00:00:49.438] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 17 attempts, adding 2 second delay
+[1764002293.051] [00:00:51.439] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002293.051] [00:00:51.439] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002293.158] [00:00:51.546] [NET] DNS prime skipped: No active links
+[1764002293.249] [00:00:51.637] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002293.295] [00:00:51.682] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002293.295] [00:00:51.682] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002293.979] [00:00:52.367] [Cellular Connection - Force killing pppd]
+[1764002294.294] [00:00:52.682] [Cellular Connection - Killing runsv pppd (PID: 1416)]
+[1764002294.485] [00:00:52.872] [Cellular Connection - PPP cleanup complete]
+[1764002294.485] [00:00:52.872] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 Status: ERROR (Connect script failed - handled) (30243 ms elapsed)
+[1764002294.485] [00:00:52.872] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection failed - will retry
+[1764002294.485] [00:00:52.872] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Check /var/log/pppd/current for details
+Nov 24 16:38:25 iMatrix:FC-1:0131557250 daemon.err pppd[1435]: Connect script failed
+[1764002294.485] [00:00:52.872] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 30243 ms
+[1764002294.485] [00:00:52.873] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed - handled)
+[1764002294.485] [00:00:52.873] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002294.535] [00:00:52.923] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002294.536] [00:00:52.923] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002294.536] [00:00:52.923] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 18 attempts, adding 2 second delay
+[1764002296.536] [00:00:54.924] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002296.536] [00:00:54.924] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002296.645] [00:00:55.033] [NET] DNS prime skipped: No active links
+[1764002296.738] [00:00:55.126] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+Nov 24 16:38:25 iMatrix:FC-1:0131557250 daemon.err pppd[1449]: Connect script failed
+[1764002296.786] [00:00:55.174] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 33730 ms
+[1764002296.786] [00:00:55.174] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed)
+[1764002296.786] [00:00:55.174] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002296.839] [00:00:55.227] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002296.839] [00:00:55.227] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002296.839] [00:00:55.227] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 19 attempts, adding 2 second delay
+[1764002298.840] [00:00:57.227] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002298.840] [00:00:57.227] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002298.948] [00:00:57.335] [NET] DNS prime skipped: No active links
+[1764002299.122] [00:00:57.509] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+Nov 24 16:38:30 iMatrix:FC-1:0131557250 local2.err chat[1559]: SIGTERM
+Nov 24 16:38:30 iMatrix:FC-1:0131557250 daemon.err pppd[1556]: Connect script failed
+Nov 24 16:38:32 iMatrix:FC-1:0131557250 local2.err chat[1595]: Can't restore terminal parameters: I/O error
+Nov 24 16:38:32 iMatrix:FC-1:0131557250 local2.err chat[1596]: SIGHUP
+Nov 24 16:38:32 iMatrix:FC-1:0131557250 local2.err chat[1596]: Can't restore terminal parameters: I/O error
+[1764002299.168] [00:00:57.556] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 36033 ms
+[1764002299.168] [00:00:57.556] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed)
+[1764002299.168] [00:00:57.556] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002299.219] [00:00:57.607] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002299.219] [00:00:57.607] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002299.219] [00:00:57.607] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 20 attempts, adding 2 second delay
+[1764002301.220] [00:00:59.607] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002301.220] [00:00:59.607] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002301.344] [00:00:59.731] [NETMGR] State: NET_SELECT_INTERFACE | State timeout after 20 seconds, forcing transition to NET_INIT
+[1764002301.344] [00:00:59.731] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+cell
+  SIM state: READY, Current State: 12 (INIT_REGISTER), Cellular Ready: Yes, Cellular Link Reset: No, Registered with iMatrix: No
+  ICCID: 8931681011105068390, IMEI: 358088755854471, IMSI: 234106229503021, Phone: NO Phone Number
+  Verizon              - RSSI: -73 dBm    BER: Unknown
+>Nov 24 16:38:35 iMatrix:FC-1:0131557250 local2.err chat[1619]: SIGTERM
+Nov 24 16:38:35 iMatrix:FC-1:0131557250 daemon.err pppd[1616]: Connect script failed
+Nov 24 16:38:37 iMatrix:FC-1:0131557250 local2.err chat[1650]: SIGHUP
+Nov 24 16:38:37 iMatrix:FC-1:0131557250 local2.err chat[1650]: Can't restore terminal parameters: I/O error
+[1764002301.344] [00:00:59.732] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002301.345] [00:00:59.732] [NET] DNS prime skipped: No active links
+[1764002301.438] [00:00:59.826] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002301.484] [00:00:59.871] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 38429 ms
+[1764002301.484] [00:00:59.871] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed)
+[1764002301.484] [00:00:59.871] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002301.534] [00:00:59.922] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002301.534] [00:00:59.922] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002301.534] [00:00:59.922] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 21 attempts, adding 2 second delay
+[1764002303.534] [00:01:01.922] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+net
++=====================================================================================================+
+|                                        NETWORK MANAGER STATE                                        |
++=====================================================================================================+
+| Status: OFFLINE | State: NET_SELECT_INTERFACE  | Interface: NONE  | Duration: 01:18    | DTLS: INIT |
++=====================================================================================================+
+| INTERFACE | ACTIVE  | TESTING | LINK_UP | SCORE | LATENCY | COOLDOWN  | IP_ADDR | TEST_TIME         |
++-----------+---------+---------+---------+-------+---------+-----------+---------+-------------------+
+| eth0      | NO      | NO      | NO      |     0 |       0 | NONE      | VALID   | NONE              |
+| wlan0     | NO      | NO      | NO      |     0 |       0 | NONE      | NONE    | NONE              |
+| ppp0      | NO      | NO      | NO      |     0 |       0 | NONE      | NONE    | NONE              |
++=====================================================================================================+
+|                                        INTERFACE LINK STATUS                                        |
++=====================================================================================================+
+| eth0      | INACTIVE - Link up (100Mb/s)                                                            |
+| wlan0     | INACTIVE - INACTIVE                                                                     |
+| ppp0      | INACTIVE - Daemon running (no interface)                                                |
++=====================================================================================================+
+|                                            CONFIGURATION                                            |
++=====================================================================================================+
+| ETH0 Cooldown: 010.000 s | WIFI Cooldown: 010.000 s | Max State: 010.000 s | Online Check: 010.000 s|
+| Min Score: 3            | Good Score: 7            | Max WLAN Retries: 3   | PPP Retries: 0         |
+| WiFi Reassoc: Enabled  | Method: wpa_cli         | Scan Wait: 2000   ms                             |
++=====================================================================================================+
+|                                            SYSTEM STATUS                                            |
++=====================================================================================================+
+| ETH0 DHCP: STOPPED  | ETH0 Enabled: NO     | WLAN Retries: 0   | First Run: YES                     |
+| WiFi Enabled: YES    | Cellular: READY     | Test Attempted: NO     | Last Link Up: NO              |
++=====================================================================================================+
+|                                              DNS CACHE                                              |
++=====================================================================================================+
+| Status: NOT_PRIMED  | IP: NONE              | Age: N/A         | Valid: NO                          |
++=====================================================================================================+
+|                                       BEST INTERFACE ANALYSIS                                       |
++=====================================================================================================+
+| Interface: NONE     | Score: N/A | Latency: N/A                                                      |
++=====================================================================================================+
+|                                            RESULT STATUS                                            |
++=====================================================================================================+
+| Last Result: SETTING_UP                                                                             |
++=====================================================================================================+
+| Network traffic: ETH0: TX: 8.02 KB     | WLAN0 TX: 0 Bytes     | PPP0 TX: 4.00 GB                   |
+|                        RX: 231.01 KB   |       RX: 0 Bytes     |      RX: 4.00 GB                   |
+| Network rates  : ETH0: TX: 0 Bytes/s     | WLAN0 TX: 0 Bytes/s     | PPP0 TX: 0 Bytes/s             |
+|                        RX: 0 Bytes/s     |       RX: 0 Bytes/s     |      RX: 0 Bytes/s             |
++=====================================================================================================+
+|                                       DHCP SERVER STATUS                                            |
++=====================================================================================================+
+| Interface: eth0     | Status: RUNNING  | IP: 192.168.7.1     | Range: 0        -9         |
+| Active Clients: 1   | Expired: 0        | Lease Time: 24h     | Config: VALID                   |
++-----------------------------------------------------------------------------------------------------+
+| CLIENT IP       | MAC ADDRESS       | HOSTNAME            | LEASE EXPIRES          | STATUS      |
++-----------------+-------------------+---------------------+------------------------+-------------+
+| 60.24.160.85    | 00:00:00:00:69:24 | eg-P1-Laptop        | 2030-10-03 12:43:01    | ACTIVE      |
++=====================================================================================================+
+>Nov 24 16:38:41 iMatrix:FC-1:0131557250 local2.err chat[1677]: SIGTERM
+Nov 24 16:38:41 iMatrix:FC-1:0131557250 daemon.err pppd[1674]: Connect script failed
+[1764002303.534] [00:01:01.922] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002303.642] [00:01:02.030] [NET] DNS prime skipped: No active links
+[1764002303.737] [00:01:02.124] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002303.782] [00:01:02.170] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 Status: ERROR (Connect script failed) (40726 ms elapsed)
+[1764002303.782] [00:01:02.170] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection failed - will retry
+[1764002303.783] [00:01:02.170] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Check /var/log/pppd/current for details
+[1764002303.783] [00:01:02.170] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 40726 ms
+[1764002303.783] [00:01:02.170] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed)
+[1764002303.783] [00:01:02.170] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002303.833] [00:01:02.220] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+cell blackERROR: 10 bytes not written to circular buffer
+[1764002303.833] [00:01:02.220] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002303.833] [00:01:02.221] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 22 attempts, adding 2 second delay
+[1764002305.833] [00:01:04.221] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002305.833] [00:01:04.221] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002305.941] [00:01:04.328] [NET] DNS prime skipped: No active links
+[1764002306.035] [00:01:04.423] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002306.083] [00:01:04.470] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002306.083] [00:01:04.470] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002306.786] [00:01:05.173] [Cellular Connection - Force killing pppd]
+[1764002307.050] [00:01:05.438] [Cellular Connection - Killing runsv pppd (PID: 1447)]
+list
+Blacklist Status:
+No blacklisted carriers found
+>[1764002307.240] [00:01:05.627] [Cellular Connection - PPP cleanup complete]
+[1764002307.240] [00:01:05.628] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 43026 ms
+[1764002307.240] [00:01:05.628] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed - handled)
+[1764002307.240] [00:01:05.628] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002307.282] [00:01:05.670] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | Triggered WiFi scan while interface down (attempt 1/10)
+[1764002307.335] [00:01:05.723] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002307.335] [00:01:05.723] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002308.018] [00:01:06.406] [Cellular Connection - Force killing pppd]
+[1764002308.279] [00:01:06.667] [Cellular Connection - Killing runsv pppd (PID: 1533)]
+[1764002308.470] [00:01:06.857] [Cellular Connection - PPP cleanup complete]
+[1764002308.472] [00:01:06.860] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002308.472] [00:01:06.860] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002308.472] [00:01:06.860] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 23 attempts, adding 2 second delay
+[1764002310.472] [00:01:08.860] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002310.472] [00:01:08.860] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002310.578] [00:01:08.965] [NET] DNS prime skipped: No active links
+[1764002310.664] [00:01:09.051] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002310.706] [00:01:09.093] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002310.706] [00:01:09.093] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002311.370] [00:01:09.758] [Cellular Connection - Force killing pppd]
+Nov 24 16:38:53 iMatrix:FC-1:0131557250 daemon.err pppd[1715]: Connect script failed
+[1764002311.654] [00:01:10.041] [Cellular Connection - Killing runsv pppd (PID: 1554)]
+[1764002311.832] [00:01:10.220] [Cellular Connection - PPP cleanup complete]
+[1764002311.832] [00:01:10.220] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 47663 ms
+[1764002311.832] [00:01:10.220] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed - handled)
+[1764002311.832] [00:01:10.220] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002311.896] [00:01:10.283] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | WiFi scan found 12 APs, triggering reconnection
+[1764002312.107] [00:01:10.495] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002312.107] [00:01:10.495] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002312.805] [00:01:11.192] [Cellular Connection - Force killing pppd]
+[1764002313.048] [00:01:11.436] [Cellular Connection - Killing runsv pppd (PID: 1588)]
+Nov 24 16:38:53 iMatrix:FC-1:0131557250 daemon.err pppd[1729]: Connect script failed
+[1764002313.246] [00:01:11.634] [Cellular Connection - PPP cleanup complete]
+[1764002313.247] [00:01:11.635] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002313.247] [00:01:11.635] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002313.247] [00:01:11.635] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 24 attempts, adding 2 second delay
+[1764002315.247] [00:01:13.635] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002315.248] [00:01:13.635] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002315.356] [00:01:13.743] [NET] DNS prime skipped: No active links
+[1764002315.443] [00:01:13.830] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002315.485] [00:01:13.873] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002315.485] [00:01:13.873] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+Nov 24 16:38:58 iMatrix:FC-1:0131557250 local2.err chat[1838]: SIGTERM
+Nov 24 16:38:58 iMatrix:FC-1:0131557250 daemon.err pppd[1835]: Connect script failed
+Nov 24 16:39:00 iMatrix:FC-1:0131557250 local2.err chat[1870]: SIGHUP
+Nov 24 16:39:00 iMatrix:FC-1:0131557250 local2.err chat[1870]: Can't restore terminal parameters: I/O error
+[1764002316.154] [00:01:14.541] [Cellular Connection - Force killing pppd]
+[1764002316.482] [00:01:14.870] [Cellular Connection - Killing runsv pppd (PID: 1614)]
+[1764002316.656] [00:01:15.044] [Cellular Connection - PPP cleanup complete]
+[1764002316.656] [00:01:15.044] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 52441 ms
+[1764002316.657] [00:01:15.044] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed - handled)
+[1764002316.657] [00:01:15.044] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002316.721] [00:01:15.108] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | WiFi scan found 12 APs, triggering reconnection
+[1764002316.801] [00:01:15.188] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002316.801] [00:01:15.188] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002317.500] [00:01:15.888] [Cellular Connection - Force killing pppd]
+Nov 24 16:39:01 iMatrix:FC-1:0131557250 local2.err chat[1895]: SIGHUP
+Nov 24 16:39:01 iMatrix:FC-1:0131557250 local2.err chat[1895]: Can't restore terminal parameters: I/O error
+Nov 24 16:39:03 iMatrix:FC-1:0131557250 local2.err chat[1923]: SIGHUP
+Nov 24 16:39:03 iMatrix:FC-1:0131557250 local2.err chat[1923]: Can't restore terminal parameters: I/O error
+[1764002317.704] [00:01:16.092] [Cellular Connection - Killing runsv pppd (PID: 1652)]
+[1764002317.864] [00:01:16.252] [Cellular Connection - PPP cleanup complete]
+[1764002317.866] [00:01:16.253] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002317.866] [00:01:16.253] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002317.866] [00:01:16.253] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 25 attempts, adding 2 second delay
+[1764002319.866] [00:01:18.253] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002319.866] [00:01:18.254] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002321.207] [00:01:19.595] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[1764002321.207] [00:01:19.595] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[1764002321.207] [00:01:19.595] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[1764002321.207] [00:01:19.595] [COMPUTE_BEST] Current interface states:
+[1764002321.208] [00:01:19.595] [COMPUTE_BEST]   eth0: active=NO, link_up=NO, score=0, latency=0
+[1764002321.208] [00:01:19.595] [COMPUTE_BEST]   wlan0: active=NO, link_up=NO, score=0, latency=0
+[1764002321.208] [00:01:19.595] [COMPUTE_BEST]   ppp0: active=NO, link_up=NO, score=0, latency=0
+[1764002321.208] [00:01:19.595] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[1764002321.208] [00:01:19.595] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[1764002321.208] [00:01:19.595] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[1764002321.208] [00:01:19.595] [COMPUTE_BEST]   Skipping ppp0: active=NO, link_up=NO, disabled=NO
+[1764002321.208] [00:01:19.596] [COMPUTE_BEST] Phase 1b: Looking for MINIMUM acceptable links
+[1764002321.208] [00:01:19.596] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[1764002321.208] [00:01:19.596] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[1764002321.208] [00:01:19.596] [COMPUTE_BEST]   Skipping ppp0: active=NO, link_up=NO, disabled=NO
+[1764002321.208] [00:01:19.596] [COMPUTE_BEST] No GOOD or MINIMUM candidates found
+[1764002321.208] [00:01:19.596] [COMPUTE_BEST] Phase 2: Picking absolute best among all available links
+[1764002321.208] [00:01:19.596] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[1764002321.208] [00:01:19.596] [COMPUTE_BEST]   Skipping wlan0: active=NO, link_up=NO, disabled=NO
+[1764002321.208] [00:01:19.596] [COMPUTE_BEST]   Skipping ppp0: active=NO, link_up=NO, disabled=NO
+[1764002321.208] [00:01:19.596] [COMPUTE_BEST] Final result: NO_INTERFACE_FOUND - all interfaces down or inactive
+[1764002321.340] [00:01:19.728] [NET] DNS prime skipped: No active links
+[1764002321.426] [00:01:19.813] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002321.466] [00:01:19.854] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002321.466] [00:01:19.854] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002322.117] [00:01:20.505] [Cellular Connection - Force killing pppd]
+[1764002322.380] [00:01:20.768] [Cellular Connection - Killing runsv pppd (PID: 1672)]
+[1764002322.548] [00:01:20.936] [Cellular Connection - PPP cleanup complete]
+[1764002322.548] [00:01:20.936] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 58426 ms
+[1764002322.548] [00:01:20.936] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed - handled)
+[1764002322.548] [00:01:20.936] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002322.595] [00:01:20.982] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002322.595] [00:01:20.982] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002322.595] [00:01:20.982] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 26 attempts, adding 2 second delay
+[1764002324.595] [00:01:22.982] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002324.595] [00:01:22.983] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002324.701] [00:01:23.088] [NETMGR] State: NET_SELECT_INTERFACE | State timeout after 20 seconds, forcing transition to NET_INIT
+[1764002324.701] [00:01:23.089] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002324.701] [00:01:23.089] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002324.702] [00:01:23.090] [NET] DNS prime skipped: No active links
+[1764002324.803] [00:01:23.190] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002324.909] [00:01:23.297] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 61786 ms
+[1764002324.909] [00:01:23.297] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed)
+[1764002324.909] [00:01:23.297] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002324.956] [00:01:23.344] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002324.956] [00:01:23.344] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002324.956] [00:01:23.344] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 27 attempts, adding 2 second delay
+[1764002326.408] [00:01:24.796] [GPS NMEA serial data processing failure to writing to NMEA buffer!, purging
+[1764002326.956] [00:01:25.344] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002326.956] [00:01:25.344] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002327.064] [00:01:25.452] [NET] DNS prime skipped: No active links
+[1764002327.148] [00:01:25.536] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002327.194] [00:01:25.582] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 64149 ms
+[1764002327.194] [00:01:25.582] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed)
+[1764002327.194] [00:01:25.582] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002327.240] [00:01:25.627] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002327.240] [00:01:25.627] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002327.240] [00:01:25.627] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 28 attempts, adding 2 second delay
+[1764002329.240] [00:01:27.628] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002329.240] [00:01:27.628] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002329.344] [00:01:27.731] [NET] DNS prime skipped: No active links
+[1764002329.427] [00:01:27.815] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002329.467] [00:01:27.855] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 66429 ms
+[1764002329.467] [00:01:27.855] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed)
+[1764002329.467] [00:01:27.855] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002329.510] [00:01:27.898] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002329.510] [00:01:27.898] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002329.510] [00:01:27.898] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 29 attempts, adding 2 second delay
+[1764002331.510] [00:01:29.898] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002331.510] [00:01:29.898] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002331.617] [00:01:30.005] [NET] DNS prime skipped: No active links
+[1764002331.701] [00:01:30.089] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002331.744] [00:01:30.132] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 68702 ms
+[1764002331.744] [00:01:30.132] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed)
+[1764002331.745] [00:01:30.132] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002331.792] [00:01:30.180] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002331.792] [00:01:30.180] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002331.792] [00:01:30.180] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 30 attempts, adding 2 second delay
+[1764002333.792] [00:01:32.180] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002333.792] [00:01:32.180] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002333.897] [00:01:32.285] [NET] DNS prime skipped: No active links
+[1764002333.975] [00:01:32.362] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002334.018] [00:01:32.405] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002334.018] [00:01:32.405] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002334.675] [00:01:33.063] [Cellular Connection - Force killing pppd]
+[1764002334.921] [00:01:33.308] [Cellular Connection - Killing runsv pppd (PID: 1727)]
+[1764002335.100] [00:01:33.488] [Cellular Connection - PPP cleanup complete]
+[1764002335.100] [00:01:33.488] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 Status: ERROR (Connect script failed - handled) (70983 ms elapsed)
+[1764002335.100] [00:01:33.488] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection failed - will retry
+[1764002335.100] [00:01:33.488] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Check /var/log/pppd/current for details
+[1764002335.100] [00:01:33.488] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 70983 ms
+[1764002335.100] [00:01:33.488] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed - handled)
+[1764002335.100] [00:01:33.488] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002335.146] [00:01:33.534] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002335.147] [00:01:33.534] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002335.809] [00:01:34.197] [Cellular Connection - Force killing pppd]
+[1764002336.054] [00:01:34.441] [Cellular Connection - Killing runsv pppd (PID: 1812)]
+[1764002336.231] [00:01:34.619] [Cellular Connection - PPP cleanup complete]
+[1764002336.233] [00:01:34.620] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002336.233] [00:01:34.620] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002336.233] [00:01:34.620] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 31 attempts, adding 2 second delay
+[1764002338.233] [00:01:36.621] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002338.233] [00:01:36.621] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002338.340] [00:01:36.727] [NET] DNS prime skipped: No active links
+[1764002338.417] [00:01:36.804] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002338.459] [00:01:36.846] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002338.459] [00:01:36.846] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002339.125] [00:01:37.513] [Cellular Connection - Force killing pppd]
+[1764002339.417] [00:01:37.805] [Cellular Connection - Killing runsv pppd (PID: 1833)]
+[1764002339.607] [00:01:37.994] [Cellular Connection - PPP cleanup complete]
+[1764002339.607] [00:01:37.995] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 Status: ERROR (Connect script failed - handled) (75425 ms elapsed)
+[1764002339.607] [00:01:37.995] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection failed - will retry
+[1764002339.607] [00:01:37.995] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Check /var/log/pppd/current for details
+[1764002339.607] [00:01:37.995] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 75425 ms
+[1764002339.607] [00:01:37.995] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed - handled)
+[1764002339.607] [00:01:37.995] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002339.645] [00:01:38.033] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | Triggered WiFi scan while interface down (attempt 1/10)
+[1764002339.694] [00:01:38.082] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002339.694] [00:01:38.082] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002340.444] [00:01:38.832] [Cellular Connection - Force killing pppd]
+[1764002340.669] [00:01:39.056] [Cellular Connection - Killing runsv pppd (PID: 1866)]
+[1764002340.901] [00:01:39.288] [Cellular Connection - PPP cleanup complete]
+[1764002340.903] [00:01:39.291] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002340.903] [00:01:39.291] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002340.903] [00:01:39.291] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002340.903] [00:01:39.291] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002341.024] [00:01:39.412] [NET] DNS prime skipped: No active links
+[1764002341.108] [00:01:39.496] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002341.152] [00:01:39.539] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002341.152] [00:01:39.539] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002341.809] [00:01:40.196] [Cellular Connection - Force killing pppd]
+[1764002342.104] [00:01:40.492] [Cellular Connection - Killing runsv pppd (PID: 1886)]
+[1764002342.271] [00:01:40.658] [Cellular Connection - PPP cleanup complete]
+[1764002342.271] [00:01:40.658] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 78109 ms
+[1764002342.271] [00:01:40.658] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed - handled)
+[1764002342.271] [00:01:40.658] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002342.329] [00:01:40.717] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | WiFi scan found 12 APs, triggering reconnection
+[1764002342.409] [00:01:40.796] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002342.409] [00:01:40.797] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002343.184] [00:01:41.572] [Cellular Connection - Force killing pppd]
+[1764002343.414] [00:01:41.802] [Cellular Connection - Killing runsv pppd (PID: 1925)]
+[1764002343.591] [00:01:41.979] [Cellular Connection - PPP cleanup complete]
+[1764002343.593] [00:01:41.980] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002343.593] [00:01:41.980] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002343.593] [00:01:41.980] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002343.593] [00:01:41.980] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002343.700] [00:01:42.087] [NET] DNS prime skipped: No active links
+[1764002343.780] [00:01:42.168] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Activating cellular: cellular_ready=YES, state=NET_SELECT_INTERFACE
+[1764002343.803] [00:01:42.191] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002343.803] [00:01:42.191] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002344.463] [00:01:42.851] [Cellular Connection - Force killing pppd]
+[1764002344.705] [00:01:43.092] [Cellular Connection - Killing runsv pppd (PID: 1948)]
+[1764002344.878] [00:01:43.266] [Cellular Connection - PPP cleanup complete]
+[1764002344.878] [00:01:43.266] [Cellular Connection - Cleaned up previous PPP failure before starting new session]
+[1764002344.959] [00:01:43.346] [Cellular Connection - AT command port remains open (fd=12) during PPP]
+[1764002344.978] [00:01:43.366] [Cellular Connection - Starting PPPD: /etc/start_pppd.sh]
+[1764002345.013] [00:01:43.401] [Cellular Connection - PPPD start initiated (count=2)]
+[1764002345.013] [00:01:43.401] [Cellular Connection - PPPD started (count=2)]
+[1764002345.014] [00:01:43.401] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Started pppd, will monitor for PPP0 device creation
+[1764002345.059] [00:01:43.447] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002345.059] [00:01:43.447] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002345.755] [00:01:44.143] [Cellular Connection - Force killing pppd]
+[1764002345.975] [00:01:44.363] [Cellular Connection - Killing runsv pppd (PID: 1976)]
+[1764002346.138] [00:01:44.525] [Cellular Connection - PPP cleanup complete]
+[1764002346.138] [00:01:44.525] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 Status: ERROR (Connect script failed - handled) (0 ms elapsed)
+[1764002346.138] [00:01:44.526] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection failed - will retry
+[1764002346.138] [00:01:44.526] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Check /var/log/pppd/current for details
+[1764002346.199] [00:01:44.587] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | WiFi scan found 11 APs, triggering reconnection
+[1764002346.379] [00:01:44.767] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002346.379] [00:01:44.767] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002346.380] [00:01:44.767] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002346.380] [00:01:44.767] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002346.487] [00:01:44.875] [NETMGR] State: NET_SELECT_INTERFACE | State timeout after 20 seconds, forcing transition to NET_INIT
+[1764002346.487] [00:01:44.875] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002346.487] [00:01:44.875] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002346.488] [00:01:44.876] [NET] DNS prime skipped: No active links
+[1764002346.572] [00:01:44.959] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002346.679] [00:01:45.067] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | WiFi scan found 11 APs, triggering reconnection
+[1764002346.763] [00:01:45.151] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002346.763] [00:01:45.151] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002346.763] [00:01:45.151] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002346.763] [00:01:45.151] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002347.502] [00:01:45.889] [NET] DNS prime skipped: No active links
+[1764002347.612] [00:01:46.000] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | WiFi scan found 11 APs, triggering reconnection
+[1764002347.695] [00:01:46.083] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002347.696] [00:01:46.083] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002347.696] [00:01:46.083] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002347.696] [00:01:46.083] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002348.510] [00:01:46.898] [NET] DNS prime skipped: No active links
+[1764002348.608] [00:01:46.996] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002348.608] [00:01:46.996] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002348.608] [00:01:46.996] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002348.608] [00:01:46.996] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002349.522] [00:01:47.910] [NET] DNS prime skipped: No active links
+[1764002349.563] [00:01:47.951] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 Status: ERROR (Connect script failed) (5822 ms elapsed)
+[1764002349.563] [00:01:47.951] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection failed - will retry
+[1764002349.563] [00:01:47.951] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Check /var/log/pppd/current for details
+[1764002349.609] [00:01:47.997] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002349.609] [00:01:47.997] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002349.609] [00:01:47.997] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002349.609] [00:01:47.997] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002350.620] [00:01:49.008] [NET] DNS prime skipped: No active links
+[1764002350.704] [00:01:49.092] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002350.795] [00:01:49.182] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002350.795] [00:01:49.183] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002350.795] [00:01:49.183] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002350.795] [00:01:49.183] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002351.706] [00:01:50.094] [NET] DNS prime skipped: No active links
+[1764002351.797] [00:01:50.185] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002351.797] [00:01:50.185] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002351.797] [00:01:50.185] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002351.797] [00:01:50.185] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002352.715] [00:01:51.103] [NET] DNS prime skipped: No active links
+[1764002352.809] [00:01:51.197] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002352.809] [00:01:51.197] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002352.809] [00:01:51.197] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002352.809] [00:01:51.197] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002353.726] [00:01:52.113] [NET] DNS prime skipped: No active links
+[1764002353.770] [00:01:52.157] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 Status: ERROR (Connect script failed) (10026 ms elapsed)
+[1764002353.770] [00:01:52.157] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection failed - will retry
+[1764002353.770] [00:01:52.157] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Check /var/log/pppd/current for details
+[1764002353.812] [00:01:52.200] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002353.812] [00:01:52.200] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002353.812] [00:01:52.200] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 11 attempts, adding 2 second delay
+[1764002355.813] [00:01:54.200] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002355.813] [00:01:54.200] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+Nov 24 16:39:17 iMatrix:FC-1:0131557250 daemon.err pppd[2004]: Connect script failed
+[1764002355.916] [00:01:54.304] [NET] DNS prime skipped: No active links
+[1764002355.998] [00:01:54.386] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002356.092] [00:01:54.480] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002356.092] [00:01:54.480] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002356.092] [00:01:54.480] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 12 attempts, adding 2 second delay
+[1764002358.092] [00:01:56.480] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002358.092] [00:01:56.480] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002358.195] [00:01:56.582] [NET] DNS prime skipped: No active links
+[1764002358.238] [00:01:56.626] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002358.238] [00:01:56.626] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002358.898] [00:01:57.285] [Cellular Connection - Force killing pppd]
+[1764002359.169] [00:01:57.557] [Cellular Connection - Killing runsv pppd (PID: 2002)]
+[1764002359.347] [00:01:57.735] [Cellular Connection - PPP cleanup complete]
+[1764002359.393] [00:01:57.780] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002359.393] [00:01:57.780] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002360.302] [00:01:58.689] [Cellular Connection - Killing runsv pppd (PID: 2100)]
+[1764002360.473] [00:01:58.861] [Cellular Connection - PPP cleanup complete]
+Nov 24 16:39:22 iMatrix:FC-1:0131557250 local2.err chat[2119]: SIGTERM
+Nov 24 16:39:22 iMatrix:FC-1:0131557250 local2.err chat[2122]: SIGTERM
+Nov 24 16:39:22 iMatrix:FC-1:0131557250 daemon.err pppd[2104]: Connect script failed
+Nov 24 16:39:22 iMatrix:FC-1:0131557250 daemon.err pppd[2117]: Connect script failed
+[1764002360.475] [00:01:58.863] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002360.475] [00:01:58.863] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002360.475] [00:01:58.863] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 13 attempts, adding 2 second delay
+[1764002362.475] [00:02:00.863] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002362.475] [00:02:00.863] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002362.581] [00:02:00.969] [NET] DNS prime skipped: No active links
+[1764002362.627] [00:02:01.015] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002362.627] [00:02:01.015] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002363.313] [00:02:01.701] [Cellular Connection - Force killing pppd]
+[1764002363.585] [00:02:01.972] [Cellular Connection - Killing runsv pppd (PID: 2115)]
+Nov 24 16:39:27 iMatrix:FC-1:0131557250 local2.err chat[2175]: SIGTERM
+Nov 24 16:39:27 iMatrix:FC-1:0131557250 daemon.err pppd[2172]: Connect script failed
+Nov 24 16:39:29 iMatrix:FC-1:0131557250 local2.err chat[2200]: SIGHUP
+Nov 24 16:39:29 iMatrix:FC-1:0131557250 local2.err chat[2200]: Can't restore terminal parameters: I/O error
+[1764002363.759] [00:02:02.146] [Cellular Connection - PPP cleanup complete]
+[1764002363.805] [00:02:02.192] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002363.805] [00:02:02.192] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002364.543] [00:02:02.930] [Cellular Connection - Force killing pppd]
+[1764002364.783] [00:02:03.171] [Cellular Connection - Killing runsv pppd (PID: 2149)]
+[1764002364.959] [00:02:03.347] [Cellular Connection - PPP cleanup complete]
+[1764002364.960] [00:02:03.348] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002364.960] [00:02:03.348] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002364.961] [00:02:03.348] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 14 attempts, adding 2 second delay
+[1764002366.961] [00:02:05.348] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+Nov 24 16:39:31 iMatrix:FC-1:0131557250 local2.err chat[2227]: SIGTERM
+Nov 24 16:39:31 iMatrix:FC-1:0131557250 daemon.err pppd[2224]: Connect script failed
+Nov 24 16:39:33 iMatrix:FC-1:0131557250 local2.err chat[2253]: SIGHUP
+Nov 24 16:39:33 iMatrix:FC-1:0131557250 local2.err chat[2253]: Can't restore terminal parameters: I/O error
+[1764002366.961] [00:02:05.348] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002367.068] [00:02:05.456] [NETMGR] State: NET_SELECT_INTERFACE | State timeout after 20 seconds, forcing transition to NET_INIT
+[1764002367.068] [00:02:05.456] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002367.068] [00:02:05.456] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002367.069] [00:02:05.456] [NET] DNS prime skipped: No active links
+[1764002367.115] [00:02:05.503] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002367.116] [00:02:05.503] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002367.787] [00:02:06.174] [Cellular Connection - Force killing pppd]
+[1764002368.074] [00:02:06.462] [Cellular Connection - Killing runsv pppd (PID: 2170)]
+[1764002368.251] [00:02:06.638] [Cellular Connection - PPP cleanup complete]
+cell
+  SIM state: READY, Current State: 12 (INIT_REGISTER), Cellular Ready: Yes, Cellular Link Reset: No, Registered with iMatrix: No
+  ICCID: 8931681011105068390, IMEI: 358088755854471, IMSI: 234106229503021, Phone: NO Phone Number
+  Verizon              - RSSI: -73 dBm    BER: Unknown
+  PPPD started 2 times
+>[1764002368.296] [00:02:06.684] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002368.296] [00:02:06.684] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002368.959] [00:02:07.346] [Cellular Connection - Force killing pppd]
+[1764002369.187] [00:02:07.575] [Cellular Connection - Killing runsv pppd (PID: 2202)]
+[1764002369.359] [00:02:07.747] [Cellular Connection - PPP cleanup complete]
+[1764002369.361] [00:02:07.748] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002369.361] [00:02:07.748] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002369.361] [00:02:07.748] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 15 attempts, adding 2 second delay
+[1764002371.361] [00:02:09.749] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002371.361] [00:02:09.749] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002371.468] [00:02:09.856] [NET] DNS prime skipped: No active links
+[1764002371.515] [00:02:09.902] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002371.515] [00:02:09.902] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002372.184] [00:02:10.571] [Cellular Connection - Force killing pppd]
+[1764002372.467] [00:02:10.855] [Cellular Connection - Killing runsv pppd (PID: 2222)]
+[1764002372.648] [00:02:11.036] [Cellular Connection - PPP cleanup complete]
+[1764002372.687] [00:02:11.075] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | Triggered WiFi scan while interface down (attempt 1/10)
+[1764002372.736] [00:02:11.123] [Cellular Connection - DETECTED script bug/timeout (exit code 0x3) - workaround applied]
+[1764002372.736] [00:02:11.123] [Cellular Connection - Cleaning up failed PPP processes (bug workaround, not carrier issue)]
+[1764002373.403] [00:02:11.791] [Cellular Connection - Force killing pppd]
+[1764002373.616] [00:02:12.004] [Cellular Connection - Killing runsv pppd (PID: 2255)]
+[1764002373.779] [00:02:12.167] [Cellular Connection - PPP cleanup complete]
+[1764002373.780] [00:02:12.168] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=YES, has_ip=NO)
+[1764002373.780] [00:02:12.168] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002373.780] [00:02:12.168] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 16 attempts, adding 2 second delay
+[1764002375.781] [00:02:14.168] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002375.781] [00:02:14.168] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002375.887] [00:02:14.274] [NET] DNS prime skipped: No active links
+[1764002375.934] [00:02:14.321] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 32187 ms
+[1764002375.934] [00:02:14.321] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed)
+[1764002375.934] [00:02:14.321] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002375.998] [00:02:14.386] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | WiFi scan found 12 APs, triggering reconnection
+[1764002376.085] [00:02:14.473] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002376.085] [00:02:14.473] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002376.085] [00:02:14.473] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 17 attempts, adding 2 second delay
+[1764002378.085] [00:02:16.473] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002378.085] [00:02:16.473] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002378.191] [00:02:16.579] [NET] DNS prime skipped: No active links
+[1764002378.293] [00:02:16.681] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+[1764002378.359] [00:02:16.746] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPP0 connection timeout after 34492 ms
+Nov 24 16:39:45 iMatrix:FC-1:0131557250 daemon.err pppd[2277]: Connect script failed
+[1764002378.359] [00:02:16.746] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Final status: ERROR (Connect script failed)
+[1764002378.359] [00:02:16.746] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Resetting for retry
+[1764002378.418] [00:02:16.805] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | WiFi scan found 12 APs, triggering reconnection
+[1764002378.498] [00:02:16.886] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=YES, cellular_started=NO, has_ip=NO)
+[1764002378.498] [00:02:16.886] [NETMGR] State: NET_SELECT_INTERFACE | No interface found, returning to NET_INIT
+[1764002378.498] [00:02:16.886] [NETMGR] State: NET_SELECT_INTERFACE | No interfaces available after 18 attempts, adding 2 second delay
+[1764002380.499] [00:02:18.886] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1764002380.499] [00:02:18.886] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1764002380.606] [00:02:18.994] [NET] DNS prime skipped: No active links
+[1764002380.691] [00:02:19.079] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | PPPD already running, marking cellular_started=true
+Nov 24 16:39:49 iMatrix:FC-1:0131557250 local2.err chat[2377]: SIGTERM
+Nov 24 16:39:49 iMatrix:FC-1:0131557250 daemon.err pppd[2374]: Connect script failed

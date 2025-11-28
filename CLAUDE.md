@@ -87,6 +87,44 @@ python3 scripts/build_prompt.py specs/my_feature.yaml
 9. **Use Templates**: For C files, use blank.h and blank.c as templates
 10. **Optimize for Embedded**: This is an embedded system requiring optimal efficiency
 
+### Documentation Standards
+
+**CRITICAL**: All planning documents, analysis reports, and technical specifications MUST include:
+
+1. **Date and Time**: Always include creation date at the top of every document
+   ```markdown
+   **Date**: 2025-11-21
+   **Time**: 08:07 (if relevant)
+   **Last Updated**: 2025-11-21
+   ```
+
+2. **Version Information**: Track document versions
+   ```markdown
+   **Document Version**: 1.0
+   **Status**: Draft | In Review | Approved | Implemented
+   ```
+
+3. **Build Information**: When referencing code or binaries
+   ```markdown
+   **Build Date**: Nov 21 2025 @ 08:07:22
+   **Binary**: /path/to/binary
+   **Git Commit**: abc123def (if applicable)
+   ```
+
+4. **Author/Reviewer**: Track who created/reviewed
+   ```markdown
+   **Author**: Claude Code Analysis
+   **Reviewer**: Greg
+   **Implementer**: [Name]
+   ```
+
+**Why this matters**:
+- Enables timeline reconstruction
+- Clarifies which build was tested
+- Prevents confusion between versions
+- Critical for debugging (correlate logs with code versions)
+- Maintains audit trail
+
 ### Tracking Guidelines
 
 1. **Update projectplan.md** as the project advances

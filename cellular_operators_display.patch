@@ -1,0 +1,302 @@
+--- cellular_man.c.orig	2025-11-22 15:30:00.000000000 -0800
++++ cellular_man.c	2025-11-22 15:45:00.000000000 -0800
+@@ -305,11 +305,14 @@
+ } Operator_t;
+
+ // Operator scan information structure (for new scan state machine)
+ typedef struct {
+     char operator_id[16];        // Numeric ID (e.g., "310260")
+     char operator_name[64];      // Name (e.g., "T-Mobile US")
++    int status;                  // 0=unknown, 1=available, 2=current, 3=forbidden
++    int technology;              // Network technology (0-9)
++    unsigned long numeric;       // Numeric MCCMNC for compatibility
+     int signal_strength;         // CSQ value (0-31, or -1 if failed)
+     bool blacklisted;            // Is this operator blacklisted?
+     bool tested;                 // Have we tested this operator?
+ } operator_info_t;
+
+@@ -573,6 +576,7 @@
+
+ // Scan state machine variables
+ static operator_info_t scan_operators[MAX_OPERATORS];  // Operators found during scan
++static int scan_current_index = 0;                     // Current operator being tested
+ static int scan_operator_count = 0;                    // Number of operators found
+ static int scan_current_index = 0;                     // Current operator being tested
+
+@@ -3127,6 +3131,11 @@
+                 strncpy(scan_operators[scan_operator_count].operator_id,
+                         numeric_str, sizeof(scan_operators[scan_operator_count].operator_id) - 1);
+
++                // Store additional fields for display
++                scan_operators[scan_operator_count].status = operators[i].status;
++                scan_operators[scan_operator_count].technology = operators[i].networkAccessTechnology;
++                scan_operators[scan_operator_count].numeric = operators[i].numeric;
++
+                 // Initialize test state
+                 scan_operators[scan_operator_count].signal_strength = -1;
+                 scan_operators[scan_operator_count].blacklisted = false;
+@@ -3173,7 +3182,11 @@
+                 // Skip if blacklisted
+                 if (op->blacklisted)
+                 {
+                     PRINTF("[Cellular Scan - State 5: Skipping blacklisted: %s]\r\n", op->operator_name);
++                    // Still mark as "tested" but with no signal
++                    op->tested = true;
++                    op->signal_strength = 0;
+                     scan_current_index++;
+                     cellular_state = CELL_SCAN_TEST_CARRIER;  // Continue to next
+                     break;
+@@ -5000,6 +5013,240 @@ void process_cellular_man()
+     }
+ }
+
++/**
++ * @brief Display cellular operators with tested and blacklist status
++ *
++ * Shows comprehensive information about all discovered carriers including:
++ * - Signal strength and RSSI
++ * - Whether each carrier has been tested
++ * - Blacklist status and timeout
++ * - Current selection
++ */
++void display_cellular_operators(void)
++{
++    PRINTF("\n");
++    PRINTF("================================================================================\n");
++    PRINTF(" Cellular Carriers - Scan Status\n");
++    PRINTF("================================================================================\n");
++
++    if (scan_operator_count == 0 && operator_count == 0) {
++        PRINTF("No carriers discovered. Run 'cell scan' to search for available networks.\n");
++        PRINTF("================================================================================\n");
++        return;
++    }
++
++    PRINTF("Idx | Carrier Name         | MCCMNC  | Status    | Tech | CSQ  | RSSI     | Tested | Blacklist\n");
++    PRINTF("----+----------------------+---------+-----------+------+------+----------+--------+-------------\n");
++
++    /* Status text mapping */
++    const char* status_text[] = {"Unknown", "Available", "Current", "Forbidden"};
++    const char* tech_text[] = {"GSM", "GSM-C", "UTRAN", "GSM-E", "UTRAN-H",
++                               "GSM-EH", "UTRAN-H", "LTE", "EC-GSM", "5G"};
++
++    /* Display scan results if available */
++    if (scan_operator_count > 0) {
++        for (int i = 0; i < scan_operator_count; i++) {
++            operator_info_t *op = &scan_operators[i];
++
++            /* Index with current marker */
++            char idx_str[8];
++            if (i == scan_current_index && cellular_state >= CELL_SCAN_TEST_CARRIER &&
++                cellular_state <= CELL_SCAN_SELECT_BEST) {
++                snprintf(idx_str, sizeof(idx_str), "%2d*", i + 1);  // Currently testing
++            } else if (i == scan_best_operator_idx) {
++                snprintf(idx_str, sizeof(idx_str), "%2d>", i + 1);  // Selected
++            } else {
++                snprintf(idx_str, sizeof(idx_str), "%2d ", i + 1);
++            }
++
++            /* Carrier name (truncate if needed) */
++            char name[22];
++            strncpy(name, op->operator_name, 21);
++            name[21] = '\0';
++
++            /* Status and technology */
++            const char* status = (op->status >= 0 && op->status < 4) ?
++                                status_text[op->status] : "Unknown";
++            const char* tech = (op->technology >= 0 && op->technology <= 9) ?
++                              tech_text[op->technology] : "?";
++
++            /* CSQ and RSSI */
++            char csq_str[6];
++            char rssi_str[11];
++
++            if (op->tested) {
++                if (op->signal_strength >= 0 && op->signal_strength <= 31) {
++                    snprintf(csq_str, sizeof(csq_str), "%2d", op->signal_strength);
++                    int rssi = -113 + (op->signal_strength * 2);
++                    snprintf(rssi_str, sizeof(rssi_str), "%d dBm", rssi);
++                } else if (op->signal_strength == 99) {
++                    strcpy(csq_str, "??");
++                    strcpy(rssi_str, "Unknown");
++                } else {
++                    strcpy(csq_str, "0");
++                    strcpy(rssi_str, "No signal");
++                }
++            } else {
++                strcpy(csq_str, "-");
++                strcpy(rssi_str, "-");
++            }
++
++            /* Tested status */
++            const char* tested_str = op->tested ? "Yes" : "No";
++
++            /* Blacklist status */
++            char blacklist_str[14];
++            if (op->blacklisted) {
++                strcpy(blacklist_str, "Local");
++            } else if (is_carrier_blacklisted(op->operator_id)) {
++                /* Check for timeout */
++                time_t timeout = get_blacklist_timeout_remaining(op->operator_id);
++                if (timeout == -1) {
++                    strcpy(blacklist_str, "Permanent");
++                } else if (timeout > 0) {
++                    if (timeout > 60) {
++                        snprintf(blacklist_str, sizeof(blacklist_str), "%ldm %lds",
++                                timeout / 60, timeout % 60);
++                    } else {
++                        snprintf(blacklist_str, sizeof(blacklist_str), "%lds", timeout);
++                    }
++                } else {
++                    strcpy(blacklist_str, "Expired");
++                }
++            } else {
++                strcpy(blacklist_str, "-");
++            }
++
++            /* Print row */
++            PRINTF("%s | %-20s | %-7s | %-9s | %-4s | %4s | %-8s | %-6s | %s\n",
++                   idx_str, name, op->operator_id, status, tech,
++                   csq_str, rssi_str, tested_str, blacklist_str);
++        }
++    } else if (operator_count > 0) {
++        /* Fall back to showing operators from last AT+COPS query */
++        for (int i = 0; i < operator_count; i++) {
++            Operator_t *op = &operators[i];
++
++            char idx_str[8];
++            snprintf(idx_str, sizeof(idx_str), "%2d%s", i + 1,
++                    (i == selected_operator) ? ">" : " ");
++
++            char name[22];
++            strncpy(name, op->longAlphanumeric, 21);
++            name[21] = '\0';
++
++            char mccmnc[10];
++            snprintf(mccmnc, sizeof(mccmnc), "%06u", op->numeric);
++
++            const char* status = (op->status >= 0 && op->status < 4) ?
++                                status_text[op->status] : "Unknown";
++
++            /* Check blacklist */
++            char blacklist_str[14];
++            if (is_carrier_blacklisted(mccmnc)) {
++                time_t timeout = get_blacklist_timeout_remaining(mccmnc);
++                if (timeout > 0) {
++                    snprintf(blacklist_str, sizeof(blacklist_str), "%ldm", timeout / 60);
++                } else {
++                    strcpy(blacklist_str, "Yes");
++                }
++            } else {
++                strcpy(blacklist_str, "-");
++            }
++
++            PRINTF("%s | %-20s | %-7s | %-9s | ?    | -    | -        | No     | %s\n",
++                   idx_str, name, mccmnc, status, blacklist_str);
++        }
++    }
++
++    PRINTF("================================================================================\n");
++
++    /* Summary section */
++    if (scan_operator_count > 0) {
++        int tested = 0, blacklisted = 0, available = 0;
++        int best_signal = -1;
++        char best_carrier[64] = "None";
++
++        for (int i = 0; i < scan_operator_count; i++) {
++            if (scan_operators[i].tested) tested++;
++            if (scan_operators[i].blacklisted ||
++                is_carrier_blacklisted(scan_operators[i].operator_id)) blacklisted++;
++            if (scan_operators[i].status == 1) available++;
++
++            if (scan_operators[i].tested &&
++                scan_operators[i].signal_strength > best_signal &&
++                scan_operators[i].signal_strength <= 31) {
++                best_signal = scan_operators[i].signal_strength;
++                strncpy(best_carrier, scan_operators[i].operator_name, 63);
++            }
++        }
++
++        PRINTF("\nSummary:\n");
++        PRINTF("  Total carriers: %d\n", scan_operator_count);
++        PRINTF("  Tested: %d/%d (%.0f%%)\n", tested, scan_operator_count,
++               scan_operator_count > 0 ? (tested * 100.0 / scan_operator_count) : 0);
++        PRINTF("  Available: %d\n", available);
++        PRINTF("  Blacklisted: %d\n", blacklisted);
++
++        if (best_signal > 0) {
++            int rssi = -113 + (best_signal * 2);
++            PRINTF("  Best signal: %s (CSQ:%d, RSSI:%d dBm)\n",
++                   best_carrier, best_signal, rssi);
++        }
++
++        /* Warnings and recommendations */
++        if (blacklisted == scan_operator_count && scan_operator_count > 0) {
++            PRINTF("\n⚠️  WARNING: All carriers are blacklisted!\n");
++            PRINTF("   This will be automatically cleared on next scan.\n");
++            PRINTF("   Or run 'cell clear' to manually reset blacklist.\n");
++        } else if (tested == 0 && scan_operator_count > 0) {
++            PRINTF("\nℹ️  No carriers have been tested yet.\n");
++            PRINTF("   Scan may still be in progress or run 'cell scan' to start.\n");
++        } else if (blacklisted > 0) {
++            PRINTF("\nℹ️  %d carrier(s) blacklisted.\n", blacklisted);
++            PRINTF("   They will be retried when timeout expires or on next scan.\n");
++        }
++    }
++
++    /* State information */
++    if (cellular_state >= CELL_SCAN_STOP_PPP && cellular_state <= CELL_SCAN_COMPLETE) {
++        PRINTF("\n🔄 Scan Status: %s\n", cellular_state_names[cellular_state]);
++        if (cellular_state == CELL_SCAN_TEST_CARRIER) {
++            PRINTF("   Testing carrier %d of %d\n",
++                   scan_current_index + 1, scan_operator_count);
++        }
++    }
++
++    /* Legend */
++    PRINTF("\nLegend:\n");
++    PRINTF("  * = Currently testing  > = Selected carrier\n");
++    PRINTF("  Status: Available/Current/Forbidden\n");
++    PRINTF("  Tech: GSM/UTRAN/LTE/5G  CSQ: 0-31 (higher=better)\n");
++    PRINTF("  Blacklist shows timeout remaining\n");
++
++    PRINTF("\nCommands:\n");
++    PRINTF("  cell scan              - Test all carriers for signal strength\n");
++    PRINTF("  cell clear             - Clear carrier blacklist\n");
++    PRINTF("  cell blacklist         - Show detailed blacklist\n");
++    PRINTF("  cell test <mccmnc>     - Test specific carrier\n");
++
++    PRINTF("\n");
++}
++
++/**
++ * @brief Process cellular CLI commands
++ *
++ * This should be called from the main CLI handler
++ */
++bool process_cellular_cli_command(const char* command)
++{
++    if (strcmp(command, "cell operators") == 0 ||
++        strcmp(command, "cell ops") == 0) {
++        display_cellular_operators();
++        return true;
++    }
++
++    if (strcmp(command, "cell blacklist") == 0) {
++        display_blacklist();
++        return true;
++    }
++
++    if (strcmp(command, "cell clear") == 0) {
++        clear_blacklist_for_scan();
++        PRINTF("Carrier blacklist cleared.\n");
++        return true;
++    }
++
++    // ... other commands ...
++
++    return false;
++}
+
+ /* END OF FILE */

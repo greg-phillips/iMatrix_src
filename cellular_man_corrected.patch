@@ -1,0 +1,403 @@
+--- cellular_man.c.orig	2025-11-22 14:00:00.000000000 -0800
++++ cellular_man.c	2025-11-22 14:01:00.000000000 -0800
+@@ -10,6 +10,8 @@
+ #include "cellular_man.h"
+ #include "at_commands.h"
+ #include "process_network.h"
++#include "cellular_blacklist.h"
++#include "cellular_carrier_logging.h"
+
+ // Existing includes...
+
+@@ -25,6 +27,15 @@ enum cellular_states {
+     TEST_NETWORK_SETUP = 5,
+     SETUP_OPERATOR = 6,
+     PROCESS_OPERATOR_SETUP = 7,
+     CONNECTED = 8,
++    // New states for proper scanning
++    CELL_SCAN_SEND_COPS = 20,
++    CELL_SCAN_WAIT_RESPONSE = 21,
++    CELL_SCAN_TEST_CARRIER = 22,
++    CELL_SCAN_WAIT_CONNECT = 23,
++    CELL_SCAN_WAIT_CSQ = 24,
++    CELL_SCAN_SELECT_BEST = 25,
++    CELL_WAIT_PPP_INTERFACE = 26,
++    CELL_BLACKLIST_AND_RETRY = 27,
++    CELL_ONLINE = 28,
+     // ... other states
+ };
+@@ -35,6 +46,23 @@ static char at_response[1024];
+ static bool at_response_received = false;
+ static int cellular_state = CELL_IDLE;
+
++// New variables for proper carrier scanning
++typedef struct {
++    char name[64];
++    char mccmnc[16];
++    int status;     // 0=unknown, 1=available, 2=current, 3=forbidden
++    int tech;       // 0-9 for different technologies
++    int csq;        // Signal quality 0-31, 99=unknown
++    int rssi;       // RSSI in dBm
++    bool tested;    // Have we tested this carrier?
++} carrier_t;
++
++static carrier_t carriers[MAX_CARRIERS];
++static int carrier_count = 0;
++static int current_test_idx = 0;
++static bool scan_complete = false;
++static bool blacklist_cleared_this_scan = false;
++static char current_mccmnc[16];
++
+ // Process cellular state machine
+ void process_cellular_state_machine(void)
+ {
+@@ -95,25 +123,156 @@ void process_cellular_state_machine(void
+             break;
+
+         case TEST_NETWORK_SETUP:
+-            // OLD CODE - just sends AT+COPS and immediately proceeds
+-            PRINTF("[Cellular] Sending AT+COPS=?\n");
++            // CRITICAL FIX: Clear blacklist on every scan
++            if (!blacklist_cleared_this_scan) {
++                clear_blacklist_for_scan();
++                blacklist_cleared_this_scan = true;
++                PRINTF("[Cellular Scan] Blacklist cleared for fresh evaluation\n");
++            }
++
++            PRINTF("[Cellular Scan] Starting carrier scan with AT+COPS=?\n");
+             send_at_command("AT+COPS=?", 180000);
+-            cellular_state = PROCESS_OPERATOR_SETUP;
++            cellular_state = CELL_SCAN_WAIT_RESPONSE;
++            scan_complete = false;
+             break;
+
+-        case PROCESS_OPERATOR_SETUP:
+-            // OLD CODE - doesn't test signal for each carrier
++        case CELL_SCAN_WAIT_RESPONSE:
+             if (at_response_received) {
+-                // Parse response
+-                parse_cops_response(at_response);
+-                PRINTF("[Scan complete, selecting best operator]\n");
+-                // WRONG! Selects first valid, not best signal
+-                cellular_state = SETUP_OPERATOR;
++                // Parse carrier list from AT+COPS response
++                carrier_count = parse_cops_response(at_response, carriers, MAX_CARRIERS);
++                PRINTF("[Cellular Scan] Found %d carriers to test\n", carrier_count);
++
++                // Start testing each carrier
++                current_test_idx = 0;
++                cellular_state = CELL_SCAN_TEST_CARRIER;
++            }
++            break;
++
++        case CELL_SCAN_TEST_CARRIER:
++            if (current_test_idx < carrier_count) {
++                carrier_t *c = &carriers[current_test_idx];
++
++                // Enhanced logging for this carrier
++                log_carrier_details(current_test_idx + 1, carrier_count, c);
++
++                // Skip if blacklisted
++                if (is_carrier_blacklisted(c->mccmnc)) {
++                    PRINTF("[Cellular Scan] Skipping blacklisted carrier %s (%s)\n",
++                           c->name, c->mccmnc);
++                    current_test_idx++;
++                    cellular_state = CELL_SCAN_TEST_CARRIER; // Try next
++                    break;
++                }
++
++                // Skip if forbidden
++                if (c->status == 3) {
++                    PRINTF("[Cellular Scan] Skipping forbidden carrier %s\n", c->name);
++                    current_test_idx++;
++                    cellular_state = CELL_SCAN_TEST_CARRIER; // Try next
++                    break;
++                }
++
++                // Try to connect to this carrier for testing
++                char cmd[256];
++                sprintf(cmd, "AT+COPS=1,2,\"%s\",%d", c->mccmnc, c->tech);
++                PRINTF("[Cellular Scan] Connecting to %s for signal test\n", c->name);
++                send_at_command(cmd, 30000);
++                cellular_state = CELL_SCAN_WAIT_CONNECT;
++            } else {
++                // Done testing all carriers
++                PRINTF("[Cellular Scan] Completed testing all carriers\n");
++                cellular_state = CELL_SCAN_SELECT_BEST;
++            }
++            break;
++
++        case CELL_SCAN_WAIT_CONNECT:
++            if (at_response_received) {
++                if (strstr(at_response, "OK")) {
++                    // Connected, now test signal strength
++                    PRINTF("[Cellular Scan] Connected, testing signal strength\n");
++                    send_at_command("AT+CSQ", 5000);
++                    cellular_state = CELL_SCAN_WAIT_CSQ;
++                } else {
++                    // Failed to connect to this carrier
++                    PRINTF("[Cellular Scan] Failed to connect to carrier\n");
++                    carriers[current_test_idx].csq = 0; // Mark as no signal
++                    carriers[current_test_idx].tested = true;
++                    current_test_idx++;
++                    cellular_state = CELL_SCAN_TEST_CARRIER;
++                }
++            }
++            break;
++
++        case CELL_SCAN_WAIT_CSQ:
++            if (at_response_received) {
++                // Parse CSQ response
++                int csq = parse_csq_response(at_response);
++                carriers[current_test_idx].csq = csq;
++                carriers[current_test_idx].rssi = csq_to_rssi_dbm(csq);
++                carriers[current_test_idx].tested = true;
++
++                // Log the signal test results
++                log_signal_test_results(&carriers[current_test_idx]);
++
++                // Move to next carrier
++                current_test_idx++;
++                cellular_state = CELL_SCAN_TEST_CARRIER;
++            }
++            break;
++
++        case CELL_SCAN_SELECT_BEST:
++            {
++                // Log summary of all carriers
++                log_scan_summary(carriers, carrier_count);
++
++                // Select the best carrier based on signal strength
++                int best_idx = select_best_carrier(carriers, carrier_count);
++
++                if (best_idx >= 0) {
++                    carrier_t *best = &carriers[best_idx];
++                    strcpy(current_mccmnc, best->mccmnc);
++
++                    // Connect to the best carrier
++                    char cmd[256];
++                    sprintf(cmd, "AT+COPS=1,2,\"%s\",%d", best->mccmnc, best->tech);
++                    PRINTF("[Cellular Scan] Selecting best carrier: %s (CSQ:%d, RSSI:%d dBm)\n",
++                           best->name, best->csq, best->rssi);
++                    send_at_command(cmd, 30000);
++                    cellular_state = CONNECTED;
++                } else {
++                    // No suitable carriers found
++                    PRINTF("[Cellular Scan] ERROR: No suitable carriers found\n");
++
++                    // If all carriers are blacklisted, clear and retry
++                    if (all_carriers_blacklisted(carriers, carrier_count)) {
++                        PRINTF("[Cellular Scan] All carriers blacklisted, clearing and retrying\n");
++                        clear_blacklist_for_scan();
++                        cellular_state = TEST_NETWORK_SETUP;
++                    } else {
++                        cellular_state = CELL_ERROR;
++                    }
++                }
+             }
+             break;
+
+-        case SETUP_OPERATOR:
+-            // OLD CODE - tries to connect to first available
++        case CONNECTED:
++            // Don't immediately start PPP!
++            scan_complete = true;
++            blacklist_cleared_this_scan = false; // Reset for next scan
++
++            // Notify network manager that carrier is selected
++            extern bool cellular_scan_complete;
++            cellular_scan_complete = true;
++
++            // Move to PPP monitoring state
++            cellular_state = CELL_WAIT_PPP_INTERFACE;
++            break;
++
++        case CELL_WAIT_PPP_INTERFACE:
++            {
++                // Monitor PPP establishment
++                PPPResult result = monitor_ppp_establishment();
++
++                switch(result) {
++                    case PPP_SUCCESS:
++                        PRINTF("[Cellular] PPP established successfully\n");
++                        extern bool cellular_ppp_ready;
++                        cellular_ppp_ready = true;
++                        cellular_state = CELL_ONLINE;
++                        break;
++
++                    case PPP_IN_PROGRESS:
++                        // Keep waiting, log every 5 seconds
++                        static int wait_count = 0;
++                        if (++wait_count % 25 == 0) { // 5 seconds at 200ms tick
++                            PRINTF("[Cellular] Still waiting for PPP... (%d sec)\n",
++                                   wait_count / 5);
++                        }
++                        break;
++
++                    case PPP_FAILED:
++                    case PPP_TIMEOUT:
++                        PRINTF("[Cellular] PPP failed, blacklisting %s\n", current_mccmnc);
++                        blacklist_carrier_temporary(current_mccmnc,
++                                                   result == PPP_TIMEOUT ?
++                                                   "PPP timeout" : "PPP failed");
++                        cellular_state = CELL_BLACKLIST_AND_RETRY;
++                        break;
++                }
++            }
++            break;
++
++        case CELL_BLACKLIST_AND_RETRY:
++            // Stop PPP if running
++            extern void stop_ppp(void);
++            stop_ppp();
++
++            // Clear scan complete flag
++            scan_complete = false;
++            extern bool cellular_ppp_ready;
++            cellular_ppp_ready = false;
++
++            // Trigger new scan
++            PRINTF("[Cellular] Restarting scan after blacklisting carrier\n");
++            cellular_state = TEST_NETWORK_SETUP;
++            break;
++
++        case CELL_ONLINE:
++            // Fully connected and operational
++            // Monitor for network manager requests
++            extern bool cellular_request_rescan;
++            if (cellular_request_rescan) {
++                PRINTF("[Cellular] Network manager requested rescan\n");
++                cellular_request_rescan = false;
++                cellular_state = CELL_BLACKLIST_AND_RETRY;
++            }
+             break;
+
+         // ... other cases
+@@ -125,6 +284,59 @@ void process_cellular_state_machine(void
+     last_state = cellular_state;
+ }
+
++// Parse AT+COPS response and populate carrier array
++int parse_cops_response(const char *response, carrier_t *carriers, int max_carriers)
++{
++    int count = 0;
++    const char *p = response;
++
++    // Find the opening parenthesis
++    p = strchr(p, '(');
++    while (p && count < max_carriers) {
++        carrier_t *c = &carriers[count];
++        memset(c, 0, sizeof(carrier_t));
++
++        // Parse status
++        p++;
++        c->status = atoi(p);
++
++        // Parse long name
++        p = strchr(p, '"');
++        if (p) {
++            p++;
++            char *end = strchr(p, '"');
++            if (end) {
++                int len = end - p;
++                if (len > 63) len = 63;
++                strncpy(c->name, p, len);
++                c->name[len] = '\0';
++                p = end + 1;
++            }
++        }
++
++        // Skip short name
++        p = strchr(p, ',');
++        if (p) p = strchr(p + 1, ',');
++
++        // Parse MCCMNC
++        if (p) {
++            p = strchr(p, '"');
++            if (p) {
++                p++;
++                char *end = strchr(p, '"');
++                if (end) {
++                    int len = end - p;
++                    if (len > 15) len = 15;
++                    strncpy(c->mccmnc, p, len);
++                    c->mccmnc[len] = '\0';
++                    p = end + 1;
++                }
++            }
++        }
++
++        // Parse technology
++        if (p) {
++            p = strchr(p, ',');
++            if (p) {
++                p++;
++                c->tech = atoi(p);
++            }
++        }
++
++        count++;
++
++        // Find next carrier entry
++        p = strchr(p, '(');
++    }
++
++    return count;
++}
++
++// Parse CSQ response
++int parse_csq_response(const char *response)
++{
++    // Look for "+CSQ: XX,YY" pattern
++    const char *p = strstr(response, "+CSQ:");
++    if (p) {
++        p += 6; // Skip "+CSQ: "
++        return atoi(p);
++    }
++    return 99; // Unknown
++}
++
++// Select best carrier based on signal strength
++int select_best_carrier(carrier_t *carriers, int count)
++{
++    int best_idx = -1;
++    int best_csq = -1;
++
++    for (int i = 0; i < count; i++) {
++        carrier_t *c = &carriers[i];
++
++        // Skip if not tested
++        if (!c->tested) continue;
++
++        // Skip if blacklisted
++        if (is_carrier_blacklisted(c->mccmnc)) continue;
++
++        // Skip if forbidden
++        if (c->status == 3) continue;
++
++        // Skip if no signal
++        if (c->csq == 0 || c->csq == 99) continue;
++
++        // Check if this is the best signal so far
++        if (c->csq > best_csq) {
++            best_csq = c->csq;
++            best_idx = i;
++        }
++    }
++
++    return best_idx;
++}
++
++// Check if all carriers are blacklisted
++bool all_carriers_blacklisted(carrier_t *carriers, int count)
++{
++    for (int i = 0; i < count; i++) {
++        if (!is_carrier_blacklisted(carriers[i].mccmnc) &&
++            carriers[i].status != 3) { // Not forbidden
++            return false;
++        }
++    }
++    return true;
++}
++
+ // END OF PATCH

@@ -1,0 +1,237 @@
+--- process_network.c.orig	2025-11-22 14:00:00.000000000 -0800
++++ process_network.c	2025-11-22 14:02:00.000000000 -0800
+@@ -15,6 +15,7 @@
+ #include "process_network.h"
+ #include "network_interfaces.h"
+ #include "dhcp_client.h"
++#include "cellular_blacklist.h"
+
+ // Existing includes...
+
+@@ -45,6 +46,16 @@ static NetworkState network_state = NET_IDLE;
+ static InterfaceType current_interface = INVALID_INTERFACE;
+ static bool dhcp_running[MAX_INTERFACES];
+
++// Coordination flags with cellular manager
++bool cellular_request_rescan = false;   // Network → Cellular: request new scan
++bool cellular_scan_complete = false;    // Cellular → Network: scan done
++bool cellular_ppp_ready = false;        // Cellular → Network: ready for PPP
++bool network_ready_for_ppp = false;     // Network → Cellular: ready to start PPP
++
++// PPP failure tracking
++static int ppp_failure_count = 0;
++static time_t last_ppp_attempt = 0;
++
+ // Process network state machine
+ void process_network_state_machine(void)
+ {
+@@ -125,15 +136,44 @@ void process_network_state_machine(void)
+
+         case NET_SELECT_INTERFACE:
+             if (current_interface == CELLULAR) {
+-                // OLD CODE - starts PPP immediately
+-                PRINTF("[Network] Starting PPP for cellular\n");
+-                start_ppp();
+-                network_state = NET_WAIT_CONNECTION;
++                // NEW CODE - coordinate with cellular manager
++                if (!cellular_scan_complete) {
++                    PRINTF("[Network] Waiting for cellular scan to complete\n");
++                    // Don't proceed until scan is done
++                    break;
++                }
++
++                if (!cellular_ppp_ready) {
++                    PRINTF("[Network] Waiting for cellular to be ready for PPP\n");
++                    // Signal that we're ready
++                    network_ready_for_ppp = true;
++                    break;
++                }
++
++                // Now safe to start PPP
++                time_t now = time(NULL);
++                if (now - last_ppp_attempt < 5) {
++                    // Rate limit PPP attempts
++                    PRINTF("[Network] Waiting %ld seconds before PPP retry\n",
++                           5 - (now - last_ppp_attempt));
++                    break;
++                }
++
++                PRINTF("[Network] Starting PPP for cellular interface\n");
++                if (start_ppp() == 0) {
++                    last_ppp_attempt = now;
++                    network_state = NET_WAIT_CONNECTION;
++                } else {
++                    PRINTF("[Network] Failed to start PPP\n");
++                    ppp_failure_count++;
++                    network_state = NET_HANDLE_FAILURE;
++                }
+             } else {
+                 // Other interfaces (Ethernet, WiFi)
+                 start_dhcp(current_interface);
+                 network_state = NET_WAIT_CONNECTION;
+             }
+             break;
+
+         case NET_WAIT_CONNECTION:
+@@ -145,8 +185,30 @@ void process_network_state_machine(void)
+                     if (check_ppp_interface()) {
+                         if (check_ppp_ip()) {
+                             if (test_connectivity()) {
+                                 PRINTF("[Network] PPP connection established\n");
+                                 network_state = NET_CONNECTED;
++                                ppp_failure_count = 0; // Reset on success
++                            } else {
++                                PRINTF("[Network] PPP has IP but no connectivity\n");
++                                ppp_failure_count++;
++                                network_state = NET_HANDLE_FAILURE;
++                            }
++                        } else {
++                            // Still waiting for IP
++                            static int ip_wait_count = 0;
++                            if (++ip_wait_count > 100) { // 20 seconds
++                                PRINTF("[Network] PPP IP timeout\n");
++                                ppp_failure_count++;
++                                network_state = NET_HANDLE_FAILURE;
++                                ip_wait_count = 0;
++                            }
++                        }
++                    } else {
++                        // Still waiting for interface
++                        static int iface_wait_count = 0;
++                        if (++iface_wait_count > 150) { // 30 seconds
++                            PRINTF("[Network] PPP interface timeout\n");
++                            ppp_failure_count++;
++                            network_state = NET_HANDLE_FAILURE;
++                            iface_wait_count = 0;
++                        }
+                     }
+-                    // Wait for PPP to come up
+                 } else {
+@@ -165,6 +227,32 @@ void process_network_state_machine(void)
+             }
+             break;
+
++        case NET_HANDLE_FAILURE:
++            if (current_interface == CELLULAR) {
++                PRINTF("[Network] Handling PPP failure (count: %d)\n", ppp_failure_count);
++
++                // Stop PPP
++                stop_ppp();
++
++                // Reset coordination flags
++                network_ready_for_ppp = false;
++
++                if (ppp_failure_count >= 3) {
++                    // Request cellular manager to try a different carrier
++                    PRINTF("[Network] PPP failed 3 times, requesting carrier change\n");
++                    cellular_request_rescan = true;
++                    cellular_ppp_ready = false;
++                    cellular_scan_complete = false;
++                    ppp_failure_count = 0;
++
++                    // Wait for new scan
++                    network_state = NET_WAIT_INTERFACE;
++                } else {
++                    // Retry with same carrier
++                    network_state = NET_SELECT_INTERFACE;
++                }
++            } else {
++                // Handle failures for other interfaces
++                network_state = NET_SELECT_INTERFACE;
++            }
++            break;
++
+         case NET_CONNECTED:
+             // Monitor connection health
+             if (current_interface == CELLULAR) {
+                 if (!check_ppp_interface() || !check_ppp_ip()) {
+                     PRINTF("[Network] PPP connection lost\n");
+-                    network_state = NET_SELECT_INTERFACE;
++                    ppp_failure_count++;
++                    network_state = NET_HANDLE_FAILURE;
+                 }
+             } else {
+@@ -185,6 +273,72 @@ void process_network_state_machine(void)
+     }
+ }
+
++// Check if PPP interface exists
++bool check_ppp_interface(void)
++{
++    struct ifaddrs *ifaddr, *ifa;
++    bool found = false;
++
++    if (getifaddrs(&ifaddr) == -1) {
++        return false;
++    }
++
++    for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {
++        if (ifa->ifa_name && strcmp(ifa->ifa_name, "ppp0") == 0) {
++            found = true;
++            break;
++        }
++    }
++
++    freeifaddrs(ifaddr);
++    return found;
++}
++
++// Check if PPP has an IP address
++bool check_ppp_ip(void)
++{
++    struct ifaddrs *ifaddr, *ifa;
++    bool has_ip = false;
++
++    if (getifaddrs(&ifaddr) == -1) {
++        return false;
++    }
++
++    for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {
++        if (ifa->ifa_name && strcmp(ifa->ifa_name, "ppp0") == 0) {
++            if (ifa->ifa_addr && ifa->ifa_addr->sa_family == AF_INET) {
++                struct sockaddr_in *addr = (struct sockaddr_in *)ifa->ifa_addr;
++                char ip_str[INET_ADDRSTRLEN];
++                inet_ntop(AF_INET, &addr->sin_addr, ip_str, INET_ADDRSTRLEN);
++                if (strcmp(ip_str, "0.0.0.0") != 0) {
++                    PRINTF("[Network] PPP IP: %s\n", ip_str);
++                    has_ip = true;
++                }
++            }
++        }
++    }
++
++    freeifaddrs(ifaddr);
++    return has_ip;
++}
++
++// Test connectivity through PPP
++bool test_connectivity(void)
++{
++    // Try to ping a reliable server
++    char cmd[256];
++    snprintf(cmd, sizeof(cmd), "ping -c 1 -W 5 -I ppp0 8.8.8.8 > /dev/null 2>&1");
++    int result = system(cmd);
++
++    if (result == 0) {
++        PRINTF("[Network] Connectivity test passed\n");
++        return true;
++    } else {
++        PRINTF("[Network] Connectivity test failed\n");
++        return false;
++    }
++}
++
++// Stop PPP daemon
++void stop_ppp(void)
++{
++    PRINTF("[Network] Stopping PPP\n");
++    system("killall pppd 2>/dev/null");
++
++    // Wait for interface to disappear
++    int wait_count = 0;
++    while (check_ppp_interface() && wait_count++ < 50) {
++        usleep(100000); // 100ms
++    }
++}
++
+ // END OF PATCH

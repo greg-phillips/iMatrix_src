@@ -1,0 +1,295 @@
+--- cellular_man.c.orig	2025-11-22 12:00:00.000000000 +0000
++++ cellular_man.c	2025-11-22 12:10:00.000000000 +0000
+@@ -50,6 +50,7 @@
+ #include "networking/cellular_man.h"
+ #include "networking/process_network.h"
+ #include "networking/network_manager.h"
++#include "networking/cellular_blacklist.h"
+ #include "time/ck_time.h"
+ #include "imx_log.h"
+
+@@ -85,6 +86,10 @@
+     CELL_SCAN_SELECT_BEST,       // State 9: Select best carrier from results
+     CELL_SCAN_CONNECT_BEST,      // State 10: Connect to selected carrier
+     CELL_SCAN_START_PPP,         // State 11: Start PPP daemon
++    CELL_WAIT_PPP_INTERFACE,     // State 12: Wait for PPP to establish (NEW)
++    CELL_SCAN_FAILED,            // State 13: Scan failed, retry logic
++    CELL_BLACKLIST_AND_RETRY,    // State 14: Blacklist current and rescan
++    CELL_SCAN_COMPLETE,          // State 15: Scan completed successfully
+ } CellularState;
+
+ /* Global Variables */
+@@ -95,6 +100,11 @@
+ static bool cellular_scanning = false;
+ static bool cellular_ready = false;
+
++/* PPP Monitoring */
++static uint32_t ppp_wait_start = 0;
++static uint32_t ppp_check_interval = 0;
++static bool cellular_ppp_verified = false;
++
+ /* Scan State Variables */
+ static int current_test_idx = 0;
+ static int scan_operator_count = 0;
+@@ -102,6 +112,10 @@
+ static ScanOperator scan_operators[MAX_OPERATORS];
+ static char scan_timestamp[32];
+
++/* External coordination flags */
++bool cellular_request_rescan = false;  // Set by network manager
++bool cellular_ppp_ready = false;       // Signal to network manager
++
+ /**
+  * @brief Main cellular processing function
+  */
+@@ -180,11 +194,41 @@ void process_cellular(void) {
+
+         case CELL_ONLINE:
+             /* Monitor connection health */
+-            if (!cellular_ready) {
+-                PRINTF("[Cellular] Lost connection, restarting\n");
+-                cellular_state = CELL_INIT;
++
++            /* Check for rescan request from network manager */
++            if (cellular_request_rescan) {
++                PRINTF("[Cellular] Network manager requested carrier change\n");
++                cellular_request_rescan = false;
++
++                /* Blacklist current carrier if known */
++                char current_mccmnc[16];
++                if (get_current_carrier_mccmnc(current_mccmnc)) {
++                    blacklist_carrier_temporary(current_mccmnc,
++                                               "Network manager request");
++                }
++
++                cellular_state = CELL_SCAN_STOP_PPP;
++                break;
+             }
+-            /* TODO: Add PPP monitoring */
++
++            /* Monitor PPP establishment after scan */
++            if (!cellular_ppp_verified && selected_operator_idx >= 0) {
++                PPPResult result = monitor_ppp_establishment();
++
++                if (result == PPP_SUCCESS) {
++                    PRINTF("[Cellular] PPP verified for %s\n",
++                           scan_operators[selected_operator_idx].name);
++                    cellular_ppp_verified = true;
++                    cellular_ppp_ready = true;  // Signal network manager
++                }
++                else if (result != PPP_IN_PROGRESS) {
++                    /* PPP failed */
++                    if (!handle_ppp_failure(result)) {
++                        /* Move to next carrier */
++                        cellular_state = CELL_BLACKLIST_AND_RETRY;
++                    }
++                    /* else retry same carrier */
++                }
++            }
+             break;
+
+         case CELL_SCAN_STOP_PPP:
+@@ -215,6 +259,11 @@ void process_cellular(void) {
+             break;
+
+         case CELL_SCAN_SEND_COPS:
++            /* CRITICAL: Clear blacklist when starting new scan */
++            if (!blacklist_cleared_this_scan) {
++                clear_blacklist_for_scan();
++            }
++
+             PRINTF("[Cellular Scan] Sending AT+COPS=? command\n");
+             send_at_command("AT+COPS=?", 180000);  /* 3 minute timeout */
+             cellular_state = CELL_SCAN_WAIT_COPS;
+@@ -240,6 +289,9 @@ void process_cellular(void) {
+             scan_operator_count = parse_cops_scan_results(at_response_buffer,
+                                                          scan_operators,
+                                                          MAX_OPERATORS);
++
++            /* Reset blacklist cleared flag for next scan */
++            blacklist_cleared_this_scan = false;
+
+             if (scan_operator_count > 0) {
+                 PRINTF("[Cellular Scan] Found %d operators\n", scan_operator_count);
+@@ -298,25 +350,15 @@ void process_cellular(void) {
+             break;
+
+         case CELL_SCAN_SELECT_BEST:
+-            /* Select carrier with best signal */
+-            {
+-                int best_idx = -1;
+-                int best_signal = -999;
+-
+-                for (int i = 0; i < scan_operator_count; i++) {
+-                    if (scan_operators[i].signal > best_signal) {
+-                        best_signal = scan_operators[i].signal;
+-                        best_idx = i;
+-                    }
+-                }
+-
+-                if (best_idx >= 0) {
+-                    selected_operator_idx = best_idx;
+-                    PRINTF("[Cellular Scan] Selected: %s (signal=%d)\n",
+-                           scan_operators[best_idx].name, best_signal);
+-                    cellular_state = CELL_SCAN_CONNECT_BEST;
+-                } else {
+-                    PRINTF("[Cellular Scan] No viable carriers found\n");
++            /* Use blacklist-aware selection */
++            selected_operator_idx = select_best_carrier();
++
++            if (selected_operator_idx >= 0) {
++                PRINTF("[Cellular Scan] Connecting to selected carrier\n");
++                cellular_state = CELL_SCAN_CONNECT_BEST;
++            } else {
++                PRINTF("[Cellular Scan] No viable carriers found\n");
++                cellular_state = CELL_SCAN_FAILED;
+                 }
+             }
+             break;
+@@ -324,6 +366,11 @@ void process_cellular(void) {
+         case CELL_SCAN_CONNECT_BEST:
+             /* Connect to selected carrier */
+             if (selected_operator_idx >= 0) {
++                /* Initialize PPP monitor for this carrier */
++                init_ppp_monitor(scan_operators[selected_operator_idx].mccmnc);
++                cellular_ppp_verified = false;
++                cellular_ppp_ready = false;
++
+                 char cmd[128];
+                 snprintf(cmd, sizeof(cmd), "AT+COPS=1,2,\"%s\"",
+                         scan_operators[selected_operator_idx].mccmnc);
+@@ -345,6 +392,70 @@ void process_cellular(void) {
+
+             /* Store scan results for display */
+             store_scan_results();
++
++            cellular_state = CELL_WAIT_PPP_INTERFACE;
++            ppp_wait_start = current_time;
++            ppp_check_interval = current_time + 2000;
++            break;
++
++        case CELL_WAIT_PPP_INTERFACE:
++            /* Wait for PPP to establish */
++            if (imx_is_later(current_time, ppp_check_interval)) {
++                ppp_check_interval = current_time + 2000;  /* Check every 2s */
++
++                PPPResult result = monitor_ppp_establishment();
++
++                if (result == PPP_SUCCESS) {
++                    PRINTF("[Cellular] PPP established successfully\n");
++                    cellular_ppp_verified = true;
++                    cellular_ppp_ready = true;
++                    cellular_state = CELL_ONLINE;
++                }
++                else if (result != PPP_IN_PROGRESS) {
++                    /* PPP failed */
++                    PRINTF("[Cellular] PPP failed: result=%d\n", result);
++
++                    if (!handle_ppp_failure(result)) {
++                        /* Blacklist and try next carrier */
++                        cellular_state = CELL_BLACKLIST_AND_RETRY;
++                    } else {
++                        /* Retry same carrier */
++                        stop_ppp();
++                        sleep_ms(2000);
++                        start_ppp();
++                        ppp_wait_start = current_time;
++                    }
++                }
++
++                /* Overall timeout check */
++                if ((current_time - ppp_wait_start) > 60000) {  /* 60 sec total */
++                    PRINTF("[Cellular] PPP establishment timeout\n");
++                    cellular_state = CELL_BLACKLIST_AND_RETRY;
++                }
++            }
++            break;
++
++        case CELL_BLACKLIST_AND_RETRY:
++            /* Blacklist current carrier and select next */
++            if (selected_operator_idx >= 0) {
++                char mccmnc[16];
++                get_current_carrier_mccmnc(mccmnc);
++                blacklist_carrier_temporary(mccmnc, "PPP establishment failed");
++            }
++
++            /* Try to select another carrier */
++            selected_operator_idx = select_best_carrier();
++
++            if (selected_operator_idx >= 0) {
++                PRINTF("[Cellular] Trying next carrier\n");
++                cellular_state = CELL_SCAN_CONNECT_BEST;
++            } else {
++                PRINTF("[Cellular] All carriers exhausted, restarting scan\n");
++                cellular_state = CELL_SCAN_STOP_PPP;
++            }
++            break;
++
++        case CELL_SCAN_FAILED:
++            /* Scan failed, retry after delay */
++            sleep_ms(30000);  /* Wait 30 seconds */
+             cellular_state = CELL_ONLINE;
+             break;
+
+@@ -690,4 +801,59 @@ static void parse_csq_response(const char* response) {
+     }
+ }
+
++/**
++ * @brief CLI command: Display cellular operators
++ */
++void cmd_cell_operators(void) {
++    display_cellular_operators();
++}
++
++/**
++ * @brief CLI command: Display blacklist
++ */
++void cmd_cell_blacklist(void) {
++    display_blacklist();
++}
++
++/**
++ * @brief CLI command: Clear blacklist
++ */
++void cmd_cell_clear(void) {
++    clear_blacklist_for_scan();
++    PRINTF("Carrier blacklist cleared\n");
++}
++
++/**
++ * @brief CLI command: Trigger cellular scan
++ */
++void cmd_cell_scan(void) {
++    if (cellular_state == CELL_ONLINE) {
++        PRINTF("Initiating cellular carrier scan...\n");
++        cellular_state = CELL_SCAN_STOP_PPP;
++    } else if (cellular_scanning) {
++        PRINTF("Scan already in progress\n");
++    } else {
++        PRINTF("Cannot initiate scan in current state: %d\n", cellular_state);
++    }
++}
++
++/**
++ * @brief Store scan results for later display
++ */
++static void store_scan_results(void) {
++    /* Get timestamp */
++    time_t now = time(NULL);
++    strftime(scan_timestamp, sizeof(scan_timestamp),
++             "%Y-%m-%d %H:%M:%S", localtime(&now));
++
++    /* Results already in scan_operators array */
++    PRINTF("[Cellular] Stored %d scan results at %s\n",
++           scan_operator_count, scan_timestamp);
++}
++
++/**
++ * @brief Get scan timestamp for display
++ */
++const char* get_scan_timestamp(void) {
++    return scan_timestamp[0] ? scan_timestamp : "Never";
++}
++
+ /* End of cellular_man.c */
