@@ -18,6 +18,7 @@
 14. [Error Handling](#error-handling)
 15. [Memory Efficiency Analysis](#memory-efficiency-analysis)
 16. [Platform Differences](#platform-differences)
+17. [Bug Fixes and Known Issues](#bug-fixes-and-known-issues)
 
 ---
 
@@ -1572,6 +1573,34 @@ Solutions:
 2. Reduce retention period
 3. Increase cleanup frequency
 ```
+
+---
+
+## 17. Bug Fixes and Known Issues
+
+### Fixed: Upload Source Mismatch (2025-12-07)
+
+**Problem**: Host sensor data (4G RSSI, trip meter, etc.) not freed after CoAP acknowledgement.
+
+**Root Cause**: `imx_hal_event()` hardcoded `IMX_UPLOAD_CAN_DEVICE` for all writes, but upload code checked different `pending_by_source[]` slots.
+
+**Solution**: Added `upload_source` parameter to `imx_hal_event()`:
+- Gateway sensors use `IMX_UPLOAD_GATEWAY`
+- Host sensors use `IMX_HOSTED_DEVICE`
+
+**Details**: See `docs/MM2_Upload_Source_Mismatch_Bug_Fix.md`
+
+### Fixed: RAM Data Marked as Disk-Only (2025-12-07)
+
+**Problem**: When reading last record from sector, `current_sector` becomes `NULL_SECTOR_ID`, causing position update to be skipped and RAM data incorrectly marked as "disk-only".
+
+**Solution**: Added `bool did_read_from_ram` flag in `mm2_read.c` to explicitly track RAM reads.
+
+### Best Practices to Avoid Upload Source Issues
+
+1. **Always match write and read upload sources**: The `upload_source` passed to `imx_write_tsd()`/`imx_write_evt()` must match what the upload code uses
+2. **Use parameterized upload source**: Don't hardcode - pass as parameter
+3. **Verify pending tracking**: Check `pending_by_source[upload_source]` matches expectations
 
 ---
 
