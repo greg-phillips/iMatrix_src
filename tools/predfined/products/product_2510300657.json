@@ -1,0 +1,26 @@
+{
+  "id": 2510300657,
+  "name": "product_cwwvelhdam",
+  "platformId": 1632696902,
+  "platformType": "ble",
+  "organizationId": 250007060,
+  "shortName": "product_bqqujmxp",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": null,
+  "externalFlashSize": null,
+  "defaultFavorite1": null,
+  "defaultFavorite2": null,
+  "defaultFavorite3": null,
+  "noControls": null,
+  "noSensors": null,
+  "imageUrl": null,
+  "iconUrl": null,
+  "controlSensorIds": [
+    2759016264
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

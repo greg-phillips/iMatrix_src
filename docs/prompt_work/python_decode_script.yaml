@@ -1,0 +1,38 @@
+# Build a python script to process CoAP Hex Dump and print in human readable format.
+
+complexity_level: "simple"
+
+title: "Build a python script to process CoAP Hex Dump and print in human readable format."
+
+task: |
+  Start with a new python file called coap_packet_printer.py
+  The CoAP packet uses a iMatrix format payload. Use the source code to undersand the format.
+  Build a python script to process CoAP Hex Dump and print in human readable format.
+  Use the code in the source file: iMatrix/coap/coap_packet_printer.c
+  The script should be able to process the CoAP Hex Dump and print in human readable format. in the same for as the C source file.
+  THe script will be passed the filename of the CoAP Hex Dump file contents is:
+  [00:05:02.582] UPLOAD Message DATA as hex:   [24][16][92][2f][bd][14][73][65][6c][66][72][65][70][6f][72][74][2f][32][35][30][30][30][37][30][36][30][2f][30][35][31][33][39][37][33][31][30][39][2f][30][11][2a][ff][1e][a2][9b][75][00][00][00][02][00][78][f0][8b][0e][84][27][1d][42][1b][9b][77][0e][84][32][b0][42][1b][9b][77][0e][84][35][51][42][1b][9b][77][0e][84][6d][8c][42][1b][9b][76][0e][84][9b][af][42][1b][9b][74][0e][84][a8][77][42][1b][9b][74][0e][84][b7][d1][42][1b][9b][74][0e][84][e3][57][42][1b][9b][76][0e][84][fa][c8][42][1b][9b][78][0e][85][1b][ae][42][1b][9b][7a][0e][85][1e][1a][42][1b][9b][7a][0e][85][2a][10][42][1b][9b][78][0e][85][58][b5][42][1b][9b][73][0e][85][7e][53][42][1b][9b][74][0e][85][93][83][42][1b][9b][76][0e][85][9b][01][42][1b][9b][78][0e][85][ce][4a][42][1b][9b][7c][0e][85][dd][bb][42][1b][9b][7c][0e][86][0a][ce][42][1b][9b][7a][0e][86][3d][3e][42][1b][9b][78][0e][86][45][98][42][1b][9b][78][0e][86][5f][26][42][1b][9b][77][0e][86][76][7e][42][1b][9b][75][0e][86][80][65][42][1b][9b][75][0e][86][92][54][42][1b][9b][74][0e][86][a5][f6][42][1b][9b][75][0e][86][af][1a][42][1b][9b][75][0e][86][b8][c7][42][1b][9b][76][0e][86][bb][3a][42][1b][9b][76][0e][86][c4][6b][42][1b][9b][76][1e][a2][9b][75][00][00][00][03][00][78][f0][8b][0e][84][27][1d][c2][ef][ec][dc][0e][84][32][b0][c2][ef][ec][dd][0e][84][35][51][c2][ef][ec][dd][0e][84][6d][8c][c2][ef][ec][dd][0e][84][9b][af][c2][ef][ec][dd][0e][84][a8][77][c2][ef][ec][dc][0e][84][b7][d1][c2][ef][ec][da][0e][84][e3][57][c2][ef][ec][d8][0e][84][fa][c8][c2][ef][ec][d6][0e][85][1b][ae][c2][ef][ec][d4][0e][85][1e][1a][c2][ef][ec][d4][0e][85][2a][10][c2][ef][ec][d4][0e][85][58][b5][c2][ef][ec][d4][0e][85][7e][53][c2][ef][ec][d1][0e][85][93][83][c2][ef][ec][cf][0e][85][9b][01][c2][ef][ec][cf][0e][85][ce][4a][c2][ef][ec][d1][0e][85][dd][bb][c2][ef][ec][d3][0e][86][0a][ce][c2][ef][ec][d6][0e][86][3d][3e][c2][ef][ec][d8][0e][86][45][98][c2][ef][ec][d8][0e][86][5f][26][c2][ef][ec][d8][0e][86][76][7e][c2][ef][ec][d8][0e][86][80][65][c2][ef][ec][d8][0e][86][92][54][c2][ef][ec][d7][0e][86][a5][f6][c2][ef][ec][d7][0e][86][af][1a][c2][ef][ec][d7][0e][86][b8][c7][c2][ef][ec][d7][0e][86][bb][3a][c2][ef][ec][d7][0e][86][c4][6b][c2][ef][ec][d7][1e][a2][9b][75][00][00][00][04][00][78][f0][8b][0e][84][27][1d][44][f7][e0][00][0e][84][32][b0][44][f7][f0][00][0e][84][35][51][44][f7][ec][cd][0e][84][6d][8c][44][f7][e0][00][0e][84][9b][af][44][f7][d6][66][0e][84][a8][77][44][f7][c3][33][0e][84][b7][d1][44][f7][99][9a][0e][84][e3][57][44][f7][70][00][0e][84][fa][c8][44][f7][40][00][0e][85][1b][ae][44][f6][f0][00][0e][85][1e][1a][44][f6][f0][00][0e][85][2a][10][44][f6][f3][33][0e][85][58][b5][44][f6][e9][9a][0e][85][7e][53][44][f6][96][66][0e][85][93][83][44][f6][69][9a][0e][85][9b][01][44][f6][5c][cd][0e][85][ce][4a][44][f6][a0][00][0e][85][dd][bb][44][f6][e3][33][0e][86][0a][ce][44][f7][56][66][0e][86][3d][3e][44][f7][99][9a][0e][86][45][98][44][f7][96][66][0e][86][5f][26][44][f7][90][00][0e][86][76][7e][44][f7][7c][cd][0e][86][80][65][44][f7][80][00][0e][86][92][54][44][f7][70][00][0e][86][a5][f6][44][f7][73][33][0e][86][af][1a][44][f7][76][66][0e][86][b8][c7][44][f7][76][66][0e][86][bb][3a][44][f7][76][66][0e][86][c4][6b][44][f7][6c][cd][1e][a2][9b][75][00][00][00][2d][00][0c][18][0c][00][00][01][9b][0e][85][ec][27][00][00][ea][60][00][00][00][24][00][00][00][23][00][00][00][23][1e][a2][9b][75][00][00][00][2c][00][0c][18][8c][00][00][01][9b][0e][85][ec][8c][00][00][ea][60][3f][35][c2][8f][3f][4c][cc][cd][3f][40][00][00][1e][a2][9b][75][00][00][00][2e][00][0c][18][0c][00][00][01][9b][0e][85][ec][f4][00][00][ea][60][00][00][00][01][00][00][00][01][00][00][00][01][1e][a2][9b][75][00][00][00][1d][00][0c][18][4c][00][00][01][9b][0e][86][08][a5][00][00][ea][60][00][00][00][00][00][00][00][00][00][00][00][00][1e][a2][9b][75][00][00][00][2b][00][0c][18][0c][00][00][01][9b][0e][86][0a][df][00][00][ea][60][00][00][00][00][00][00][00][00][00][00][00][00][1e][a2][9b][75][00][00][00][8e][00][78][f0][8b][0e][84][27][1d][3f][37][01][da][0e][84][32][b0][3d][c5][3b][08][0e][84][35][51][3f][2b][27][88][0e][84][6d][8c][3d][26][e3][2e][0e][84][9b][af][3f][4e][b6][7c][0e][84][a8][77][3e][e1][ad][65][0e][84][b7][d1][3f][62][a0][22][0e][84][e3][57][3e][1d][67][b9][0e][84][fa][c8][3f][10][21][4a][0e][85][1b][ae][3f][1b][82][3d][0e][85][1e][1a][3f][1b][82][3d][0e][85][2a][10][3f][37][7b][39][0e][85][58][b5][3e][9c][74][fc][0e][85][7e][53][3f][0e][b5][2c][0e][85][93][83][3e][ad][86][65][0e][85][9b][01][3f][55][59][b3][0e][85][ce][4a][3e][4a][eb][81][0e][85][dd][bb][3f][51][15][59][0e][86][0a][ce][3d][f6][89][c9][0e][86][3d][3e][3f][24][fd][b0][0e][86][45][98][3d][c9][06][02][0e][86][5f][26][3f][5e][d5][28][0e][86][76][7e][3f][82][24][cd][0e][86][80][65][3f][4c][d0][fe][0e][86][92][54][3f][12][80][27][0e][86][a5][f6][3f][6c][1b][97][0e][86][af][1a][3f][23][18][33][0e][86][b8][c7][3f][18][aa][00][0e][86][bb][3a][3f][18][aa][00][0e][86][c4][6b][3f][2d][ff][c6][1e][a2][9b][75][00][00][00][41][00][0c][18][0c][00][00][01][9b][0e][86][2b][c0][00][00][ea][60][00][00][13][05][00][00][19][1b][00][00][14][6f]
+
+Ask any questions you need to before starting.
+
+  1. Input format: The example hex dump in your YAML file uses the format [XX][XX][XX]... with each byte in square brackets. Should the script also support other formats like:
+    - Raw hex without delimiters (e.g., 24169...)
+    - Space-separated hex (e.g., 24 16 92 ...)
+    - Or just the bracket format you showed?
+  2. Timestamp prefix: The example shows a timestamp prefix like [00:05:02.582] UPLOAD Message DATA as hex: before the actual hex data. Should the script:
+    - Strip this automatically
+    - Require clean hex input only
+    - Handle both?
+  3. Output detail level: The C code has options to show:
+    - All samples (can be many)
+    - Limited samples (first 10 with "... more" message)
+    - Should the Python script have a verbose flag to control this?
+  4. Sensor name lookup: The C code looks up sensor names from runtime data structures. For the Python script, should I:
+    - Include the internal sensor names from internal_sensors_def.h (which I've read)
+    - Just display numeric sensor IDs for unknown sensors
+    - Allow loading a custom sensor name mapping file?
+
+    1. just as shown in the example.
+    2. strip the timestamp prefix automatically
+    3. have a verbose flag to control this
+    4. include the internal sensor names from internal_sensors_def.h use numeric sensor IDs for unknown sensors

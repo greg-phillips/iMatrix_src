@@ -1,0 +1,16 @@
+# Add a new PRINTF_FRAME debug in the can server to print the CAN frame in a debug format.
+
+title: "Add a new PRINTF_FRAME debug in the can server to print the CAN frame in a debug format."
+
+task: |
+
+Read docs/CLI_and_Debug_System_Complete_Guide.md and understand the debug system.
+
+Read the code in iMatrix/canbus/can_server.c and understand the code.
+
+Add a new debug flag PRINTF_FRAME.
+THis is used to print frame level debug of received CAN frames from the ethernet interface.
+Add a new PRINTF_FRAME debug in the can server to print the CAN frame as each character is received.
+Add a new PRINTF_FRAME debug in the can server to print the CAN frame when the frame is complete.
+
+Ask any questions you need to before starting.

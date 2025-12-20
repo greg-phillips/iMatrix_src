@@ -1,0 +1,27 @@
+{
+  "id": 3663779685,
+  "name": "NEO-IND Industrial Temperature sensor",
+  "platformId": 899907174,
+  "platformType": "ble",
+  "organizationId": 1583546208,
+  "shortName": "NEO-IND",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 512,
+  "externalFlashSize": 0,
+  "defaultFavorite1": null,
+  "defaultFavorite2": null,
+  "defaultFavorite3": null,
+  "noControls": 0,
+  "noSensors": 3,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files/cf4ab4e5-a9a4-4a1a-b0c7-a5c2473de6ff.jpg",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/11bf3546-fd29-47df-92ba-6e83d3694227-Sensor%20-%20Temperature%20Logger.svg",
+  "controlSensorIds": [
+    2232384124,
+    2217243424
+  ],
+  "batteryUse": 20,
+  "rssiUse": 22,
+  "operationalVoltage": null,
+  "externalType": null
+}

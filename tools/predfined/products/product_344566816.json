@@ -1,0 +1,26 @@
+{
+  "id": 344566816,
+  "name": "product_sjcovocosd",
+  "platformId": 2314223153,
+  "platformType": "ble",
+  "organizationId": 250007060,
+  "shortName": "product_qniecsax",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": null,
+  "externalFlashSize": null,
+  "defaultFavorite1": null,
+  "defaultFavorite2": null,
+  "defaultFavorite3": null,
+  "noControls": null,
+  "noSensors": null,
+  "imageUrl": null,
+  "iconUrl": null,
+  "controlSensorIds": [
+    771824381
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

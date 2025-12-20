@@ -1,0 +1,33 @@
+{
+  "id": 3350822600,
+  "name": "HM Trailer-Mounted Generator 1",
+  "platformId": 1132988575,
+  "platformType": "wifi",
+  "organizationId": 250007060,
+  "shortName": "HM-TMG1",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 512,
+  "externalFlashSize": 1024,
+  "defaultFavorite1": 0,
+  "defaultFavorite2": 0,
+  "defaultFavorite3": 0,
+  "noControls": 0,
+  "noSensors": 0,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files-prod/a13631ec-c45b-42a6-a023-f10123170f5f.png",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files-prod/41e38282-009b-4e80-9396-6fe618cf0ece.png",
+  "controlSensorIds": [
+    1671163076,
+    1654456909,
+    1627699517,
+    1314107868,
+    1056883379,
+    814743168,
+    521305921,
+    389007952
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

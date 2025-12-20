@@ -1,7 +1,8 @@
 # Complete Interactive Workflow - Final Enhancement Summary
 
-**Date:** January 17, 2025
-**Enhancement:** Default Interactive Mode with Complete Device/Sensor/Date Discovery
+**Date:** January 17, 2025 (v1.0.0)
+**Updated:** December 8, 2025 (v2.0.0)
+**Enhancement:** Default Interactive Mode with Complete Device/Sensor/Date Discovery and Multi-Sensor Support
 
 ## Overview
 
@@ -90,6 +91,7 @@ python3 get_sensor_data.py -s 592978988 -id 58108062 -ts "01/15/25" -te "01/16/2
 ## Date Entry Enhancements
 
 ### Multiple Format Support
+- **Press Enter**: Last 24 hours (default) - instant access to recent data
 - **Date only**: `01/15/25` → Midnight to midnight (24 hours)
 - **Date + time**: `01/15/25 14:30` → Specific time
 - **Epoch milliseconds**: `1736899200000` → Precise timestamp
@@ -100,14 +102,15 @@ python3 get_sensor_data.py -s 592978988 -id 58108062 -ts "01/15/25" -te "01/16/2
 📅 Date/time range required for data download
 
 Supported formats:
+  • Press Enter for last 24 hours (default)
   • Date only: 01/15/25 (midnight to midnight)
   • Date and time: 01/15/25 14:30
   • Epoch milliseconds: 1736899200000
 
-📅 Enter start date/time: 01/15/25
-✅ Start: 2025-01-15T00:00:00Z
-📅 Enter end date/time: 01/15/25
-✅ End: 2025-01-15T23:59:59Z
+📅 Enter start date/time (or Enter for last 24h):
+✅ Using last 24 hours:
+   Start: 2025-01-17T10:30:00Z
+   End:   2025-01-18T10:30:00Z
 📊 Date range: 24.0 hours
 ```
 
@@ -140,6 +143,42 @@ Supported formats:
 - **Date formats**: Human-readable alternatives to epoch
 - **Device visibility**: Complete account overview
 
+## Multi-Sensor Download (v2.0.0)
+
+### Command Line Multi-Sensor
+```bash
+# Download multiple sensors at once
+python3 get_sensor_data.py -s 592978988 -id 509 -id 514 -id 522 -ts "01/15/25" -te "01/16/25" -u user@example.com
+```
+
+### Direct Sensor Entry
+During sensor selection, use **[D] Direct entry** to enter comma-separated IDs:
+```
+📊 Sensor Type Selection:
+[1] Predefined Energy Sensors (509-537)
+[2] Native Device Sensors
+[D] Direct entry - Enter sensor ID(s) directly
+
+Enter your choice: D
+
+Enter sensor ID(s) (comma-separated for multiple, e.g., 509, 514, 522):
+> 509, 514, 522
+
+✅ Selected 3 sensors: [509, 514, 522]
+```
+
+### Combined Output Format
+**Filename**: `{serial}_{id1}_{id2}_{id3}_{date}.json`
+
+Example: `592978988_509_514_522_20250115.json`
+
+### Reproducible Command Output
+After every download, the tool displays the full CLI command:
+```
+📋 To reproduce this request:
+   python3 get_sensor_data.py -u user@example.com -s 592978988 -id 509 -id 514 -id 522 -ts 1736899200000 -te 1736985599000 -o json
+```
+
 ## Technical Implementation
 
 ### New Functions Added
@@ -148,8 +187,17 @@ Supported formats:
 - `select_device_interactive()` → Device selection menu
 - `print_device_details()` → Device information display
 - `parse_flexible_datetime()` → Multi-format date parsing
-- `prompt_for_date_range()` → Interactive date entry
+- `prompt_for_date_range()` → Interactive date entry (with blank=last 24 hours)
 - `get_timestamps_interactive()` → Unified timestamp handling
+
+### v2.0.0 Functions Added
+- `prompt_sensor_type_selection()` → Returns tuple with sensor type and direct IDs
+- `download_multiple_sensors()` → Downloads data for all specified sensors
+- `save_combined_json()` → Saves multi-sensor data to single JSON file
+- `print_combined_summary()` → Displays summary for all downloaded sensors
+- `generate_multi_sensor_filename()` → Creates filename with all sensor IDs
+- `generate_cli_command()` → Builds reproducible CLI command string
+- `print_reproducible_command()` → Displays command to repeat download
 
 ### Workflow Logic
 - **Progressive discovery**: Each step builds on previous selections
@@ -203,5 +251,9 @@ This enhancement transforms the sensor data tool from a direct-access utility re
 - ✅ Flexible date entry with multiple formats
 - ✅ Professional data output with statistics
 - ✅ Full backward compatibility
+- ✅ Multi-sensor download with combined JSON output (v2.0.0)
+- ✅ Last 24 hours default for quick data access (v2.0.0)
+- ✅ Reproducible CLI command output (v2.0.0)
+- ✅ Direct sensor ID entry with comma-separated values (v2.0.0)
 
 Users can now access any sensor data from any device in their account with minimal knowledge and maximum flexibility.

@@ -1,0 +1,33 @@
+{
+  "id": 327847650,
+  "name": "AGrowTronics Nutrient Sensor",
+  "platformId": 899907174,
+  "platformType": "ble",
+  "organizationId": 1583546208,
+  "shortName": "AGSense-1",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 1048576,
+  "externalFlashSize": 4194304,
+  "defaultFavorite1": 0,
+  "defaultFavorite2": 0,
+  "defaultFavorite3": 0,
+  "noControls": 0,
+  "noSensors": 7,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files/65057ee2-b92b-49c5-95f7-c8549a32243a-NEO-05.jpg",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/22c54b40-935e-4fb1-b975-dfaf9e84ce50-Sensor%20-%20Nutrient.svg",
+  "controlSensorIds": [
+    2145804868,
+    2118934631,
+    2088308710,
+    1176634884,
+    760520877,
+    610307107,
+    229062115,
+    36785662
+  ],
+  "batteryUse": 20,
+  "rssiUse": 22,
+  "operationalVoltage": null,
+  "externalType": null
+}

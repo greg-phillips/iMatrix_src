@@ -1,0 +1,29 @@
+{
+  "id": 1827164859,
+  "name": "Appliance Gateway PoC",
+  "platformId": 107473583,
+  "platformType": "wifi",
+  "organizationId": 250007060,
+  "shortName": "AGW-1",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": null,
+  "externalFlashSize": null,
+  "defaultFavorite1": null,
+  "defaultFavorite2": null,
+  "defaultFavorite3": null,
+  "noControls": null,
+  "noSensors": null,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files-prod/fd465446-0f85-4e4b-ad33-9975a91e0382.jpg",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files-prod/bb482267-ec2a-4657-9676-2aaa043a44c4.svg",
+  "controlSensorIds": [
+    3974806335,
+    2763270827,
+    355762849,
+    130129945
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": "appliance"
+}

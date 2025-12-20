@@ -1,0 +1,205 @@
+{
+  "_comment": "OBD2 Vehicle Profile Template - Fill in values from trace analysis",
+  "profile_version": "1.0",
+  "profile_name": "MAKE_MODEL_YEAR",
+  "created_date": "YYYY-MM-DD",
+  "source_trace": "filename.trc",
+
+  "vehicle_info": {
+    "vin": "17-character VIN",
+    "make": "Manufacturer",
+    "model": "Model Name",
+    "year": 0,
+    "fuel_type": "gasoline|diesel|electric|hybrid",
+    "odometer_km": 0
+  },
+
+  "can_config": {
+    "bitrate": 500000,
+    "id_format": "standard_11bit",
+    "functional_request_id": "0x7DF",
+    "physical_request_base_id": "0x7E0",
+    "response_base_id": "0x7E8"
+  },
+
+  "timing": {
+    "p2_response_ms": 8,
+    "p2_star_ms": 5000,
+    "inter_ecu_delay_ms": 8,
+    "cf_separation_ms": 5
+  },
+
+  "ecus": [
+    {
+      "name": "ECU_Name",
+      "index": 0,
+      "physical_request_id": "0x7E0",
+      "response_id": "0x7E8",
+      "padding_byte": "0x00",
+      "response_delay_ms": 8,
+      "supports_all_pids": true
+    }
+  ],
+
+  "supported_services": ["0x01", "0x03", "0x09"],
+
+  "responses": {
+    "service_01": {
+      "0x00": {
+        "description": "Supported PIDs [01-20]",
+        "request": "02 01 00 00 00 00 00 00",
+        "0x7E8": "06 41 00 XX XX XX XX 00"
+      },
+      "0x01": {
+        "description": "Monitor Status Since DTCs Cleared",
+        "request": "02 01 01 00 00 00 00 00",
+        "data_bytes": 4,
+        "0x7E8": "06 41 01 XX XX XX XX 00"
+      },
+      "0x05": {
+        "description": "Engine Coolant Temperature",
+        "request": "02 01 05 00 00 00 00 00",
+        "data_bytes": 1,
+        "formula": "A - 40",
+        "unit": "degC",
+        "raw_value": "0xXX",
+        "decoded_value": 0,
+        "dynamic": false,
+        "0x7E8": "03 41 05 XX 00 00 00 00"
+      },
+      "0x0C": {
+        "description": "Engine RPM",
+        "request": "02 01 0C 00 00 00 00 00",
+        "data_bytes": 2,
+        "formula": "((A * 256) + B) / 4",
+        "unit": "rpm",
+        "raw_value": "0xXXXX",
+        "decoded_value": 0,
+        "dynamic": true,
+        "min_value": 0,
+        "max_value": 16383.75,
+        "0x7E8": "04 41 0C XX XX 00 00 00"
+      },
+      "0x0D": {
+        "description": "Vehicle Speed",
+        "request": "02 01 0D 00 00 00 00 00",
+        "data_bytes": 1,
+        "formula": "A",
+        "unit": "km/h",
+        "raw_value": "0xXX",
+        "decoded_value": 0,
+        "dynamic": true,
+        "min_value": 0,
+        "max_value": 255,
+        "0x7E8": "03 41 0D XX 00 00 00 00"
+      },
+      "0x11": {
+        "description": "Throttle Position",
+        "request": "02 01 11 00 00 00 00 00",
+        "data_bytes": 1,
+        "formula": "(A * 100) / 255",
+        "unit": "percent",
+        "raw_value": "0xXX",
+        "decoded_value": 0,
+        "dynamic": true,
+        "0x7E8": "03 41 11 XX 00 00 00 00"
+      },
+      "0x20": {
+        "description": "Supported PIDs [21-40]",
+        "request": "02 01 20 00 00 00 00 00",
+        "0x7E8": "06 41 20 XX XX XX XX 00"
+      },
+      "0x40": {
+        "description": "Supported PIDs [41-60]",
+        "request": "02 01 40 00 00 00 00 00",
+        "0x7E8": "06 41 40 XX XX XX XX 00"
+      }
+    },
+
+    "service_03": {
+      "description": "Request Stored DTCs",
+      "request": "01 03 00 00 00 00 00 00",
+      "dtc_count": 0,
+      "dtc_list": [],
+      "0x7E8": "02 43 00 00 00 00 00 00"
+    },
+
+    "service_07": {
+      "description": "Request Pending DTCs",
+      "request": "01 07 00 00 00 00 00 00",
+      "dtc_count": 0,
+      "dtc_list": [],
+      "0x7E8": "02 47 00 00 00 00 00 00"
+    },
+
+    "service_09": {
+      "0x02": {
+        "description": "Vehicle Identification Number (VIN)",
+        "request": "02 09 02 00 00 00 00 00",
+        "multi_frame": true,
+        "total_length": 20,
+        "vin_string": "XXXXXXXXXXXXXXXXX",
+        "frames": [
+          {
+            "type": "first_frame",
+            "ecu_id": "0x7E8",
+            "data": "10 14 49 02 01 XX XX XX"
+          },
+          {
+            "type": "consecutive_frame",
+            "sequence": 1,
+            "ecu_id": "0x7E8",
+            "data": "21 XX XX XX XX XX XX XX"
+          },
+          {
+            "type": "consecutive_frame",
+            "sequence": 2,
+            "ecu_id": "0x7E8",
+            "data": "22 XX XX XX XX XX XX XX"
+          }
+        ],
+        "flow_control": {
+          "tester_sends_to": "0x7E0",
+          "data": "30 00 00 00 00 00 00 00"
+        }
+      }
+    },
+
+    "service_0A": {
+      "description": "Request Permanent DTCs",
+      "request": "01 0A 00 00 00 00 00 00",
+      "dtc_count": 0,
+      "dtc_list": [],
+      "0x7E8": "02 4A 00 00 00 00 00 00"
+    }
+  },
+
+  "broadcast_messages": [
+    {
+      "can_id": "0xXXXX",
+      "name": "Message_Name",
+      "interval_ms": 100,
+      "dlc": 8,
+      "pattern_type": "static|rolling_counter",
+      "data": "XX XX XX XX XX XX XX XX"
+    }
+  ],
+
+  "negative_responses": {
+    "service_not_supported": {
+      "nrc_code": "0x11",
+      "template": "03 7F SS 11 00 00 00 00"
+    },
+    "subfunction_not_supported": {
+      "nrc_code": "0x12",
+      "template": "03 7F SS 12 00 00 00 00"
+    }
+  },
+
+  "metadata": {
+    "trace_start_time": "YYYY-MM-DDTHH:MM:SS",
+    "trace_duration_ms": 0,
+    "total_messages": 0,
+    "analysis_date": "YYYY-MM-DD"
+  }
+}

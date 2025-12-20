@@ -1,0 +1,44 @@
+{
+  "id": 1349851161,
+  "name": "NEO-1D Temperature Humidity Sensor with Display",
+  "platformId": 899907174,
+  "platformType": "ble",
+  "organizationId": 1583546208,
+  "shortName": "NEO-1D",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 1048576,
+  "externalFlashSize": 0,
+  "defaultFavorite1": 251656609,
+  "defaultFavorite2": 872052224,
+  "defaultFavorite3": 847839682,
+  "noControls": 0,
+  "noSensors": 7,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files/b3cb13c8-fa19-4cf2-9645-a88220cc91a9.svg",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/5f9f009f-fab4-4e44-b934-ddfa869234b5-Sensor%20-%20Neo-1D.svg",
+  "controlSensorIds": [
+    1719488477,
+    916775340,
+    872052224,
+    847839682,
+    726966252,
+    528597925,
+    58108062
+  ],
+  "batteryUse": 20,
+  "rssiUse": 22,
+  "operationalVoltage": {
+    "id": 371698254,
+    "name": "voltageProfile_3.3",
+    "profile": {
+      "level1": null,
+      "level2": null,
+      "level3": null,
+      "level4": null,
+      "level5": null,
+      "level6": null,
+      "level7": 3.3
+    }
+  },
+  "externalType": null
+}

@@ -1,0 +1,25 @@
+# Merging update to Aptera_1_Clean branch
+
+complexity_level: "simple"
+
+title: "Merging update to Aptera_1_Clean branch"
+
+task: |
+  Merge the branch Aptera_1_Clean_fix to the Aptera_1_Clean branch.
+
+branch: "Aptera_1_Clean"
+branch_to_merge: "Aptera_1_Clean_fix"
+Repository: "iMatrix"
+Repository: "Fleet-Connect-1"
+
+notes:
+  - "Aptera_1_Clean branch is the latest version of the Aptera_1 branch"
+  - "Merge Aptera_1_Clean_fix to Aptera_1_Clean branch"
+  - "This merge needs to be reviewed in great detail the CMakeLists.txt file has been modified to allow building on jenkins in the cloud."
+  - "This build needs to build in the Cloud Jenkins server and locallay on the development machines."
+  - "Review all changes with user for approval.
+  - "Create a tempory branch for testing of the merge."
+  - "Test the merge in the temporary branch."
+  - "When validated merge the temporary branch into the Aptera_1_Clean branch."
+  - "Delete the temporary branch."
+  

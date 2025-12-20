@@ -1,0 +1,16 @@
+# Validate OBD2 reponse processing code.
+
+title: "Validate OBD2 reponse processing code."
+
+task: |
+
+The python OBD2 Library as been tested heavily and we want to use this as a reference for the OBD2 response processing code.
+Read the entire python OBD2 Library documentation and understand the code. 
+The repository has been cloned to the following path:
+/home/greg/iMatrix/iMatrix_Client/python-OBD
+read all the files in the python-OBD directory and understand the code.
+
+Review the code in the Fleet-Connect-1/can_process directory and compare it to the python OBD2 Library.
+Compare to ensure that our code is consistent with the python OBD2 Library.
+Define any missing features or bugs in the iMatrix code.
+

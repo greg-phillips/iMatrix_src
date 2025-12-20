@@ -1,0 +1,32 @@
+{
+  "id": 1541050650,
+  "name": "NEO-1S Temperature Humidity Sensor",
+  "platformId": 899907174,
+  "platformType": "ble",
+  "organizationId": 1583546208,
+  "shortName": "NEO-1S",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 1048576,
+  "externalFlashSize": null,
+  "defaultFavorite1": 675585437,
+  "defaultFavorite2": 883031629,
+  "defaultFavorite3": 732747899,
+  "noControls": 0,
+  "noSensors": 7,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files/290ec734-3f98-4505-9cbb-c00b734699ce.svg",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/e15e1f8e-3503-4868-8b33-377c79a14f7c-Temperature%20&%20Humidity.svg",
+  "controlSensorIds": [
+    2986935607,
+    923644860,
+    883031629,
+    865397843,
+    732747899,
+    675585437,
+    253553350
+  ],
+  "batteryUse": 20,
+  "rssiUse": 22,
+  "operationalVoltage": null,
+  "externalType": null
+}

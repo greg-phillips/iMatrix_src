@@ -1,0 +1,29 @@
+{
+  "id": 69099000,
+  "name": "ISMART Gateway 1",
+  "platformId": 107473583,
+  "platformType": "wifi",
+  "organizationId": 1583546208,
+  "shortName": "ISMART1",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 1048576,
+  "externalFlashSize": 4194304,
+  "defaultFavorite1": 3872024893,
+  "defaultFavorite2": 3971400763,
+  "defaultFavorite3": 1568290915,
+  "noControls": 0,
+  "noSensors": 4,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files/f6bf03b8-e286-4002-9a23-d1b6949d4047.jpg",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/b83065dc-b085-4b84-85ff-c557205b87c1-Micro%20Gateway.svg",
+  "controlSensorIds": [
+    3971400763,
+    3872024893,
+    3808144767,
+    1568290915
+  ],
+  "batteryUse": null,
+  "rssiUse": 16,
+  "operationalVoltage": null,
+  "externalType": null
+}

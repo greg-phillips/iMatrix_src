@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-get_sensor_data.py
-Downloads sensor data history from the iMatrix API with device discovery and
-interactive sensor selection. Properly handles device serial numbers and product IDs
-for correct API endpoint usage.
+get_sensor_data.py - iMatrix Sensor Data Download Tool v2.0.0
+
+Downloads sensor data history from the iMatrix API with device discovery,
+interactive sensor selection, and multi-sensor download support. Properly handles
+device serial numbers and product IDs for correct API endpoint usage.
 
 Usage:
     # Default interactive mode (complete workflow - devices, sensors, dates):
@@ -19,14 +20,25 @@ Usage:
     # Direct mode (no interaction needed):
     python3 get_sensor_data.py -s <serial> -ts <start> -te <end> -id <sensor_id> -u <email>
 
+    # Multi-sensor download (v2.0.0):
+    python3 get_sensor_data.py -s <serial> -id 509 -id 514 -id 522 -ts <start> -te <end> -u <email>
+
     # Information modes:
     python3 get_sensor_data.py -s <serial> -u <email> --list-sensors
     python3 get_sensor_data.py -s <serial> -u <email> --product-info
 
 Date Formats Supported:
+    • Press Enter for last 24 hours (default - v2.0.0)
     • Epoch milliseconds: 1736899200000
     • Date only: 01/15/25 (midnight to midnight)
     • Date and time: 01/15/25 14:30
+
+Multi-Sensor Features (v2.0.0):
+    • Multiple -id flags: -id 509 -id 514 -id 522
+    • Interactive [D] Direct entry: Enter comma-separated IDs (509, 514, 522)
+    • Combined JSON output: Single file with all sensor data
+    • Filename format: {serial}_{id1}_{id2}_{id3}_{date}.json
+    • Reproducible command output: CLI command displayed after download
 
 Examples:
     # Default interactive mode (complete workflow - NEW DEFAULT)
@@ -40,6 +52,9 @@ Examples:
 
     # Direct download with human dates
     python3 get_sensor_data.py -s 1234567890 -ts "01/15/25" -te "01/16/25" -id 509 -u user@example.com
+
+    # Multi-sensor download (combined JSON output)
+    python3 get_sensor_data.py -s 1234567890 -id 509 -id 514 -id 522 -ts "01/15/25" -te "01/16/25" -u user@example.com
 
     # Direct download with epoch timestamps (original)
     python3 get_sensor_data.py -s 1234567890 -ts 1736899200000 -te 1736985600000 -id 509 -u user@example.com
@@ -418,12 +433,15 @@ def get_device_by_serial(serial: str, devices: List[Dict]) -> Dict:
     return device
 
 
-def prompt_sensor_type_selection() -> str:
+def prompt_sensor_type_selection() -> Tuple[str, Optional[List[int]]]:
     """
-    Prompt user to select between predefined and native sensors.
+    Prompt user to select between predefined, native, or direct sensor entry.
 
     Returns:
-        'predefined' or 'native'
+        Tuple of (sensor_type, sensor_ids):
+        - ('predefined', None) for predefined sensors
+        - ('native', None) for native sensors
+        - ('direct', [sensor_ids]) for direct entry
 
     Raises:
         SystemExit: If user cancels
@@ -433,23 +451,60 @@ def prompt_sensor_type_selection() -> str:
     print("Choose sensor type to discover:")
     print("  [P] Predefined sensors (configured for this product)")
     print("  [N] Native sensors (available on this device)")
+    print("  [D] Direct entry (enter sensor ID(s) directly)")
     print("=" * 50)
 
     while True:
         try:
-            selection = input("Select [P]redefined or [N]ative: ").strip().lower()
+            selection = input("Select [P]redefined, [N]ative, or [D]irect: ").strip().lower()
 
             if selection == 'q' or selection == 'quit':
                 print("👋 Cancelled by user")
                 sys.exit(0)
             elif selection in ['p', 'predefined']:
                 print("✅ Selected: Predefined sensors")
-                return 'predefined'
+                return ('predefined', None)
             elif selection in ['n', 'native']:
                 print("✅ Selected: Native sensors")
-                return 'native'
+                return ('native', None)
+            elif selection in ['d', 'direct']:
+                # Prompt for sensor ID(s)
+                print("💡 Enter one or more sensor IDs (comma-separated)")
+                print("   Example: 509 or 509,510,511")
+                while True:
+                    sensor_input = input("Enter sensor ID(s): ").strip()
+                    if sensor_input.lower() == 'q':
+                        print("👋 Cancelled by user")
+                        sys.exit(0)
+                    try:
+                        # Parse comma-separated IDs
+                        sensor_ids = []
+                        for part in sensor_input.split(','):
+                            part = part.strip()
+                            if part:
+                                sensor_id = int(part)
+                                if sensor_id <= 0:
+                                    raise ValueError(f"Sensor ID must be positive: {sensor_id}")
+                                sensor_ids.append(sensor_id)
+
+                        if not sensor_ids:
+                            print("❌ Please enter at least one sensor ID")
+                            continue
+
+                        # Remove duplicates while preserving order
+                        sensor_ids = list(dict.fromkeys(sensor_ids))
+
+                        if len(sensor_ids) == 1:
+                            print(f"✅ Selected: Direct entry (Sensor ID: {sensor_ids[0]})")
+                        else:
+                            print(f"✅ Selected: Direct entry ({len(sensor_ids)} sensors: {', '.join(map(str, sensor_ids))})")
+                        return ('direct', sensor_ids)
+
+                    except ValueError as e:
+                        print(f"❌ Invalid input: {e}")
+                        print("   Please enter valid sensor ID numbers")
             else:
-                print("❌ Please enter 'P' for predefined, 'N' for native, or 'q' to quit")
+                print("❌ Please enter 'P' for predefined, 'N' for native, 'D' for direct, or 'q' to quit")
 
         except KeyboardInterrupt:
             print("\n👋 Cancelled by user")
@@ -491,7 +546,27 @@ def discover_device_sensors(serial: str, token: str, verbose: bool = False, devi
         print(f"   Device product ID: {product_id}")
 
     # Ask user to choose sensor type
-    sensor_type = prompt_sensor_type_selection()
+    sensor_type, direct_sensor_ids = prompt_sensor_type_selection()
+
+    # Handle direct entry - fetch details for specified sensor IDs
+    if sensor_type == 'direct':
+        print(f"📊 Fetching details for {len(direct_sensor_ids)} sensor(s)...")
+        sensors = []
+        for i, sensor_id in enumerate(direct_sensor_ids, 1):
+            sensor_info = get_sensor_details(sensor_id, token, verbose, use_development)
+            if not sensor_info:
+                # Use built-in definitions or create minimal entry
+                sensor_info = {
+                    'id': sensor_id,
+                    'name': SENSOR_DEFINITIONS.get(sensor_id, {}).get('name', f'Sensor {sensor_id}'),
+                    'units': SENSOR_DEFINITIONS.get(sensor_id, {}).get('units', 'unknown'),
+                }
+            sensor_info['menu_index'] = i
+            sensor_info['sensor_type'] = 'direct'
+            sensors.append(sensor_info)
+
+        print(f"✅ Prepared {len(sensors)} sensor(s) for selection")
+        return sensors
 
     # Get sensor IDs based on user selection
     if sensor_type == 'predefined':
@@ -1216,6 +1291,7 @@ def prompt_for_date_range() -> Tuple[int, int]:
     """
     print("\n📅 Date/time range required for data download")
     print("\nSupported formats:")
+    print("  • Press Enter for last 24 hours (default)")
     print("  • Epoch milliseconds: 1736899200000")
     print("  • Date only: 01/15/25 (assumes midnight to midnight)")
     print("  • Date and time: 01/15/25 14:30")
@@ -1225,11 +1301,22 @@ def prompt_for_date_range() -> Tuple[int, int]:
     start_attempts = 0
     while start_attempts < 3:
         try:
-            start_input = input("📅 Enter start date/time: ").strip()
+            start_input = input("📅 Enter start date/time (or Enter for last 24h): ").strip()
 
             if start_input.lower() in ['q', 'quit']:
                 print("👋 Cancelled by user")
                 sys.exit(0)
+
+            # Handle blank input - use last 24 hours
+            if start_input == '':
+                end_ms = int(datetime.now().timestamp() * 1000)
+                start_ms = end_ms - (24 * 60 * 60 * 1000)  # 24 hours in ms
+                print(f"✅ Using last 24 hours:")
+                print(f"   Start: {format_timestamp(start_ms)}")
+                print(f"   End:   {format_timestamp(end_ms)}")
+                duration_hours = 24.0
+                print(f"📊 Date range: {duration_hours:.1f} hours")
+                return start_ms, end_ms
 
             start_ms = parse_date_input(start_input, default_to_end_of_day=False)
             start_formatted = format_timestamp(start_ms)
@@ -1548,6 +1635,201 @@ def generate_filename(serial: str, sensor_id: int, start: int,
     return f"{serial}_{sensor_name}_{date_str}"
 
 
+def generate_multi_sensor_filename(serial: str, sensor_ids: List[int], start: int,
+                                   custom_name: Optional[str] = None) -> str:
+    """
+    Generate a descriptive filename for multi-sensor output.
+
+    Args:
+        serial: Device serial number
+        sensor_ids: List of sensor IDs
+        start: Start timestamp
+        custom_name: Optional custom filename base
+
+    Returns:
+        Base filename (without extension)
+    """
+    if custom_name:
+        return custom_name
+
+    dt = datetime.fromtimestamp(start / 1000.0)
+    date_str = dt.strftime('%Y%m%d')
+
+    # Join all sensor IDs with underscores
+    sensor_str = '_'.join(str(sid) for sid in sensor_ids)
+
+    return f"{serial}_{sensor_str}_{date_str}"
+
+
+def download_multiple_sensors(serial: str, sensors: List[Dict], start_ms: int,
+                              end_ms: int, token: str, verbose: bool = False,
+                              use_development: bool = False) -> List[Dict]:
+    """
+    Download data for multiple sensors and return combined results.
+
+    Args:
+        serial: Device serial number
+        sensors: List of sensor dictionaries with 'id', 'name', 'units'
+        start_ms: Start time in epoch milliseconds
+        end_ms: End time in epoch milliseconds
+        token: Authentication token
+        verbose: Print verbose output
+        use_development: Use development API instead of production
+
+    Returns:
+        List of dicts with sensor info, data, and statistics for each sensor
+    """
+    results = []
+    for i, sensor in enumerate(sensors, 1):
+        sensor_id = sensor['id']
+        sensor_name = sensor.get('name', f'Sensor {sensor_id}')
+        sensor_units = sensor.get('units', 'unknown')
+
+        print(f"📊 [{i}/{len(sensors)}] Downloading {sensor_name} (ID: {sensor_id})...")
+
+        api_response = fetch_sensor_history(serial, sensor_id, start_ms, end_ms,
+                                           token, verbose, use_development)
+        sensor_data = parse_sensor_data(api_response, sensor_id)
+        stats = calculate_statistics(sensor_data)
+
+        results.append({
+            'sensor_id': sensor_id,
+            'sensor_name': sensor_name,
+            'sensor_units': sensor_units,
+            'statistics': stats,
+            'data': sensor_data
+        })
+
+    return results
+
+
+def save_combined_json(results: List[Dict], filename: str, metadata: Dict) -> None:
+    """
+    Save multiple sensors' data to a single combined JSON file.
+
+    Args:
+        results: List of sensor results from download_multiple_sensors()
+        filename: Output filename (without extension)
+        metadata: Metadata about the request
+    """
+    output = {
+        'metadata': metadata,
+        'sensors': results
+    }
+
+    json_filename = f"{filename}.json"
+
+    try:
+        with open(json_filename, 'w', encoding='utf-8') as f:
+            json.dump(output, f, indent=2)
+        print(f"💾 Combined JSON saved to: {json_filename}")
+    except Exception as e:
+        print(f"❌ Error saving combined JSON file: {e}")
+        sys.exit(1)
+
+
+def print_combined_summary(results: List[Dict], metadata: Dict) -> None:
+    """
+    Print summary for multiple sensors' data.
+
+    Args:
+        results: List of sensor results from download_multiple_sensors()
+        metadata: Request metadata
+    """
+    print("\n" + "="*60)
+    print("📈 MULTI-SENSOR DATA SUMMARY")
+    print("="*60)
+
+    print(f"Device Serial:  {metadata['serial']}")
+    print(f"Time Range:     {metadata['start_time']}")
+    print(f"                {metadata['end_time']}")
+    print(f"Sensors:        {len(results)}")
+    print("-"*60)
+
+    total_points = 0
+    for r in results:
+        stats = r['statistics']
+        total_points += stats['count']
+        print(f"  • {r['sensor_name']} (ID: {r['sensor_id']}): {stats['count']} points")
+        if stats['min'] is not None:
+            print(f"    Min: {stats['min']}, Max: {stats['max']}, Avg: {stats['average']:.2f}")
+
+    print("-"*60)
+    print(f"Total Data Points: {total_points}")
+    print("="*60 + "\n")
+
+
+def generate_cli_command(serial: str, sensor_ids: List[int], start_ms: int,
+                         end_ms: int, username: str, output_format: str = 'json',
+                         filename: Optional[str] = None, use_dev: bool = False,
+                         verbose: bool = False) -> str:
+    """
+    Generate CLI command to reproduce the current request.
+
+    Args:
+        serial: Device serial number
+        sensor_ids: List of sensor IDs
+        start_ms: Start timestamp in milliseconds
+        end_ms: End timestamp in milliseconds
+        username: User email
+        output_format: Output format (json/csv/both)
+        filename: Custom filename if provided
+        use_dev: Whether dev API was used
+        verbose: Whether verbose mode was used
+
+    Returns:
+        CLI command string
+    """
+    cmd_parts = ['python3 get_sensor_data.py']
+    cmd_parts.append(f'-u {username}')
+    cmd_parts.append(f'-s {serial}')
+
+    # Add all sensor IDs
+    for sensor_id in sensor_ids:
+        cmd_parts.append(f'-id {sensor_id}')
+
+    cmd_parts.append(f'-ts {start_ms}')
+    cmd_parts.append(f'-te {end_ms}')
+
+    if output_format != 'json':
+        cmd_parts.append(f'-o {output_format}')
+
+    if filename:
+        cmd_parts.append(f'-f {filename}')
+
+    if use_dev:
+        cmd_parts.append('-dev')
+
+    if verbose:
+        cmd_parts.append('-v')
+
+    return ' '.join(cmd_parts)
+
+
+def print_reproducible_command(serial: str, sensor_ids: List[int], start_ms: int,
+                               end_ms: int, username: str, output_format: str = 'json',
+                               filename: Optional[str] = None, use_dev: bool = False,
+                               verbose: bool = False) -> None:
+    """
+    Print the CLI command to reproduce this request.
+
+    Args:
+        serial: Device serial number
+        sensor_ids: List of sensor IDs
+        start_ms: Start timestamp in milliseconds
+        end_ms: End timestamp in milliseconds
+        username: User email
+        output_format: Output format (json/csv/both)
+        filename: Custom filename if provided
+        use_dev: Whether dev API was used
+        verbose: Whether verbose mode was used
+    """
+    cmd = generate_cli_command(serial, sensor_ids, start_ms, end_ms,
+                               username, output_format, filename, use_dev, verbose)
+    print(f"\n📋 To reproduce this request:")
+    print(f"   {cmd}")
+
+
 def save_as_json(data: List[Dict], filename: str, metadata: Dict,
                  statistics: Dict) -> None:
     """
@@ -1695,8 +1977,8 @@ Examples:
                        help='Start time (epoch milliseconds) - required for data download')
     parser.add_argument('-te', '--end',
                        help='End time (epoch milliseconds) - required for data download')
-    parser.add_argument('-id', '--sensor-id', type=int,
-                       help='Sensor ID to download (optional - interactive selection if omitted)')
+    parser.add_argument('-id', '--sensor-id', type=int, action='append',
+                       help='Sensor ID to download. Can specify multiple: -id 509 -id 514 -id 522')
 
     # Discovery mode flags
     parser.add_argument('--list-devices', action='store_true',
@@ -1778,76 +2060,135 @@ Examples:
             print("\n✨ Done!")
             return
 
-        # Interactive sensor selection
-        selected_sensor_id = display_sensor_menu(sensors)
+        # Check if this is direct entry (skip menu for direct entry)
+        is_direct_entry = sensors and sensors[0].get('sensor_type') == 'direct'
 
-        # Find the selected sensor details
-        selected_sensor = None
-        for sensor in sensors:
-            if sensor['id'] == selected_sensor_id:
-                selected_sensor = sensor
-                break
+        if is_direct_entry:
+            # Direct entry - use all specified sensors
+            selected_sensors = sensors
+        else:
+            # Normal flow - show menu for single selection
+            selected_sensor_id = display_sensor_menu(sensors)
+            selected_sensors = [s for s in sensors if s['id'] == selected_sensor_id]
     else:
-        # Sensor ID provided directly
-        selected_sensor_id = args.sensor_id
-        selected_sensor = {
-            'id': selected_sensor_id,
-            'name': SENSOR_DEFINITIONS.get(selected_sensor_id, {}).get('name', f'Sensor {selected_sensor_id}'),
-            'units': SENSOR_DEFINITIONS.get(selected_sensor_id, {}).get('units', 'unknown')
-        }
+        # Sensor ID(s) provided via command line (args.sensor_id is a list due to action='append')
+        sensor_ids = args.sensor_id
+        selected_sensors = []
+        for sensor_id in sensor_ids:
+            selected_sensors.append({
+                'id': sensor_id,
+                'name': SENSOR_DEFINITIONS.get(sensor_id, {}).get('name', f'Sensor {sensor_id}'),
+                'units': SENSOR_DEFINITIONS.get(sensor_id, {}).get('units', 'unknown')
+            })
 
     # Get timestamps (interactive prompting if not provided)
     start_ms, end_ms = get_timestamps_interactive(args.start, args.end)
 
-    # Get sensor information
-    sensor_name = selected_sensor.get('name', f'Sensor {selected_sensor_id}')
-    sensor_units = selected_sensor.get('units', 'unknown')
+    # Handle multi-sensor vs single-sensor download
+    if len(selected_sensors) > 1:
+        # Multi-sensor download
+        print(f"\n🚀 Starting multi-sensor data download")
+        print(f"   Serial: {selected_serial}")
+        print(f"   Sensors: {len(selected_sensors)}")
+        print(f"   Period: {format_timestamp(start_ms)} to {format_timestamp(end_ms)}")
+        print(f"   Epoch:  {start_ms} to {end_ms}\n")
 
-    print(f"\n🚀 Starting sensor data download")
-    print(f"   Serial: {selected_serial}")
-    print(f"   Sensor: {sensor_name} (ID: {selected_sensor_id})")
-    print(f"   Period: {format_timestamp(start_ms)} to {format_timestamp(end_ms)}")
-    print(f"   Epoch:  {start_ms} to {end_ms}\n")
+        # Download data for all sensors
+        results = download_multiple_sensors(selected_serial, selected_sensors,
+                                           start_ms, end_ms, token,
+                                           args.verbose, args.dev)
 
-    # Fetch sensor data
-    api_response = fetch_sensor_history(selected_serial, selected_sensor_id,
-                                       start_ms, end_ms, token, args.verbose, args.dev)
+        # Calculate total data points
+        total_points = sum(r['statistics']['count'] for r in results)
 
-    # Parse the data
-    sensor_data = parse_sensor_data(api_response, selected_sensor_id)
+        # Prepare metadata for combined output
+        metadata = {
+            'serial': selected_serial,
+            'sensor_count': len(results),
+            'sensor_ids': [s['id'] for s in selected_sensors],
+            'start_time': format_timestamp(start_ms),
+            'end_time': format_timestamp(end_ms),
+            'download_time': datetime.now().isoformat() + 'Z',
+            'total_data_points': total_points
+        }
 
-    if not sensor_data:
-        print("⚠️  No data points found in the specified time range")
-        # Still create empty output files if requested
+        # Print combined summary
+        print_combined_summary(results, metadata)
 
-    # Calculate statistics
-    stats = calculate_statistics(sensor_data)
+        # Print reproducible command
+        print_reproducible_command(selected_serial, [s['id'] for s in selected_sensors],
+                                   start_ms, end_ms, args.username, args.output,
+                                   args.filename, args.dev, args.verbose)
 
-    # Prepare metadata
-    metadata = {
-        'serial': selected_serial,
-        'sensor_id': selected_sensor_id,
-        'sensor_name': sensor_name,
-        'sensor_units': sensor_units,
-        'start_time': format_timestamp(start_ms),
-        'end_time': format_timestamp(end_ms),
-        'download_time': datetime.now().isoformat() + 'Z',
-        'data_points': stats['count']
-    }
+        # Generate filename for multi-sensor output
+        base_filename = generate_multi_sensor_filename(selected_serial,
+                                                       [s['id'] for s in selected_sensors],
+                                                       start_ms, args.filename)
 
-    # Print summary
-    print_summary(sensor_data, stats, metadata)
+        # Save combined output (JSON only for multi-sensor)
+        if args.output in ['json', 'both']:
+            save_combined_json(results, base_filename, metadata)
 
-    # Generate filename
-    base_filename = generate_filename(selected_serial, selected_sensor_id,
-                                     start_ms, args.filename)
+        if args.output in ['csv', 'both']:
+            print("⚠️  CSV output not supported for multi-sensor download, use JSON")
 
-    # Save output files
-    if args.output in ['json', 'both']:
-        save_as_json(sensor_data, base_filename, metadata, stats)
+    else:
+        # Single sensor download (original flow)
+        selected_sensor = selected_sensors[0]
+        selected_sensor_id = selected_sensor['id']
+        sensor_name = selected_sensor.get('name', f'Sensor {selected_sensor_id}')
+        sensor_units = selected_sensor.get('units', 'unknown')
 
-    if args.output in ['csv', 'both']:
-        save_as_csv(sensor_data, base_filename, metadata, stats)
+        print(f"\n🚀 Starting sensor data download")
+        print(f"   Serial: {selected_serial}")
+        print(f"   Sensor: {sensor_name} (ID: {selected_sensor_id})")
+        print(f"   Period: {format_timestamp(start_ms)} to {format_timestamp(end_ms)}")
+        print(f"   Epoch:  {start_ms} to {end_ms}\n")
+
+        # Fetch sensor data
+        api_response = fetch_sensor_history(selected_serial, selected_sensor_id,
+                                           start_ms, end_ms, token, args.verbose, args.dev)
+
+        # Parse the data
+        sensor_data = parse_sensor_data(api_response, selected_sensor_id)
+
+        if not sensor_data:
+            print("⚠️  No data points found in the specified time range")
+            # Still create empty output files if requested
+
+        # Calculate statistics
+        stats = calculate_statistics(sensor_data)
+
+        # Prepare metadata
+        metadata = {
+            'serial': selected_serial,
+            'sensor_id': selected_sensor_id,
+            'sensor_name': sensor_name,
+            'sensor_units': sensor_units,
+            'start_time': format_timestamp(start_ms),
+            'end_time': format_timestamp(end_ms),
+            'download_time': datetime.now().isoformat() + 'Z',
+            'data_points': stats['count']
+        }
+
+        # Print summary
+        print_summary(sensor_data, stats, metadata)
+
+        # Print reproducible command
+        print_reproducible_command(selected_serial, [selected_sensor_id],
+                                   start_ms, end_ms, args.username, args.output,
+                                   args.filename, args.dev, args.verbose)
+
+        # Generate filename
+        base_filename = generate_filename(selected_serial, selected_sensor_id,
+                                         start_ms, args.filename)
+
+        # Save output files
+        if args.output in ['json', 'both']:
+            save_as_json(sensor_data, base_filename, metadata, stats)
+
+        if args.output in ['csv', 'both']:
+            save_as_csv(sensor_data, base_filename, metadata, stats)
 
     print("\n✨ Done!")
 

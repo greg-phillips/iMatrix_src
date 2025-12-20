@@ -1,0 +1,11 @@
+# During development of the python script to decode debug CoAP output data we discovered that the timestamp is not correct.
+
+complexity_level: "simple"
+
+title: "During development of the python script to decode debug CoAP output data we discovered that the timestamp is not correct."
+
+task: |
+  Review the report docs/EVENT_SENSOR_Timestamp_Bug_Report.md and create a plan to fix the issue.
+  Specifically review all event generation code and the code that writes the event to the CoAP packet.
+  Look at the iMatrix/cs_ctrl/mms_write.c abd the routine imx_write_gps_location
+  Generate a report of the issue and the proposed fix.

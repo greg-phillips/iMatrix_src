@@ -1,0 +1,26 @@
+{
+  "id": 1525435728,
+  "name": "product_splbtknuxi",
+  "platformId": 3103071700,
+  "platformType": "wifi",
+  "organizationId": 250007060,
+  "shortName": "product_taitorfm",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": null,
+  "externalFlashSize": null,
+  "defaultFavorite1": null,
+  "defaultFavorite2": null,
+  "defaultFavorite3": null,
+  "noControls": null,
+  "noSensors": null,
+  "imageUrl": null,
+  "iconUrl": null,
+  "controlSensorIds": [
+    2364494436
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

@@ -1,0 +1,23 @@
+# During Testing of the Networking system I noticed that the WiFi is disabled after a period of time.
+
+complexity_level: "simple"
+
+title: "During Testing of the Networking system I noticed that the WiFi is disabled after a period of time."
+
+task: |
+  Review the code in the iMatrix/IMX_Platform/LINUX_Platform/networking/process_network.c file and create a plan to fix the issue.
+  The logic should never permanently disable the WiFi.
+  The status screen shows the WiFi as Cooldown as expired.
+  The logic should reenable the WiFi after expirataion.
+  Review the code in the iMatrix/IMX_Platform/LINUX_Platform/networking/process_network.c file and describe the logic fault.
+
++======================================================================================================+
+|                                        NETWORK MANAGER STATE                                         |
++=====================================================================================================+
+| Status: ONLINE  | State: NET_ONLINE            | Interface: NONE  | Duration: 14:17:35 | DTLS: INIT |
++=====================================================================================================+
+| INTERFACE | ACTIVE  | TESTING | LINK_UP | SCORE | LATENCY | COOLDOWN  | IP_ADDR | TEST_TIME         |
++-----------+---------+---------+---------+-------+---------+-----------+---------+-------------------+
+| eth0      | NO      | NO      | NO      |     0 |       0 | NONE      | VALID   | NONE              |
+| wlan0     | DISABLED | NO      | NO      |     0 |       0 | EXPIRED   | NONE    | 16486 ms ago     |
+| ppp0      | NO      | NO      | NO      |     0 |       0 | NONE      | NONE    | NONE              |

@@ -1,0 +1,26 @@
+{
+  "id": 513867807,
+  "name": "product_natoiupwvv",
+  "platformId": 3033107349,
+  "platformType": "ble",
+  "organizationId": 250007060,
+  "shortName": "product_faxxhdbo",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": null,
+  "externalFlashSize": null,
+  "defaultFavorite1": null,
+  "defaultFavorite2": null,
+  "defaultFavorite3": null,
+  "noControls": null,
+  "noSensors": null,
+  "imageUrl": null,
+  "iconUrl": null,
+  "controlSensorIds": [
+    700185331
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

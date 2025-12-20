@@ -11,12 +11,13 @@ The tool is part of the larger iMatrix ecosystem and serves as the primary inter
 ## Core Architecture
 
 ### Multi-Mode Design Pattern
-The application follows a **progressive disclosure** pattern with four distinct operational modes:
+The application follows a **progressive disclosure** pattern with five distinct operational modes:
 
 1. **Complete Interactive Mode** (Default): Full device → sensor → date workflow
 2. **Partial Interactive Mode**: Skip known steps (device-specific or sensor-specific entry)
 3. **Information-Only Mode**: Device and sensor discovery without downloading
 4. **Direct Mode**: No interaction required (all parameters provided)
+5. **Multi-Sensor Mode**: Download multiple sensors at once with combined JSON output
 
 ### Key Components
 
@@ -39,15 +40,27 @@ The application follows a **progressive disclosure** pattern with four distinct 
 
 #### Date/Time Processing (`get_sensor_data.py:676-947`)
 - `parse_flexible_datetime()` - Multi-format date parsing (epoch, human-readable)
-- `prompt_for_date_range()` - Interactive date entry with format guidance
+- `prompt_for_date_range()` - Interactive date entry with format guidance, supports blank input for last 24 hours
 - `get_timestamps_interactive()` - Unified timestamp handling workflow
 - Supports: epoch milliseconds, `mm/dd/yy`, `mm/dd/yy hh:mm` formats
+- **Blank input = last 24 hours**: Press Enter to use current time minus 24 hours
 
 #### Data Management (`get_sensor_data.py:948-1244`)
 - `fetch_sensor_history()` - Downloads data via `/things/{serial}/sensor/{id}/history/{start}/{end}`
 - `parse_sensor_data()` - Converts API response to structured format
 - `calculate_statistics()` - Min/max/average/duration statistics
 - `save_as_json()` / `save_as_csv()` - Multiple output format support
+
+#### Multi-Sensor Support
+- `prompt_sensor_type_selection()` - Returns `Tuple[str, Optional[List[int]]]` for sensor type and direct IDs
+- `download_multiple_sensors()` - Iterates through sensor list and downloads all data
+- `save_combined_json()` - Saves multi-sensor data to single combined JSON file
+- `print_combined_summary()` - Displays statistics summary for all downloaded sensors
+- `generate_multi_sensor_filename()` - Creates filename with all sensor IDs: `{serial}_{id1}_{id2}_{id3}_{date}.json`
+
+#### Reproducible Command Output
+- `generate_cli_command()` - Builds full CLI command string with all parameters
+- `print_reproducible_command()` - Displays command that can reproduce the download
 
 ## Development Commands
 
@@ -77,6 +90,19 @@ python3 get_sensor_data.py -s <serial> -ts "01/15/25" -te "01/16/25" -id <sensor
 
 # With epoch timestamps
 python3 get_sensor_data.py -s <serial> -ts <start_ms> -te <end_ms> -id <sensor_id> -u <email>
+
+# Press Enter for last 24 hours (interactive date prompt)
+python3 get_sensor_data.py -s <serial> -id <sensor_id> -u <email>
+# Then press Enter at date prompt for quick last-24-hours download
+```
+
+#### Multi-Sensor Download
+```bash
+# Download multiple sensors with separate -id flags
+python3 get_sensor_data.py -s <serial> -id 509 -id 514 -id 522 -ts "01/15/25" -te "01/16/25" -u <email>
+
+# Interactive multi-sensor: choose [D] Direct entry, then enter comma-separated IDs
+# Example: 509, 514, 522
 ```
 
 ### Testing and Debugging
@@ -173,6 +199,7 @@ except requests.exceptions.RequestException as e:
 - **Mode flags**: `--list-devices`, `--list-sensors`, `--product-info`
 - **Environment flags**: `-dev` for API environment switching
 - **Output control**: `-o` for format, `-f` for filename, `-v` for verbose
+- **Multi-sensor**: `-id` uses `action='append'` to collect multiple sensor IDs
 
 ## Common Development Workflows
 
@@ -207,6 +234,10 @@ except requests.exceptions.RequestException as e:
 3. **Error conditions**: Invalid devices, missing sensors, network failures
 4. **Date formats**: All supported input formats and edge cases
 5. **Environment switching**: Dev vs production API endpoints
+6. **Multi-sensor download**: Test combined JSON output with multiple `-id` flags
+7. **Direct sensor entry**: Test [D] option with comma-separated IDs (e.g., `509, 514, 522`)
+8. **Last 24 hours default**: Test blank Enter at date prompt
+9. **Reproducible command**: Verify CLI command output matches actual parameters
 
 ### Debugging Tools
 - **Verbose mode** (`-v`): Shows API URLs and detailed responses

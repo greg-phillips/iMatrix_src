@@ -1,0 +1,69 @@
+# Update the net command output format
+
+complexity_level: "simple"
+
+title: "Update the net command output format"
+
+task: 
+  The current net command output format is as follows:
+  +=====================================================================================================+
+|                                        NETWORK MANAGER STATE                                        |
++=====================================================================================================+
+| Status: ONLINE  | State: NET_SELECT_INTERFACE  | Interface: NONE  | Duration: 01:23    | DTLS: INIT |
++=====================================================================================================+
+| INTERFACE | ACTIVE  | TESTING | LINK_UP | SCORE | LATENCY | COOLDOWN  | IP_ADDR | TEST_TIME         |
++-----------+---------+---------+---------+-------+---------+-----------+---------+-------------------+
+| eth0      | NO      | NO      | NO      |     0 |       0 | NONE      | VALID   | NONE              |
+| wlan0     | REASSOC | NO      | NO      |     0 |       0 | NONE      | NONE    | 72489 ms ago      |
+| ppp0      | NO      | NO      | NO      |     0 |       0 | NONE      | NONE    | NONE              |
++=====================================================================================================+
+|                                        INTERFACE LINK STATUS                                        |
++=====================================================================================================+
+| eth0      | INACTIVE - Link up (100Mb/s)                                                            |
+| wlan0     | REASSOC - Associated (SierraTelecom)                                                    |
+| ppp0      | INACTIVE - Daemon not running                                                           |
++=====================================================================================================+
+|                                            CONFIGURATION                                            |
++=====================================================================================================+
+| ETH0 Cooldown: 010.000 s | WIFI Cooldown: 010.000 s | Max State: 010.000 s | Online Check: 010.000 s|
+| Min Score: 3            | Good Score: 7            | Max WLAN Retries: 3   | PPP Retries: 0         |
+| WiFi Reassoc: Enabled  | Method: wpa_cli         | Scan Wait: 2000   ms                             |
++=====================================================================================================+
+|                                            SYSTEM STATUS                                            |
++=====================================================================================================+
+| ETH0 DHCP: STOPPED  | ETH0 Enabled: NO     | WLAN Retries: 0   | First Run: NO                      |
+| WiFi Enabled: YES    | Cellular: NOT_READY | Test Attempted: NO     | Last Link Up: YES             |
++=====================================================================================================+
+|                                              DNS CACHE                                              |
++=====================================================================================================+
+| Status: PRIMED      | IP: 34.94.71.128      | Age: 83840       ms | Valid: YES                         |
++=====================================================================================================+
+|                                       BEST INTERFACE ANALYSIS                                       |
++=====================================================================================================+
+| Interface: NONE     | Score: N/A | Latency: N/A                                                      |
++=====================================================================================================+
+|                                            RESULT STATUS                                            |
++=====================================================================================================+
+| Last Result: ONLINE                                                                                 |
++=====================================================================================================+
+| Network traffic: ETH0: TX: 1.66 MB     | WLAN0 TX: 306.74 KB   | PPP0 TX: 4.00 GB                   |
+|                        RX: 4.67 MB     |       RX: 12.17 MB    |      RX: 4.00 GB                   |
+| Network rates  : ETH0: TX: 0 Bytes/s     | WLAN0 TX: 0 Bytes/s     | PPP0 TX: 0 Bytes/s             |
+|                        RX: 0 Bytes/s     |       RX: 0 Bytes/s     |      RX: 0 Bytes/s             |
++=====================================================================================================+
+|                                       DHCP SERVER STATUS                                            |
++=====================================================================================================+
+| Interface: eth0     | Status: RUNNING  | IP: 192.168.7.1     | Range: 0        -9         |
+| Active Clients: 1   | Expired: 0        | Lease Time: 24h     | Config: VALID                   |
++-----------------------------------------------------------------------------------------------------+
+| CLIENT IP       | MAC ADDRESS       | HOSTNAME            | LEASE EXPIRES          | STATUS      |
++-----------------+-------------------+---------------------+------------------------+-------------+
+| 60.24.160.85    | 00:00:00:00:69:3f | eg-P1-Laptop        | 2030-10-03 12:43:01    | ACTIVE      |
++=====================================================================================================+
+
+  Issues to update
+  1. In the output of the interface information the column IP Address should display the IP address of the interface if valid.
+  2. If the interface is not valid, the column IP Address should display the string "NONE".
+  3. The output is not formatted correctly. All vertical bars must be aligned on the right.
+  4. The Network Traffic tables should align consistently.
+  4. Use fixed width columns for the output to ensure the output is formatted correctly.

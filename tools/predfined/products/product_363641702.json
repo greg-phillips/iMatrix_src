@@ -1,0 +1,29 @@
+{
+  "id": 363641702,
+  "name": "Mobile App Virtual Gateway",
+  "platformId": 3934170909,
+  "platformType": "wifi",
+  "organizationId": 250007060,
+  "shortName": "Virtual GW",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 0,
+  "externalFlashSize": 0,
+  "defaultFavorite1": null,
+  "defaultFavorite2": null,
+  "defaultFavorite3": null,
+  "noControls": null,
+  "noSensors": 4,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files/e5fd964a-a88c-42ee-a74e-14e2eb826c90.svg",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/f200c492-11cf-4486-bb5d-886e156c31e6.svg",
+  "controlSensorIds": [
+    4192267388,
+    2530729876,
+    1562998841,
+    7867696
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

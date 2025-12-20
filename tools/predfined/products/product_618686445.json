@@ -1,0 +1,26 @@
+{
+  "id": 618686445,
+  "name": "product_npiskxagpx",
+  "platformId": 957292442,
+  "platformType": "ble",
+  "organizationId": 250007060,
+  "shortName": "product_uxdhdoxp",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": null,
+  "externalFlashSize": null,
+  "defaultFavorite1": null,
+  "defaultFavorite2": null,
+  "defaultFavorite3": null,
+  "noControls": null,
+  "noSensors": null,
+  "imageUrl": null,
+  "iconUrl": null,
+  "controlSensorIds": [
+    3046475439
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

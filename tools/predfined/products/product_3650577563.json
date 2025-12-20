@@ -1,0 +1,26 @@
+{
+  "id": 3650577563,
+  "name": "product_nuafhaaicy",
+  "platformId": 278269535,
+  "platformType": "ble",
+  "organizationId": 250007060,
+  "shortName": "product_xardpjra",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": null,
+  "externalFlashSize": null,
+  "defaultFavorite1": null,
+  "defaultFavorite2": null,
+  "defaultFavorite3": null,
+  "noControls": null,
+  "noSensors": null,
+  "imageUrl": null,
+  "iconUrl": null,
+  "controlSensorIds": [
+    2368423873
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

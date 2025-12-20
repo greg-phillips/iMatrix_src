@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "serial": "132991449",
+    "sensor_id": 2,
+    "sensor_name": "Latitude",
+    "sensor_units": "Degrees",
+    "start_time": "2025-12-04T00:00:00Z",
+    "end_time": "2025-12-06T23:59:59Z",
+    "download_time": "2025-12-05T15:49:53.703565Z",
+    "data_points": 0
+  },
+  "statistics": {
+    "min": null,
+    "max": null,
+    "average": null,
+    "count": 0,
+    "first_time": null,
+    "last_time": null,
+    "duration_hours": 0
+  },
+  "data": []
+}

@@ -1,7 +1,8 @@
 # Sensor Data Tool Enhancement Summary
 
-**Date:** January 17, 2025
-**Enhancement:** Device Discovery and Interactive Sensor Selection
+**Date:** January 17, 2025 (v1.0.0)
+**Updated:** December 8, 2025 (v2.0.0)
+**Enhancement:** Device Discovery, Interactive Sensor Selection, and Multi-Sensor Download
 
 ## Overview
 
@@ -162,12 +163,35 @@ Enter your choice: 1
 - **Testable**: Modular functions for each operation
 - **Documented**: Comprehensive documentation for all modes
 
+## Version 2.0.0 Features (December 8, 2025)
+
+### Multi-Sensor Download ✅ IMPLEMENTED
+- **Multiple `-id` flags**: Download multiple sensors in a single request
+  ```bash
+  python3 get_sensor_data.py -s 592978988 -id 509 -id 514 -id 522 -ts "01/15/25" -te "01/16/25" -u user@example.com
+  ```
+- **Direct Sensor Entry**: [D] option in sensor menu for comma-separated IDs: `509, 514, 522`
+- **Combined JSON Output**: Single file containing all sensor data with per-sensor statistics
+- **Enhanced Filename Format**: `{serial}_{id1}_{id2}_{id3}_{date}.json`
+
+### Last 24 Hours Default ✅ IMPLEMENTED
+- **Quick Access**: Press Enter at date prompt to use last 24 hours
+- **No Timestamp Calculation**: Instant access to recent data
+
+### Reproducible Command Output ✅ IMPLEMENTED
+- **Full CLI Command Display**: After every download, shows exact command to reproduce
+  ```
+  📋 To reproduce this request:
+     python3 get_sensor_data.py -u user@example.com -s 592978988 -id 509 -ts 1736899200000 -te 1736985599000 -o json
+  ```
+- **Automation Ready**: Easy to copy/paste for scripts and sharing
+
 ## Future Enhancements Possible
 
 ### Additional Discovery Features
 - **Sensor History**: Show when sensors last reported data
 - **Sensor Metadata**: Display additional sensor properties
-- **Bulk Selection**: Choose multiple sensors for batch download
+- ~~**Bulk Selection**: Choose multiple sensors for batch download~~ ✅ IMPLEMENTED (v2.0.0)
 - **Favorites**: Remember commonly used sensors per device
 
 ### Performance Optimizations
@@ -177,7 +201,7 @@ Enter your choice: 1
 
 ### Integration Features
 - **Configuration Files**: Save device/sensor combinations
-- **Scripting Support**: Batch processing multiple devices
+- ~~**Scripting Support**: Batch processing multiple devices~~ ✅ IMPLEMENTED (v2.0.0 - reproducible commands)
 - **Export Options**: Save sensor lists for reference
 
 ## Conclusion
@@ -188,5 +212,8 @@ This enhancement transforms the sensor data tool from a direct-access utility in
 2. **Explore** device capabilities without prior knowledge
 3. **Select** sensors interactively through user-friendly menus
 4. **Download** data with the same powerful features as before
+5. **Multi-sensor download** with combined JSON output (v2.0.0)
+6. **Quick access** to last 24 hours of data with blank Enter (v2.0.0)
+7. **Reproduce** any download with the displayed CLI command (v2.0.0)
 
-The enhancement maintains 100% backward compatibility while dramatically improving user experience for device discovery and sensor selection workflows.
+The enhancement maintains 100% backward compatibility while dramatically improving user experience for device discovery, sensor selection, and multi-sensor download workflows.

@@ -5,12 +5,13 @@
 This document provides comprehensive technical details on how the iMatrix Network Manager (`process_network.c`) handles dynamic interface failover, priority-based interface selection, blacklisting, cooldown periods, and cellular connectivity management.
 
 **Primary Source Files:**
-- `IMX_Platform/LINUX_Platform/networking/process_network.c` (7015 lines)
-- `IMX_Platform/LINUX_Platform/networking/cellular_man.c`
+- `IMX_Platform/LINUX_Platform/networking/process_network.c` (7663 lines)
+- `IMX_Platform/LINUX_Platform/networking/cellular_man.c` (5952 lines)
 - `IMX_Platform/LINUX_Platform/networking/cellular_blacklist.c`
 - `IMX_Platform/LINUX_Platform/networking/wpa_blacklist.c`
 - `IMX_Platform/LINUX_Platform/networking/dhcp_server_config.c`
 - `IMX_Platform/LINUX_Platform/networking/network_timing_config.c`
+- `IMX_Platform/LINUX_Platform/networking/network_timing_config.h`
 
 ---
 
@@ -117,7 +118,7 @@ Priority Order: eth0 → wlan0 → ppp0
 ### 3.2 Scoring Mechanism
 
 **Ping Test Configuration:**
-- Ping count: **3 packets** (configurable)
+- Ping count: **4 packets** (configurable, default in `network_timing_config.c`)
 - Ping timeout: **1 second** per packet (configurable)
 - Packet size: **56 bytes** (fixed)
 - Target: `coap.imatrixsys.com` (DNS cached for 5 minutes)
@@ -848,9 +849,9 @@ bool flush_interface_addresses(const char *ifname) {
 
 | Parameter | Default | Configurable Via |
 |-----------|---------|------------------|
-| **Ping Count** | 3 packets | `NETMGR_PING_COUNT` |
+| **Ping Count** | 4 packets | `NETMGR_PING_COUNT` |
 | **Ping Timeout** | 1 second | `NETMGR_PING_TIMEOUT_MS` |
-| **Ping Interval** | 30 seconds | `NETMGR_PING_INTERVAL_MS` |
+| **Ping Interval** | 5 seconds | `NETMGR_PING_INTERVAL_MS` |
 | **DNS Cache** | 5 minutes | `NETMGR_DNS_CACHE_TIMEOUT_MS` |
 
 ### 9.4 WiFi Timing
@@ -1189,7 +1190,162 @@ network_interfaces_t *eth0 = &device_config.network_interfaces[IMX_ETH0_INTERFAC
 
 ---
 
-## 14. Conclusion
+## 14. Identified Design Flaws and Recommendations
+
+This section documents design issues identified during code review on 2025-12-06.
+
+### 14.1 Critical: Race Conditions in Shared State Variables
+
+**Location:** `cellular_man.c` lines 629-661, accessed by `process_network.c`
+
+**Issue:** Shared state variables between cellular and network managers lack mutex protection:
+- `cellular_scanning` (bool) - read by network manager to block PPP operations
+- `cellular_now_ready` (bool) - read by network manager to determine PPP availability
+- `cellular_request_rescan` (bool) - written by network manager, read by cellular manager
+
+**Risk:** Race conditions where network manager reads stale or partially-updated state, leading to:
+- PPP activation during active scan (modem conflict)
+- Scan initiated while PPP is being established
+- Missed scan requests due to flag race
+
+**Recommendation:** Add mutex protection around all shared state access, or use atomic operations.
+
+### 14.2 Critical: Blacklist Oldest Entry Detection Bug
+
+**Location:** `cellular_blacklist.c` lines 153-165
+
+**Issue:** The `oldest_time` variable is initialized to 0:
+```c
+imx_time_t oldest_time = 0;
+for (uint32_t j = 0; j < blacklist_count; j++) {
+    if (blacklist[j].blacklist_start_time < oldest_time) {  // Always false!
+```
+
+Since valid timestamps are always > 0, the comparison `blacklist_start_time < oldest_time` is never true. The oldest entry is never found.
+
+**Impact:** When blacklist is full, the "replace oldest non-blacklisted entry" logic fails silently.
+
+**Recommendation:** Initialize `oldest_time = UINT32_MAX` or use a found flag pattern.
+
+### 14.3 High: Time Wraparound Vulnerability
+
+**Location:** Throughout `process_network.c`
+
+**Issue:** Direct comparisons of `imx_time_t` (uint32_t) values will fail after ~49 days:
+```c
+// Line 5405 - Direct comparison vulnerable to wraparound
+if (ctx->states[IFACE_ETH].cooldown_until < current_check_time)
+```
+
+While `imx_time_difference()` and `imx_is_later()` may handle wraparound correctly, direct `<` comparisons scattered throughout the code do not.
+
+**Affected Lines:** 5405, 5408, and similar direct time comparisons.
+
+**Recommendation:** Audit all time comparisons and replace with `imx_is_later()` calls.
+
+### 14.4 High: Blocking System Calls in State Machine
+
+**Location:** `process_network.c` lines 4378-4380
+
+**Issue:** Blocking calls halt the main processing loop:
+```c
+system("wpa_cli -i wlan0 disconnect >/dev/null 2>&1");
+usleep(200000);  // 200ms blocking delay!
+system("wpa_cli -i wlan0 reconnect >/dev/null 2>&1");
+```
+
+Also in `cellular_man.c` line 1070:
+```c
+system("sv up pppd 2>/dev/null");
+```
+
+**Impact:**
+- Main loop stalls during WiFi reassociation
+- Other interfaces not monitored during blocking calls
+- Potential watchdog timeout on embedded systems
+
+**Recommendation:** Convert to non-blocking state machine pattern or use fork/exec with async monitoring.
+
+### 14.5 Medium: Fragile Scan Protection Gate
+
+**Location:** `cellular_man.c` lines 907-933
+
+**Issue:** Health protection resets completely on single failure:
+```c
+if (check_passed && score >= SCAN_PROTECTION_MIN_HEALTH_SCORE) {
+    ppp_consecutive_health_passes++;  // Accumulates up to 100
+} else {
+    ppp_consecutive_health_passes = 0;  // Complete reset on one failure!
+}
+```
+
+A single transient failure (e.g., DNS hiccup) resets protection even after 100 consecutive successes.
+
+**Impact:** Valid connections can be scanned and killed due to momentary issues.
+
+**Recommendation:** Use sliding window or require N failures in M checks before resetting protection.
+
+### 14.6 Medium: Duplicate State Tracking
+
+**Location:** `cellular_man.c` and `process_network.c`
+
+**Issue:** Both modules independently track PPP/cellular status:
+- `cellular_now_ready` (cellular_man.c)
+- `cellular_started`, `cellular_stopped`, `cellular_reset_stop` (process_network.c context)
+
+**Risk:** State divergence when updates aren't synchronized, leading to contradictory decisions.
+
+**Recommendation:** Single source of truth with accessor functions, or formal state synchronization protocol.
+
+### 14.7 Medium: Inconsistent Blacklist Functions
+
+**Location:** `cellular_blacklist.c`
+
+**Issue:** Two functions handle blacklisting differently:
+- `blacklist_current_carrier()` - uses exponential backoff
+- `blacklist_carrier_by_id()` - uses fixed default timeout
+
+**Impact:** Different carriers get different blacklist treatment depending on how they're blacklisted.
+
+**Recommendation:** Unify blacklisting logic into single function with consistent behavior.
+
+### 14.8 Low: Missing Return Value Checks
+
+**Location:** Throughout both files
+
+**Issue:** Several `system()` calls don't check return values:
+```c
+system("sv up pppd 2>/dev/null");  // No error check
+```
+
+**Impact:** Failed commands proceed silently, potentially leaving system in inconsistent state.
+
+**Recommendation:** Check return values and handle failures appropriately.
+
+### 14.9 Low: Potential Thread Safety in Ping Thread
+
+**Location:** `process_network.c` ping thread infrastructure
+
+**Issue:** The `iface_state_t` structure is accessed from both main thread and ping threads with `MUTEX_LOCK` but:
+- Thread cancellation during mutex hold could deadlock
+- Timeout-based thread joining may leave orphaned threads
+
+**Recommendation:** Use pthread cleanup handlers and ensure proper thread lifecycle management.
+
+### 14.10 Architectural: Tight Coupling Between Modules
+
+**Issue:** `process_network.c` and `cellular_man.c` have bidirectional dependencies:
+- Network manager calls `cellular_man()`, `imx_is_cellular_now_ready()`, etc.
+- Cellular manager receives health updates via `cellular_update_ppp_health()`
+- Both share global flags via extern declarations
+
+**Impact:** Changes in one module can break the other; difficult to test in isolation.
+
+**Recommendation:** Define clear interface boundary with formal API contract.
+
+---
+
+## 15. Conclusion
 
 The iMatrix Network Manager provides robust, priority-based interface failover with comprehensive error handling, blacklisting, and cooldown mechanisms. The architecture ensures:
 
@@ -1200,11 +1356,14 @@ The iMatrix Network Manager provides robust, priority-based interface failover w
 ✅ **Integration:** Seamless cellular management via `cellular_man.c`
 ✅ **Correctness:** DHCP server interfaces properly excluded
 
+⚠️ **Known Issues:** Section 14 documents design flaws that should be addressed in future revisions.
+
 This document serves as the definitive reference for understanding and maintaining the network management subsystem.
 
 ---
 
-**Document Version:** 1.0
-**Last Updated:** 2025-01-10
+**Document Version:** 1.2
+**Last Updated:** 2025-12-06
 **Author:** Claude Code Analysis
-**Source Code Version:** process_network.c (7015 lines)
+**Source Code Version:** process_network.c (7663 lines), cellular_man.c (5952 lines)
+**Review Status:** Design flaws documented - requires remediation

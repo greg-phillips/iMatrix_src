@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Шар_2" data-name="Шар 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #0085b4;
+      }
+    </style>
+  </defs>
+  <g id="Blue_Square" data-name="Blue Square">
+    <g id="Service_-_RF_Noise" data-name="Service - RF Noise">
+      <rect class="cls-2" x="50.7" y="114.44" width="6" height="20.93" rx="3" ry="3"/>
+      <rect class="cls-2" x="68.7" y="96.4" width="6" height="57" rx="3" ry="3"/>
+      <rect class="cls-2" x="122.2" y="43.02" width="6" height="163.76" rx="3" ry="3"/>
+      <rect class="cls-2" x="104.2" y="60.96" width="6" height="127.9" rx="3" ry="3"/>
+      <rect class="cls-2" x="86.7" y="78.42" width="6" height="92.96" rx="3" ry="3"/>
+      <rect class="cls-2" x="193.7" y="114.44" width="6" height="20.93" rx="3" ry="3"/>
+      <rect class="cls-2" x="175.7" y="96.4" width="6" height="57" rx="3" ry="3"/>
+      <rect class="cls-2" x="140.2" y="60.96" width="6" height="127.9" rx="3" ry="3"/>
+      <rect class="cls-2" x="157.7" y="78.42" width="6" height="92.96" rx="3" ry="3"/>
+      <rect id="Frame" class="cls-1" width="250" height="250"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+{
+  "id": 1429484832,
+  "name": "Aptera 1-CAN:1:IPS_DCDC_2",
+  "platformId": 1133889462,
+  "platformType": "wifi",
+  "organizationId": 250007060,
+  "shortName": "1:889",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 0,
+  "externalFlashSize": 0,
+  "defaultFavorite1": 0,
+  "defaultFavorite2": 0,
+  "defaultFavorite3": 0,
+  "noControls": 0,
+  "noSensors": 0,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files-prod/56fcd8e6-725d-4334-80b2-19ea3157e7da.png",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files-prod/56fcd8e6-725d-4334-80b2-19ea3157e7da.png",
+  "controlSensorIds": [
+    1850750157,
+    1793732656,
+    1412480043,
+    1249427893,
+    975837964,
+    398010942,
+    380835370,
+    173811130
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

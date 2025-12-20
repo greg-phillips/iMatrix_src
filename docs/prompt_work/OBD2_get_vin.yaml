@@ -1,0 +1,14 @@
+# Force a VIN request to the OBD2 bus
+
+complexity_level: "simple"
+
+title: "Force a VIN request to the OBD2 bus"
+
+task: 
+  As the first step in the PID query process, we need to force a VIN request to the OBD2 bus.
+  The OBD2 Code is located in the Fleet-Connect-1/can_process directory.
+  Review all code to understand the process of the PID Query process.
+  Modify the PID Query code to force a VIN request to the OBD2 bus at the very beginning of the PID Query process.
+  Detail the request in the plan.
+Ask any questions.
+  

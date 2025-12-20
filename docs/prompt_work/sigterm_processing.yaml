@@ -1,0 +1,11 @@
+# Review how the SIGTERM signal is processed in the code.
+
+title: "Review how the SIGTERM signal is processed in the code."
+
+task: |
+
+ The SIGTERM signal is used to terminate the program.
+ This function is not working as expected.
+ Review the code in the iMatrix system to determine current behavior.
+
+

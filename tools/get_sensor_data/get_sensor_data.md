@@ -365,3 +365,34 @@ Supported formats:
    Status code: 400
    Response: {"message":"Given parameter sn is invalid. Value (\"None\") cannot be parsed into number."}
 greg@Greg-P1-Laptop:~/iMatrix/iMatrix_Client/tools/get_sensor_data$
+
+---
+
+## Additional Features Implemented (2025-12-08)
+
+The following features have been added beyond the original requirements:
+
+### Multi-Sensor Download
+- Download multiple sensors in a single request using multiple `-id` flags:
+  ```bash
+  python3 get_sensor_data.py -s 592978988 -id 509 -id 514 -id 522 -ts "01/15/25" -te "01/16/25" -u user@example.com
+  ```
+- Interactive [D] Direct entry option for comma-separated sensor IDs: `509, 514, 522`
+- Combined JSON output containing all sensor data in single file
+- Filename format: `{serial}_{id1}_{id2}_{id3}_{date}.json`
+
+### Last 24 Hours Default
+- Press Enter at date prompt to use last 24 hours as default time range
+- No need to calculate timestamps for quick data access
+
+### Reproducible Command Output
+- After every download, displays the full CLI command to reproduce the request:
+  ```
+  📋 To reproduce this request:
+     python3 get_sensor_data.py -u user@example.com -s 592978988 -id 509 -ts 1736899200000 -te 1736985599000 -o json
+  ```
+
+### Enhanced Output
+- Multi-sensor combined JSON structure with metadata and sensors array
+- Per-sensor statistics in combined output
+- Summary display for all downloaded sensors

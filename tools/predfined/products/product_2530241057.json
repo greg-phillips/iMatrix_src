@@ -1,0 +1,26 @@
+{
+  "id": 2530241057,
+  "name": "product_abtyvmyggn",
+  "platformId": 404914351,
+  "platformType": "ble",
+  "organizationId": 250007060,
+  "shortName": "product_glvpadvn",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": null,
+  "externalFlashSize": null,
+  "defaultFavorite1": null,
+  "defaultFavorite2": null,
+  "defaultFavorite3": null,
+  "noControls": null,
+  "noSensors": null,
+  "imageUrl": null,
+  "iconUrl": null,
+  "controlSensorIds": [
+    1646037211
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

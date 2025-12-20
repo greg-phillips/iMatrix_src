@@ -1,0 +1,49 @@
+{
+  "id": 1688435688,
+  "name": "Topaz Air Personal",
+  "platformId": 1399213145,
+  "platformType": "ble",
+  "organizationId": 1583546208,
+  "shortName": "Topaz Air 1P",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": null,
+  "externalFlashSize": null,
+  "defaultFavorite1": 1724459075,
+  "defaultFavorite2": 4073468005,
+  "defaultFavorite3": 1665229300,
+  "noControls": 0,
+  "noSensors": 12,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files/65057ee2-b92b-49c5-95f7-c8549a32243a-NEO-05.jpg",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/dd498e67-f33c-459b-b4aa-5f2138c4a1fe-Air%20Quality.svg",
+  "controlSensorIds": [
+    4073468005,
+    3665467598,
+    2875379281,
+    2298490185,
+    2290991768,
+    1826537015,
+    1724459075,
+    1665229300,
+    1250356028,
+    1153997751,
+    763931103,
+    525554132
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": {
+    "id": 860437973,
+    "name": "voltageProfile_3.4",
+    "profile": {
+      "level1": 2.85,
+      "level2": 3,
+      "level3": 3.1,
+      "level4": 3.25,
+      "level5": 3.3,
+      "level6": 3.35,
+      "level7": 3.4
+    }
+  },
+  "externalType": null
+}

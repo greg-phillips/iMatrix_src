@@ -1,0 +1,27 @@
+# Debug TSD records fault
+
+title: "Bug: TSD record fault."
+
+task: |
+
+The following error is being reported:
+[00:05:00.864] IMX_UPLOAD: ERROR: Failed to read all TSD data for: Vehicle_Speed, result: 34:NO DATA, requested: 11, received: 0
+[00:05:10.873] IMX_UPLOAD: ERROR: Upload Source: GatewayFailed to read all event data for: Latitude, result: 34:NO DATA, requested: 9, received: 0
+[00:05:10.875] IMX_UPLOAD: ERROR: Upload Source: GatewayFailed to read all event data for: Longitude, result: 34:NO DATA, requested: 9, received: 0
+[00:05:10.877] IMX_UPLOAD: ERROR: Upload Source: GatewayFailed to read all event data for: Altitude, result: 34:NO DATA, requested: 9, received: 0
+[00:05:10.880] IMX_UPLOAD: ERROR: Upload Source: GatewayFailed to read all event data for: Speed, result: 34:NO DATA, requested: 9, received: 0
+[00:15:02.263] IMX_UPLOAD: ERROR: Failed to read all TSD data for: Vehicle_Speed, result: 34:NO DATA, requested: 20, received: 0
+[00:25:04.118] IMX_UPLOAD: ERROR: Failed to read all TSD data for: Vehicle_Speed, result: 34:NO DATA, requested: 24, received: 0
+[00:35:04.758] IMX_UPLOAD: ERROR: Failed to read all TSD data for: Vehicle_Speed, result: 34:NO DATA, requested: 27, received: 0
+[00:50:14.630] IMX_UPLOAD: ERROR: Failed to read all TSD data for: Vehicle_Speed, result: 34:NO DATA, requested: 11, received: 0
+[01:00:06.540] IMX_UPLOAD: ERROR: Failed to read all TSD data for: Vehicle_Speed, result: 34:NO DATA, requested: 21, received: 0
+[01:06:01.109] IMX_UPLOAD: ERROR: Failed to read all TSD data for: Cellular RX Data Bps, result: 34:NO DATA, requested: 5, received: 0
+[01:10:08.173] IMX_UPLOAD: ERROR: Failed to read all TSD data for: Vehicle_Speed, result: 34:NO DATA, requested: 19, received: 0
+[01:16:03.324] IMX_UPLOAD: ERROR: Failed to read all TSD data for: Cellular RX Data Bps, result: 34:NO DATA, requested: 5, received: 0
+[01:40:10.204] IMX_UPLOAD: ERROR: Failed to read all TSD data for: Vehicle_Speed, result: 34:NO DATA, requested: 4, received: 0
+[01:45:10.212] IMX_UPLOAD: ERROR: Failed to read all TSD data for: Vehicle_Speed, result: 34:NO DATA, requested: 4, received: 0
+[01:50:10.428] IMX_UPLOAD: ERROR: Failed to read all TSD data for: Vehicle_Speed, result: 34:NO DATA, requested: 8, received: 0
+
+A similar issue was detected and these are the details of the plan that was used to successfully fix the issue:
+docs/MM2_Bug_Analysis_Plan.md
+

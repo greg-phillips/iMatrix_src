@@ -1,0 +1,32 @@
+{
+  "id": 4019526502,
+  "name": "HM-TMG1-CAN:1:TMSBMS0",
+  "platformId": 1133889462,
+  "platformType": "wifi",
+  "organizationId": 250007060,
+  "shortName": "1:2566897978",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 0,
+  "externalFlashSize": 0,
+  "defaultFavorite1": 0,
+  "defaultFavorite2": 0,
+  "defaultFavorite3": 0,
+  "noControls": 0,
+  "noSensors": 0,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files-prod/26dcc80a-4aaa-465c-8eaa-6fc1cba0dd7e.png",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files-prod/26dcc80a-4aaa-465c-8eaa-6fc1cba0dd7e.png",
+  "controlSensorIds": [
+    1525144114,
+    1222226263,
+    1032632250,
+    931480116,
+    855015400,
+    548957594,
+    245577325
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

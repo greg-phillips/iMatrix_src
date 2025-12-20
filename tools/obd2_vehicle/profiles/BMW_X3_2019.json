@@ -1,0 +1,472 @@
+{
+  "profile_version": "1.0",
+  "profile_name": "BMW_X3_2019",
+  "created_date": "2025-12-13",
+  "source_trace": "BMW_OneStep.trc",
+
+  "vehicle_info": {
+    "vin": "5UXTS3C5XK0Z02656",
+    "make": "BMW",
+    "model": "X3",
+    "year": 2019,
+    "fuel_type": "gasoline",
+    "odometer_km": 133211
+  },
+
+  "can_config": {
+    "bitrate": 500000,
+    "id_format": "standard_11bit",
+    "functional_request_id": "0x7DF",
+    "physical_request_base_id": "0x7E0",
+    "response_base_id": "0x7E8"
+  },
+
+  "timing": {
+    "p2_response_ms": 8,
+    "p2_star_ms": 5000,
+    "inter_ecu_delay_ms": 8,
+    "cf_separation_ms": 5
+  },
+
+  "ecus": [
+    {
+      "name": "Engine_DME",
+      "index": 0,
+      "physical_request_id": "0x7E0",
+      "response_id": "0x7E8",
+      "padding_byte": "0x00",
+      "response_delay_ms": 8,
+      "supports_all_pids": true
+    },
+    {
+      "name": "Secondary_ECU",
+      "index": 1,
+      "physical_request_id": "0x7E1",
+      "response_id": "0x7E9",
+      "padding_byte": "0xAA",
+      "response_delay_ms": 16,
+      "supports_all_pids": false
+    },
+    {
+      "name": "Tertiary_ECU",
+      "index": 7,
+      "physical_request_id": "0x7E7",
+      "response_id": "0x7EF",
+      "padding_byte": "0xFF",
+      "response_delay_ms": 24,
+      "supports_all_pids": false
+    }
+  ],
+
+  "supported_services": ["0x01", "0x02", "0x03", "0x07", "0x09", "0x0A"],
+
+  "responses": {
+    "service_01": {
+      "0x00": {
+        "description": "Supported PIDs [01-20]",
+        "request": "02 01 00 00 00 00 00 00",
+        "0x7E8": "06 41 00 BE 3F A8 13 00",
+        "0x7E9": "06 41 00 98 18 80 01 AA",
+        "0x7EF": "06 41 00 98 18 80 01 FF"
+      },
+      "0x01": {
+        "description": "Monitor Status Since DTCs Cleared",
+        "request": "02 01 01 00 00 00 00 00",
+        "data_bytes": 4,
+        "interpretation": {
+          "mil_status": false,
+          "dtc_count": 0,
+          "monitors_ready": true
+        },
+        "0x7E8": "06 41 01 00 07 E5 00 00",
+        "0x7E9": "06 41 01 00 04 00 00 AA",
+        "0x7EF": "06 41 01 00 04 00 00 FF"
+      },
+      "0x05": {
+        "description": "Engine Coolant Temperature",
+        "request": "02 01 05 00 00 00 00 00",
+        "data_bytes": 1,
+        "formula": "A - 40",
+        "unit": "degC",
+        "raw_value": "0x5B",
+        "decoded_value": 51,
+        "dynamic": false,
+        "0x7E8": "03 41 05 5B 00 00 00 00",
+        "0x7E9": "03 41 05 5B AA AA AA AA",
+        "0x7EF": "03 41 05 5B FF FF FF FF"
+      },
+      "0x0C": {
+        "description": "Engine RPM",
+        "request": "02 01 0C 00 00 00 00 00",
+        "data_bytes": 2,
+        "formula": "((A * 256) + B) / 4",
+        "unit": "rpm",
+        "raw_value": "0x0A66",
+        "decoded_value": 665.5,
+        "dynamic": true,
+        "min_value": 0,
+        "max_value": 16383.75,
+        "0x7E8": "04 41 0C 0A 66 00 00 00",
+        "0x7E9": "04 41 0C 0A 6C AA AA AA",
+        "0x7EF": "04 41 0C 0A 6C FF FF FF"
+      },
+      "0x0D": {
+        "description": "Vehicle Speed",
+        "request": "02 01 0D 00 00 00 00 00",
+        "data_bytes": 1,
+        "formula": "A",
+        "unit": "km/h",
+        "raw_value": "0x00",
+        "decoded_value": 0,
+        "dynamic": true,
+        "min_value": 0,
+        "max_value": 255,
+        "0x7E8": "03 41 0D 00 00 00 00 00",
+        "0x7E9": "03 41 0D 00 AA AA AA AA",
+        "0x7EF": "03 41 0D 00 FF FF FF FF"
+      },
+      "0x11": {
+        "description": "Throttle Position",
+        "request": "02 01 11 00 00 00 00 00",
+        "data_bytes": 1,
+        "formula": "(A * 100) / 255",
+        "unit": "percent",
+        "raw_value": "0x25",
+        "decoded_value": 14.5,
+        "dynamic": true,
+        "min_value": 0,
+        "max_value": 100,
+        "0x7E8": "03 41 11 25 00 00 00 00",
+        "0x7E9": "03 41 11 24 AA AA AA AA",
+        "0x7EF": "03 41 11 24 FF FF FF FF"
+      },
+      "0x20": {
+        "description": "Supported PIDs [21-40]",
+        "request": "02 01 20 00 00 00 00 00",
+        "0x7E8": "06 41 20 A0 07 B0 11 00",
+        "0x7E9": "06 41 20 80 00 00 01 AA",
+        "0x7EF": "06 41 20 80 00 00 01 FF"
+      },
+      "0x2F": {
+        "description": "Fuel Tank Level Input",
+        "request": "02 01 2F 00 00 00 00 00",
+        "data_bytes": 1,
+        "formula": "(A * 100) / 255",
+        "unit": "percent",
+        "raw_value": "0x26",
+        "decoded_value": 14.9,
+        "dynamic": false,
+        "0x7E8": "03 41 2F 26 00 00 00 00"
+      },
+      "0x33": {
+        "description": "Absolute Barometric Pressure",
+        "request": "02 01 33 00 00 00 00 00",
+        "data_bytes": 1,
+        "formula": "A",
+        "unit": "kPa",
+        "raw_value": "0x50",
+        "decoded_value": 80,
+        "dynamic": false,
+        "0x7E8": "03 41 33 50 00 00 00 00"
+      },
+      "0x40": {
+        "description": "Supported PIDs [41-60]",
+        "request": "02 01 40 00 00 00 00 00",
+        "0x7E8": "06 41 40 FE D0 84 11 00",
+        "0x7E9": "06 41 40 C0 00 00 00 AA",
+        "0x7EF": "06 41 40 C0 00 00 00 FF"
+      },
+      "0x46": {
+        "description": "Ambient Air Temperature",
+        "request": "02 01 46 00 00 00 00 00",
+        "data_bytes": 1,
+        "formula": "A - 40",
+        "unit": "degC",
+        "raw_value": "0x2E",
+        "decoded_value": 6,
+        "dynamic": false,
+        "0x7E8": "03 41 46 2E 00 00 00 00"
+      },
+      "0x51": {
+        "description": "Fuel Type",
+        "request": "02 01 51 00 00 00 00 00",
+        "data_bytes": 1,
+        "raw_value": "0x01",
+        "decoded_value": "gasoline",
+        "fuel_type_map": {
+          "0x01": "gasoline",
+          "0x02": "methanol",
+          "0x03": "ethanol",
+          "0x04": "diesel",
+          "0x05": "lpg",
+          "0x06": "cng",
+          "0x07": "propane",
+          "0x08": "electric"
+        },
+        "0x7E8": "03 41 51 01 00 00 00 00"
+      },
+      "0x5C": {
+        "description": "Engine Oil Temperature",
+        "request": "02 01 5C 00 00 00 00 00",
+        "data_bytes": 1,
+        "formula": "A - 40",
+        "unit": "degC",
+        "raw_value": "0x58",
+        "decoded_value": 48,
+        "dynamic": false,
+        "0x7E8": "03 41 5C 58 00 00 00 00"
+      },
+      "0x60": {
+        "description": "Supported PIDs [61-80]",
+        "request": "02 01 60 00 00 00 00 00",
+        "0x7E8": "06 41 60 61 00 00 01 00"
+      },
+      "0x80": {
+        "description": "Supported PIDs [81-A0]",
+        "request": "02 01 80 00 00 00 00 00",
+        "0x7E8": "06 41 80 00 04 00 0D 00"
+      },
+      "0x9D": {
+        "description": "Engine Fuel Rate",
+        "request": "02 01 9D 00 00 00 00 00",
+        "data_bytes": 4,
+        "formula": "((A * 256) + B) / 20",
+        "unit": "L/h",
+        "raw_value": "0x000D000D",
+        "decoded_value": 0.65,
+        "dynamic": true,
+        "0x7E8": "06 41 9D 00 0D 00 0D 00"
+      },
+      "0xA0": {
+        "description": "Supported PIDs [A1-C0]",
+        "request": "02 01 A0 00 00 00 00 00",
+        "0x7E8": "06 41 A0 04 00 00 00 00"
+      },
+      "0xA6": {
+        "description": "Odometer",
+        "request": "02 01 A6 00 00 00 00 00",
+        "data_bytes": 4,
+        "formula": "((A << 24) + (B << 16) + (C << 8) + D) / 10",
+        "unit": "km",
+        "raw_value": "0x0014538E",
+        "decoded_value": 133211,
+        "dynamic": false,
+        "0x7E8": "06 41 A6 00 14 53 8E 00"
+      }
+    },
+
+    "service_02": {
+      "0x02": {
+        "description": "Freeze Frame DTC",
+        "request": "03 02 02 00 00 00 00 00",
+        "0x7E8": "05 42 02 00 00 00 00 00",
+        "0x7E9": "05 42 02 00 00 00 AA AA",
+        "0x7EF": "05 42 02 00 00 00 FF FF"
+      }
+    },
+
+    "service_03": {
+      "description": "Request Stored DTCs",
+      "request": "01 03 00 00 00 00 00 00",
+      "dtc_count": 0,
+      "dtc_list": [],
+      "0x7E8": "02 43 00 00 00 00 00 00",
+      "0x7E9": "02 43 00 AA AA AA AA AA",
+      "0x7EF": "02 43 00 FF FF FF FF FF"
+    },
+
+    "service_07": {
+      "description": "Request Pending DTCs",
+      "request": "01 07 00 00 00 00 00 00",
+      "dtc_count": 0,
+      "dtc_list": [],
+      "0x7E8": "02 47 00 00 00 00 00 00",
+      "0x7E9": "02 47 00 AA AA AA AA AA",
+      "0x7EF": "02 47 00 FF FF FF FF FF"
+    },
+
+    "service_09": {
+      "0x02": {
+        "description": "Vehicle Identification Number (VIN)",
+        "request": "02 09 02 00 00 00 00 00",
+        "multi_frame": true,
+        "total_length": 20,
+        "vin_string": "5UXTS3C5XK0Z02656",
+        "vin_hex": "35 55 58 54 53 33 43 35 58 4B 30 5A 30 32 36 35 36",
+        "frames": [
+          {
+            "type": "first_frame",
+            "ecu_id": "0x7E8",
+            "data": "10 14 49 02 01 35 55 58",
+            "description": "FF: Length=20, Service=49, PID=02, Count=01, VIN[0-2]=5UX"
+          },
+          {
+            "type": "consecutive_frame",
+            "sequence": 1,
+            "ecu_id": "0x7E8",
+            "data": "21 54 53 33 43 35 58 4B",
+            "description": "CF1: VIN[3-9]=TS3C5XK"
+          },
+          {
+            "type": "consecutive_frame",
+            "sequence": 2,
+            "ecu_id": "0x7E8",
+            "data": "22 30 5A 30 32 36 35 36",
+            "description": "CF2: VIN[10-16]=0Z02656"
+          }
+        ],
+        "flow_control": {
+          "tester_sends_to": "0x7E0",
+          "data": "30 00 00 00 00 00 00 00",
+          "flow_status": 0,
+          "block_size": 0,
+          "separation_time_ms": 0
+        }
+      }
+    },
+
+    "service_0A": {
+      "description": "Request Permanent DTCs",
+      "request": "01 0A 00 00 00 00 00 00",
+      "dtc_count": 0,
+      "dtc_list": [],
+      "0x7E8": "02 4A 00 00 00 00 00 00",
+      "0x7E9": "02 4A 00 AA AA AA AA AA",
+      "0x7EF": "02 4A 00 FF FF FF FF FF"
+    }
+  },
+
+  "broadcast_messages": [
+    {
+      "can_id": "0x003C",
+      "name": "Status_Message_1",
+      "interval_ms": 100,
+      "dlc": 8,
+      "pattern_type": "rolling_counter",
+      "data_template": {
+        "byte_0": "checksum",
+        "byte_1": "counter_A0_AF",
+        "byte_2": "0x02",
+        "byte_3": "0x12",
+        "byte_4": "0x01",
+        "byte_5": "0x00",
+        "byte_6": "0x2A",
+        "byte_7": "0xFF"
+      },
+      "sample_data": [
+        "AF A1 02 12 01 00 2A FF",
+        "48 A2 02 12 01 00 2A FF",
+        "15 A3 02 12 01 00 2A FF",
+        "9B A4 02 12 01 00 2A FF",
+        "C6 A5 02 12 01 00 2A FF",
+        "21 A6 02 12 01 00 2A FF",
+        "7C A7 02 12 01 00 2A FF",
+        "20 A8 02 12 01 00 2A FF",
+        "7D A9 02 12 01 00 2A FF",
+        "9A AA 02 12 01 00 2A FF",
+        "C7 AB 02 12 01 00 2A FF",
+        "49 AC 02 12 01 00 2A FF",
+        "14 AD 02 12 01 00 2A FF",
+        "F3 AE 02 12 01 00 2A FF",
+        "F2 A0 02 12 01 00 2A FF"
+      ]
+    },
+    {
+      "can_id": "0x0130",
+      "name": "Status_Message_2",
+      "interval_ms": 100,
+      "dlc": 5,
+      "pattern_type": "static",
+      "data": "F7 FF FF FF FF"
+    },
+    {
+      "can_id": "0x0799",
+      "name": "Periodic_Status",
+      "interval_ms": 500,
+      "dlc": 7,
+      "pattern_type": "rolling_counter",
+      "data_template": {
+        "byte_0": "counter_18_1F",
+        "byte_1": "0x01",
+        "byte_2": "0x16",
+        "byte_3": "0x04",
+        "byte_4": "varies_0E_13",
+        "byte_5": "0x03",
+        "byte_6": "0x0A"
+      },
+      "sample_data": [
+        "1B 01 16 04 12 03 0A",
+        "1D 01 16 04 10 03 0A",
+        "1A 01 16 04 12 03 0A",
+        "1C 01 16 04 11 03 0A",
+        "1E 01 16 04 0F 03 0A",
+        "19 01 16 04 13 03 0A",
+        "1F 01 16 04 0E 03 0A"
+      ]
+    },
+    {
+      "can_id": "0x07C1",
+      "name": "Heartbeat",
+      "interval_ms": 1000,
+      "dlc": 8,
+      "pattern_type": "static",
+      "data": "0C 18 00 0C FF 00 01 00"
+    }
+  ],
+
+  "negative_responses": {
+    "service_not_supported": {
+      "nrc_code": "0x11",
+      "template": "03 7F SS 11 00 00 00 00",
+      "description": "Replace SS with rejected service ID"
+    },
+    "subfunction_not_supported": {
+      "nrc_code": "0x12",
+      "template": "03 7F SS 12 00 00 00 00",
+      "description": "Used for unsupported PIDs"
+    },
+    "incorrect_message_length": {
+      "nrc_code": "0x13",
+      "template": "03 7F SS 13 00 00 00 00",
+      "description": "Wrong data length in request"
+    }
+  },
+
+  "pid_support_bitmaps": {
+    "ecu_0x7E8": {
+      "0x00": "BE 3F A8 13",
+      "0x20": "A0 07 B0 11",
+      "0x40": "FE D0 84 11",
+      "0x60": "61 00 00 01",
+      "0x80": "00 04 00 0D",
+      "0xA0": "04 00 00 00"
+    },
+    "ecu_0x7E9": {
+      "0x00": "98 18 80 01",
+      "0x20": "80 00 00 01",
+      "0x40": "C0 00 00 00"
+    },
+    "ecu_0x7EF": {
+      "0x00": "98 18 80 01",
+      "0x20": "80 00 00 01",
+      "0x40": "C0 00 00 00"
+    }
+  },
+
+  "derived_supported_pids": {
+    "ecu_0x7E8": ["0x01", "0x03", "0x04", "0x05", "0x06", "0x07", "0x0B", "0x0C", "0x0D", "0x0E", "0x0F", "0x10", "0x11", "0x13", "0x15", "0x1C", "0x20", "0x21", "0x23", "0x2E", "0x2F", "0x31", "0x32", "0x33", "0x3C", "0x40", "0x41", "0x42", "0x43", "0x44", "0x45", "0x46", "0x47", "0x49", "0x4A", "0x4C", "0x51", "0x5C", "0x60", "0x61", "0x63", "0x80", "0x96", "0x9D", "0x9F", "0xA0", "0xA6"],
+    "ecu_0x7E9": ["0x01", "0x05", "0x0C", "0x0D", "0x11", "0x1C", "0x20", "0x40", "0x41", "0x42"],
+    "ecu_0x7EF": ["0x01", "0x05", "0x0C", "0x0D", "0x11", "0x1C", "0x20", "0x40", "0x41", "0x42"]
+  },
+
+  "metadata": {
+    "trace_start_time": "2025-12-13T11:40:28.911",
+    "trace_duration_ms": 40965,
+    "total_messages": 1116,
+    "diagnostic_messages": 203,
+    "broadcast_messages": 913,
+    "generator": "PCAN-View v5.3.2.952",
+    "analysis_tool": "Claude Code",
+    "analysis_date": "2025-12-13"
+  }
+}

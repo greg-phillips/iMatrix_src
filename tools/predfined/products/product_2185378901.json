@@ -1,0 +1,31 @@
+{
+  "id": 2185378901,
+  "name": "Aptera Monitor-1",
+  "platformId": 1132988575,
+  "platformType": "wifi",
+  "organizationId": 250007060,
+  "shortName": "Aptera 1",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 0,
+  "externalFlashSize": 0,
+  "defaultFavorite1": 0,
+  "defaultFavorite2": 0,
+  "defaultFavorite3": 0,
+  "noControls": 0,
+  "noSensors": 0,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files-prod/327d856b-da3a-457c-868d-d8b4c39688e3.png",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files-prod/fb8b852e-86de-41af-b6ed-08993db0bab6.png",
+  "controlSensorIds": [
+    1662647845,
+    1609525721,
+    1227275530,
+    1021940093,
+    107290963,
+    87840254
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

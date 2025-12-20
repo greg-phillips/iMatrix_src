@@ -1,0 +1,46 @@
+{
+  "id": 2518124185,
+  "name": "LeakThing",
+  "platformId": 3369777044,
+  "platformType": "ble",
+  "organizationId": 1583546208,
+  "shortName": "LeakThing-1WTH",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 1048576,
+  "externalFlashSize": 4194304,
+  "defaultFavorite1": 3311730124,
+  "defaultFavorite2": 2086781847,
+  "defaultFavorite3": 1339274910,
+  "noControls": 0,
+  "noSensors": 5,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files/c26db576-2654-404f-87c8-18afa473e80c.png",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/584d0728-07c4-43b7-9cc4-f84441d65dba.svg",
+  "controlSensorIds": [
+    3869411924,
+    3740482584,
+    3311730124,
+    3311053523,
+    3229748465,
+    2876225842,
+    2473897747,
+    2086781847,
+    1339274910
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": {
+    "id": 532421562,
+    "name": "voltageProfile_3.95",
+    "profile": {
+      "level1": 3.4,
+      "level2": 3.5,
+      "level3": 3.6,
+      "level4": 3.7,
+      "level5": 3.8,
+      "level6": 3.9,
+      "level7": 3.95
+    }
+  },
+  "externalType": null
+}

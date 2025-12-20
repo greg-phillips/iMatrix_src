@@ -1,0 +1,26 @@
+{
+  "id": 1424532871,
+  "name": "product_bdfclqpalm",
+  "platformId": 670656892,
+  "platformType": "ble",
+  "organizationId": 250007060,
+  "shortName": "product_mkvpktgj",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": null,
+  "externalFlashSize": null,
+  "defaultFavorite1": null,
+  "defaultFavorite2": null,
+  "defaultFavorite3": null,
+  "noControls": null,
+  "noSensors": null,
+  "imageUrl": null,
+  "iconUrl": null,
+  "controlSensorIds": [
+    20541583
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

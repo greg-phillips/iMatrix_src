@@ -1,0 +1,30 @@
+# Review net command output.
+
+title: "Fix net command output for INTERFACE LINK STATUS"
+
+task: |
+The net command output for the section INTERFACE LINK STATUS pauses after outputing the eth0 line. for several seconds
+It thne shows as ACTIVE - Not configured.
+This incorrect as the interace is clearly active and has an IP address.
+Deterimine why this is happening and fix it.
+
+Sample output:
++=============================================================================================================+
+|                                            NETWORK MANAGER STATE                                            |
++=============================================================================================================+
+| Status: ONLINE  | State: NET_ONLINE_CHECK_RESULTS | Interface: wlan0 | Duration: 24:51:24 | DTLS: OK           |
++=============================================================================================================+
+| INTERFACE | ACTIVE  | TESTING | LINK_UP | SCORE | LATENCY | COOLDOWN  | IP_ADDRESS      | TEST_TIME         |
++-----------+---------+---------+---------+-------+---------+-----------+-----------------+-------------------+
+| eth0      | NO      | NO      | NO      |     0 |       0 | NONE      | 192.168.7.1     | NONE              |
+| wlan0     | YES     | NO      | YES     |    10 |      49 | NONE      | 10.2.0.192      | 2990 ms ago       |
+| ppp0      | NO      | NO      | NO      |     0 |       0 | NONE      | NONE            | NONE              |
++=============================================================================================================+
+|                                            INTERFACE LINK STATUS                                            |
++=============================================================================================================+
+| eth0      | INACTIVE - Link up (100Mb/s)                                                                    |
+| wlan0     | ACTIVE - Not configured                                                                         |
+| ppp0      | INACTIVE - Daemon not running                                                                   |
++=============================================================================================================+
+
+Ask any questions you need to before starting.

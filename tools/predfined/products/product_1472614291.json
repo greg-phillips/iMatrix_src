@@ -1,0 +1,44 @@
+{
+  "id": 1472614291,
+  "name": "NEO-1 Temperature Humidity Sensor",
+  "platformId": 899907174,
+  "platformType": "ble",
+  "organizationId": 1583546208,
+  "shortName": "NEO-1",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 1048576,
+  "externalFlashSize": 0,
+  "defaultFavorite1": 883739317,
+  "defaultFavorite2": 313619845,
+  "defaultFavorite3": null,
+  "noControls": 0,
+  "noSensors": 7,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files/6bf310f7-8977-44c8-b711-79e726ecc8ef.svg",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/e15e1f8e-3503-4868-8b33-377c79a14f7c-Temperature%20&%20Humidity.svg",
+  "controlSensorIds": [
+    3965481225,
+    883739317,
+    715141506,
+    516671690,
+    358379331,
+    313619845,
+    200716000
+  ],
+  "batteryUse": 20,
+  "rssiUse": 22,
+  "operationalVoltage": {
+    "id": 860437973,
+    "name": "voltageProfile_3.4",
+    "profile": {
+      "level1": 2.85,
+      "level2": 3,
+      "level3": 3.1,
+      "level4": 3.25,
+      "level5": 3.3,
+      "level6": 3.35,
+      "level7": 3.4
+    }
+  },
+  "externalType": null
+}

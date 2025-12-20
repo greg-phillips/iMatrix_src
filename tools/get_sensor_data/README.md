@@ -12,12 +12,18 @@
 - **Sensor Discovery**: Automatically discover all available sensors on any device
 - **Flexible Entry Points**: Start workflow at any level (device, sensor, or data download)
 - **Multiple Modes**: Interactive workflows, information-only, or direct download modes
+- **Multi-Sensor Download**: Download multiple sensors in a single request with combined JSON output
+- **Direct Sensor ID Entry**: Enter sensor IDs directly without menu selection
 
 ### Data Features
 - Download data for any sensor ID from iMatrix devices
-- Flexible time range selection using epoch milliseconds
+- **Multi-sensor support**: Download multiple sensors at once (comma-separated or multiple `-id` flags)
+- Flexible time range selection using epoch milliseconds or human-readable dates
+- **Last 24 hours default**: Press Enter at date prompt to use last 24 hours
 - Multiple output formats (JSON, CSV, or both)
+- **Combined JSON output**: Multi-sensor downloads produce single file with all data
 - Automatic statistics calculation (min, max, average, duration)
+- **Reproducible command output**: Shows full CLI command to repeat the download
 - Built-in sensor definitions for energy sensors (IDs 509-537)
 
 ### User Experience
@@ -101,8 +107,11 @@ python3 get_sensor_data.py -s <serial> -ts <start> -te <end> -id <sensor_id> -u 
 
 #### Optional Arguments (Interactive Prompting if Omitted)
 - `-s, --serial`: Device serial number (interactive device selection if omitted)
-- `-id, --sensor-id`: Sensor ID (interactive sensor selection if omitted)
-- `-ts, --start`: Start time (interactive date entry if omitted)
+- `-id, --sensor-id`: Sensor ID(s) to download. Supports multiple sensors:
+  - Single: `-id 509`
+  - Multiple: `-id 509 -id 514 -id 522`
+  - Interactive comma-separated entry: `509, 514, 522`
+- `-ts, --start`: Start time (interactive date entry if omitted, Enter for last 24 hours)
 - `-te, --end`: End time (interactive date entry if omitted)
 
 #### Information Mode Flags
@@ -265,14 +274,103 @@ python3 get_sensor_data.py -s 1234567890 -id 509 -u user@example.com
 python3 get_sensor_data.py -s 1234567890 -ts 1736899200000 -te 1736985600000 -id 509 -u user@example.com -v
 ```
 
-## Date and Time Input (NEW FEATURE)
+## Multi-Sensor Download
 
-The tool now supports **interactive date entry** and **multiple date formats**! You no longer need to calculate epoch timestamps manually.
+Download data from multiple sensors in a single request with combined JSON output.
+
+### Command Line Multi-Sensor
+
+Use multiple `-id` flags to specify sensors:
+
+```bash
+# Download three sensors at once
+python3 get_sensor_data.py -s 592978988 -id 509 -id 514 -id 522 -ts "01/15/25" -te "01/16/25" -u user@example.com
+```
+
+### Interactive Multi-Sensor Selection
+
+During sensor selection, choose **[D] Direct entry** to enter multiple sensor IDs:
+
+```
+📊 Sensor Type Selection:
+[1] Predefined Energy Sensors (509-537)
+[2] Native Device Sensors
+[D] Direct entry - Enter sensor ID(s) directly
+
+Enter your choice: D
+
+Enter sensor ID(s) (comma-separated for multiple, e.g., 509, 514, 522):
+> 509, 514, 522
+
+✅ Selected 3 sensors: [509, 514, 522]
+```
+
+### Combined Output Format
+
+Multi-sensor downloads produce a single JSON file containing all sensor data:
+
+**Filename format:** `{serial}_{id1}_{id2}_{id3}_{date}.json`
+
+Example: `592978988_509_514_522_20250115.json`
+
+```json
+{
+  "metadata": {
+    "serial": "592978988",
+    "sensor_count": 3,
+    "sensor_ids": [509, 514, 522],
+    "start_time": "2025-01-15T00:00:00Z",
+    "end_time": "2025-01-16T00:00:00Z",
+    "download_time": "2025-01-17T10:30:00Z"
+  },
+  "sensors": [
+    {
+      "sensor_id": 509,
+      "sensor_name": "MPGe",
+      "sensor_units": "mpge",
+      "data_points": 1440,
+      "statistics": {
+        "min": 0.0,
+        "max": 100.0,
+        "average": 50.5,
+        "duration_hours": 24.0
+      },
+      "data": [
+        {"time": 1736899200000, "value": 45.2, "formatted_time": "2025-01-15T00:00:00Z"}
+      ]
+    },
+    {
+      "sensor_id": 514,
+      "sensor_name": "Trip MPGe",
+      ...
+    }
+  ]
+}
+```
+
+### Reproducible Command Output
+
+After every download, the tool displays the full CLI command to reproduce the request:
+
+```
+📋 To reproduce this request:
+   python3 get_sensor_data.py -u user@example.com -s 592978988 -id 509 -id 514 -id 522 -ts 1736899200000 -te 1736985599000 -o json
+```
+
+This is useful for:
+- Saving exact parameters for future use
+- Creating automation scripts
+- Sharing download configurations with colleagues
+- Debugging and support requests
+
+## Date and Time Input
+
+The tool supports **interactive date entry** and **multiple date formats**! You no longer need to calculate epoch timestamps manually.
 
 ### Supported Formats
 
-#### 1. Interactive Mode (NEW)
-When dates are not provided, the tool will prompt you:
+#### 1. Interactive Mode with Last 24 Hours Default
+When dates are not provided, the tool will prompt you. **Press Enter without input to use the last 24 hours**:
 
 ```bash
 python3 get_sensor_data.py -s 1234567890 -u user@example.com
@@ -280,12 +378,22 @@ python3 get_sensor_data.py -s 1234567890 -u user@example.com
 📅 Date/time range required for data download
 
 Supported formats:
-  • Epoch milliseconds: 1736899200000
+  • Press Enter for last 24 hours (default)
   • Date only: 01/15/25 (assumes midnight to midnight)
   • Date and time: 01/15/25 14:30
+  • Epoch milliseconds: 1736899200000
   • Enter 'q' to quit
 
-📅 Enter start date/time: 01/15/25
+📅 Enter start date/time (or Enter for last 24h):
+✅ Using last 24 hours:
+   Start: 2025-01-17T10:30:00Z
+   End:   2025-01-18T10:30:00Z
+📊 Date range: 24.0 hours
+```
+
+**Or enter specific dates:**
+```
+📅 Enter start date/time (or Enter for last 24h): 01/15/25
 ✅ Start: 2025-01-15T00:00:00Z
 📅 Enter end date/time: 01/15/25
 ✅ End: 2025-01-15T23:59:59Z
@@ -611,6 +719,15 @@ For issues or questions:
 This tool is provided as-is for use with iMatrix Cloud systems.
 
 ## Version History
+
+- 2.0.0 (2025-12-08): Multi-sensor download and enhanced features
+  - **Multi-sensor download**: Download multiple sensors in a single request
+  - **Combined JSON output**: Single file containing all sensor data
+  - **Direct sensor ID entry**: [D] option in sensor menu for comma-separated IDs
+  - **Multiple -id flags**: Command line support for `-id 509 -id 514 -id 522`
+  - **Last 24 hours default**: Press Enter at date prompt for quick access
+  - **Reproducible command output**: Full CLI command displayed after download
+  - **Enhanced filename format**: Includes all sensor IDs (`serial_id1_id2_id3_date.json`)
 
 - 1.0.0 (2025-01-17): Initial release with support for sensors 509-537
   - JSON and CSV output formats

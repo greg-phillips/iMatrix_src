@@ -1,0 +1,26 @@
+{
+  "id": 2166101234,
+  "name": "product_hholbdawty",
+  "platformId": 2855497824,
+  "platformType": "ble",
+  "organizationId": 250007060,
+  "shortName": "product_wlfpyucg",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": null,
+  "externalFlashSize": null,
+  "defaultFavorite1": null,
+  "defaultFavorite2": null,
+  "defaultFavorite3": null,
+  "noControls": null,
+  "noSensors": null,
+  "imageUrl": null,
+  "iconUrl": null,
+  "controlSensorIds": [
+    3304971973
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

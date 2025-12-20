@@ -1,0 +1,2769 @@
+{
+  "generated": "2025-12-12T09:43:55.857157",
+  "total_sensors": 307,
+  "sensors": [
+    {
+      "id": 2,
+      "name": "Latitude",
+      "units": "Degrees",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/4df3017f-c0ba-4aec-82e3-e0d5a41dc95e-Globe.svg",
+      "local_icon": "icons/sensor_2.svg"
+    },
+    {
+      "id": 3,
+      "name": "Longitude",
+      "units": "Degrees",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/4df3017f-c0ba-4aec-82e3-e0d5a41dc95e-Globe.svg",
+      "local_icon": "icons/sensor_3.svg"
+    },
+    {
+      "id": 4,
+      "name": "Elevation",
+      "units": "Meters",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/4df3017f-c0ba-4aec-82e3-e0d5a41dc95e-Globe.svg",
+      "local_icon": "icons/sensor_4.svg"
+    },
+    {
+      "id": 19,
+      "name": "Wi-Fi Channel",
+      "units": "Ch",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/b238ce05-0b7f-4381-94e4-ee6e0e5f2f65-WiFi-Channel.svg",
+      "local_icon": "icons/sensor_19.svg"
+    },
+    {
+      "id": 20,
+      "name": "Wi-Fi RSSI",
+      "units": "dB",
+      "type": 1,
+      "dataType": "IMX_INT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/82490954-ffb1-4f80-bed8-a7d8afd696cb-RSSI.svg",
+      "local_icon": "icons/sensor_20.svg"
+    },
+    {
+      "id": 21,
+      "name": "Wi-Fi SNR",
+      "units": "dB",
+      "type": 1,
+      "dataType": "IMX_INT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files-prod/d14864f9-27fe-488c-88b7-52a7be05bb8a.svg",
+      "local_icon": "icons/sensor_21.svg"
+    },
+    {
+      "id": 25,
+      "name": "Battery Level",
+      "units": "Level",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/8ac8b91d-875f-4132-a2e8-9ab2501afc00-Battery Level.svg",
+      "local_icon": "icons/sensor_25.svg"
+    },
+    {
+      "id": 26,
+      "name": "Software Version",
+      "units": "Version",
+      "type": 1,
+      "dataType": "IMX_VARIABLE_LENGTH",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_26.svg"
+    },
+    {
+      "id": 27,
+      "name": "BLE RSSI",
+      "units": "dB",
+      "type": 1,
+      "dataType": "IMX_INT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/82490954-ffb1-4f80-bed8-a7d8afd696cb-RSSI.svg",
+      "local_icon": "icons/sensor_27.svg"
+    },
+    {
+      "id": 28,
+      "name": "Boot Count",
+      "units": "Boots",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/ac8e80a9-21f0-4b1d-ae7e-af04f2d39a65.svg",
+      "local_icon": "icons/sensor_28.svg"
+    },
+    {
+      "id": 29,
+      "name": "4G RSSI",
+      "units": "dB",
+      "type": 1,
+      "dataType": "IMX_INT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/82490954-ffb1-4f80-bed8-a7d8afd696cb-RSSI.svg",
+      "local_icon": "icons/sensor_29.svg"
+    },
+    {
+      "id": 30,
+      "name": "Internal Thing Sensor Report",
+      "units": "Location",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files-prod/dea70469-29ff-4536-8046-ce120d3bcf63.png",
+      "local_icon": "icons/sensor_30.png"
+    },
+    {
+      "id": 31,
+      "name": "4G RSRP",
+      "units": "dB",
+      "type": 1,
+      "dataType": "IMX_INT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/82490954-ffb1-4f80-bed8-a7d8afd696cb-RSSI.svg",
+      "local_icon": "icons/sensor_31.svg"
+    },
+    {
+      "id": 32,
+      "name": "4G RSRQ",
+      "units": "dB",
+      "type": 1,
+      "dataType": "IMX_INT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/82490954-ffb1-4f80-bed8-a7d8afd696cb-RSSI.svg",
+      "local_icon": "icons/sensor_32.svg"
+    },
+    {
+      "id": 33,
+      "name": "4G SINR",
+      "units": "dB",
+      "type": 1,
+      "dataType": "IMX_INT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/82490954-ffb1-4f80-bed8-a7d8afd696cb-RSSI.svg",
+      "local_icon": "icons/sensor_33.svg"
+    },
+    {
+      "id": 34,
+      "name": "4G Carrier",
+      "units": "dB",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/82490954-ffb1-4f80-bed8-a7d8afd696cb-RSSI.svg",
+      "local_icon": "icons/sensor_34.svg"
+    },
+    {
+      "id": 35,
+      "name": "4G Band",
+      "units": "dB",
+      "type": 1,
+      "dataType": "IMX_INT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/82490954-ffb1-4f80-bed8-a7d8afd696cb-RSSI.svg",
+      "local_icon": "icons/sensor_35.svg"
+    },
+    {
+      "id": 36,
+      "name": "IMEI",
+      "units": "IMEI",
+      "type": 1,
+      "dataType": "IMX_VARIABLE_LENGTH",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_36.svg"
+    },
+    {
+      "id": 37,
+      "name": "SIM Card State",
+      "units": "State",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_37.svg"
+    },
+    {
+      "id": 38,
+      "name": "IMSI",
+      "units": "IMSI",
+      "type": 1,
+      "dataType": "IMX_VARIABLE_LENGTH",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_38.svg"
+    },
+    {
+      "id": 39,
+      "name": "ICCID",
+      "units": "ICCID",
+      "type": 1,
+      "dataType": "IMX_VARIABLE_LENGTH",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_39.svg"
+    },
+    {
+      "id": 40,
+      "name": "Network Type",
+      "units": "dB",
+      "type": 1,
+      "dataType": "IMX_INT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/82490954-ffb1-4f80-bed8-a7d8afd696cb-RSSI.svg",
+      "local_icon": "icons/sensor_40.svg"
+    },
+    {
+      "id": 41,
+      "name": "Enter Geofence",
+      "units": "Location",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files-prod/dea70469-29ff-4536-8046-ce120d3bcf63.png",
+      "local_icon": "icons/sensor_41.png"
+    },
+    {
+      "id": 42,
+      "name": "Host",
+      "units": "Vehicle",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files-prod/dea70469-29ff-4536-8046-ce120d3bcf63.png",
+      "local_icon": "icons/sensor_42.png"
+    },
+    {
+      "id": 43,
+      "name": "4G BER",
+      "units": "BER",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/82490954-ffb1-4f80-bed8-a7d8afd696cb-RSSI.svg",
+      "local_icon": "icons/sensor_43.svg"
+    },
+    {
+      "id": 44,
+      "name": "HDOP",
+      "units": "HDOP",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/82490954-ffb1-4f80-bed8-a7d8afd696cb-RSSI.svg",
+      "local_icon": "icons/sensor_44.svg"
+    },
+    {
+      "id": 45,
+      "name": "No Satellites",
+      "units": "Satellites",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_45.svg"
+    },
+    {
+      "id": 46,
+      "name": "Fix Quality",
+      "units": "Fix",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_46.svg"
+    },
+    {
+      "id": 47,
+      "name": "Speed",
+      "units": "m/s",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/4df3017f-c0ba-4aec-82e3-e0d5a41dc95e-Globe.svg",
+      "local_icon": "icons/sensor_47.svg"
+    },
+    {
+      "id": 48,
+      "name": "Direction",
+      "units": "Degrees",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/4df3017f-c0ba-4aec-82e3-e0d5a41dc95e-Globe.svg",
+      "local_icon": "icons/sensor_48.svg"
+    },
+    {
+      "id": 49,
+      "name": "Idling",
+      "units": "Idle Time",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/f15b000c-cc4d-44f3-9e61-a4e3636aa286.svg",
+      "local_icon": "icons/sensor_49.svg"
+    },
+    {
+      "id": 50,
+      "name": "Vehicle Stopped",
+      "units": "Stopped",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/77c01c50-af13-4912-a57c-e34fee1a0c99.svg",
+      "local_icon": "icons/sensor_50.svg"
+    },
+    {
+      "id": 51,
+      "name": "Hard Brake",
+      "units": "g",
+      "type": 3,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/ae2b1146-d296-4289-b0b1-c06ad8787ebd.svg",
+      "local_icon": "icons/sensor_51.svg"
+    },
+    {
+      "id": 52,
+      "name": "Hard Acceleration",
+      "units": "g",
+      "type": 3,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/512711a4-465f-4c8f-8f55-281988bc18b6.svg",
+      "local_icon": "icons/sensor_52.svg"
+    },
+    {
+      "id": 53,
+      "name": "Hard Turn Right",
+      "units": "g",
+      "type": 3,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/e9ce05e9-04e0-493d-a78f-d75e9a405621.svg",
+      "local_icon": "icons/sensor_53.svg"
+    },
+    {
+      "id": 54,
+      "name": "Hard Bump",
+      "units": "g",
+      "type": 3,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_54.svg"
+    },
+    {
+      "id": 55,
+      "name": "Hard Pothole",
+      "units": "g",
+      "type": 3,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/00b0ce98-4a8d-48c4-bb70-5eddfd7abad1.svg",
+      "local_icon": "icons/sensor_55.svg"
+    },
+    {
+      "id": 56,
+      "name": "Speeding",
+      "units": "Speeding",
+      "type": 3,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_56.svg"
+    },
+    {
+      "id": 57,
+      "name": "Refueling",
+      "units": "Refueling",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_57.svg"
+    },
+    {
+      "id": 58,
+      "name": "Fuel Level",
+      "units": "%",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_58.svg"
+    },
+    {
+      "id": 59,
+      "name": "Fuel Consumption",
+      "units": "l/100km",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_59.svg"
+    },
+    {
+      "id": 60,
+      "name": "Fuel Consumption Average",
+      "units": "l/100km",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_60.svg"
+    },
+    {
+      "id": 61,
+      "name": "Fuel Economy",
+      "units": "l/100km",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_61.svg"
+    },
+    {
+      "id": 62,
+      "name": "Fuel Economy Average",
+      "units": "l/100km",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_62.svg"
+    },
+    {
+      "id": 63,
+      "name": "Daily Hours of Operaton",
+      "units": "Seconds",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/59cb3544-78d1-45e1-94ec-6d9762c90258.svg",
+      "local_icon": "icons/sensor_63.svg"
+    },
+    {
+      "id": 64,
+      "name": "Odometer",
+      "units": "km",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/308d5433-0b4e-4904-bc32-74d84c236a59.svg",
+      "local_icon": "icons/sensor_64.svg"
+    },
+    {
+      "id": 65,
+      "name": "Eth 0 TX Data Rate",
+      "units": "Bps",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_65.svg"
+    },
+    {
+      "id": 66,
+      "name": "Eth 0 RX Data Rate",
+      "units": "Bps",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_66.svg"
+    },
+    {
+      "id": 67,
+      "name": "WiFi TX Data Rate",
+      "units": "Bps",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_67.svg"
+    },
+    {
+      "id": 68,
+      "name": "WiFi RX Data Rate",
+      "units": "Bps",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_68.svg"
+    },
+    {
+      "id": 69,
+      "name": "PPP 0 TX Data Rate",
+      "units": "Bps",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_69.svg"
+    },
+    {
+      "id": 70,
+      "name": "PPP 0 RX Data Rate",
+      "units": "Bps",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_70.svg"
+    },
+    {
+      "id": 71,
+      "name": "G Force X",
+      "units": "G",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_71.svg"
+    },
+    {
+      "id": 72,
+      "name": "G Force Y",
+      "units": "G",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_72.svg"
+    },
+    {
+      "id": 73,
+      "name": "G Force Z",
+      "units": "G",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_73.svg"
+    },
+    {
+      "id": 74,
+      "name": "G Force MAX",
+      "units": "G",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_74.svg"
+    },
+    {
+      "id": 75,
+      "name": "G Acceleration X",
+      "units": "m/s2",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_75.svg"
+    },
+    {
+      "id": 76,
+      "name": "G Acceleration Y",
+      "units": "m/s2",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_76.svg"
+    },
+    {
+      "id": 77,
+      "name": "G Acceleration Z",
+      "units": "m/s2",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_77.svg"
+    },
+    {
+      "id": 78,
+      "name": "Gyroscope X",
+      "units": "rad/s",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_78.svg"
+    },
+    {
+      "id": 79,
+      "name": "Gyroscope Y",
+      "units": "rad/s",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_79.svg"
+    },
+    {
+      "id": 80,
+      "name": "Gyroscope Z",
+      "units": "rad/s",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_80.svg"
+    },
+    {
+      "id": 81,
+      "name": "Magnetometer X",
+      "units": "uT",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_81.svg"
+    },
+    {
+      "id": 82,
+      "name": "Magnetometer Y",
+      "units": "uT",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_82.svg"
+    },
+    {
+      "id": 83,
+      "name": "Magnetometer Z",
+      "units": "uT",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_83.svg"
+    },
+    {
+      "id": 84,
+      "name": "No CAN BUS Entries",
+      "units": "Qty",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_84.svg"
+    },
+    {
+      "id": 85,
+      "name": "No Active CAN BUS Entries",
+      "units": "Qty",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_85.svg"
+    },
+    {
+      "id": 86,
+      "name": "Unknown CAN BUS Entry",
+      "units": "ID",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_86.svg"
+    },
+    {
+      "id": 87,
+      "name": "CAN BUS 0 TX Data Rate",
+      "units": "Bps",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_87.svg"
+    },
+    {
+      "id": 88,
+      "name": "CAN BUS 0 RX Data Rate",
+      "units": "Bps",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_88.svg"
+    },
+    {
+      "id": 89,
+      "name": "CAN BUS 1 TX Data Rate",
+      "units": "Bps",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_89.svg"
+    },
+    {
+      "id": 90,
+      "name": "CAN BUS 1 RX Data Rate",
+      "units": "Bps",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_90.svg"
+    },
+    {
+      "id": 91,
+      "name": "CAN BUS ETh TX Data Rate",
+      "units": "Bps",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_91.svg"
+    },
+    {
+      "id": 92,
+      "name": "CAN BUS Eth RX Data Rate",
+      "units": "Bps",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_92.svg"
+    },
+    {
+      "id": 93,
+      "name": "Ignition Status",
+      "units": "Ignition",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_93.svg"
+    },
+    {
+      "id": 94,
+      "name": "No BLE Devices",
+      "units": "Qty",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_94.svg"
+    },
+    {
+      "id": 95,
+      "name": "No Active BLE Devices",
+      "units": "Qty",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_95.svg"
+    },
+    {
+      "id": 96,
+      "name": "Input 1",
+      "units": "Input",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_96.svg"
+    },
+    {
+      "id": 97,
+      "name": "Input 2",
+      "units": "Input",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_97.svg"
+    },
+    {
+      "id": 98,
+      "name": "Input 3",
+      "units": "Input",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_98.svg"
+    },
+    {
+      "id": 99,
+      "name": "Input 4",
+      "units": "Input",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_99.svg"
+    },
+    {
+      "id": 100,
+      "name": "Input 5",
+      "units": "Input",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_100.svg"
+    },
+    {
+      "id": 101,
+      "name": "Input 6",
+      "units": "Input",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_101.svg"
+    },
+    {
+      "id": 102,
+      "name": "Input 7",
+      "units": "Input",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_102.svg"
+    },
+    {
+      "id": 103,
+      "name": "Output 1",
+      "units": "Output",
+      "type": 2,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_103.svg"
+    },
+    {
+      "id": 104,
+      "name": "Output 2",
+      "units": "Output",
+      "type": 2,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_104.svg"
+    },
+    {
+      "id": 105,
+      "name": "Output 3",
+      "units": "Output",
+      "type": 2,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_105.svg"
+    },
+    {
+      "id": 106,
+      "name": "Output 4",
+      "units": "Output",
+      "type": 2,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_106.svg"
+    },
+    {
+      "id": 107,
+      "name": "Output 5",
+      "units": "Output",
+      "type": 2,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_107.svg"
+    },
+    {
+      "id": 108,
+      "name": "Output 6",
+      "units": "Output",
+      "type": 2,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_108.svg"
+    },
+    {
+      "id": 109,
+      "name": "Output 7",
+      "units": "Output",
+      "type": 2,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_109.svg"
+    },
+    {
+      "id": 110,
+      "name": "GPIO Config",
+      "units": "GPIO",
+      "type": 2,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_110.svg"
+    },
+    {
+      "id": 111,
+      "name": "Gateway Battery Level",
+      "units": "uT",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_111.svg"
+    },
+    {
+      "id": 112,
+      "name": "Gateway Battery Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_112.svg"
+    },
+    {
+      "id": 113,
+      "name": "Analog Input 1",
+      "units": "Input",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_113.svg"
+    },
+    {
+      "id": 114,
+      "name": "Analog Input 2",
+      "units": "Input",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_114.svg"
+    },
+    {
+      "id": 115,
+      "name": "In Geofence Buffer",
+      "units": "Input",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_115.svg"
+    },
+    {
+      "id": 116,
+      "name": "Hard Impact",
+      "units": "g",
+      "type": 3,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/58281061-cfd7-4977-a44d-d673f274a2ec.svg",
+      "local_icon": "icons/sensor_116.svg"
+    },
+    {
+      "id": 117,
+      "name": "Leave Geofence",
+      "units": "Location",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files-prod/dea70469-29ff-4536-8046-ce120d3bcf63.png",
+      "local_icon": "icons/sensor_117.png"
+    },
+    {
+      "id": 118,
+      "name": "Enter Geofence Buffer",
+      "units": "Location",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files-prod/dea70469-29ff-4536-8046-ce120d3bcf63.png",
+      "local_icon": "icons/sensor_118.png"
+    },
+    {
+      "id": 119,
+      "name": "Leave Geofence Buffer",
+      "units": "Location",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files-prod/dea70469-29ff-4536-8046-ce120d3bcf63.png",
+      "local_icon": "icons/sensor_119.png"
+    },
+    {
+      "id": 120,
+      "name": "In Geofence",
+      "units": "Location",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files-prod/dea70469-29ff-4536-8046-ce120d3bcf63.png",
+      "local_icon": "icons/sensor_120.png"
+    },
+    {
+      "id": 121,
+      "name": "GEO Point",
+      "units": "Point",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_121.svg"
+    },
+    {
+      "id": 122,
+      "name": "CAN 0 Speed",
+      "units": "%",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_122.svg"
+    },
+    {
+      "id": 123,
+      "name": "Battery Voltage",
+      "units": "Volts",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_123.svg"
+    },
+    {
+      "id": 124,
+      "name": "Battery Current",
+      "units": "Amps",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_124.svg"
+    },
+    {
+      "id": 125,
+      "name": "Battery Temperature",
+      "units": "Deg C.",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_125.svg"
+    },
+    {
+      "id": 126,
+      "name": "Battery State of Charge",
+      "units": "Charge",
+      "type": 8,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_126.svg"
+    },
+    {
+      "id": 127,
+      "name": "Battery Capacity",
+      "units": "Status",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_127.svg"
+    },
+    {
+      "id": 128,
+      "name": "Battery Status",
+      "units": "Status",
+      "type": 3,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_128.svg"
+    },
+    {
+      "id": 129,
+      "name": "Battery Health",
+      "units": "%",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_129.svg"
+    },
+    {
+      "id": 130,
+      "name": "Battery Cycle Count",
+      "units": "Count",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_130.svg"
+    },
+    {
+      "id": 131,
+      "name": "Battery Time to Full",
+      "units": "Seconds",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_131.svg"
+    },
+    {
+      "id": 132,
+      "name": "Battery Tiime to Empty",
+      "units": "Seconds",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_132.svg"
+    },
+    {
+      "id": 133,
+      "name": "Battery Power",
+      "units": "Watts",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_133.svg"
+    },
+    {
+      "id": 134,
+      "name": "Battery Voltage Min",
+      "units": "Volts",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_134.svg"
+    },
+    {
+      "id": 135,
+      "name": "Battery Voltage Max",
+      "units": "Volts",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_135.svg"
+    },
+    {
+      "id": 136,
+      "name": "Battery Current Min",
+      "units": "Amps",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_136.svg"
+    },
+    {
+      "id": 137,
+      "name": "Battery Current Max",
+      "units": "Amps",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_137.svg"
+    },
+    {
+      "id": 138,
+      "name": "Battery Temperature Min",
+      "units": "Deg C.",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_138.svg"
+    },
+    {
+      "id": 139,
+      "name": "Battery Temperature Max",
+      "units": "Deg C.",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_139.svg"
+    },
+    {
+      "id": 140,
+      "name": "Battery Charge Min",
+      "units": "Charge",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_140.svg"
+    },
+    {
+      "id": 141,
+      "name": "Battery Charge Max",
+      "units": "Charge",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_141.svg"
+    },
+    {
+      "id": 142,
+      "name": "Vehicle Speed",
+      "units": "kmph",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_142.svg"
+    },
+    {
+      "id": 143,
+      "name": "Power Used",
+      "units": "Watts",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_143.svg"
+    },
+    {
+      "id": 144,
+      "name": "Communications Link",
+      "units": "Link",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_144.svg"
+    },
+    {
+      "id": 145,
+      "name": "CAN BUS Status",
+      "units": "State",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_145.svg"
+    },
+    {
+      "id": 146,
+      "name": "CAN 1 Speed",
+      "units": "bps",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_146.svg"
+    },
+    {
+      "id": 147,
+      "name": "Engine 1 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_147.svg"
+    },
+    {
+      "id": 148,
+      "name": "Engine Oil Temperature",
+      "units": "Deg C.",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_148.svg"
+    },
+    {
+      "id": 149,
+      "name": "Throttle Position",
+      "units": "%",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_149.svg"
+    },
+    {
+      "id": 150,
+      "name": "Engine Coolant Temperature",
+      "units": "Deg C.",
+      "type": 1,
+      "dataType": "IMF_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/59cb3544-78d1-45e1-94ec-6d9762c90258.svg",
+      "local_icon": "icons/sensor_150.svg"
+    },
+    {
+      "id": 151,
+      "name": "Engine 2 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_151.svg"
+    },
+    {
+      "id": 152,
+      "name": "Engine 3 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_152.svg"
+    },
+    {
+      "id": 153,
+      "name": "Engine 4 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_153.svg"
+    },
+    {
+      "id": 154,
+      "name": "Engine 5 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_154.svg"
+    },
+    {
+      "id": 155,
+      "name": "Engine 6 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_155.svg"
+    },
+    {
+      "id": 156,
+      "name": "Engine 7 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_156.svg"
+    },
+    {
+      "id": 157,
+      "name": "Engine 8 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_157.svg"
+    },
+    {
+      "id": 158,
+      "name": "Engine 9 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_158.svg"
+    },
+    {
+      "id": 159,
+      "name": "Engine 10 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_159.svg"
+    },
+    {
+      "id": 160,
+      "name": "Engine 11 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_160.svg"
+    },
+    {
+      "id": 161,
+      "name": "Engine 12 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_161.svg"
+    },
+    {
+      "id": 162,
+      "name": "Engine 13 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_162.svg"
+    },
+    {
+      "id": 163,
+      "name": "Engine 14 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_163.svg"
+    },
+    {
+      "id": 164,
+      "name": "Engine 15 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_164.svg"
+    },
+    {
+      "id": 165,
+      "name": "Engine 16 RPM",
+      "units": "rpm",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_165.svg"
+    },
+    {
+      "id": 166,
+      "name": "Engine 1 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_166.svg"
+    },
+    {
+      "id": 167,
+      "name": "Engine 2 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_167.svg"
+    },
+    {
+      "id": 168,
+      "name": "Engine 3 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_168.svg"
+    },
+    {
+      "id": 169,
+      "name": "Engine 4 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_169.svg"
+    },
+    {
+      "id": 170,
+      "name": "Engine 5 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_170.svg"
+    },
+    {
+      "id": 171,
+      "name": "Engine 6 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_171.svg"
+    },
+    {
+      "id": 172,
+      "name": "Engine 7 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_172.svg"
+    },
+    {
+      "id": 173,
+      "name": "Engine 8 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_173.svg"
+    },
+    {
+      "id": 174,
+      "name": "Engine 9 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_174.svg"
+    },
+    {
+      "id": 175,
+      "name": "Engine 10 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_175.svg"
+    },
+    {
+      "id": 176,
+      "name": "Engine 11 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_176.svg"
+    },
+    {
+      "id": 177,
+      "name": "Engine 12 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_177.svg"
+    },
+    {
+      "id": 178,
+      "name": "Engine 13 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_178.svg"
+    },
+    {
+      "id": 179,
+      "name": "Engine 14 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_179.svg"
+    },
+    {
+      "id": 180,
+      "name": "Engine 15 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_180.svg"
+    },
+    {
+      "id": 181,
+      "name": "Engine 16 Temperature",
+      "units": "Deg C",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_181.svg"
+    },
+    {
+      "id": 182,
+      "name": "Engine 1 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_182.svg"
+    },
+    {
+      "id": 183,
+      "name": "Engine 2 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_183.svg"
+    },
+    {
+      "id": 184,
+      "name": "Engine 3 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_184.svg"
+    },
+    {
+      "id": 185,
+      "name": "Engine 4 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_185.svg"
+    },
+    {
+      "id": 186,
+      "name": "Engine 5 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_186.svg"
+    },
+    {
+      "id": 187,
+      "name": "Engine 6 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_187.svg"
+    },
+    {
+      "id": 188,
+      "name": "Engine 7 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_188.svg"
+    },
+    {
+      "id": 189,
+      "name": "Engine 8 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_189.svg"
+    },
+    {
+      "id": 190,
+      "name": "Engine 9 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_190.svg"
+    },
+    {
+      "id": 191,
+      "name": "Engine 10 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_191.svg"
+    },
+    {
+      "id": 192,
+      "name": "Engine 11 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_192.svg"
+    },
+    {
+      "id": 193,
+      "name": "Engine 12 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_193.svg"
+    },
+    {
+      "id": 194,
+      "name": "Engine 13 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_194.svg"
+    },
+    {
+      "id": 195,
+      "name": "Engine 14 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_195.svg"
+    },
+    {
+      "id": 196,
+      "name": "Engine 15 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_196.svg"
+    },
+    {
+      "id": 197,
+      "name": "Engine 16 Torque",
+      "units": "Nm",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_197.svg"
+    },
+    {
+      "id": 500,
+      "name": "Cumulative Throughput",
+      "units": "Wh",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_500.svg"
+    },
+    {
+      "id": 501,
+      "name": "Charge Rate",
+      "units": "kW",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_501.svg"
+    },
+    {
+      "id": 502,
+      "name": "Estimated Range",
+      "units": "km",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_502.svg"
+    },
+    {
+      "id": 503,
+      "name": "Battery State of Health",
+      "units": "%",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_503.svg"
+    },
+    {
+      "id": 504,
+      "name": "Trip Distance",
+      "units": "km",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_504.svg"
+    },
+    {
+      "id": 505,
+      "name": "Charging State",
+      "units": "State",
+      "type": 3,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_505.svg"
+    },
+    {
+      "id": 506,
+      "name": "Trip Meter",
+      "units": "km",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_506.svg"
+    },
+    {
+      "id": 507,
+      "name": "Out of Range Sensor Value ID",
+      "units": "ID",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_507.svg"
+    },
+    {
+      "id": 508,
+      "name": "Out of Range Sensor Value",
+      "units": "Value",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_508.svg"
+    },
+    {
+      "id": 509,
+      "name": "MPGe",
+      "units": "mpge",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_509.svg"
+    },
+    {
+      "id": 510,
+      "name": "Trip UTC Start Time",
+      "units": "Time",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_510.svg"
+    },
+    {
+      "id": 511,
+      "name": "Trip UTC End Time",
+      "units": "Time",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_511.svg"
+    },
+    {
+      "id": 512,
+      "name": "Trip idle time",
+      "units": "Seconds",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_512.svg"
+    },
+    {
+      "id": 513,
+      "name": "Trip Wh/km",
+      "units": "Wh/km",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_513.svg"
+    },
+    {
+      "id": 514,
+      "name": "Trip MPGe",
+      "units": "mpge",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_514.svg"
+    },
+    {
+      "id": 515,
+      "name": "Trip l/100km",
+      "units": "l/100km",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_515.svg"
+    },
+    {
+      "id": 516,
+      "name": "Trip CO2 Emissions",
+      "units": "kg",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_516.svg"
+    },
+    {
+      "id": 517,
+      "name": "Trip Power",
+      "units": "kWh",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_517.svg"
+    },
+    {
+      "id": 518,
+      "name": "Trip Energy Recovered",
+      "units": "kWH",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_518.svg"
+    },
+    {
+      "id": 519,
+      "name": "Trip Charge",
+      "units": "kWH",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_519.svg"
+    },
+    {
+      "id": 520,
+      "name": "Trip Average Charge Rate",
+      "units": "kW",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_520.svg"
+    },
+    {
+      "id": 521,
+      "name": "Trip Peak Charge Rate",
+      "units": "kW",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_521.svg"
+    },
+    {
+      "id": 522,
+      "name": "Trip Average Speed",
+      "units": "km",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_522.svg"
+    },
+    {
+      "id": 523,
+      "name": "Trip Maximum Speed",
+      "units": "km",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_523.svg"
+    },
+    {
+      "id": 524,
+      "name": "Trip number hard accelerations",
+      "units": "Qty",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_524.svg"
+    },
+    {
+      "id": 525,
+      "name": "Trip number hard braking",
+      "units": "Qty",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_525.svg"
+    },
+    {
+      "id": 526,
+      "name": "Trip number hard turns",
+      "units": "Qty",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_526.svg"
+    },
+    {
+      "id": 527,
+      "name": "Maximum deceleration",
+      "units": "g",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_527.svg"
+    },
+    {
+      "id": 528,
+      "name": "Trip fault Codes",
+      "units": "Code",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_528.svg"
+    },
+    {
+      "id": 529,
+      "name": "Peak power",
+      "units": "kW",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_529.svg"
+    },
+    {
+      "id": 530,
+      "name": "Range gained per minute",
+      "units": "km/min",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_530.svg"
+    },
+    {
+      "id": 531,
+      "name": "Peak Regerative Power",
+      "units": "kW",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_531.svg"
+    },
+    {
+      "id": 532,
+      "name": "Peak Brake Pedal",
+      "units": "%",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_532.svg"
+    },
+    {
+      "id": 533,
+      "name": "Peak Accel Pedal",
+      "units": "%",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_533.svg"
+    },
+    {
+      "id": 534,
+      "name": "DTC OBD2 Codes",
+      "units": "Code",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_534.svg"
+    },
+    {
+      "id": 535,
+      "name": "DTC J1939 Codes",
+      "units": "Code",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_535.svg"
+    },
+    {
+      "id": 536,
+      "name": "DTC HM Truck Codes",
+      "units": "Code",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_536.svg"
+    },
+    {
+      "id": 537,
+      "name": "DTC Echassie Codes",
+      "units": "Code",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_537.svg"
+    },
+    {
+      "id": 538,
+      "name": "Driver Score",
+      "units": "%",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_538.svg"
+    },
+    {
+      "id": 539,
+      "name": "Hard Turn Left",
+      "units": "g",
+      "type": 3,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/e9ce05e9-04e0-493d-a78f-d75e9a405621.svg",
+      "local_icon": "icons/sensor_539.svg"
+    },
+    {
+      "id": 541,
+      "name": "GPS Fix Delay",
+      "units": "seconds",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_541.svg"
+    },
+    {
+      "id": 542,
+      "name": "Horizontal Accuracy",
+      "units": "meters",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_542.svg"
+    },
+    {
+      "id": 543,
+      "name": "GPS Trip Odometer",
+      "units": "meters",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_543.svg"
+    },
+    {
+      "id": 546,
+      "name": "Mobile Network Code",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_546.svg"
+    },
+    {
+      "id": 547,
+      "name": "Mobile Country Code",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_547.svg"
+    },
+    {
+      "id": 548,
+      "name": "Local Area Code",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_548.svg"
+    },
+    {
+      "id": 549,
+      "name": "Cell Tower ID",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_549.svg"
+    },
+    {
+      "id": 550,
+      "name": "MIL Status",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_550.svg"
+    },
+    {
+      "id": 551,
+      "name": "DTC Count",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_551.svg"
+    },
+    {
+      "id": 552,
+      "name": "Vehicle VIN",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_VARIABLE_LENGTH",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_552.svg"
+    },
+    {
+      "id": 553,
+      "name": "OBD Protocol",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_553.svg"
+    },
+    {
+      "id": 554,
+      "name": "Calculated Engine Load",
+      "units": "percent",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_554.svg"
+    },
+    {
+      "id": 555,
+      "name": "Mass Air Flow",
+      "units": "g/s",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_555.svg"
+    },
+    {
+      "id": 556,
+      "name": "Fuel Rate",
+      "units": "L/h",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_556.svg"
+    },
+    {
+      "id": 557,
+      "name": "Distance MIL On",
+      "units": "km",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_557.svg"
+    },
+    {
+      "id": 558,
+      "name": "Time MIL On",
+      "units": "minutes",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_558.svg"
+    },
+    {
+      "id": 559,
+      "name": "Distance Codes Cleared",
+      "units": "km",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_559.svg"
+    },
+    {
+      "id": 560,
+      "name": "Time Codes Cleared",
+      "units": "minutes",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_560.svg"
+    },
+    {
+      "id": 561,
+      "name": "OBD Odometer",
+      "units": "km",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_561.svg"
+    },
+    {
+      "id": 562,
+      "name": "OBD Calc Odometer",
+      "units": "meters",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_562.svg"
+    },
+    {
+      "id": 563,
+      "name": "MOA Trip Distance",
+      "units": "meters",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_563.svg"
+    },
+    {
+      "id": 564,
+      "name": "Total Engine Runtime",
+      "units": "hours",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_564.svg"
+    },
+    {
+      "id": 565,
+      "name": "Total Idle Runtime",
+      "units": "hours",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_565.svg"
+    },
+    {
+      "id": 566,
+      "name": "Total PTO Runtime",
+      "units": "hours",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_566.svg"
+    },
+    {
+      "id": 567,
+      "name": "Fuel Type",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_567.svg"
+    },
+    {
+      "id": 568,
+      "name": "Driver Seatbelt",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_568.svg"
+    },
+    {
+      "id": 569,
+      "name": "HD Oil Pressure",
+      "units": "kPa",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_569.svg"
+    },
+    {
+      "id": 570,
+      "name": "HD Coolant Level",
+      "units": "percent",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_570.svg"
+    },
+    {
+      "id": 571,
+      "name": "HD Engine Oil Level",
+      "units": "percent",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_571.svg"
+    },
+    {
+      "id": 572,
+      "name": "HD Coolant Pressure",
+      "units": "kPa",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_572.svg"
+    },
+    {
+      "id": 573,
+      "name": "HD Engine Oil Temp",
+      "units": "celsius",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_573.svg"
+    },
+    {
+      "id": 574,
+      "name": "HD Total Idle Fuel",
+      "units": "liters",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_574.svg"
+    },
+    {
+      "id": 575,
+      "name": "HD Total Fuel",
+      "units": "liters",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_575.svg"
+    },
+    {
+      "id": 576,
+      "name": "HD Engine Hours",
+      "units": "hours",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_576.svg"
+    },
+    {
+      "id": 577,
+      "name": "HD MIL Status",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_577.svg"
+    },
+    {
+      "id": 578,
+      "name": "DEF Concentration",
+      "units": "percent",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_578.svg"
+    },
+    {
+      "id": 579,
+      "name": "DEF Tank Temp",
+      "units": "celsius",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_579.svg"
+    },
+    {
+      "id": 580,
+      "name": "DEF Volume",
+      "units": "percent",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_580.svg"
+    },
+    {
+      "id": 581,
+      "name": "Event ID",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_581.svg"
+    },
+    {
+      "id": 582,
+      "name": "Event Timestamp",
+      "units": "unix_time",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_582.svg"
+    },
+    {
+      "id": 583,
+      "name": "Door Lock Status",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_583.svg"
+    },
+    {
+      "id": 584,
+      "name": "Door Unlock Status",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_584.svg"
+    },
+    {
+      "id": 585,
+      "name": "Cold Boot",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_585.svg"
+    },
+    {
+      "id": 586,
+      "name": "Warm Boot",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_586.svg"
+    },
+    {
+      "id": 587,
+      "name": "Tow Detected",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_587.svg"
+    },
+    {
+      "id": 588,
+      "name": "MOA Speeding Event",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_588.svg"
+    },
+    {
+      "id": 589,
+      "name": "Panic Event",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_589.svg"
+    },
+    {
+      "id": 590,
+      "name": "Privacy Mode",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_590.svg"
+    },
+    {
+      "id": 591,
+      "name": "Input 1 Seconds",
+      "units": "seconds",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_591.svg"
+    },
+    {
+      "id": 592,
+      "name": "Input 2 Seconds",
+      "units": "seconds",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_592.svg"
+    },
+    {
+      "id": 593,
+      "name": "Input 3 Seconds",
+      "units": "seconds",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_593.svg"
+    },
+    {
+      "id": 594,
+      "name": "Input 4 Seconds",
+      "units": "seconds",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_594.svg"
+    },
+    {
+      "id": 595,
+      "name": "BLE Beacon Data",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_VARIABLE_LENGTH",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_595.svg"
+    },
+    {
+      "id": 596,
+      "name": "Peripheral Type",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_596.svg"
+    },
+    {
+      "id": 597,
+      "name": "Peripheral Data",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_VARIABLE_LENGTH",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_597.svg"
+    },
+    {
+      "id": 598,
+      "name": "CAN Snapshot Data",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_VARIABLE_LENGTH",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_598.svg"
+    },
+    {
+      "id": 599,
+      "name": "J1939 SPN Data",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_VARIABLE_LENGTH",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_599.svg"
+    },
+    {
+      "id": 600,
+      "name": "Modbus Status",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_600.svg"
+    },
+    {
+      "id": 601,
+      "name": "Modbus Data",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_VARIABLE_LENGTH",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_601.svg"
+    },
+    {
+      "id": 602,
+      "name": "CAN Protocol",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_602.svg"
+    },
+    {
+      "id": 603,
+      "name": "J1939 SPN Count",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_603.svg"
+    },
+    {
+      "id": 604,
+      "name": "Modbus Config",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_604.svg"
+    },
+    {
+      "id": 605,
+      "name": "Vehicle Battery Voltage",
+      "units": "volts",
+      "type": 1,
+      "dataType": "IMX_FLOAT",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_605.svg"
+    },
+    {
+      "id": 606,
+      "name": "Ignition On Time",
+      "units": "seconds",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_606.svg"
+    },
+    {
+      "id": 607,
+      "name": "Ignition Off Time",
+      "units": "seconds",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_607.svg"
+    },
+    {
+      "id": 608,
+      "name": "Input Status",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_608.svg"
+    },
+    {
+      "id": 609,
+      "name": "Output Status",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_609.svg"
+    },
+    {
+      "id": 610,
+      "name": "IO Status",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_610.svg"
+    },
+    {
+      "id": 611,
+      "name": "Device State",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_611.svg"
+    },
+    {
+      "id": 612,
+      "name": "GPS Fix Date",
+      "units": "unix_time",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_612.svg"
+    },
+    {
+      "id": 613,
+      "name": "Latitude Diff",
+      "units": "degrees",
+      "type": 1,
+      "dataType": "IMX_INT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_613.svg"
+    },
+    {
+      "id": 614,
+      "name": "Longitude Diff",
+      "units": "degrees",
+      "type": 1,
+      "dataType": "IMX_INT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_614.svg"
+    },
+    {
+      "id": 615,
+      "name": "Time Diff",
+      "units": "seconds",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_615.svg"
+    },
+    {
+      "id": 616,
+      "name": "MIL Status DTC Count",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_616.svg"
+    },
+    {
+      "id": 617,
+      "name": "Vehicle Odometer",
+      "units": "km",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_617.svg"
+    },
+    {
+      "id": 618,
+      "name": "Engine Run Time",
+      "units": "hours",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_618.svg"
+    },
+    {
+      "id": 619,
+      "name": "PID 00 Support",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_619.svg"
+    },
+    {
+      "id": 620,
+      "name": "PID 20 Support",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_620.svg"
+    },
+    {
+      "id": 621,
+      "name": "PID 40 Support",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_621.svg"
+    },
+    {
+      "id": 622,
+      "name": "PID 60 Support",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_622.svg"
+    },
+    {
+      "id": 623,
+      "name": "PID 80 Support",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_623.svg"
+    },
+    {
+      "id": 624,
+      "name": "PID A0 Support",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_624.svg"
+    },
+    {
+      "id": 625,
+      "name": "Snapshot Number",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_625.svg"
+    },
+    {
+      "id": 626,
+      "name": "Snapshot Sequence",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_626.svg"
+    },
+    {
+      "id": 627,
+      "name": "Number Of Payloads",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_627.svg"
+    },
+    {
+      "id": 628,
+      "name": "Data Count",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_628.svg"
+    },
+    {
+      "id": 629,
+      "name": "Call Received Event",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_629.svg"
+    },
+    {
+      "id": 630,
+      "name": "Call Made Event",
+      "units": "N/A",
+      "type": 1,
+      "dataType": "IMX_UINT32",
+      "iconUrl": "https://storage.googleapis.com/imatrix-files/a3e5d012-93f4-4c35-9827-b52a8afaac93-Sensor%20General.svg",
+      "local_icon": "icons/sensor_630.svg"
+    }
+  ]
+}

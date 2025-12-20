@@ -1,0 +1,30 @@
+{
+  "id": 2208600007,
+  "name": "Tracker20 - 4G Tracker with Accelerometer",
+  "platformId": 1109962764,
+  "platformType": "ble",
+  "organizationId": 1752159024,
+  "shortName": "Tracker1-20",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": null,
+  "externalFlashSize": null,
+  "defaultFavorite1": null,
+  "defaultFavorite2": null,
+  "defaultFavorite3": null,
+  "noControls": 0,
+  "noSensors": 5,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files/acce54cf-99ee-4005-bc78-b5563cdbe2df.png",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/7e7406d6-c6bd-4a1b-8eb0-3fc192e8b85b.svg",
+  "controlSensorIds": [
+    4018873830,
+    3823801711,
+    3746750242,
+    895588563,
+    127232995
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

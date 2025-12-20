@@ -1,0 +1,13 @@
+# Build a new program to test the CAN bus
+
+complexity_level: "simple"
+
+title: "Build a new program to test the CAN bus"
+
+task: 
+  Using the main program in the source file test_system/can_test.c as a base, create a CMakeLists.txt file to build the program.
+  The program needs to use the same build system that the Fleet-Connect-1 program uses.
+  This program is cross compiled and used on a embedded target system.
+  The libqfc and other libraries should be used from the Fleet-Connect-1 program.
+  Ask any questions.
+  

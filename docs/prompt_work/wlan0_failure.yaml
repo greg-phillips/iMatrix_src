@@ -1,0 +1,14 @@
+# WLAN 0 Failure analysis and fix
+
+complexity_level: "moderate"
+
+title: "WLAN 0 Failure analysis and fix"
+
+task: 
+  review docs/Network_Manager_Architecture.md
+  review the log logs/net_failure.txt
+  review the code in the iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/networking directory
+  identify the root cause of the failure
+  fix the failure
+  detail the fix in the plan
+  ask any questions

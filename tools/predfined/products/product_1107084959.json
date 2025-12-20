@@ -1,0 +1,26 @@
+{
+  "id": 1107084959,
+  "name": "product_pcdachknjm",
+  "platformId": 370527942,
+  "platformType": "ble",
+  "organizationId": 250007060,
+  "shortName": "product_kmgxcjfs",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": null,
+  "externalFlashSize": null,
+  "defaultFavorite1": null,
+  "defaultFavorite2": null,
+  "defaultFavorite3": null,
+  "noControls": null,
+  "noSensors": null,
+  "imageUrl": null,
+  "iconUrl": null,
+  "controlSensorIds": [
+    3233788705
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

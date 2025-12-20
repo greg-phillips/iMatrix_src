@@ -1,0 +1,26 @@
+{
+  "id": 3137209025,
+  "name": "HM-TMG1-CAN:1:DCDC_Cmd",
+  "platformId": 1133889462,
+  "platformType": "wifi",
+  "organizationId": 250007060,
+  "shortName": "1:2418420519",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 0,
+  "externalFlashSize": 0,
+  "defaultFavorite1": 0,
+  "defaultFavorite2": 0,
+  "defaultFavorite3": 0,
+  "noControls": 0,
+  "noSensors": 0,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files-prod/26dcc80a-4aaa-465c-8eaa-6fc1cba0dd7e.png",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files-prod/26dcc80a-4aaa-465c-8eaa-6fc1cba0dd7e.png",
+  "controlSensorIds": [
+    1836245409
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

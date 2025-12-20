@@ -1,0 +1,10 @@
+# Document sensor mappings architecture
+
+complexity_level: "simple"
+
+title: "Document sensor mappings architecture"
+
+task: 
+  Review the code in the Fleet-Connect-1/can_process/vehicle_sensor_mappings.c and releated source files in the Fleet-Connect-1/can_process directory.
+  Provide a guide on how to add new sensor mappings for new vehicles.
+  Provide extensive detail and examples of how to add new sensor mappings for new vehicles.

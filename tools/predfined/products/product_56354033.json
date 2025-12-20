@@ -1,0 +1,29 @@
+{
+  "id": 56354033,
+  "name": "Series-1 Gateway",
+  "platformId": 1220109551,
+  "platformType": "wifi",
+  "organizationId": 1583546208,
+  "shortName": "Series-1GW",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 16777216,
+  "externalFlashSize": -1,
+  "defaultFavorite1": null,
+  "defaultFavorite2": null,
+  "defaultFavorite3": null,
+  "noControls": null,
+  "noSensors": 4,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files/f2e6fcaa-c58e-4639-8934-93ed5009af71.svg",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/1b85d319-2b52-4af9-b7ec-628223e4b03b.svg",
+  "controlSensorIds": [
+    3600716337,
+    2354557242,
+    1035099282,
+    642240076
+  ],
+  "batteryUse": null,
+  "rssiUse": null,
+  "operationalVoltage": null,
+  "externalType": null
+}

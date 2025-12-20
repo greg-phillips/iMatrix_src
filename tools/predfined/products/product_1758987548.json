@@ -1,0 +1,39 @@
+{
+  "id": 1758987548,
+  "name": "NEO-1P Temperature Probe",
+  "platformId": 899907174,
+  "platformType": "ble",
+  "organizationId": 1583546208,
+  "shortName": "NEO-1P",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 1048576,
+  "externalFlashSize": 0,
+  "defaultFavorite1": 509310038,
+  "defaultFavorite2": 777905022,
+  "defaultFavorite3": null,
+  "noControls": 0,
+  "noSensors": 3,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files/8bdcdcdd-3382-456b-b6cc-7a5ac21d1137.svg",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/8f187d23-124e-46f6-b19d-be81e35f458c.svg",
+  "controlSensorIds": [
+    777905022,
+    509310038
+  ],
+  "batteryUse": 20,
+  "rssiUse": 22,
+  "operationalVoltage": {
+    "id": 860437973,
+    "name": "voltageProfile_3.4",
+    "profile": {
+      "level1": 2.85,
+      "level2": 3,
+      "level3": 3.1,
+      "level4": 3.25,
+      "level5": 3.3,
+      "level6": 3.35,
+      "level7": 3.4
+    }
+  },
+  "externalType": null
+}

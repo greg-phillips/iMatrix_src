@@ -1,0 +1,42 @@
+{
+  "id": 1272203777,
+  "name": "Sentry-1 Door/Window Sensor",
+  "platformId": 715320473,
+  "platformType": "ble",
+  "organizationId": 1583546208,
+  "shortName": "SENTRY-1",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 1048576,
+  "externalFlashSize": 0,
+  "defaultFavorite1": 357403979,
+  "defaultFavorite2": 870568750,
+  "defaultFavorite3": null,
+  "noControls": 0,
+  "noSensors": 4,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files/2bd2bf39-6f27-45d2-9a7e-127bd5c5060c.svg",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/fdb021ee-b528-43c6-9ea5-79ea979677b2.svg",
+  "controlSensorIds": [
+    4153769548,
+    1967365674,
+    870568750,
+    357403979,
+    237829174
+  ],
+  "batteryUse": 20,
+  "rssiUse": 22,
+  "operationalVoltage": {
+    "id": 610823201,
+    "name": "voltageProfile_3.0",
+    "profile": {
+      "level1": 2.65,
+      "level2": 2.8,
+      "level3": 2.85,
+      "level4": 2.87,
+      "level5": 2.9,
+      "level6": 2.95,
+      "level7": 3
+    }
+  },
+  "externalType": null
+}

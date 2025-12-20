@@ -1,0 +1,11 @@
+# DUring Testing of the CAN Server seems to stop working after a period of time.
+
+complexity_level: "simple"
+
+title: "DUring Testing of the CAN Server seems to stop working after a period of time."
+
+task: |
+  Review the code in the iMatrix/canbus/can_server.c file and create a plan to fix the issue.
+  Add a check for idle timeout and close the connection if the idle timeout is reached. The reopen the connection if the client reconnects.
+  Log the the idle timeout and the client IP address.
+  The default idle timeout is 10 seconds.

@@ -1,0 +1,29 @@
+{
+  "id": 984993858,
+  "name": "Micro Gateway 1",
+  "platformId": 107473583,
+  "platformType": "wifi",
+  "organizationId": 1583546208,
+  "shortName": "uGW-1",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 1048576,
+  "externalFlashSize": 4194304,
+  "defaultFavorite1": 3872024893,
+  "defaultFavorite2": 3971400763,
+  "defaultFavorite3": 1568290915,
+  "noControls": 0,
+  "noSensors": 4,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files/19420c37-8219-483e-bc9e-0ed36dfed187.svg",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/b83065dc-b085-4b84-85ff-c557205b87c1-Micro%20Gateway.svg",
+  "controlSensorIds": [
+    3974806334,
+    2763270826,
+    355762848,
+    130129941
+  ],
+  "batteryUse": null,
+  "rssiUse": 16,
+  "operationalVoltage": null,
+  "externalType": null
+}

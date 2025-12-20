@@ -1,0 +1,44 @@
+{
+  "id": 3087697499,
+  "name": "NEO-1DP Temperature Humidity Sensor with Display and Probe",
+  "platformId": 899907174,
+  "platformType": "ble",
+  "organizationId": 1583546208,
+  "shortName": "NEO-DP",
+  "isPublished": true,
+  "badge": "imatrix",
+  "internalFlashSize": 1048576,
+  "externalFlashSize": 0,
+  "defaultFavorite1": 1115838946,
+  "defaultFavorite2": 3346417475,
+  "defaultFavorite3": 200126382,
+  "noControls": 0,
+  "noSensors": 7,
+  "imageUrl": "https://storage.googleapis.com/imatrix-files/dc5ab846-5cba-4869-bbb8-e83006898160.svg",
+  "iconUrl": "https://storage.googleapis.com/imatrix-files/5acabd26-47c2-4718-bac8-90629c555aea-Sensor%20-%20Neo-1DP.svg",
+  "controlSensorIds": [
+    3678856010,
+    3346417475,
+    3019001924,
+    2460567833,
+    1115838946,
+    897053145,
+    200126382
+  ],
+  "batteryUse": 20,
+  "rssiUse": 22,
+  "operationalVoltage": {
+    "id": 371698254,
+    "name": "voltageProfile_3.3",
+    "profile": {
+      "level1": null,
+      "level2": null,
+      "level3": null,
+      "level4": null,
+      "level5": null,
+      "level6": null,
+      "level7": 3.3
+    }
+  },
+  "externalType": null
+}
