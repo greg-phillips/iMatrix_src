@@ -1,0 +1,126 @@
+#!/bin/bash
+#
+# FC-1 Remote Control Script
+# Run from host machine to control FC-1 on target
+#
+# Usage: ./fc1 [start|stop|restart|status|run|log|deploy|ssh]
+#
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+TARGET_HOST="192.168.7.1"
+TARGET_PORT="22222"
+TARGET_USER="root"
+TARGET_PASS="PasswordQConnect"
+
+# Remote script location
+REMOTE_SCRIPT="/tmp/fc1_service.sh"
+LOCAL_SCRIPT="${SCRIPT_DIR}/fc1_service.sh"
+
+# SSH command with options
+SSH_CMD="sshpass -p '${TARGET_PASS}' ssh -p ${TARGET_PORT} -o StrictHostKeyChecking=no -o ConnectTimeout=10 ${TARGET_USER}@${TARGET_HOST}"
+SCP_CMD="sshpass -p '${TARGET_PASS}' scp -P ${TARGET_PORT} -o StrictHostKeyChecking=no"
+
+# Check if sshpass is installed
+check_sshpass() {
+    if ! command -v sshpass &> /dev/null; then
+        echo "Error: sshpass not installed"
+        echo "Install with: sudo apt-get install sshpass"
+        exit 1
+    fi
+}
+
+# Check if target is reachable
+check_target() {
+    if ! ping -c 1 -W 2 "$TARGET_HOST" &> /dev/null; then
+        echo "Error: Cannot reach target at $TARGET_HOST"
+        exit 1
+    fi
+}
+
+# Deploy script to target
+deploy_script() {
+    echo "Deploying fc1_service.sh to target..."
+    eval $SCP_CMD "$LOCAL_SCRIPT" "${TARGET_USER}@${TARGET_HOST}:${REMOTE_SCRIPT}"
+    eval $SSH_CMD "chmod +x ${REMOTE_SCRIPT}"
+    echo "Deployed to ${REMOTE_SCRIPT}"
+}
+
+# Run command on target
+run_remote() {
+    eval $SSH_CMD "$@"
+}
+
+# Run service script on target
+run_service_cmd() {
+    # Deploy if script doesn't exist on target
+    run_remote "test -f ${REMOTE_SCRIPT}" 2>/dev/null || deploy_script
+    # Use sh to run script (target /tmp may be noexec)
+    run_remote "sh ${REMOTE_SCRIPT} $*"
+}
+
+show_help() {
+    echo "FC-1 Remote Control"
+    echo ""
+    echo "Usage: $0 <command> [options]"
+    echo ""
+    echo "Commands:"
+    echo "  start       Start FC-1 service on target"
+    echo "  stop        Stop FC-1 service on target"
+    echo "  restart     Restart FC-1 service"
+    echo "  status      Show service status"
+    echo "  run [opts]  Run FC-1 in foreground on target"
+    echo "  log         Show recent logs"
+    echo "  deploy      Deploy service script to target"
+    echo "  ssh         Open SSH session to target"
+    echo "  help        Show this help"
+    echo ""
+    echo "Target: ${TARGET_USER}@${TARGET_HOST}:${TARGET_PORT}"
+    echo ""
+    echo "Examples:"
+    echo "  $0 start        # Start FC-1"
+    echo "  $0 stop         # Stop FC-1"
+    echo "  $0 status       # Check status"
+    echo "  $0 run -S       # Run with config summary"
+    echo "  $0 ssh          # Open SSH shell"
+    echo ""
+}
+
+# Main
+check_sshpass
+
+case "$1" in
+    start|stop|restart|status|log|create-run)
+        check_target
+        run_service_cmd "$1"
+        ;;
+    run)
+        check_target
+        shift
+        run_service_cmd "run" "$@"
+        ;;
+    deploy)
+        check_target
+        deploy_script
+        ;;
+    ssh)
+        check_target
+        echo "Connecting to ${TARGET_HOST}..."
+        eval $SSH_CMD
+        ;;
+    help|--help|-h)
+        show_help
+        ;;
+    *)
+        if [ -z "$1" ]; then
+            # Default: show status
+            check_target
+            run_service_cmd "status"
+        else
+            echo "Unknown command: $1"
+            echo "Run '$0 help' for usage."
+            exit 1
+        fi
+        ;;
+esac
+
+exit 0

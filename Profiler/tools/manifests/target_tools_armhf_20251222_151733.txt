@@ -1,0 +1,8 @@
+Target Tools Manifest
+=====================
+Generated: Mon Dec 22 15:17:41 PST 2025
+Target: root@192.168.7.1
+Architecture: armhf
+Cross-compiler: /opt/qconnect_sdk_musl/bin/arm-linux
+
+Built tools:

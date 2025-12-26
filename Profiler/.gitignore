@@ -1,0 +1,15 @@
+# Profiler .gitignore
+
+# Build artifacts (large source trees)
+build/target_tools/*/src/
+
+# Profile data
+artifacts/profiles/
+artifacts/logs/
+artifacts/target_reports/
+
+# Credentials - NEVER commit real passwords
+config/target_connection.conf
+
+# Keep the template
+!config/target_connection.conf.template

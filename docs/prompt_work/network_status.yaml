@@ -1,0 +1,15 @@
+# using ssh to check the network status of the target
+
+complexity_level: "simple"
+
+title: "using ssh to check the network status of the target"
+
+task: 
+  Read the document: docs/ssh_access_to_Fleet_Connect.md
+  ssh to the Fleet-Connect-1 board and run the commands to check the network status of the target.
+  Detail the commands in the plan.
+  The target is the FC-1 Gateway board.
+  The Wi-Fi on the target is not working.
+  using the ssh connection determine the missing configuration files.
+
+Ask any questions.

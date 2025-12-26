@@ -1,0 +1,67 @@
+# Target Connection Configuration Template
+# Copy this to target_connection.conf and fill in your values
+#
+# cp config/target_connection.conf.template config/target_connection.conf
+# nano config/target_connection.conf
+
+# Target SSH connection
+TARGET_USER="root"
+TARGET_HOST=""  # Set this to your target IP, e.g., "192.168.1.100"
+TARGET_PORT="22"
+TARGET_PASS=""  # Set your password here
+
+# SSH options (adjusted for password auth)
+SSH_BASE_OPTS="-o ConnectTimeout=10 -o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=/dev/null"
+
+# Build full target string
+get_target() {
+    if [ -z "$TARGET_HOST" ]; then
+        echo ""
+        return 1
+    fi
+    echo "${TARGET_USER}@${TARGET_HOST}"
+}
+
+# Run SSH command with password support
+run_ssh() {
+    target=$(get_target)
+    if [ -z "$target" ]; then
+        echo "ERROR: TARGET_HOST not set in config/target_connection.conf" >&2
+        return 1
+    fi
+
+    if command -v sshpass >/dev/null 2>&1; then
+        sshpass -p "$TARGET_PASS" ssh $SSH_BASE_OPTS -p "$TARGET_PORT" "$target" "$1"
+    else
+        ssh $SSH_BASE_OPTS -p "$TARGET_PORT" "$target" "$1"
+    fi
+}
+
+# Run SCP with password support
+run_scp() {
+    target=$(get_target)
+    if [ -z "$target" ]; then
+        echo "ERROR: TARGET_HOST not set in config/target_connection.conf" >&2
+        return 1
+    fi
+
+    if command -v sshpass >/dev/null 2>&1; then
+        sshpass -p "$TARGET_PASS" scp $SSH_BASE_OPTS -P "$TARGET_PORT" "$1" "$2"
+    else
+        scp $SSH_BASE_OPTS -P "$TARGET_PORT" "$1" "$2"
+    fi
+}
+
+# Check SSH connection
+check_connection() {
+    target=$(get_target)
+    if [ -z "$target" ]; then
+        return 1
+    fi
+
+    if command -v sshpass >/dev/null 2>&1; then
+        sshpass -p "$TARGET_PASS" ssh $SSH_BASE_OPTS -p "$TARGET_PORT" "$target" "echo OK" 2>/dev/null
+    else
+        ssh $SSH_BASE_OPTS -o BatchMode=yes -p "$TARGET_PORT" "$target" "echo OK" 2>/dev/null
+    fi
+}

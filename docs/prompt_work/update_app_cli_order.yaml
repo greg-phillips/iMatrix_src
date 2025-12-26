@@ -1,0 +1,10 @@
+# When using the App CLI command ? it prints the commands in the order they are defined. Need to update the order of the commands to be alphabetically sorted.
+
+title: "Update the order of the commands in the App CLI to be alphabetically sorted."
+
+task: |
+
+Read docs/CLI_and_Debug_System_Complete_Guide.md and understand the debug system.
+
+Update the order of the commands in the App CLI to be alphabetically sorted.
+Ask any questions you need to before starting.

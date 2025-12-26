@@ -1,0 +1,15 @@
+Target Tools Manifest
+=====================
+Generated: Mon Dec 22 15:20:27 PST 2025
+Target: root@192.168.7.1
+Architecture: armhf
+Cross-compiler: /opt/qconnect_sdk_musl/bin/arm-linux
+
+Built tools:
+------------
+  iperf3
+    Size:   124K
+    SHA256: e1073ca3a381f6321f789c7017222779f54bfe5e1138e5ad93e71ba6d921db6f
+  strace
+    Size:   1014K
+    SHA256: 1c0df8162e4cffe2b38dbb21b775470f3603d1720e257ddd27aa2d99cd13289c

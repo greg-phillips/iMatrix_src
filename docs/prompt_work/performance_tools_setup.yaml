@@ -1,0 +1,252 @@
+# Moderate Performance Tools Setup
+# Date: 2025-12-21
+# Author: Claude Code
+
+complexity_level: "moderate"
+prompt_name: "performance_tools_setup_prompt"
+title: "Setup Performance Tools for Fleet-Connect-1"
+date: "2025-12-21"
+branch: "feature/performance-tools-setup"
+objective: "Create a complete, repeatable profiling toolkit for FC-1 on embedded BusyBox Linux"
+
+# Project info from CLAUDE.md
+project:
+  auto_populate_standard_info: true
+  additional_context: |
+    This feature creates performance profiling tools for the iMatrix Fleet-Connect-1 project.
+    Tools are cross-compiled on WSL (host) and transferred to the BusyBox embedded target.
+
+# Hardware specifics
+hardware:
+  processor: "NXP i.MX6 (ARM Cortex-A9)"
+  ram: "512MB"
+  flash: "512MB"
+  additional_notes:
+    - "Limited to LINUX_PLATFORM only"
+    - "Target runs BusyBox Linux (minimal userland)"
+    - "ARM architecture (armv7l/armhf)"
+    - "Cross-compilation required from WSL host"
+
+# References
+references:
+  read_first:
+    - "docs/Fleet-Connect-1_architecture.md"
+    - "Profiler/README.md"
+
+  source_files:
+    - path: "Profiler/scripts/"
+      focus:
+        - "build_tools_host.sh"
+        - "deploy_tools.sh"
+        - "profile_fc1.sh"
+    - path: "Fleet-Connect-1"
+
+# Task definition
+task:
+  summary: "Build profiling tools on WSL and deploy to BusyBox embedded target"
+
+  description: |
+    Create a complete profiling toolkit that:
+    1. Builds tools on WSL Ubuntu (host development environment)
+    2. Cross-compiles for ARM (i.MX6 target)
+    3. Transfers compiled binaries to BusyBox embedded system
+    4. Enables CPU, memory, IO, and network profiling of /home/FC-1
+
+    Target: BusyBox Linux on NXP i.MX6 (ARM)
+    Host: WSL Ubuntu (this system)
+    App: /home/FC-1 (compiled WITH debug symbols, do not rename or move)
+
+    All profiler scripts, tooling, build outputs, and docs live in:
+      ~/iMatrix/iMatrix_Client/Profiler
+
+  requirements:
+    - "Cross-compile strace for ARM (priority tool)"
+    - "Cross-compile optional tools: iperf3, tcpdump, ethtool, gdbserver"
+    - "Use ARM cross-compiler toolchain on WSL host"
+    - "Deploy binaries to /opt/fc-1-tools/bin on target (or fallback path)"
+    - "All scripts must be POSIX sh (no bashisms)"
+    - "Scripts must use set -eu for safety"
+    - "Generate manifest with checksums for all built binaries"
+    - "Support both perf (if available) and ftrace fallback"
+
+  implementation_notes:
+    - "Use /opt/qconnect_sdk_musl/bin/arm-linux-* for cross-compilation"
+    - "If musl toolchain unavailable, try arm-linux-gnueabihf-gcc from apt"
+    - "strace requires kernel headers for target architecture"
+    - "tcpdump depends on libpcap - may be complex, skip if too heavy"
+    - "perf requires matching kernel source - only attempt if kernel tools available"
+    - "ftrace via /sys/kernel/debug/tracing is the reliable fallback"
+
+  detailed_specifications:
+    - section: "WSL Host Build Environment"
+      details: |
+        Prerequisites on WSL Ubuntu:
+        1. ARM cross-compiler (one of):
+           - /opt/qconnect_sdk_musl/bin/arm-linux-gcc (preferred, musl-based)
+           - apt install gcc-arm-linux-gnueabihf (alternative, glibc-based)
+
+        2. Build dependencies:
+           sudo apt install build-essential wget tar git
+
+        3. Build directory structure:
+           Profiler/
+             build/
+               target_tools/
+                 armhf/
+                   bin/      (compiled binaries)
+                   lib/      (any shared libs)
+                   src/      (source downloads)
+
+    - section: "Cross-Compilation Process"
+      details: |
+        For each tool, the build_tools_host.sh script should:
+
+        1. Detect target architecture via SSH: ssh user@target "uname -m"
+        2. Map architecture to toolchain:
+           - armv7l, armv6l => armhf toolchain
+           - aarch64 => aarch64 toolchain (not expected for i.MX6)
+
+        3. Download source tarballs:
+           - strace: https://github.com/strace/strace/releases
+           - iperf3: https://github.com/esnet/iperf/releases
+           - tcpdump: https://www.tcpdump.org/release/
+           - ethtool: https://mirrors.edge.kernel.org/pub/software/network/ethtool/
+
+        4. Configure with cross-compiler:
+           CC=/opt/qconnect_sdk_musl/bin/arm-linux-gcc \
+           ./configure --host=arm-linux --prefix=/opt/fc-1-tools
+
+        5. Build static binaries where possible:
+           LDFLAGS="-static" make
+
+    - section: "Transfer to Embedded Target"
+      details: |
+        The deploy_tools.sh script should:
+
+        1. Create target directory:
+           ssh user@target "mkdir -p /opt/fc-1-tools/bin" || \
+           ssh user@target "mkdir -p ~/fc-1-tools/bin"
+
+        2. Transfer binaries via SCP:
+           scp build/target_tools/armhf/bin/* user@target:/opt/fc-1-tools/bin/
+
+        3. Set executable permissions:
+           ssh user@target "chmod +x /opt/fc-1-tools/bin/*"
+
+        4. Verify deployment:
+           ssh user@target "/opt/fc-1-tools/bin/strace -V"
+
+        5. Print PATH export instruction:
+           echo "Run on target: export PATH=/opt/fc-1-tools/bin:\$PATH"
+
+    - section: "Directory Structure"
+      details: |
+        Required structure under ~/iMatrix/iMatrix_Client/Profiler:
+
+        Profiler/
+          scripts/
+            target_discover.sh      - Discover target capabilities
+            verify_fc1.sh           - Verify FC-1 binary exists
+            install_tools_target.sh - Install via package manager (if available)
+            build_tools_host.sh     - Cross-compile on WSL host
+            deploy_tools.sh         - Transfer to target
+            setup_fc1_service.sh    - Configure FC-1 as service
+            profile_fc1.sh          - Run profiling session
+            grab_profiles.sh        - Retrieve profiles to host
+          docs/
+            FC1_Profiling_On_Target.md
+          artifacts/
+            target_reports/         - Discovery and verify reports
+            profiles/               - Downloaded profile bundles
+            logs/                   - Deployment logs
+          build/
+            target_tools/
+              armhf/
+                bin/                - Compiled ARM binaries
+                lib/                - Shared libraries (if any)
+                src/                - Downloaded source tarballs
+          tools/
+            manifests/              - Build manifests with checksums
+
+    - section: "Profiling Capabilities"
+      details: |
+        profile_fc1.sh should capture:
+
+        1. System baseline:
+           - uname, mounts, df, meminfo, cpuinfo, interrupts
+           - ip addr/route, ip -s link, /proc/net/dev
+           - dmesg tail, clock source
+
+        2. Process monitoring (find FC-1 PID robustly):
+           - pidof FC-1
+           - pgrep -f "/home/FC-1"
+           - ps | grep fallback
+
+        3. Interval snapshots (every 2-5 seconds):
+           - top -b -n 1 (if available)
+           - ps output
+           - /proc/<pid>/status, stat, io
+           - /proc/diskstats
+
+        4. Profiling tools:
+           a) strace -c -p <pid> (syscall summary)
+           b) perf stat/record (ONLY if verified working)
+           c) ftrace function_graph (fallback if /sys/kernel/debug/tracing accessible)
+
+        5. Network:
+           - ss -s or netstat summary
+           - tcpdump short capture (optional)
+
+        6. Bundle output as profile_bundle_<timestamp>.tar.gz
+
+# Deliverables
+deliverables:
+  plan_document: "Profiler/docs/FC1_Profiling_On_Target.md"
+  use_standard_workflow: true
+
+  additional_deliverables:
+    - "All scripts in Profiler/scripts/ working and tested"
+    - "ARM binaries for strace (minimum) in build/target_tools/armhf/bin/"
+    - "Build manifest with checksums in tools/manifests/"
+    - "README.md with quickstart workflow"
+
+  steps:
+    - "Verify WSL build environment has ARM cross-compiler"
+    - "Update build_tools_host.sh to use local WSL cross-compilation"
+    - "Test cross-compilation of strace on WSL"
+    - "Update deploy_tools.sh for SCP transfer workflow"
+    - "Test full workflow: build -> deploy -> profile -> retrieve"
+    - "Document any issues or missing tools"
+
+# Guidelines
+guidelines:
+  principles:
+    - "POSIX sh only - no bashisms for portability"
+    - "Use set -eu in all scripts"
+    - "Heavily comment all scripts"
+    - "Print clear status messages"
+    - "Skip unsupported actions with explanation (don't fail silently)"
+    - "Use SSH BatchMode and ConnectTimeout for safety"
+    - "Never claim perf works unless verified on target"
+
+  code_runtime:
+    directory: "/home"
+    binary: "/home/FC-1"
+    platform: "BusyBox Linux on NXP i.MX6"
+
+# Questions with answers
+questions:
+  - question: "Which ARM cross-compiler to use?"
+    answer: "Prefer /opt/qconnect_sdk_musl/bin/arm-linux-gcc (musl). Fallback to apt's gcc-arm-linux-gnueabihf (glibc)."
+
+  - question: "Should we build static or dynamic binaries?"
+    answer: "Prefer static (LDFLAGS=-static) to avoid library dependency issues on BusyBox."
+
+  - question: "What if perf is not available?"
+    answer: "Use ftrace via /sys/kernel/debug/tracing as fallback. Never pretend perf works if untested."
+
+  - question: "Where should tools be installed on target?"
+    answer: "Prefer /opt/fc-1-tools/bin (if root). Fallback to ~/fc-1-tools/bin (non-root)."
+
+  - question: "What is the minimum required tool?"
+    answer: "strace is the priority tool. Others (iperf3, tcpdump, ethtool, gdbserver) are optional best-effort."
