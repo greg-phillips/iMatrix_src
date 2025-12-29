@@ -3,7 +3,7 @@
 # FC-1 Remote Control Script
 # Run from host machine to control FC-1 on target
 #
-# Usage: ./fc1 [start|stop|restart|status|run|log|deploy|ssh]
+# Usage: ./fc1 [start|stop|restart|status|enable|disable|run|log|deploy|ssh]
 #
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -68,6 +68,9 @@ show_help() {
     echo "  stop        Stop FC-1 service on target"
     echo "  restart     Restart FC-1 service"
     echo "  status      Show service status"
+    echo "  enable      Enable FC-1 auto-start and start service"
+    echo "  disable     Disable FC-1 auto-start (with confirmation)"
+    echo "  disable -y  Disable without confirmation prompt"
     echo "  run [opts]  Run FC-1 in foreground on target"
     echo "  log         Show recent logs"
     echo "  deploy      Deploy service script to target"
@@ -79,6 +82,9 @@ show_help() {
     echo "Examples:"
     echo "  $0 start        # Start FC-1"
     echo "  $0 stop         # Stop FC-1"
+    echo "  $0 enable       # Enable auto-start"
+    echo "  $0 disable      # Disable auto-start (prompts)"
+    echo "  $0 disable -y   # Disable without prompt"
     echo "  $0 status       # Check status"
     echo "  $0 run -S       # Run with config summary"
     echo "  $0 ssh          # Open SSH shell"
@@ -89,9 +95,14 @@ show_help() {
 check_sshpass
 
 case "$1" in
-    start|stop|restart|status|log|create-run)
+    start|stop|restart|status|enable|log|create-run)
         check_target
         run_service_cmd "$1"
+        ;;
+    disable)
+        check_target
+        shift
+        run_service_cmd "disable" "$@"
         ;;
     run)
         check_target

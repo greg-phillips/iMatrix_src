@@ -9,6 +9,19 @@
 FC1_BIN="/home/FC-1"
 FC1_SV_DIR="/usr/qk/etc/sv/FC-1"
 FC1_RUN_SCRIPT="${FC1_SV_DIR}/run"
+FC1_DOWN_FILE="${FC1_SV_DIR}/down"
+
+##
+# @brief Check if the FC-1 service is enabled (no down file)
+# @return 0 if enabled, 1 if disabled
+##
+is_enabled() {
+    if [ -f "$FC1_DOWN_FILE" ]; then
+        return 1  # Disabled (down file exists)
+    else
+        return 0  # Enabled (no down file)
+    fi
+}
 
 print_status() {
     echo "========================================"
@@ -27,6 +40,13 @@ print_status() {
         echo "[OK]  Run script: $FC1_RUN_SCRIPT"
     else
         echo "[ERR] Run script: $FC1_RUN_SCRIPT (MISSING)"
+    fi
+
+    # Check if service is enabled (no down file)
+    if is_enabled; then
+        echo "[OK]  Auto-start: Enabled"
+    else
+        echo "[--]  Auto-start: Disabled (down file exists)"
     fi
 
     # Check service status
@@ -106,6 +126,72 @@ restart_service() {
     start_service
 }
 
+##
+# @brief Enable the FC-1 service for auto-start
+# Removes the down file and starts the service
+##
+enable_service() {
+    echo "Enabling FC-1 service..."
+
+    # Remove down file if it exists
+    if [ -f "$FC1_DOWN_FILE" ]; then
+        rm -f "$FC1_DOWN_FILE"
+        echo "Removed down file: $FC1_DOWN_FILE"
+    else
+        echo "Service already enabled (no down file)"
+    fi
+
+    # Start the service
+    start_service
+}
+
+##
+# @brief Disable the FC-1 service from auto-start
+# Stops the service and creates a down file
+# @param $1 Optional: -y to skip confirmation
+##
+disable_service() {
+    SKIP_CONFIRM=""
+    if [ "$1" = "-y" ]; then
+        SKIP_CONFIRM="yes"
+    fi
+
+    echo "========================================"
+    echo " WARNING: Disabling FC-1 Service"
+    echo "========================================"
+    echo ""
+    echo "This will:"
+    echo "  - Stop the currently running service"
+    echo "  - Prevent FC-1 from auto-starting on reboot"
+    echo ""
+    echo "The run script will be preserved for re-enabling."
+    echo ""
+
+    if [ -z "$SKIP_CONFIRM" ]; then
+        printf "Are you sure you want to disable FC-1? [y/N]: "
+        read -r CONFIRM
+        case "$CONFIRM" in
+            [yY]|[yY][eE][sS])
+                ;;
+            *)
+                echo "Cancelled."
+                return 1
+                ;;
+        esac
+    fi
+
+    # Stop the service
+    stop_service
+
+    # Create down file to prevent auto-start
+    touch "$FC1_DOWN_FILE"
+    echo ""
+    echo "Created down file: $FC1_DOWN_FILE"
+    echo "FC-1 service disabled - will not auto-start on reboot."
+    echo ""
+    echo "To re-enable, run: $0 enable"
+}
+
 run_foreground() {
     echo "Running FC-1 in foreground (Ctrl+C to stop)..."
     echo "========================================"
@@ -147,6 +233,9 @@ show_help() {
     echo "  stop        Stop FC-1 service"
     echo "  restart     Restart FC-1 service"
     echo "  status      Show service and process status"
+    echo "  enable      Enable FC-1 auto-start and start service"
+    echo "  disable     Disable FC-1 auto-start (with confirmation)"
+    echo "  disable -y  Disable without confirmation prompt"
     echo "  run [opts]  Run FC-1 in foreground (for testing)"
     echo "              Accepts FC-1 options: -S, -P, -I, -R, --help"
     echo "  log         Show recent log entries"
@@ -156,6 +245,9 @@ show_help() {
     echo "Examples:"
     echo "  $0 start           # Start service normally"
     echo "  $0 stop            # Stop service"
+    echo "  $0 enable          # Enable auto-start and start"
+    echo "  $0 disable         # Disable auto-start (prompts)"
+    echo "  $0 disable -y      # Disable without prompt"
     echo "  $0 run             # Run in foreground"
     echo "  $0 run -S          # Run with config summary"
     echo "  $0 status          # Check status"
@@ -176,6 +268,13 @@ case "$1" in
     status)
         print_status
         ;;
+    enable)
+        enable_service
+        ;;
+    disable)
+        shift
+        disable_service "$@"
+        ;;
     run)
         shift
         run_foreground "$@"
@@ -190,7 +289,7 @@ case "$1" in
         show_help
         ;;
     *)
-        echo "Usage: $0 {start|stop|restart|status|run|log|help}"
+        echo "Usage: $0 {start|stop|restart|status|enable|disable|run|log|help}"
         echo "Run '$0 help' for more information."
         exit 1
         ;;
