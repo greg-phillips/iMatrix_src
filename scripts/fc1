@@ -87,6 +87,7 @@ show_help() {
     echo "  $0 disable -y   # Disable without prompt"
     echo "  $0 status       # Check status"
     echo "  $0 run -S       # Run with config summary"
+    echo "  $0 deploy       # Update service script on target"
     echo "  $0 ssh          # Open SSH shell"
     echo ""
 }
