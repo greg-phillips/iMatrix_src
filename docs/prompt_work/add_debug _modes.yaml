@@ -1,0 +1,34 @@
+# Add a new debug sub commands to the CLI to allow adding several flags at the same time.
+
+title: "Add a new debug sub commands to the CLI to allow adding several flags at the same time."
+
+task: |
+
+Read docs/CLI_and_Debug_System_Complete_Guide.md and understand the debug system.
+
+when the user types "debug can" add all the flags associated with the can subsystem.
+0x0000020000000000 - Debugs for CAN Bus
+0x0000040000000000 - Debugs for CAN Bus Data
+0x0000080000000000 - Debugs for CAN Bus Sample
+0x0000100000000000 - Debugs for CAN Bus Event
+0x0000200000000000 - Debugs for CAN Registration
+0x0000400000000000 - Debugs for CAN Decode
+0x0000800000000000 - Debugs for CAN Decode Errors
+0x0001000000000000 - Debugs for CAN TCP Server
+0x0002000000000000 - Debugs for CAN Ethernet Frame parsing
+
+when the user types "debug network" add all the flags associated with the network subsystem.
+0x0000000000020000 - Debugs for Wi Fi Connections
+0x0000000000040000 - Debugs for ETH0 Networking
+0x0000000000080000 - Debugs for WIFI0 Networking
+0x0000000000100000 - Debugs for PPP0 Networking
+0x0000000000200000 - Debugs for Networking Switch
+0x0000000800000000 - Debugs for Cellular
+
+when the user types "debug coap" add all the flags associated with the coap subsystem.
+0x0000000000000002 - Debugs For CoAP Xmit
+0x0000000000000004 - Debugs For CoAP Recv
+0x0000000000000008 - Debugs For CoAP Support Routines
+0x0000000000000010 - Debugs for UDP transport
+
+Ask any questions you need to before starting.

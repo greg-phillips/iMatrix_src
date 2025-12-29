@@ -1,0 +1,14 @@
+# After the FC-1 Application has started, and loads a new configuration, the WLAN0 interface is not working.
+
+title: "After the FC-1 Application has started, and loads a new configuration, the WLAN0 interface is not working."
+
+task: |
+
+Read Fleet-Connect-1/docs/Fleet-Connect-1_Developer_Overview.md and understand the fleet connect overview.
+Read docs/Network_Manager_Architecture.md and understand the network manager architecture.
+Read docs/ssh_access_to_Fleet_Connect.md and understand how to access the Fleet Connect system.
+
+Connect to the Fleet Connect system using the SSH connection and review the network configuration.
+Generate a detailed plan to investigate the problem and fix it.
+
+Ask any questions you need to before starting.

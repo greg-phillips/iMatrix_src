@@ -1,0 +1,51 @@
+# When starting the CAN server, it sometimes fails to start
+
+title: "When starting the CAN server, it sometimes fails to start if there are any errors, log them to the console."
+
+task: |
+
+Read the code in iMatrix/canbus/can_server.c and understand the code.
+
+When the CAN server fails to start these are the errors. The system fails. Add more diagnostics and fix issue.
+After some time the Rgistry is full. Find and fix the issue.
+[1766796796.073] [00:01:53.329] [CAN TCP Server: Using APTERA format parser]
+[1766796796.074] [00:01:53.329] [CAN TCP Server thread started.]
+[1766796796.084] [00:01:53.340] [CAN TCP Server Error: bind: -1: No error information]
+[1766796796.085] [00:01:53.340] [CAN Server Failure - Restarting in 5 seconds]
+[1766796801.305] [00:01:58.561] [CAN TCP Server: Using APTERA format parser]
+[1766796801.305] [00:01:58.561] [CAN TCP Server thread started.]
+[1766796801.312] [00:01:58.568] [CAN TCP Server Error: bind: -1: No error information]
+[1766796801.312] [00:01:58.568] [CAN Server Failure - Restarting in 5 seconds]
+[1766796806.375] [00:02:03.631] [CAN TCP Server: Using APTERA format parser]
+[1766796806.375] [00:02:03.631] [CAN TCP Server thread started.]
+[1766796806.378] [00:02:03.634] [CAN TCP Server Error: bind: -1: No error information]
+[1766796806.378] [00:02:03.634] [CAN Server Failure - Restarting in 5 seconds]
+[1766796811.396] [00:02:08.651] [CAN TCP Server: Using APTERA format parser]
+[1766796811.396] [00:02:08.652] [CAN TCP Server thread started.]
+[1766796811.399] [00:02:08.655] [CAN TCP Server Error: bind: -1: No error information]
+[1766796811.399] [00:02:08.655] [CAN Server Failure - Restarting in 5 seconds]
+[1766796816.415] [00:02:13.671] [CAN TCP Server: Using APTERA format parser]
+[1766796816.416] [00:02:13.672] [CAN TCP Server thread started.]
+[1766796816.421] [00:02:13.676] [CAN TCP Server Error: bind: -1: No error information]
+[1766796816.421] [00:02:13.676] [CAN Server Failure - Restarting in 5 seconds]
+[1766796821.435] [00:02:18.691] [CAN TCP Server: Using APTERA format parser]
+[1766796821.436] [00:02:18.691] [CAN TCP Server thread started.]
+[1766796821.438] [00:02:18.694] [CAN TCP Server Error: bind: -1: No error information]
+[1766796821.439] [00:02:18.694] [CAN Server Failure - Restarting in 5 seconds]
+[1766796826.462] [00:02:23.718] [CAN TCP Server: Using APTERA format parser]
+[1766796826.463] [00:02:23.718] [CAN TCP Server thread started.]
+[1766796826.467] [00:02:23.722] [CAN TCP Server Error: bind: -1: No error information]
+[1766796826.467] [00:02:23.723] [CAN Server Failure - Restarting in 5 seconds]
+[1766796831.750] [00:02:29.006] [CAN TCP Server: Using APTERA format parser]
+[1766796831.751] [00:02:29.007] [CAN TCP Server thread started.]
+[1766796831.755] [00:02:29.010] [CAN TCP Server Error: bind: -1: No error information]
+[1766796831.755] [00:02:29.011] [CAN Server Failure - Restarting in 5 seconds]
+[1766796837.037] [00:02:34.293] [CAN TCP Server: Using APTERA format parser]
+[1766796837.038] [00:02:34.294] [CAN TCP Server thread started.]
+[1766796837.042] [00:02:34.298] [THREAD TRACKER] ERROR: Registry full, cannot track thread 'can_tcp_srv'
+[1766796837.043] [00:02:34.298] [CAN TCP Server Error: bind: -1: No error information]
+[1766796837.043] [00:02:34.299] [CAN Server Failure - Restarting in 5 seconds]
+[1766796842.393] [00:02:39.648] [CAN TCP Server: Using APTERA format parser]
+[1766796842.393] [00:02:39.649] [CAN TCP Server thread started.]
+
+Ask any questions you need to before starting.

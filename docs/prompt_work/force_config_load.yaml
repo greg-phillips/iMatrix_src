@@ -1,0 +1,11 @@
+# When starting the FC-1 Application add a new command line option to force a reload of the configuration.
+
+title: "When starting the FC-1 Application add a new command line option to force a reload of the configuration."
+
+task: |
+
+Read the code in Fleet-Connect-1/init/imx_client_init.c and understand the code.
+Add a new command line option to force a reload of the configuration.
+When the user uses the option "-F" the configuration will be reloaded from the file regardless of the checksum match.
+
+Ask any questions you need to before starting.

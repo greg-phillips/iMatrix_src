@@ -1,0 +1,7 @@
+# The fc1 script provides the abiltiy to start/stop/restart the FC-1 application with the runsv service.
+
+title: "The fc1 script provides the abiltiy to start/stop/restart the FC-1 application with the runsv service."
+
+task: |
+Update the script to provide the ability to remove and add the FC-1 application to the runsv service.
+Ask any questions you need to before starting.

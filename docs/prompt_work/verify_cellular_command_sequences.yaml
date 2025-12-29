@@ -1,0 +1,15 @@
+# The Fleet Connect 1 system uses a cellular modem to connect to the internet. verify the cellular command sequences.
+
+title: "The Fleet Connect 1 system uses a cellular modem to connect to the internet. verify the cellular command sequences."
+
+task: |
+on fist power up the cellular_man.c code should check if the device is already online.
+If already connected then it should check the signal strength and if acceptable then it should check if the ppp0 interface is already up.
+if ppp0 is not up then it should bring it up.
+If the ppp0 fails the the cellular_man.c code should stop the ppp0 service, disconnect the cellular modem and scan for a new network.
+The cellular_man.c code should then start the ppp0 service and connect to the new network.
+
+This plan should document the steps taken, start / stop / restart the ppp0 service and the cellular modem commands issued.
+Generate a detailed report based on the code for each scenario for me to review.
+
+Ask any questions you need to before starting.

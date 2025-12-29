@@ -1,0 +1,11 @@
+# The "cs" app command is not displaying the correct status for the poll and sample due times.
+
+title: "The 'cs' app command is not displaying the correct status for the poll and sample due times."
+
+task: |
+
+Read Fleet-Connect-1/docs/Fleet-Connect-1_Developer_Overview.md and understand the fleet connect overview.
+Read /home/greg/iMatrix/iMatrix_Client/iMatrix/cs_ctrl/common_config.c and understand the code.
+Generate a detailed plan to investigate the problem and fix it.
+
+Ask any questions you need to before starting.

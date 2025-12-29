@@ -1,10 +1,14 @@
-# When using the App CLI command ? it prints the commands in the order they are defined. Need to update the order of the commands to be alphabetically sorted.
+# Review Accelerometer event detection code
+title: "Review Accelerometer event detection code"
 
-title: "Update the order of the commands in the App CLI to be alphabetically sorted."
+prompt_name: review_accelerometer_event_detection
+date: 2025-12-26
+branch: feature/review-accelerometer-event-detection
 
 task: |
+  Read Fleet-Connect-1/hal/accel_process.c
+  Read Fleet-Connect-1/docs/1180-3007_C_QConnect__Developer_Guide.pdf and understand the accelerometer event detection code, starts on page 41
 
-Read docs/CLI_and_Debug_System_Complete_Guide.md and understand the debug system.
+  Propose best plan to monitor and manage the accelerometer event detection and sample rate code.
 
-Update the order of the commands in the App CLI to be alphabetically sorted.
-Ask any questions you need to before starting.
+  Ask any questions you need to before starting.

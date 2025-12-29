@@ -1,0 +1,24 @@
+# TheFC-1 and iMatrix system has many logs to detect when the system is stuck in a loop.
+
+title: "The FC-1 and iMatrix system has many logs to detect when the system is stuck in a loop."
+
+task: |
+Generate a detailed plan to investigate the problem and fix it.
+The command provided is "loopstatus" and it is used to detect when the system is stuck in a loop.
+The output of the command is as follows:
+==================== MAIN LOOP STATUS ====================
+Handler Position:    Before imx_process() (0)
+Time at Handler:     38218888 ms
+
+imx_process() Pos:   50
+Time at imx_proc:    38218888 ms
+
+do_everything() Pos: EXIT (19)
+Time at Position:    38218988 ms
+Loop Executions:     39852
+
+*** WARNING: Handler stuck at 'Before imx_process()' for 38218888 ms! ***
+*** BLOCKING IN: imx_process() function (position 50) ***
+==========================================================
+
+Ask any questions you need to before starting.

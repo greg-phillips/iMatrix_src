@@ -1,0 +1,15 @@
+# The Fleet Connect 1 system is running on a busybox system with a custom Linux kernel. verify the os version.
+
+title: "The Fleet Connect 1 system is running on a busybox system with a custom Linux kernel. verify the os version."
+
+task: |
+During the initilization code in Fleet-Connect-1/init/imx_client_init.c, verify the os version.
+cat /var/ver/versions file and verify the os version.
+The output of the file is as follows:
+u-boot=4.0.0
+kernel=4.0.0
+squash-fs=4.0.0
+root-fs=4.0.0
+app=0
+If the os version is not 4.0.0, then print an error message and exit the program.
+Ask any questions you need to before starting.
