@@ -327,7 +327,7 @@ Please review and confirm:
 
 ### Work Completed
 
-1. **Created `/new_dev` slash command** at `.claude/commands/new_dev.md` (370+ lines)
+1. **Created `/new_dev` slash command** at `.claude/commands/new_dev.md` (568 lines)
    - Full argument parsing for environment_name and options
    - All three required options implemented: `--dry-run`, `--clean`, `--no-build`
    - Comprehensive step-by-step instructions for Claude to follow
@@ -346,12 +346,25 @@ Please review and confirm:
    - Confirmed full build success (FC-1 binary: 13MB, ARM EABI5)
    - Tested cleanup of worktrees
 
+4. **ARM Cross-Compiler Requirements Validation (Added 2025-12-30):**
+   - Added Step 3.5 for comprehensive ARM toolchain validation
+   - Checks core toolchain: arm-linux-gcc, arm-linux-g++, sysroot
+   - Checks QUAKE libraries at ~/qfc/arm_musl/libs/
+   - Checks mbedTLS built libraries at mbedtls/build_arm/
+   - Checks CMSIS-DSP directory
+   - Prompts user with options when requirements are missing:
+     - Continue with --no-build
+     - Build/install missing components (mbedTLS, CMSIS-DSP)
+     - Abort for manual installation (toolchain)
+   - Updated dry-run output to show ARM validation step
+   - Added detailed ARM-related error messages
+
 ### Files Created/Modified
 
 | File | Action | Lines |
 |------|--------|-------|
-| `.claude/commands/new_dev.md` | Created | 370+ |
-| `docs/gen/new_dev_implementation_plan.md` | Updated | ~300 |
+| `.claude/commands/new_dev.md` | Created | 568 |
+| `docs/gen/new_dev_implementation_plan.md` | Updated | ~350 |
 
 ### Metrics
 

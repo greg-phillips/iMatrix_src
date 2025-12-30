@@ -1,0 +1,1183 @@
+[1767039135.016] [00:09:28.776] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039135.073] [00:09:28.833] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039135.073] [00:09:28.833] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Deferring PPPD conflict resolution - ping test running on wlan0
+[1767039135.207] [00:09:28.967] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=54 time=47.319 ms
+
+[1767039135.207] [00:09:28.967] [NET: wlan0] execute_ping: Found reply #3
+[1767039135.207] [00:09:28.967] [NET: wlan0] execute_ping: Latency: 47.319 ms
+[1767039135.207] [00:09:28.967] [NET: wlan0] execute_ping: Raw output: 
+
+[1767039135.207] [00:09:28.967] [NET: wlan0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+
+[1767039135.207] [00:09:28.967] [NET: wlan0] execute_ping: Found ping statistics line
+[1767039135.207] [00:09:28.967] [NET: wlan0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+
+[1767039135.207] [00:09:28.967] [NET: wlan0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[1767039135.207] [00:09:28.967] [NET: wlan0] execute_ping: Parsed packet loss: 0%
+[1767039135.207] [00:09:28.967] [NET: wlan0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[1767039135.207] [00:09:28.967] [NET: wlan0] execute_ping: Closing ping pipe...
+[1767039135.208] [00:09:28.968] [NET: wlan0] execute_ping: Ping command exited with status: 0
+[1767039135.208] [00:09:28.968] [NET: wlan0] execute_ping: Ping command completed normally with exit code: 0
+[1767039135.208] [00:09:28.968] [NET: wlan0] execute_ping: Final results - replies: 3, avg_latency: 46 ms, packet_loss: 0%
+[1767039135.208] [00:09:28.968] [NET] execute_ping: Returning true (replies:3 summary:true)
+[1767039135.208] [00:09:28.968] [NET] ping_thread_fn: wlan0 ping result - success:true replies:3 latency:46
+[1767039135.208] [00:09:28.968] [NET] wlan0: replies=3 avg_lat=46ms link_up=true
+[1767039135.208] [00:09:28.968] [NET] ping_thread_fn: wlan0 thread completed and marked as not running/invalid
+[1767039135.208] [00:09:28.968] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread exiting normally, thread_valid=false, thread_id=2943860100
+[1767039135.208] [00:09:28.968] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: cleanup_ping_thread called, thread_id=2943860100
+c[1767039135.208] [00:09:28.968] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Cleanup complete, thread marked as not running/invalid
+[1767039135.208] [00:09:28.968] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread cleanup complete, exiting
+el[1767039136.040] [00:09:29.800] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039136.097] [00:09:29.857] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039136.097] [00:09:29.857] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping PPPD conflict resolution - cooldown active (3062 ms remaining)
+[1767039136.097] [00:09:29.857] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Interface test complete - score:10, latency: 46
+[1767039136.097] [00:09:29.857] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State transition: NET_ONLINE_CHECK_RESULTS -> NET_ONLINE
+l scan[1767039137.020] [00:09:30.780] [NETMGR] State: NET_ONLINE | State changed from NET_ONLINE_CHECK_RESULTS to NET_ONLINE
+[1767039137.153] [00:09:30.913] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039137.211] [00:09:30.971] [NETMGR] State: NET_ONLINE | Default route verified for wlan0
+[1767039137.267] [00:09:31.027] [NETMGR-PPP0] State: NET_ONLINE | Skipping PPPD conflict resolution - cooldown active (2041 ms remaining)
+[1767039137.358] [00:09:31.118] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[1767039137.358] [00:09:31.118] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: launch_ping_thread called
+[1767039137.358] [00:09:31.118] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Creating new thread for ping test
+[1767039137.359] [00:09:31.119] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Thread created and detached successfully, thread_id=2943860100
+[1767039137.359] [00:09:31.119] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Thread state updated - running=true, thread_valid=true
+[1767039137.359] [00:09:31.119] [NETMGR] State: NET_ONLINE | Started ping test for wlan0
+
+>[1767039137.359] [00:09:31.119] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_CHECK_RESULTS
+[1767039137.361] [00:09:31.121] [Cellular Connection - MANUAL scan requested via CLI]
+[1767039137.361] [00:09:31.121] [Cellular Connection - Bypassing connection protection for test]
+[1767039137.365] [00:09:31.125] [NET] ping_thread_fn: Starting ping thread for wlan0 to IP 34.94.71.128
+[1767039137.365] [00:09:31.125] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread started, thread_id=2943860100, target_ip=34.94.71.128
+[1767039137.365] [00:09:31.125] [NET: wlan0] execute_ping: Starting ping to IP: 34.94.71.128
+[1767039137.365] [00:09:31.125] [NET: wlan0] execute_ping: Target IP string: 34.94.71.128
+[1767039137.366] [00:09:31.125] [NET: wlan0] execute_ping: Executing command: ping -n -I wlan0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[1767039137.369] [00:09:31.129] [NET: wlan0] execute_ping: Ping command started (PID ~1001), reading output...
+[1767039137.369] [00:09:31.129] [NET: wlan0] execute_ping: Starting read loop with 18 second timeout
+[1767039137.386] [00:09:31.146] [NET: wlan0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+
+[1767039137.435] [00:09:31.195] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=54 time=47.622 ms
+
+[1767039137.435] [00:09:31.195] [NET: wlan0] execute_ping: Found reply #1
+[1767039137.435] [00:09:31.195] [NET: wlan0] execute_ping: Latency: 47.622 ms
+[1767039137.461] [00:09:31.221] [Cellular Connection - MANUAL SCAN: Bypassing connection protection]
+[1767039137.461] [00:09:31.221] [Cellular Connection - SCAN MANUAL - Starting]
+[1767039137.461] [00:09:31.221] [Cellular Connection - SCAN STARTED - All PPP operations will be suspended]
+[1767039137.465] [00:09:31.225] [Cellular Scan Protection] PPP online, starting protection timer
+[1767039137.465] [00:09:31.225] [Cellular Scan - State 1: Stopping PPP and disabling runsv supervision]
+[1767039137.465] [00:09:31.225] [Cellular Scan - Executing: sv down pppd]
+[1767039137.598] [00:09:31.358] [Cellular Connection - Ready state changed from READY to NOT_READY]
+[1767039137.598] [00:09:31.358] [Cellular Connection - Link reset state changed from NORMAL to RESET]
+[1767039137.598] [00:09:31.358] [Cellular Connection - Cellular state changed from 14 (ONLINE) to 27 (SCAN_STOP_PPP_WAIT_SV)]
+[1767039138.009] [00:09:31.769] [Cellular Scan - State 1b: sv down complete, now stopping pppd]
+[1767039138.113] [00:09:31.873] [Cellular Connection - Cellular state changed from 27 (SCAN_STOP_PPP_WAIT_SV) to 46 (STOP_PPP_INIT)]
+[1767039138.198] [00:09:31.958] [Cellular] PPPD not running, skipping to cleanup
+[1767039138.198] [00:09:31.958] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State changed from NET_ONLINE to NET_ONLINE_CHECK_RESULTS
+[1767039138.289] [00:09:32.045] [Cellular Connection - PPPD not running, skipping stop]
+[1767039138.289] [00:09:32.049] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Stopped pppd - cellular scanning for operators
+[1767039138.289] [00:09:32.049] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039138.392] [00:09:32.152] [Cellular Connection - Cellular state changed from 46 (STOP_PPP_INIT) to 49 (STOP_PPP_CLEANUP)]
+[1767039138.392] [00:09:32.152] [Cellular] Cleaning up lock files
+[1767039138.431] [00:09:32.191] [Cellular] PPP stop complete, returning to state 28 (SCAN_VERIFY_STOPPED)
+[1767039138.433] [00:09:32.193] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=54 time=45.111 ms
+
+[1767039138.433] [00:09:32.193] [NET: wlan0] execute_ping: Found reply #2
+[1767039138.433] [00:09:32.193] [NET: wlan0] execute_ping: Latency: 45.111 ms
+[1767039138.536] [00:09:32.296] [Cellular Connection - Cellular state changed from 49 (STOP_PPP_CLEANUP) to 28 (SCAN_VERIFY_STOPPED)]
+[1767039138.623] [00:09:32.383] [Cellular Scan - State 2: PPP stopped successfully]
+[1767039138.725] [00:09:32.485] [Cellular Connection - Cellular state changed from 28 (SCAN_VERIFY_STOPPED) to 29 (SCAN_DEREGISTER)]
+[1767039138.725] [00:09:32.485] [Cellular Scan - State 3: Deregistering from current network (AT+COPS=2)]
+[1767039138.725] [00:09:32.485] [Cellular Connection - Sending AT command: AT+COPS=2]
+[1767039138.726] [00:09:32.486] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1767039138.726] [00:09:32.486] [DEBUG] Wrote command '+COPS=2' successfully (7 bytes)
+[1767039138.726] [00:09:32.486] [DEBUG] Wrote CR successfully (1 bytes)
+[1767039138.828] [00:09:32.588] [Cellular Connection - Cellular state changed from 29 (SCAN_DEREGISTER) to 30 (SCAN_WAIT_DEREGISTER)]
+[1767039139.141] [00:09:32.901] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039139.141] [00:09:32.901] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039139.141] [00:09:32.901] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039139.434] [00:09:33.194] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=54 time=45.545 ms
+
+[1767039139.434] [00:09:33.194] [NET: wlan0] execute_ping: Found reply #3
+[1767039139.434] [00:09:33.194] [NET: wlan0] execute_ping: Latency: 45.545 ms
+[1767039139.434] [00:09:33.194] [NET: wlan0] execute_ping: Raw output: 
+
+[1767039139.434] [00:09:33.194] [NET: wlan0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+
+[1767039139.434] [00:09:33.194] [NET: wlan0] execute_ping: Found ping statistics line
+[1767039139.434] [00:09:33.194] [NET: wlan0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+
+[1767039139.436] [00:09:33.195] [NET: wlan0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[1767039139.436] [00:09:33.196] [NET: wlan0] execute_ping: Parsed packet loss: 0%
+[1767039139.436] [00:09:33.196] [NET: wlan0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[1767039139.436] [00:09:33.196] [NET: wlan0] execute_ping: Closing ping pipe...
+[1767039139.436] [00:09:33.196] [NET: wlan0] execute_ping: Ping command exited with status: 0
+[1767039139.436] [00:09:33.196] [NET: wlan0] execute_ping: Ping command completed normally with exit code: 0
+[1767039139.436] [00:09:33.196] [NET: wlan0] execute_ping: Final results - replies: 3, avg_latency: 46 ms, packet_loss: 0%
+[1767039139.436] [00:09:33.196] [NET] execute_ping: Returning true (replies:3 summary:true)
+[1767039139.436] [00:09:33.196] [NET] ping_thread_fn: wlan0 ping result - success:true replies:3 latency:46
+[1767039139.437] [00:09:33.197] [NET] wlan0: replies=3 avg_lat=46ms link_up=true
+[1767039139.437] [00:09:33.197] [NET] ping_thread_fn: wlan0 thread completed and marked as not running/invalid
+[1767039139.437] [00:09:33.197] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread exiting normally, thread_valid=false, thread_id=2943860100
+[1767039139.437] [00:09:33.197] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: cleanup_ping_thread called, thread_id=2943860100
+[1767039139.437] [00:09:33.197] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Cleanup complete, thread marked as not running/invalid
+[1767039139.437] [00:09:33.197] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread cleanup complete, exiting
+[1767039139.958] [00:09:33.718] [Cellular Connection - Line: AT+COPS=2]
+[1767039140.167] [00:09:33.927] [Cellular Connection - Line: OK]
+[1767039140.167] [00:09:33.927] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1767039140.167] [00:09:33.927] [Cellular Scan - State 3b: Deregistered from network, proceeding with scan]
+[1767039140.169] [00:09:33.929] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039140.169] [00:09:33.929] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039140.169] [00:09:33.929] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039140.271] [00:09:34.031] [Cellular Connection - Cellular state changed from 30 (SCAN_WAIT_DEREGISTER) to 31 (SCAN_GET_OPERATORS)]
+[1767039140.271] [00:09:34.031] [Cellular Scan - State 4: Requesting operator list]
+[1767039140.271] [00:09:34.031] [Cellular Connection - Sending AT command: AT+COPS=?]
+[1767039140.271] [00:09:34.031] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1767039140.271] [00:09:34.031] [DEBUG] Wrote command '+COPS=?' successfully (7 bytes)
+[1767039140.271] [00:09:34.031] [DEBUG] Wrote CR successfully (1 bytes)
+[1767039140.374] [00:09:34.134] [Cellular Connection - Cellular state changed from 31 (SCAN_GET_OPERATORS) to 32 (SCAN_WAIT_RESULTS)]
+[1767039140.375] [00:09:34.135] [Cellular Connection - Line: AT+COPS=?]
+[1767039141.197] [00:09:34.957] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039141.197] [00:09:34.957] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039141.197] [00:09:34.958] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039142.330] [00:09:36.090] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039142.330] [00:09:36.090] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039142.330] [00:09:36.090] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039143.267] [00:09:37.027] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039143.267] [00:09:37.027] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039143.268] [00:09:37.028] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039144.295] [00:09:38.055] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039144.295] [00:09:38.055] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039144.295] [00:09:38.055] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039145.321] [00:09:39.081] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039145.321] [00:09:39.081] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039145.321] [00:09:39.081] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039146.350] [00:09:40.110] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039146.350] [00:09:40.110] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039146.350] [00:09:40.110] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039147.477] [00:09:41.237] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039147.477] [00:09:41.237] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039147.477] [00:09:41.237] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039148.412] [00:09:42.172] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039148.412] [00:09:42.172] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039148.412] [00:09:42.172] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039149.441] [00:09:43.201] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039149.441] [00:09:43.201] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039149.441] [00:09:43.201] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039150.471] [00:09:44.231] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039150.471] [00:09:44.231] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039150.471] [00:09:44.231] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039151.493] [00:09:45.253] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039151.493] [00:09:45.253] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039151.493] [00:09:45.253] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039152.618] [00:09:46.378] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039152.618] [00:09:46.378] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039152.618] [00:09:46.378] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039153.546] [00:09:47.306] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039153.546] [00:09:47.306] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039153.546] [00:09:47.306] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039154.574] [00:09:48.333] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039154.574] [00:09:48.334] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039154.574] [00:09:48.334] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039155.598] [00:09:49.358] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039155.598] [00:09:49.358] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039155.598] [00:09:49.358] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039156.627] [00:09:50.387] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039156.627] [00:09:50.387] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039156.627] [00:09:50.387] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039157.753] [00:09:51.513] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular is scanning for operators, skipping PPP activation
+[1767039157.753] [00:09:51.513] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039157.753] [00:09:51.513] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039158.675] [00:09:52.435] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State timeout after 20 seconds, returning to interface selection
+[1767039158.676] [00:09:52.436] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State transition: NET_ONLINE_CHECK_RESULTS -> NET_SELECT_INTERFACE
+[1767039158.676] [00:09:52.436] [NETMGR] State: NET_SELECT_INTERFACE | State changed from NET_ONLINE_CHECK_RESULTS to NET_SELECT_INTERFACE
+[1767039158.678] [00:09:52.438] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039158.678] [00:09:52.438] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039158.678] [00:09:52.438] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039159.706] [00:09:53.466] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039159.706] [00:09:53.466] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039159.706] [00:09:53.466] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039160.737] [00:09:54.497] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039160.737] [00:09:54.497] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039160.737] [00:09:54.497] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039161.765] [00:09:55.525] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039161.765] [00:09:55.525] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039161.765] [00:09:55.525] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039162.887] [00:09:56.647] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039162.887] [00:09:56.647] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039162.887] [00:09:56.647] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039163.812] [00:09:57.572] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039163.813] [00:09:57.573] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039163.813] [00:09:57.573] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039164.841] [00:09:58.601] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039164.841] [00:09:58.601] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039164.841] [00:09:58.601] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039165.870] [00:09:59.629] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039165.870] [00:09:59.630] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039165.870] [00:09:59.630] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039166.913] [00:10:00.673] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039166.913] [00:10:00.673] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039166.913] [00:10:00.673] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039168.046] [00:10:01.806] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039168.046] [00:10:01.806] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039168.046] [00:10:01.806] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039168.968] [00:10:02.728] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039168.968] [00:10:02.728] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039168.968] [00:10:02.728] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039169.991] [00:10:03.751] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039169.992] [00:10:03.752] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039169.992] [00:10:03.752] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039171.020] [00:10:04.780] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039171.020] [00:10:04.780] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039171.020] [00:10:04.780] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039172.046] [00:10:05.806] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039172.046] [00:10:05.806] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039172.046] [00:10:05.807] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039173.171] [00:10:06.931] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039173.171] [00:10:06.931] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039173.171] [00:10:06.931] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039174.106] [00:10:07.866] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039174.106] [00:10:07.866] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039174.106] [00:10:07.866] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039175.133] [00:10:08.893] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039175.133] [00:10:08.893] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039175.133] [00:10:08.893] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039176.159] [00:10:09.919] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039176.159] [00:10:09.919] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039176.159] [00:10:09.919] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039177.191] [00:10:10.951] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039177.191] [00:10:10.951] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039177.191] [00:10:10.951] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039178.315] [00:10:12.075] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039178.315] [00:10:12.075] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039178.315] [00:10:12.075] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039179.243] [00:10:13.003] [NETMGR] State: NET_SELECT_INTERFACE | State timeout after 20 seconds, forcing transition to NET_INIT
+[1767039179.243] [00:10:13.003] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1767039179.243] [00:10:13.003] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1767039179.246] [00:10:13.006] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039179.246] [00:10:13.006] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039179.246] [00:10:13.006] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039180.273] [00:10:14.033] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039180.273] [00:10:14.033] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039180.273] [00:10:14.033] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039181.293] [00:10:15.053] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039181.293] [00:10:15.053] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039181.293] [00:10:15.053] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039182.322] [00:10:16.082] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039182.322] [00:10:16.082] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039182.322] [00:10:16.082] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039183.448] [00:10:17.208] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039183.448] [00:10:17.209] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039183.449] [00:10:17.209] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039184.374] [00:10:18.133] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039184.374] [00:10:18.134] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039184.374] [00:10:18.134] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039185.403] [00:10:19.163] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039185.403] [00:10:19.163] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039185.403] [00:10:19.163] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039186.432] [00:10:20.192] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039186.432] [00:10:20.192] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039186.432] [00:10:20.192] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039187.459] [00:10:21.219] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039187.459] [00:10:21.219] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039187.459] [00:10:21.219] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039188.582] [00:10:22.342] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039188.582] [00:10:22.342] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039188.582] [00:10:22.342] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039189.505] [00:10:23.265] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039189.505] [00:10:23.265] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039189.505] [00:10:23.265] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039190.532] [00:10:24.292] [NET] DNS prime succeeded: coap-dev.imatrixsys.com => 225e4780
+[1767039190.535] [00:10:24.295] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039190.535] [00:10:24.295] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039190.535] [00:10:24.295] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039191.559] [00:10:25.319] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039191.560] [00:10:25.320] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039191.560] [00:10:25.320] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039192.590] [00:10:26.350] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039192.590] [00:10:26.350] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039192.590] [00:10:26.350] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039193.721] [00:10:27.481] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039193.721] [00:10:27.481] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039193.721] [00:10:27.481] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039194.648] [00:10:28.408] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039194.648] [00:10:28.408] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039194.648] [00:10:28.408] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039195.676] [00:10:29.436] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039195.676] [00:10:29.436] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039195.676] [00:10:29.436] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039196.702] [00:10:30.462] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039196.702] [00:10:30.462] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039196.702] [00:10:30.462] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039197.730] [00:10:31.490] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039197.730] [00:10:31.490] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039197.730] [00:10:31.490] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039198.853] [00:10:32.613] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039198.853] [00:10:32.613] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039198.853] [00:10:32.613] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039199.787] [00:10:33.547] [Cellular Connection - Line: +COPS: (1,"T-Mobile","T-Mobile","310260",7),(1,"Verizon","Verizon","311480",7),(1,"AT&T","AT&T","310410",7),(1,"313 100","313 100","313100",7),(1,"T-Mobile","T-Mobile","310260",0),,(0,1,2,3,4),(0,1,2)]
+[1767039199.788] [00:10:33.548] [Cellular Connection - Line: OK]
+[1767039199.788] [00:10:33.548] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1767039199.788] [00:10:33.548] [Cellular Scan - State 4: Operator list received]
+[1767039199.788] [00:10:33.548] [Cellular Scan - Parsed operator 0: T-Mobile (310260)]
+[1767039199.788] [00:10:33.548] [Cellular Scan - Parsed operator 1: Verizon (311480)]
+[1767039199.788] [00:10:33.548] [Cellular Scan - Parsed operator 2: AT&T (310410)]
+[1767039199.788] [00:10:33.548] [Cellular Scan - Parsed operator 3: 313 100 (313100)]
+[1767039199.788] [00:10:33.548] [Cellular Scan - Parsed operator 4: T-Mobile (310260)]
+[1767039199.788] [00:10:33.548] [Cellular Scan - Skipping invalid operator entry (empty name/ID)]
+[1767039199.788] [00:10:33.548] [Cellular Scan - Skipping invalid operator entry (empty name/ID)]
+[1767039199.788] [00:10:33.548] [Cellular Scan - Found 5 operators]
+[1767039199.788] [00:10:33.548] [NETMGR] State: NET_SELECT_INTERFACE | State timeout after 20 seconds, forcing transition to NET_INIT
+[1767039199.788] [00:10:33.548] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1767039199.788] [00:10:33.548] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1767039199.790] [00:10:33.550] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039199.790] [00:10:33.550] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039199.790] [00:10:33.550] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039199.893] [00:10:33.653] [Cellular Connection - Cellular state changed from 32 (SCAN_WAIT_RESULTS) to 33 (SCAN_TEST_CARRIER)]
+[1767039199.893] [00:10:33.653] [Cellular Scan - State 5: Testing operator T-Mobile (310260)]
+[1767039199.894] [00:10:33.653] [Cellular Connection - Sending AT command: AT+COPS=1,2,"310260"]
+[1767039199.894] [00:10:33.654] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1767039199.894] [00:10:33.654] [DEBUG] Wrote command '+COPS=1,2,"310260"' successfully (18 bytes)
+[1767039199.894] [00:10:33.654] [DEBUG] Wrote CR successfully (1 bytes)
+[1767039199.998] [00:10:33.758] [Cellular Connection - Cellular state changed from 33 (SCAN_TEST_CARRIER) to 34 (SCAN_WAIT_CSQ)]
+[1767039199.998] [00:10:33.758] [Cellular Connection - Line: AT+COPS=1,2,"310260"]
+[1767039200.825] [00:10:34.585] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039200.825] [00:10:34.585] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039200.825] [00:10:34.585] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039201.853] [00:10:35.613] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039201.853] [00:10:35.613] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039201.854] [00:10:35.614] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039202.879] [00:10:36.639] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039202.879] [00:10:36.639] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039202.879] [00:10:36.639] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039204.008] [00:10:37.768] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039204.008] [00:10:37.768] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039204.008] [00:10:37.768] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039204.944] [00:10:38.704] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039204.944] [00:10:38.704] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039204.944] [00:10:38.704] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+IMX_UPLOAD: Ignoring response since timeout waiting for response.
+[1767039205.968] [00:10:39.728] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039205.968] [00:10:39.728] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039205.968] [00:10:39.728] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039206.998] [00:10:40.758] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039206.998] [00:10:40.758] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039206.998] [00:10:40.758] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039208.030] [00:10:41.790] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039208.030] [00:10:41.790] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039208.030] [00:10:41.790] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039208.337] [00:10:42.097] [Cellular Connection - Line: OK]
+[1767039208.337] [00:10:42.097] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1767039208.337] [00:10:42.097] [Cellular Scan - State 6: Connected to T-Mobile]
+[1767039208.337] [00:10:42.097] [Cellular Connection - Sending AT command: AT+CSQ]
+[1767039208.337] [00:10:42.097] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1767039208.337] [00:10:42.097] [DEBUG] Wrote command '+CSQ' successfully (4 bytes)
+[1767039208.337] [00:10:42.097] [DEBUG] Wrote CR successfully (1 bytes)
+[1767039208.439] [00:10:42.199] [Cellular Connection - Line: AT+CSQ]
+[1767039209.155] [00:10:42.915] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039209.155] [00:10:42.915] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039209.155] [00:10:42.915] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039209.359] [00:10:43.119] [Cellular Connection - Line: +CSQ: 16,99]
+[1767039209.359] [00:10:43.119] [Cellular Connection - Line: OK]
+[1767039209.359] [00:10:43.119] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1767039209.359] [00:10:43.119] [Cellular Scan - State 6: T-Mobile signal strength: 16]
+[1767039209.461] [00:10:43.221] [Cellular Connection - Cellular state changed from 34 (SCAN_WAIT_CSQ) to 35 (SCAN_NEXT_CARRIER)]
+[1767039209.461] [00:10:43.221] [Cellular Scan - State 7: Moving to next carrier (2/5)]
+[1767039209.564] [00:10:43.324] [Cellular Connection - Cellular state changed from 35 (SCAN_NEXT_CARRIER) to 33 (SCAN_TEST_CARRIER)]
+[1767039209.564] [00:10:43.324] [Cellular Scan - State 5: Testing operator Verizon (311480)]
+[1767039209.564] [00:10:43.324] [Cellular Connection - Sending AT command: AT+COPS=1,2,"311480"]
+[1767039209.564] [00:10:43.324] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1767039209.565] [00:10:43.325] [DEBUG] Wrote command '+COPS=1,2,"311480"' successfully (18 bytes)
+[1767039209.565] [00:10:43.325] [DEBUG] Wrote CR successfully (1 bytes)
+[1767039209.672] [00:10:43.431] [Cellular Connection - Cellular state changed from 33 (SCAN_TEST_CARRIER) to 34 (SCAN_WAIT_CSQ)]
+[1767039209.672] [00:10:43.432] [Cellular Connection - Line: AT+COPS=1,2,"311480"]
+[1767039210.091] [00:10:43.851] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039210.091] [00:10:43.851] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039210.091] [00:10:43.851] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039211.119] [00:10:44.879] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039211.119] [00:10:44.879] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039211.119] [00:10:44.879] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039212.143] [00:10:45.903] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039212.143] [00:10:45.903] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039212.143] [00:10:45.903] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039213.169] [00:10:46.929] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039213.169] [00:10:46.929] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039213.170] [00:10:46.930] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039214.294] [00:10:48.054] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039214.294] [00:10:48.054] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039214.295] [00:10:48.055] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039215.118] [00:10:48.878] [Cellular Connection - Line: OK]
+[1767039215.118] [00:10:48.878] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1767039215.118] [00:10:48.878] [Cellular Scan - State 6: Connected to Verizon]
+[1767039215.118] [00:10:48.878] [Cellular Connection - Sending AT command: AT+CSQ]
+[1767039215.118] [00:10:48.878] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1767039215.118] [00:10:48.878] [DEBUG] Wrote command '+CSQ' successfully (4 bytes)
+[1767039215.118] [00:10:48.878] [DEBUG] Wrote CR successfully (1 bytes)
+[1767039215.224] [00:10:48.984] [Cellular Connection - Line: AT+CSQ]
+[1767039215.227] [00:10:48.987] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039215.227] [00:10:48.987] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039215.227] [00:10:48.987] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039216.146] [00:10:49.906] [Cellular Connection - Line: +CSQ: 22,99]
+[1767039216.146] [00:10:49.907] [Cellular Connection - Line: OK]
+[1767039216.147] [00:10:49.907] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1767039216.147] [00:10:49.907] [Cellular Scan - State 6: Verizon signal strength: 22]
+[1767039216.250] [00:10:50.010] [Cellular Connection - Cellular state changed from 34 (SCAN_WAIT_CSQ) to 35 (SCAN_NEXT_CARRIER)]
+[1767039216.250] [00:10:50.010] [Cellular Scan - State 7: Moving to next carrier (3/5)]
+[1767039216.253] [00:10:50.013] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039216.253] [00:10:50.013] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039216.253] [00:10:50.013] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039216.355] [00:10:50.115] [Cellular Connection - Cellular state changed from 35 (SCAN_NEXT_CARRIER) to 33 (SCAN_TEST_CARRIER)]
+[1767039216.355] [00:10:50.115] [Cellular Scan - State 5: Testing operator AT&T (310410)]
+[1767039216.355] [00:10:50.115] [Cellular Connection - Sending AT command: AT+COPS=1,2,"310410"]
+[1767039216.355] [00:10:50.115] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1767039216.355] [00:10:50.115] [DEBUG] Wrote command '+COPS=1,2,"310410"' successfully (18 bytes)
+[1767039216.355] [00:10:50.115] [DEBUG] Wrote CR successfully (1 bytes)
+[1767039216.458] [00:10:50.218] [Cellular Connection - Cellular state changed from 33 (SCAN_TEST_CARRIER) to 34 (SCAN_WAIT_CSQ)]
+[1767039216.459] [00:10:50.219] [Cellular Connection - Line: AT+COPS=1,2,"310410"]
+[1767039217.282] [00:10:51.042] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039217.282] [00:10:51.042] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039217.282] [00:10:51.042] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039218.311] [00:10:52.071] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039218.311] [00:10:52.071] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039218.311] [00:10:52.071] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039219.436] [00:10:53.196] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039219.436] [00:10:53.196] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039219.436] [00:10:53.196] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039220.364] [00:10:54.124] [NETMGR] State: NET_SELECT_INTERFACE | State timeout after 20 seconds, forcing transition to NET_INIT
+[1767039220.364] [00:10:54.124] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1767039220.364] [00:10:54.124] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1767039220.366] [00:10:54.126] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039220.366] [00:10:54.126] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039220.366] [00:10:54.126] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039221.397] [00:10:55.157] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039221.397] [00:10:55.157] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039221.397] [00:10:55.157] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039222.316] [00:10:56.076] [Cellular Connection - Line: OK]
+[1767039222.316] [00:10:56.076] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1767039222.316] [00:10:56.076] [Cellular Scan - State 6: Connected to AT&T]
+[1767039222.316] [00:10:56.076] [Cellular Connection - Sending AT command: AT+CSQ]
+[1767039222.316] [00:10:56.076] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1767039222.316] [00:10:56.076] [DEBUG] Wrote command '+CSQ' successfully (4 bytes)
+[1767039222.316] [00:10:56.076] [DEBUG] Wrote CR successfully (1 bytes)
+[1767039222.420] [00:10:56.180] [Cellular Connection - Line: AT+CSQ]
+[1767039222.423] [00:10:56.183] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039222.423] [00:10:56.183] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039222.423] [00:10:56.183] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039223.345] [00:10:57.105] [Cellular Connection - Line: +CSQ: 25,99]
+[1767039223.346] [00:10:57.106] [Cellular Connection - Line: OK]
+[1767039223.346] [00:10:57.106] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1767039223.346] [00:10:57.106] [Cellular Scan - State 6: AT&T signal strength: 25]
+[1767039223.450] [00:10:57.210] [Cellular Connection - Cellular state changed from 34 (SCAN_WAIT_CSQ) to 35 (SCAN_NEXT_CARRIER)]
+[1767039223.450] [00:10:57.210] [Cellular Scan - State 7: Moving to next carrier (4/5)]
+[1767039223.452] [00:10:57.212] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039223.453] [00:10:57.213] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039223.453] [00:10:57.213] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039223.555] [00:10:57.315] [Cellular Connection - Cellular state changed from 35 (SCAN_NEXT_CARRIER) to 33 (SCAN_TEST_CARRIER)]
+[1767039223.555] [00:10:57.315] [Cellular Scan - State 5: Testing operator 313 100 (313100)]
+[1767039223.555] [00:10:57.315] [Cellular Connection - Sending AT command: AT+COPS=1,2,"313100"]
+[1767039223.555] [00:10:57.315] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1767039223.555] [00:10:57.315] [DEBUG] Wrote command '+COPS=1,2,"313100"' successfully (18 bytes)
+[1767039223.555] [00:10:57.315] [DEBUG] Wrote CR successfully (1 bytes)
+[1767039223.661] [00:10:57.421] [Cellular Connection - Cellular state changed from 33 (SCAN_TEST_CARRIER) to 34 (SCAN_WAIT_CSQ)]
+[1767039223.661] [00:10:57.421] [Cellular Connection - Line: AT+COPS=1,2,"313100"]
+[1767039224.172] [00:10:57.932] [Cellular Connection - Line: +CME ERROR: no network service]
+[1767039224.172] [00:10:57.933] [Cellular Connection - Final 'ERROR' detected. Ending read.]
+[1767039224.173] [00:10:57.933] [Cellular Scan - State 6: Failed to connect to 313 100]
+[1767039224.173] [00:10:57.933] [Cellular Scan - MANUAL: Skipping blacklist for 313 100 (313100) - CME ERROR]
+[1767039224.275] [00:10:58.035] [Cellular Connection - Cellular state changed from 34 (SCAN_WAIT_CSQ) to 35 (SCAN_NEXT_CARRIER)]
+[1767039224.275] [00:10:58.035] [Cellular Scan - State 7: Moving to next carrier (5/5)]
+[1767039224.377] [00:10:58.137] [Cellular Connection - Cellular state changed from 35 (SCAN_NEXT_CARRIER) to 33 (SCAN_TEST_CARRIER)]
+[1767039224.377] [00:10:58.137] [Cellular Scan - State 5: Testing operator T-Mobile (310260)]
+[1767039224.377] [00:10:58.137] [Cellular Connection - Sending AT command: AT+COPS=1,2,"310260"]
+[1767039224.378] [00:10:58.138] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1767039224.378] [00:10:58.138] [DEBUG] Wrote command '+COPS=1,2,"310260"' successfully (18 bytes)
+[1767039224.378] [00:10:58.138] [DEBUG] Wrote CR successfully (1 bytes)
+[1767039224.483] [00:10:58.243] [Cellular Connection - Cellular state changed from 33 (SCAN_TEST_CARRIER) to 34 (SCAN_WAIT_CSQ)]
+[1767039224.484] [00:10:58.243] [Cellular Connection - Line: AT+COPS=1,2,"310260"]
+[1767039224.578] [00:10:58.338] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | WARNING: Signal strength degraded to -72 dBm - connection may be unreliable
+[1767039224.583] [00:10:58.343] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039224.583] [00:10:58.343] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039224.583] [00:10:58.343] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039225.512] [00:10:59.272] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039225.512] [00:10:59.272] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039225.512] [00:10:59.272] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039226.540] [00:11:00.300] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039226.540] [00:11:00.300] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039226.540] [00:11:00.300] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039227.566] [00:11:01.326] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039227.566] [00:11:01.326] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039227.566] [00:11:01.326] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039228.592] [00:11:02.352] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039228.592] [00:11:02.352] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039228.592] [00:11:02.352] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039229.716] [00:11:03.476] [NETMGR-WIFI0] State: NET_SELECT_INTERFACE | Signal strength changed: -72 dBm -> -67 dBm (delta: +5 dBm)
+[1767039229.721] [00:11:03.481] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039229.721] [00:11:03.481] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039229.721] [00:11:03.481] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039230.648] [00:11:04.408] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039230.648] [00:11:04.408] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039230.648] [00:11:04.408] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039231.672] [00:11:05.432] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039231.672] [00:11:05.432] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039231.672] [00:11:05.432] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039232.696] [00:11:06.456] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039232.696] [00:11:06.456] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039232.696] [00:11:06.456] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039232.904] [00:11:06.664] [Cellular Connection - Line: OK]
+[1767039232.904] [00:11:06.664] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1767039232.904] [00:11:06.664] [Cellular Scan - State 6: Connected to T-Mobile]
+[1767039232.904] [00:11:06.664] [Cellular Connection - Sending AT command: AT+CSQ]
+[1767039232.904] [00:11:06.664] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1767039232.904] [00:11:06.664] [DEBUG] Wrote command '+CSQ' successfully (4 bytes)
+[1767039232.904] [00:11:06.664] [DEBUG] Wrote CR successfully (1 bytes)
+[1767039233.009] [00:11:06.769] [Cellular Connection - Line: AT+CSQ]
+[1767039233.725] [00:11:07.485] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039233.726] [00:11:07.486] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039233.726] [00:11:07.486] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039233.932] [00:11:07.692] [Cellular Connection - Line: +CSQ: 16,99]
+[1767039233.932] [00:11:07.692] [Cellular Connection - Line: OK]
+[1767039233.932] [00:11:07.692] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1767039233.933] [00:11:07.693] [Cellular Scan - State 6: T-Mobile signal strength: 16]
+[1767039234.035] [00:11:07.795] [Cellular Connection - Cellular state changed from 34 (SCAN_WAIT_CSQ) to 35 (SCAN_NEXT_CARRIER)]
+[1767039234.035] [00:11:07.795] [Cellular Scan - State 7: All carriers tested]
+[1767039234.138] [00:11:07.898] [Cellular Connection - Cellular state changed from 35 (SCAN_NEXT_CARRIER) to 36 (SCAN_SELECT_BEST)]
+[1767039234.138] [00:11:07.898] [Cellular Scan - State 8: Selecting best operator]
+[1767039234.138] [00:11:07.898] [Cellular Scan - Signal strength summary:]
+[1767039234.139] [00:11:07.899] [Cellular Scan -   1. T-Mobile (310260): signal=16 [OK]]
+[1767039234.139] [00:11:07.899] [Cellular Scan -   2. Verizon (311480): signal=22 [OK]]
+[1767039234.139] [00:11:07.899] [Cellular Scan -   3. AT&T (310410): signal=25 [OK]]
+[1767039234.139] [00:11:07.899] [Cellular Scan -   4. 313 100 (313100): signal=-1 [BLACKLISTED]]
+[1767039234.139] [00:11:07.899] [Cellular Scan -   5. T-Mobile (310260): signal=16 [OK]]
+[1767039234.139] [00:11:07.899] [Cellular Scan - State 8: SELECTED: AT&T (310410) with signal=25]
+[1767039234.241] [00:11:08.001] [Cellular Connection - Cellular state changed from 36 (SCAN_SELECT_BEST) to 37 (SCAN_CONNECT_BEST)]
+[1767039234.241] [00:11:08.001] [Cellular Scan - State 9: Connecting to AT&T]
+[1767039234.241] [00:11:08.001] [Cellular Connection - Sending AT command: AT+COPS=1,2,"310410"]
+[1767039234.242] [00:11:08.002] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1767039234.242] [00:11:08.002] [DEBUG] Wrote command '+COPS=1,2,"310410"' successfully (18 bytes)
+[1767039234.242] [00:11:08.002] [DEBUG] Wrote CR successfully (1 bytes)
+[1767039234.345] [00:11:08.105] [Cellular Connection - Cellular state changed from 37 (SCAN_CONNECT_BEST) to 38 (SCAN_START_PPP)]
+[1767039234.346] [00:11:08.106] [Cellular Connection - Line: AT+COPS=1,2,"310410"]
+[1767039234.855] [00:11:08.615] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039234.855] [00:11:08.615] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039234.855] [00:11:08.615] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039235.786] [00:11:09.546] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039235.786] [00:11:09.547] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039235.787] [00:11:09.547] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039236.819] [00:11:10.579] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039236.819] [00:11:10.579] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039236.819] [00:11:10.579] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039237.848] [00:11:11.608] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039237.848] [00:11:11.608] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039237.848] [00:11:11.608] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039238.878] [00:11:12.638] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039238.878] [00:11:12.638] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039238.879] [00:11:12.639] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039240.006] [00:11:13.766] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039240.006] [00:11:13.766] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039240.006] [00:11:13.766] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039240.517] [00:11:14.277] [Cellular Connection - Line: OK]
+[1767039240.517] [00:11:14.277] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1767039240.517] [00:11:14.277] [Cellular Scan - State 10: AT+COPS=1,2 accepted for AT&T, verifying carrier switch]
+[1767039240.517] [00:11:14.277] [Cellular Connection - Sending AT command: AT+COPS?]
+[1767039240.517] [00:11:14.277] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1767039240.517] [00:11:14.277] [DEBUG] Wrote command '+COPS?' successfully (6 bytes)
+[1767039240.517] [00:11:14.277] [DEBUG] Wrote CR successfully (1 bytes)
+[1767039240.620] [00:11:14.380] [Cellular Connection - Cellular state changed from 38 (SCAN_START_PPP) to 39 (SCAN_VERIFY_CARRIER)]
+[1767039240.620] [00:11:14.381] [Cellular Connection - Line: AT+COPS?]
+[1767039240.929] [00:11:14.689] [NETMGR] State: NET_SELECT_INTERFACE | State timeout after 20 seconds, forcing transition to NET_INIT
+[1767039240.929] [00:11:14.689] [NETMGR] State: NET_SELECT_INTERFACE | Invalid transition from SELECT_INTERFACE to NET_INIT
+[1767039240.929] [00:11:14.689] [NETMGR] State: NET_SELECT_INTERFACE | State transition blocked: NET_SELECT_INTERFACE -> NET_INIT
+[1767039240.932] [00:11:14.692] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular is scanning for operators, skipping PPP activation
+[1767039240.932] [00:11:14.692] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039240.932] [00:11:14.692] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Cellular scan in progress - waiting passively (no PPP operations)
+[1767039241.546] [00:11:15.306] [Cellular Connection - Line: +COPS: 1,2,"310410",7]
+[1767039241.546] [00:11:15.306] [Cellular Connection - Line: OK]
+[1767039241.546] [00:11:15.306] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1767039241.546] [00:11:15.306] [Cellular Scan - VERIFIED: Now registered to AT&T (310410)]
+[1767039241.546] [00:11:15.306] [Cellular Scan - Updated selected_operator to AT&T (310410)]
+[1767039241.648] [00:11:15.408] [Cellular Connection - Cellular state changed from 39 (SCAN_VERIFY_CARRIER) to 41 (SCAN_COMPLETE)]
+[1767039241.648] [00:11:15.408] [Cellular Scan - State 11: Scan complete]
+[1767039241.648] [00:11:15.408] [Cellular Scan - SCAN COMPLETED - Waiting for PPP interface (10s grace period)]
+[1767039241.648] [00:11:15.408] [Cellular Scan - Re-enabling runsv supervision: sv up pppd]
+[1767039241.775] [00:11:15.535] [Cellular Connection - Cellular state changed from 41 (SCAN_COMPLETE) to 42 (WAIT_PPP_STARTUP)]
+[1767039242.689] [00:11:16.449] [NETMGR-PPP0] State: NET_SELECT_INTERFACE | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039242.690] [00:11:16.450] [NETMGR] State: NET_SELECT_INTERFACE | Starting interface test for wlan0
+[1767039242.691] [00:11:16.451] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[1767039242.691] [00:11:16.451] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: launch_ping_thread called
+[1767039242.691] [00:11:16.451] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Creating new thread for ping test
+[1767039242.691] [00:11:16.451] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Thread created and detached successfully, thread_id=2943860100
+[1767039242.691] [00:11:16.451] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Thread state updated - running=true, thread_valid=true
+[1767039242.691] [00:11:16.451] [NETMGR] State: NET_SELECT_INTERFACE | Started ping test for wlan0
+[1767039242.696] [00:11:16.456] [NET] ping_thread_fn: Starting ping thread for wlan0 to IP 34.94.71.128
+[1767039242.696] [00:11:16.456] [NETMGR] State: NET_SELECT_INTERFACE | [THREAD] wlan0: Thread started, thread_id=2943860100, target_ip=34.94.71.128
+[1767039242.697] [00:11:16.457] [NET: wlan0] execute_ping: Starting ping to IP: 34.94.71.128
+[1767039242.697] [00:11:16.457] [NET: wlan0] execute_ping: Target IP string: 34.94.71.128
+[1767039242.697] [00:11:16.457] [NET: wlan0] execute_ping: Executing command: ping -n -I wlan0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[1767039242.699] [00:11:16.459] [NETMGR] State: NET_SELECT_INTERFACE | Skipping ppp0 test - not active (cellular_ready=NO, cellular_started=NO, has_ip=YES)
+[1767039242.699] [00:11:16.459] [NETMGR] State: NET_SELECT_INTERFACE | State transition: NET_SELECT_INTERFACE -> NET_WAIT_RESULTS
+[1767039242.703] [00:11:16.463] [NET: wlan0] execute_ping: Ping command started (PID ~1001), reading output...
+[1767039242.703] [00:11:16.463] [NET: wlan0] execute_ping: Starting read loop with 18 second timeout
+[1767039242.740] [00:11:16.500] [NET: wlan0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+
+[1767039242.789] [00:11:16.549] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=54 time=48.021 ms
+
+[1767039242.789] [00:11:16.549] [NET: wlan0] execute_ping: Found reply #1
+[1767039242.789] [00:11:16.549] [NET: wlan0] execute_ping: Latency: 48.021 ms
+[1767039243.793] [00:11:17.553] [NETMGR] State: NET_WAIT_RESULTS | State changed from NET_SELECT_INTERFACE to NET_WAIT_RESULTS
+[1767039243.795] [00:11:17.555] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=54 time=51.719 ms
+
+[1767039243.795] [00:11:17.555] [NET: wlan0] execute_ping: Found reply #2
+[1767039243.796] [00:11:17.556] [NET: wlan0] execute_ping: Latency: 51.719 ms
+[1767039243.797] [00:11:17.557] [NETMGR-PPP0] State: NET_WAIT_RESULTS | Skipping ppp0: cellular_ready=NO, cellular_started=NO
+[1767039243.797] [00:11:17.557] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 timed out
+[1767039243.797] [00:11:17.557] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread already completed (thread_valid=false), skipping cancel
+[1767039243.797] [00:11:17.557] [NETMGR] State: NET_WAIT_RESULTS | Thread ppp0 timed out and was cancelled
+
+[1767039244.688] [00:11:18.448] [Cellular Scan - PPP interface detected, enabling cellular_now_ready]
+[1767039244.782] [00:11:18.542] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=54 time=36.410 ms
+
+[1767039244.782] [00:11:18.542] [NET: wlan0] execute_ping: Found reply #3
+[1767039244.782] [00:11:18.542] [NET: wlan0] execute_ping: Latency: 36.410 ms
+[1767039244.782] [00:11:18.542] [NET: wlan0] execute_ping: Raw output: 
+
+[1767039244.782] [00:11:18.542] [NET: wlan0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+
+[1767039244.782] [00:11:18.542] [NET: wlan0] execute_ping: Found ping statistics line
+[1767039244.782] [00:11:18.542] [NET: wlan0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+
+[1767039244.782] [00:11:18.542] [NET: wlan0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[1767039244.782] [00:11:18.542] [NET: wlan0] execute_ping: Parsed packet loss: 0%
+[1767039244.782] [00:11:18.542] [NET: wlan0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[1767039244.782] [00:11:18.542] [NET: wlan0] execute_ping: Closing ping pipe...
+[1767039244.782] [00:11:18.542] [NET: wlan0] execute_ping: Ping command exited with status: 0
+[1767039244.782] [00:11:18.542] [NET: wlan0] execute_ping: Ping command completed normally with exit code: 0
+[1767039244.782] [00:11:18.542] [NET: wlan0] execute_ping: Final results - replies: 3, avg_latency: 45 ms, packet_loss: 0%
+[1767039244.782] [00:11:18.542] [NET] execute_ping: Returning true (replies:3 summary:true)
+[1767039244.782] [00:11:18.542] [NET] ping_thread_fn: wlan0 ping result - success:true replies:3 latency:45
+[1767039244.782] [00:11:18.542] [NET] wlan0: replies=3 avg_lat=45ms link_up=true
+[1767039244.782] [00:11:18.543] [NET] ping_thread_fn: wlan0 thread completed and marked as not running/invalid
+[1767039244.783] [00:11:18.543] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread exiting normally, thread_valid=false, thread_id=2943860100
+[1767039244.783] [00:11:18.543] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: cleanup_ping_thread called, thread_id=2943860100
+[1767039244.783] [00:11:18.543] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Cleanup complete, thread marked as not running/invalid
+[1767039244.783] [00:11:18.543] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] wlan0: Thread cleanup complete, exiting
+[1767039244.793] [00:11:18.553] [Cellular Connection - Ready state changed from NOT_READY to READY]
+[1767039244.793] [00:11:18.553] [Cellular Connection - Link reset state changed from RESET to NORMAL]
+[1767039244.793] [00:11:18.553] [Cellular Connection - Cellular state changed from 42 (WAIT_PPP_STARTUP) to 14 (ONLINE)]
+[1767039244.793] [00:11:18.553] [DEBUG] Periodic check triggered
+[1767039244.793] [00:11:18.553] [DEBUG] cell_fd=11, cellular_state=14
+[1767039244.793] [00:11:18.553] [DEBUG] current_time=678553, cellular_check_time=511481
+[1767039244.793] [00:11:18.553] [DEBUG] About to send AT+COPS?
+[1767039244.793] [00:11:18.553] [Cellular Connection - Sending AT command: AT+COPS?]
+[1767039244.793] [00:11:18.553] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1767039244.793] [00:11:18.553] [DEBUG] Wrote command '+COPS?' successfully (6 bytes)
+[1767039244.794] [00:11:18.554] [DEBUG] Wrote CR successfully (1 bytes)
+[1767039244.794] [00:11:18.554] [DEBUG] AT+COPS? sent successfully
+[1767039244.794] [00:11:18.554] [DEBUG] response_buffer cleared
+[1767039244.794] [00:11:18.554] [DEBUG] AT response state initialized
+[1767039244.794] [00:11:18.554] [DEBUG] State transition complete: CELL_ONLINE -> CELL_GET_RESPONSE
+[1767039244.795] [00:11:18.555] [NETMGR-PPP0] State: NET_WAIT_RESULTS | Cellular transitioned from NOT_READY to READY, allowing PPP retry
+[1767039244.883] [00:11:18.643] [NETMGR-PPP0] State: NET_WAIT_RESULTS | PPPD already running, marking cellular_started=true
+[1767039244.883] [00:11:18.643] [NETMGR] State: NET_WAIT_RESULTS | Ping test for wlan0 completed, score: 10, latency: 45
+[1767039244.883] [00:11:18.643] [NETMGR] State: NET_WAIT_RESULTS | Ping test for ppp0 timed out
+[1767039244.884] [00:11:18.643] [NETMGR] State: NET_WAIT_RESULTS | [THREAD] ppp0: Thread already completed (thread_valid=false), skipping cancel
+[1767039244.884] [00:11:18.644] [NETMGR] State: NET_WAIT_RESULTS | Thread ppp0 timed out and was cancelled
+
+[1767039244.886] [00:11:18.646] [NETMGR] State: NET_WAIT_RESULTS | eth0 has IP but is DHCP server, not marking active for Internet routing
+[1767039244.889] [00:11:18.649] [NETMGR] State: NET_WAIT_RESULTS | State transition: NET_WAIT_RESULTS -> NET_REVIEW_SCORE
+[1767039244.992] [00:11:18.752] [Cellular Connection - Cellular state changed from 14 (ONLINE) to 3 (GET_RESPONSE)]
+[1767039244.992] [00:11:18.752]     [Returning to cellular state: ONLINE_OPERATOR_CHECK]
+[1767039244.993] [00:11:18.753] [Cellular Connection - Line: AT+COPS?]
+[1767039244.993] [00:11:18.753] [Cellular Connection - Line: +COPS: 1,2,"310410",7]
+[1767039244.994] [00:11:18.753] [Cellular Connection - Line: OK]
+[1767039244.994] [00:11:18.754] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1767039244.994] [00:11:18.754] [Cellular Connection - AT command response successfully received.]
+[1767039245.096] [00:11:18.856] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 15 (ONLINE_OPERATOR_CHECK)]
+[1767039245.096] [00:11:18.856] [Cellular Connection - ONLINE AT+COPS command response received.]
+[1767039245.096] [00:11:18.856] [Cellular Connection - Sending AT command: AT+CSQ]
+[1767039245.096] [00:11:18.856] [DEBUG] Wrote 'AT' successfully (2 bytes)
+[1767039245.096] [00:11:18.856] [DEBUG] Wrote command '+CSQ' successfully (4 bytes)
+[1767039245.096] [00:11:18.856] [DEBUG] Wrote CR successfully (1 bytes)
+[1767039245.200] [00:11:18.960] [Cellular Connection - Cellular state changed from 15 (ONLINE_OPERATOR_CHECK) to 3 (GET_RESPONSE)]
+[1767039245.200] [00:11:18.960]     [Returning to cellular state: ONLINE_CHECK_CSQ]
+[1767039245.200] [00:11:18.960] [Cellular Connection - Line: AT+CSQ]
+[1767039245.200] [00:11:18.960] [Cellular Connection - Line: +CSQ: 17,99]
+[1767039245.200] [00:11:18.960] [Cellular Connection - Line: OK]
+[1767039245.200] [00:11:18.960] [Cellular Connection - Final 'OK' detected. Ending read.]
+[1767039245.200] [00:11:18.960] [Cellular Connection - AT command response successfully received.]
+[1767039245.305] [00:11:19.065] [Cellular Connection - Cellular state changed from 3 (GET_RESPONSE) to 16 (ONLINE_CHECK_CSQ)]
+[1767039245.305] [00:11:19.065] [Cellular Connection - ONLINE AT+CSQ command response received.]
+[1767039245.407] [00:11:19.167] [Cellular Connection - Cellular state changed from 16 (ONLINE_CHECK_CSQ) to 14 (ONLINE)]
+Dec 29 20:14:05 iMatrix:FC-1:0513973109 daemon.err pppd[7459]: not replacing default route to wlan0 [10.2.0.1]
+default via 10.2.0.1 dev wlan0 
+10.2.0.0/24 dev wlan0 proto kernel scope link src 10.2.0.179 
+192.168.7.0/24 dev eth0 proto kernel scope link src 192.168.7.1 
+[1767039245.821] [00:11:19.581] [NETMGR] State: NET_REVIEW_SCORE | State changed from NET_WAIT_RESULTS to NET_REVIEW_SCORE
+[1767039245.922] [00:11:19.682] [NETMGR] State: NET_REVIEW_SCORE | ppp0 obtained IP address, starting grace period
+[1767039245.922] [00:11:19.682] [NETMGR-PPP0] State: NET_REVIEW_SCORE | PPP0 timeout but other interfaces available, stopping without blacklist
+[1767039246.013] [00:11:19.773] [Cellular Connection - Stopping PPPD (cellular_reset=false)]
+[1767039248.198] [00:11:21.958] [Cellular Connection - PPPD did not exit gracefully, forcing kill]
+[1767039248.331] [00:11:22.091] [Cellular Connection - PPPD stopped (count=3)]
+[1767039248.331] [00:11:22.091] [Cellular Connection - PPPD stopped (count balanced at 0)]
+[1767039248.331] [00:11:22.091] [Cellular Connection - PPPD stopped (reset=false, count=0)]
+[1767039248.331] [00:11:22.091] [NETMGR-PPP0] State: NET_REVIEW_SCORE | PPPD stopped due to failure, resetting cellular_started flag
+[1767039248.331] [00:11:22.091] [NETMGR] State: NET_REVIEW_SCORE | State transition: NET_REVIEW_SCORE -> NET_ONLINE
+[1767039248.331] [00:11:22.091] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[1767039248.331] [00:11:22.091] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[1767039248.331] [00:11:22.091] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[1767039248.331] [00:11:22.091] [COMPUTE_BEST] Current interface states:
+[1767039248.331] [00:11:22.091] [COMPUTE_BEST]   eth0: active=NO, link_up=NO, score=0, latency=0
+[1767039248.331] [00:11:22.091] [COMPUTE_BEST]   wlan0: active=YES, link_up=YES, score=10, latency=45
+[1767039248.331] [00:11:22.091] [COMPUTE_BEST]   ppp0: active=NO, link_up=YES, score=0, latency=0
+[1767039248.331] [00:11:22.091] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[1767039248.331] [00:11:22.091] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[1767039248.331] [00:11:22.091] [COMPUTE_BEST]   Checking wlan0: score=10 >= good_thr=7? YES
+[1767039248.331] [00:11:22.091] [COMPUTE_BEST]   Found GOOD link by priority: wlan0 (score=10, latency=45)
+[1767039248.331] [00:11:22.092] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[1767039248.332] [00:11:22.092] [NETMGR] State: NET_ONLINE | wlan0 score was good, setting as default route
+[1767039248.465] [00:11:22.225] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039248.556] [00:11:22.316] [NET] Default route already exists for wlan0, skipping route update
+[1767039248.592] [00:11:22.352] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039248.649] [00:11:22.409] [NETMGR] State: NET_ONLINE | Current routing table:
+[1767039248.689] [00:11:22.449] [NETMGR] State: NET_ONLINE | Setting current interface to wlan0
+[1767039248.689] [00:11:22.449] [NET] Notifying link type change to wlan0
+[1767039248.689] [00:11:22.449] [NETMGR] State: NET_ONLINE | Best interface: wlan0 (score: 10, latency: 45), going online
+[1767039248.795] [00:11:22.555] [NETMGR] State: NET_ONLINE | State changed from NET_REVIEW_SCORE to NET_ONLINE
+[1767039248.885] [00:11:22.645] [NETMGR-PPP0] State: NET_ONLINE | PPPD already running, marking cellular_started=true
+[1767039248.922] [00:11:22.682] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039248.980] [00:11:22.740] [NETMGR] State: NET_ONLINE | Default route verified for wlan0
+[1767039249.041] [00:11:22.801] [NETMGR-PPP0] State: NET_ONLINE | PPPD conflict tracking window reset - starting fresh
+[1767039249.045] [00:11:22.805] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[1767039249.045] [00:11:22.805] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: launch_ping_thread called
+[1767039249.045] [00:11:22.805] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Creating new thread for ping test
+[1767039249.045] [00:11:22.805] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Thread created and detached successfully, thread_id=2943860100
+[1767039249.045] [00:11:22.805] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Thread state updated - running=true, thread_valid=true
+[1767039249.045] [00:11:22.805] [NETMGR] State: NET_ONLINE | Started ping test for wlan0
+[1767039249.045] [00:11:22.805] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_CHECK_RESULTS
+[1767039249.050] [00:11:22.810] [NET] ping_thread_fn: Starting ping thread for wlan0 to IP 34.94.71.128
+[1767039249.050] [00:11:22.810] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread started, thread_id=2943860100, target_ip=34.94.71.128
+[1767039249.050] [00:11:22.810] [NET: wlan0] execute_ping: Starting ping to IP: 34.94.71.128
+[1767039249.050] [00:11:22.810] [NET: wlan0] execute_ping: Target IP string: 34.94.71.128
+[1767039249.050] [00:11:22.810] [NET: wlan0] execute_ping: Executing command: ping -n -I wlan0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[1767039249.056] [00:11:22.816] [NET: wlan0] execute_ping: Ping command started (PID ~1001), reading output...
+[1767039249.056] [00:11:22.816] [NET: wlan0] execute_ping: Starting read loop with 18 second timeout
+[1767039249.071] [00:11:22.831] [NET: wlan0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+
+[1767039249.123] [00:11:22.883] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=54 time=50.310 ms
+
+[1767039249.123] [00:11:22.883] [NET: wlan0] execute_ping: Found reply #1
+[1767039249.123] [00:11:22.883] [NET: wlan0] execute_ping: Latency: 50.310 ms
+Dec 29 20:14:09 iMatrix:FC-1:0513973109 daemon.err pppd[7545]: Connect script failed
+[1767039249.890] [00:11:23.650] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State changed from NET_ONLINE to NET_ONLINE_CHECK_RESULTS
+[1767039249.971] [00:11:23.731] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039250.043] [00:11:23.803] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039250.043] [00:11:23.803] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Deferring PPPD conflict resolution - ping test running on wlan0
+[1767039250.111] [00:11:23.871] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=54 time=37.786 ms
+
+[1767039250.111] [00:11:23.871] [NET: wlan0] execute_ping: Found reply #2
+[1767039250.111] [00:11:23.871] [NET: wlan0] execute_ping: Latency: 37.786 ms
+[1767039251.102] [00:11:24.862] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039251.109] [00:11:24.869] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=54 time=34.898 ms
+
+[1767039251.110] [00:11:24.870] [NET: wlan0] execute_ping: Found reply #3
+[1767039251.110] [00:11:24.870] [NET: wlan0] execute_ping: Latency: 34.898 ms
+[1767039251.110] [00:11:24.870] [NET: wlan0] execute_ping: Raw output: 
+
+[1767039251.110] [00:11:24.870] [NET: wlan0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+
+[1767039251.110] [00:11:24.870] [NET: wlan0] execute_ping: Found ping statistics line
+[1767039251.110] [00:11:24.870] [NET: wlan0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+
+[1767039251.110] [00:11:24.870] [NET: wlan0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[1767039251.110] [00:11:24.870] [NET: wlan0] execute_ping: Parsed packet loss: 0%
+[1767039251.110] [00:11:24.870] [NET: wlan0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[1767039251.110] [00:11:24.870] [NET: wlan0] execute_ping: Closing ping pipe...
+[1767039251.110] [00:11:24.870] [NET: wlan0] execute_ping: Ping command exited with status: 0
+[1767039251.110] [00:11:24.870] [NET: wlan0] execute_ping: Ping command completed normally with exit code: 0
+[1767039251.110] [00:11:24.870] [NET: wlan0] execute_ping: Final results - replies: 3, avg_latency: 40 ms, packet_loss: 0%
+[1767039251.110] [00:11:24.870] [NET] execute_ping: Returning true (replies:3 summary:true)
+[1767039251.111] [00:11:24.871] [NET] ping_thread_fn: wlan0 ping result - success:true replies:3 latency:40
+[1767039251.111] [00:11:24.871] [NET] wlan0: replies=3 avg_lat=40ms link_up=true
+[1767039251.111] [00:11:24.871] [NET] ping_thread_fn: wlan0 thread completed and marked as not running/invalid
+[1767039251.111] [00:11:24.871] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread exiting normally, thread_valid=false, thread_id=2943860100
+[1767039251.111] [00:11:24.871] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: cleanup_ping_thread called, thread_id=2943860100
+[1767039251.111] [00:11:24.871] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Cleanup complete, thread marked as not running/invalid
+[1767039251.111] [00:11:24.871] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread cleanup complete, exiting
+[1767039251.165] [00:11:24.925] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039251.167] [00:11:24.927] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Interface test complete - score:10, latency: 40
+[1767039251.167] [00:11:24.927] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State transition: NET_ONLINE_CHECK_RESULTS -> NET_ONLINE
+[1767039251.989] [00:11:25.749] [NETMGR] State: NET_ONLINE | State changed from NET_ONLINE_CHECK_RESULTS to NET_ONLINE
+[1767039252.030] [00:11:25.790] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039252.089] [00:11:25.849] [NETMGR] State: NET_ONLINE | Default route verified for wlan0
+[1767039252.153] [00:11:25.913] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[1767039252.153] [00:11:25.913] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: launch_ping_thread called
+[1767039252.153] [00:11:25.913] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Creating new thread for ping test
+[1767039252.153] [00:11:25.913] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Thread created and detached successfully, thread_id=2943860100
+[1767039252.153] [00:11:25.913] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Thread state updated - running=true, thread_valid=true
+[1767039252.153] [00:11:25.913] [NETMGR] State: NET_ONLINE | Started ping test for wlan0
+[1767039252.153] [00:11:25.913] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_CHECK_RESULTS
+[1767039252.158] [00:11:25.918] [NET] ping_thread_fn: Starting ping thread for wlan0 to IP 34.94.71.128
+[1767039252.158] [00:11:25.918] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread started, thread_id=2943860100, target_ip=34.94.71.128
+[1767039252.158] [00:11:25.918] [NET: wlan0] execute_ping: Starting ping to IP: 34.94.71.128
+[1767039252.158] [00:11:25.918] [NET: wlan0] execute_ping: Target IP string: 34.94.71.128
+[1767039252.158] [00:11:25.918] [NET: wlan0] execute_ping: Executing command: ping -n -I wlan0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[1767039252.165] [00:11:25.925] [NET: wlan0] execute_ping: Ping command started (PID ~1001), reading output...
+[1767039252.165] [00:11:25.925] [NET: wlan0] execute_ping: Starting read loop with 18 second timeout
+[1767039252.184] [00:11:25.944] [NET: wlan0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+
+[1767039252.220] [00:11:25.980] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=54 time=35.901 ms
+
+[1767039252.220] [00:11:25.980] [NET: wlan0] execute_ping: Found reply #1
+[1767039252.220] [00:11:25.980] [NET: wlan0] execute_ping: Latency: 35.901 ms
+[1767039253.080] [00:11:26.840] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State changed from NET_ONLINE to NET_ONLINE_CHECK_RESULTS
+[1767039253.118] [00:11:26.878] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039253.177] [00:11:26.937] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039253.177] [00:11:26.937] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Deferring PPPD conflict resolution - ping test running on wlan0
+[1767039253.233] [00:11:26.993] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=54 time=47.557 ms
+
+[1767039253.233] [00:11:26.993] [NET: wlan0] execute_ping: Found reply #2
+[1767039253.233] [00:11:26.993] [NET: wlan0] execute_ping: Latency: 47.557 ms
+[1767039254.142] [00:11:27.902] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039254.201] [00:11:27.961] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039254.201] [00:11:27.961] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Deferring PPPD conflict resolution - ping test running on wlan0
+[1767039254.234] [00:11:27.994] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=54 time=47.140 ms
+
+[1767039254.234] [00:11:27.994] [NET: wlan0] execute_ping: Found reply #3
+[1767039254.234] [00:11:27.994] [NET: wlan0] execute_ping: Latency: 47.140 ms
+[1767039254.234] [00:11:27.994] [NET: wlan0] execute_ping: Raw output: 
+
+[1767039254.234] [00:11:27.994] [NET: wlan0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+
+[1767039254.235] [00:11:27.995] [NET: wlan0] execute_ping: Found ping statistics line
+[1767039254.235] [00:11:27.995] [NET: wlan0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+
+[1767039254.235] [00:11:27.995] [NET: wlan0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[1767039254.235] [00:11:27.995] [NET: wlan0] execute_ping: Parsed packet loss: 0%
+[1767039254.235] [00:11:27.995] [NET: wlan0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[1767039254.235] [00:11:27.995] [NET: wlan0] execute_ping: Closing ping pipe...
+[1767039254.235] [00:11:27.995] [NET: wlan0] execute_ping: Ping command exited with status: 0
+[1767039254.235] [00:11:27.995] [NET: wlan0] execute_ping: Ping command completed normally with exit code: 0
+[1767039254.235] [00:11:27.995] [NET: wlan0] execute_ping: Final results - replies: 3, avg_latency: 43 ms, packet_loss: 0%
+[1767039254.235] [00:11:27.995] [NET] execute_ping: Returning true (replies:3 summary:true)
+[1767039254.236] [00:11:27.996] [NET] ping_thread_fn: wlan0 ping result - success:true replies:3 latency:43
+[1767039254.236] [00:11:27.996] [NET] wlan0: replies=3 avg_lat=43ms link_up=true
+[1767039254.236] [00:11:27.996] [NET] ping_thread_fn: wlan0 thread completed and marked as not running/invalid
+[1767039254.236] [00:11:27.996] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread exiting normally, thread_valid=false, thread_id=2943860100
+[1767039254.236] [00:11:27.996] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: cleanup_ping_thread called, thread_id=2943860100
+[1767039254.236] [00:11:27.996] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Cleanup complete, thread marked as not running/invalid
+[1767039254.236] [00:11:27.996] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread cleanup complete, exiting
+[1767039255.166] [00:11:28.926] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039255.224] [00:11:28.984] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039255.226] [00:11:28.986] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Interface test complete - score:10, latency: 43
+[1767039255.226] [00:11:28.986] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State transition: NET_ONLINE_CHECK_RESULTS -> NET_ONLINE
+[1767039256.151] [00:11:29.911] [NETMGR] State: NET_ONLINE | State changed from NET_ONLINE_CHECK_RESULTS to NET_ONLINE
+[1767039256.287] [00:11:30.047] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039256.348] [00:11:30.108] [NETMGR] State: NET_ONLINE | Default route verified for wlan0
+[1767039256.409] [00:11:30.169] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[1767039256.409] [00:11:30.169] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: launch_ping_thread called
+[1767039256.409] [00:11:30.169] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Creating new thread for ping test
+[1767039256.410] [00:11:30.170] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Thread created and detached successfully, thread_id=2943860100
+[1767039256.410] [00:11:30.170] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Thread state updated - running=true, thread_valid=true
+[1767039256.410] [00:11:30.170] [NETMGR] State: NET_ONLINE | Started ping test for wlan0
+[1767039256.410] [00:11:30.170] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_CHECK_RESULTS
+[1767039256.414] [00:11:30.173] [NET] ping_thread_fn: Starting ping thread for wlan0 to IP 34.94.71.128
+[1767039256.414] [00:11:30.174] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread started, thread_id=2943860100, target_ip=34.94.71.128
+[1767039256.414] [00:11:30.174] [NET: wlan0] execute_ping: Starting ping to IP: 34.94.71.128
+[1767039256.414] [00:11:30.174] [NET: wlan0] execute_ping: Target IP string: 34.94.71.128
+[1767039256.415] [00:11:30.174] [NET: wlan0] execute_ping: Executing command: ping -n -I wlan0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[1767039256.419] [00:11:30.179] [NET: wlan0] execute_ping: Ping command started (PID ~1001), reading output...
+[1767039256.419] [00:11:30.179] [NET: wlan0] execute_ping: Starting read loop with 18 second timeout
+[1767039256.435] [00:11:30.196] [NET: wlan0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+
+[1767039256.478] [00:11:30.238] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=54 time=41.698 ms
+
+[1767039256.478] [00:11:30.238] [NET: wlan0] execute_ping: Found reply #1
+[1767039256.478] [00:11:30.238] [NET: wlan0] execute_ping: Latency: 41.698 ms
+[1767039257.232] [00:11:30.992] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State changed from NET_ONLINE to NET_ONLINE_CHECK_RESULTS
+[1767039257.271] [00:11:31.031] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039257.328] [00:11:31.088] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039257.328] [00:11:31.088] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Deferring PPPD conflict resolution - ping test running on wlan0
+[1767039257.483] [00:11:31.243] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=54 time=46.281 ms
+
+[1767039257.483] [00:11:31.243] [NET: wlan0] execute_ping: Found reply #2
+[1767039257.483] [00:11:31.243] [NET: wlan0] execute_ping: Latency: 46.281 ms
+[1767039258.292] [00:11:32.052] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039258.356] [00:11:32.116] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039258.356] [00:11:32.116] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Deferring PPPD conflict resolution - ping test running on wlan0
+n[1767039258.471] [00:11:32.231] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=54 time=32.640 ms
+
+[1767039258.471] [00:11:32.231] [NET: wlan0] execute_ping: Found reply #3
+[1767039258.471] [00:11:32.231] [NET: wlan0] execute_ping: Latency: 32.640 ms
+[1767039258.471] [00:11:32.231] [NET: wlan0] execute_ping: Raw output: 
+
+[1767039258.471] [00:11:32.231] [NET: wlan0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+
+[1767039258.471] [00:11:32.231] [NET: wlan0] execute_ping: Found ping statistics line
+[1767039258.471] [00:11:32.231] [NET: wlan0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+
+[1767039258.471] [00:11:32.231] [NET: wlan0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[1767039258.471] [00:11:32.231] [NET: wlan0] execute_ping: Parsed packet loss: 0%
+[1767039258.471] [00:11:32.231] [NET: wlan0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[1767039258.471] [00:11:32.231] [NET: wlan0] execute_ping: Closing ping pipe...
+[1767039258.472] [00:11:32.232] [NET: wlan0] execute_ping: Ping command exited with status: 0
+[1767039258.472] [00:11:32.232] [NET: wlan0] execute_ping: Ping command completed normally with exit code: 0
+[1767039258.472] [00:11:32.232] [NET: wlan0] execute_ping: Final results - replies: 3, avg_latency: 40 ms, packet_loss: 0%
+[1767039258.472] [00:11:32.232] [NET] execute_ping: Returning true (replies:3 summary:true)
+[1767039258.472] [00:11:32.232] [NET] ping_thread_fn: wlan0 ping result - success:true replies:3 latency:40
+[1767039258.472] [00:11:32.232] [NET] wlan0: replies=3 avg_lat=40ms link_up=true
+[1767039258.472] [00:11:32.232] [NET] ping_thread_fn: wlan0 thread completed and marked as not running/invalid
+[1767039258.472] [00:11:32.232] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread exiting normally, thread_valid=false, thread_id=2943860100
+[1767039258.472] [00:11:32.232] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: cleanup_ping_thread called, thread_id=2943860100
+e[1767039258.472] [00:11:32.232] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Cleanup complete, thread marked as not running/invalid
+[1767039258.472] [00:11:32.232] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread cleanup complete, exiting
+t
++=============================================================================================================+
+|                                            NETWORK MANAGER STATE                                            |
++=============================================================================================================+
+| Status: ONLINE  | State: NET_ONLINE_CHECK_RESULTS | Interface: wlan0 | Duration: 11:09    | DTLS: OK           |
++=============================================================================================================+
+| INTERFACE | ACTIVE  | TESTING | LINK_UP | SCORE | LATENCY | COOLDOWN  | IP_ADDRESS      | TEST_TIME         |
++-----------+---------+---------+---------+-------+---------+-----------+-----------------+-------------------+
+| eth0      | NO      | NO      | NO      |     0 |       0 | NONE      | 192.168.7.1     | NONE              |
+| wlan0     | YES     | NO      | YES     |    10 |      40 | NONE      | 10.2.0.179      | 3070 ms ago       |
+| ppp0      | NO      | NO      | YES     |     0 |       0 | NONE      | NONE            | NONE              |
++=============================================================================================================+
+|                                            INTERFACE LINK STATUS                                            |
++=============================================================================================================+
+| eth0      | INACTIVE - Link up (100Mb/s)                                                                    |
+| wlan0     | ACTIVE - Associated (SierraTelecom)                                                             |
+| ppp0      | INACTIVE - Daemon running (no interface)                                                        |
++=============================================================================================================+
+|                                                CONFIGURATION                                                |
++=============================================================================================================+
+| ETH0 Cooldown: 010.000 s | WIFI Cooldown: 010.000 s | Max State: 010.000 s | Online Check: 010.000        s |
+| Min Score: 3            | Good Score: 7            | Max WLAN Retries: 3     | PPP Retries: 0               |
+| WiFi Reassoc: Enabled  | Method: wpa_cli         | Scan Wait: 2000   ms                                     |
++=============================================================================================================+
+|                                                SYSTEM STATUS                                                |
++=============================================================================================================+
+| ETH0 DHCP: STOPPED  | ETH0 Enabled: NO     | WLAN Retries: 0     | First Run: NO                          |
+| WiFi Enabled: YES    | Cellular: READY     | Test Attempted: YES    | Last Link Up: YES                     |
++=============================================================================================================+
+|                                                  DNS CACHE                                                  |
++=============================================================================================================+
+| Status: PRIMED      | IP: 34.94.71.128      | Age: 68691       ms | Valid: YES                              |
++=============================================================================================================+
+|                                           BEST INTERFACE ANALYSIS                                           |
++=============================================================================================================+
+| Interface: wlan0    | Score: 10  | Latency: 40     ms                                                      |
++=============================================================================================================+
+|                                                RESULT STATUS                                                |
++=============================================================================================================+
+| Last Result: ONLINE                                                                                         |
++=============================================================================================================+
+| Network traffic: ETH0: TX: 89.74 KB     | WLAN0 TX: 131.32 KB    | PPP0 TX: 4.00 GB                         |
+|                        RX: 112.27 KB    |       RX: 167.17 KB    |      RX: 4.00 GB                         |
+| Network rates  : ETH0: TX: 0 Bytes/s    | WLAN0 TX: 409 Bytes/s  | PPP0 TX: 0 Bytes/s                       |
+|                        RX: 6 Bytes/s    |       RX: 162 Bytes/s  |      RX: 0 Bytes/s                       |
++=============================================================================================================+
+|                                             DHCP SERVER STATUS                                              |
++=============================================================================================================+
+| Interface: eth0     | Status: RUNNING  | IP: 192.168.7.1     | Range: 0        -9                           |
+| Active Clients: 0   | Expired: 0         | Lease Time: 24h      | Config: VALID                            |
++=============================================================================================================+
+>[1767039259.735] [00:11:33.495] [COMPUTE_BEST] Starting interface selection - good_thr=7, min_thr=3
+[1767039259.735] [00:11:33.495] [COMPUTE_BEST] Priority order: eth0 -> wlan0 -> ppp0
+[1767039259.735] [00:11:33.495] [COMPUTE_BEST] NOTE: eth0 is DHCP server - excluded from Internet routing
+[1767039259.735] [00:11:33.495] [COMPUTE_BEST] Current interface states:
+[1767039259.735] [00:11:33.495] [COMPUTE_BEST]   eth0: active=NO, link_up=NO, score=0, latency=0
+[1767039259.735] [00:11:33.495] [COMPUTE_BEST]   wlan0: active=YES, link_up=YES, score=10, latency=40
+[1767039259.735] [00:11:33.495] [COMPUTE_BEST]   ppp0: active=NO, link_up=YES, score=0, latency=0
+[1767039259.735] [00:11:33.495] [COMPUTE_BEST] Phase 1: Looking for GOOD links in strict priority order
+[1767039259.735] [00:11:33.495] [COMPUTE_BEST]   Skipping eth0: DHCP server mode (serves local clients, no Internet route)
+[1767039259.735] [00:11:33.495] [COMPUTE_BEST]   Checking wlan0: score=10 >= good_thr=7? YES
+[1767039259.735] [00:11:33.495] [COMPUTE_BEST]   Found GOOD link by priority: wlan0 (score=10, latency=40)
+[1767039259.736] [00:11:33.496] [COMPUTE_BEST] Returning early with GOOD threshold selection
+[1767039259.911] [00:11:33.671] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039259.971] [00:11:33.731] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039259.973] [00:11:33.733] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Interface test complete - score:10, latency: 40
+[1767039259.973] [00:11:33.733] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State transition: NET_ONLINE_CHECK_RESULTS -> NET_ONLINE
+[1767039260.898] [00:11:34.658] [NETMGR] State: NET_ONLINE | State changed from NET_ONLINE_CHECK_RESULTS to NET_ONLINE
+[1767039260.937] [00:11:34.697] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039260.996] [00:11:34.756] [NETMGR] State: NET_ONLINE | Default route verified for wlan0
+[1767039261.061] [00:11:34.821] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[1767039261.061] [00:11:34.821] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: launch_ping_thread called
+[1767039261.061] [00:11:34.821] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Creating new thread for ping test
+[1767039261.061] [00:11:34.821] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Thread created and detached successfully, thread_id=2943860100
+[1767039261.061] [00:11:34.821] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Thread state updated - running=true, thread_valid=true
+[1767039261.062] [00:11:34.822] [NETMGR] State: NET_ONLINE | Started ping test for wlan0
+[1767039261.062] [00:11:34.822] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_CHECK_RESULTS
+[1767039261.065] [00:11:34.825] [NET] ping_thread_fn: Starting ping thread for wlan0 to IP 34.94.71.128
+[1767039261.065] [00:11:34.826] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread started, thread_id=2943860100, target_ip=34.94.71.128
+[1767039261.066] [00:11:34.826] [NET: wlan0] execute_ping: Starting ping to IP: 34.94.71.128
+[1767039261.066] [00:11:34.826] [NET: wlan0] execute_ping: Target IP string: 34.94.71.128
+[1767039261.066] [00:11:34.826] [NET: wlan0] execute_ping: Executing command: ping -n -I wlan0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[1767039261.071] [00:11:34.831] [NET: wlan0] execute_ping: Ping command started (PID ~1001), reading output...
+[1767039261.071] [00:11:34.831] [NET: wlan0] execute_ping: Starting read loop with 18 second timeout
+[1767039261.088] [00:11:34.848] [NET: wlan0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+
+[1767039261.139] [00:11:34.899] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=54 time=50.189 ms
+
+[1767039261.139] [00:11:34.899] [NET: wlan0] execute_ping: Found reply #1
+[1767039261.139] [00:11:34.899] [NET: wlan0] execute_ping: Latency: 50.189 ms
+[1767039261.985] [00:11:35.745] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State changed from NET_ONLINE to NET_ONLINE_CHECK_RESULTS
+[1767039262.125] [00:11:35.885] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=54 time=35.565 ms
+
+[1767039262.125] [00:11:35.885] [NET: wlan0] execute_ping: Found reply #2
+[1767039262.125] [00:11:35.885] [NET: wlan0] execute_ping: Latency: 35.565 ms
+[1767039262.138] [00:11:35.898] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039262.200] [00:11:35.960] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039262.200] [00:11:35.960] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Deferring PPPD conflict resolution - ping test running on wlan0
+[1767039263.061] [00:11:36.821] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039263.121] [00:11:36.881] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039263.121] [00:11:36.881] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Deferring PPPD conflict resolution - ping test running on wlan0
+[1767039263.137] [00:11:36.897] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=54 time=46.267 ms
+
+[1767039263.137] [00:11:36.897] [NET: wlan0] execute_ping: Found reply #3
+[1767039263.138] [00:11:36.898] [NET: wlan0] execute_ping: Latency: 46.267 ms
+[1767039263.138] [00:11:36.898] [NET: wlan0] execute_ping: Raw output: 
+
+[1767039263.138] [00:11:36.898] [NET: wlan0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+
+[1767039263.138] [00:11:36.898] [NET: wlan0] execute_ping: Found ping statistics line
+[1767039263.138] [00:11:36.898] [NET: wlan0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+
+[1767039263.138] [00:11:36.898] [NET: wlan0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[1767039263.138] [00:11:36.898] [NET: wlan0] execute_ping: Parsed packet loss: 0%
+[1767039263.138] [00:11:36.898] [NET: wlan0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+Dec 29 20:14:23 iMatrix:FC-1:0513973109 daemon.err pppd[7545]: not replacing default route to wlan0 [10.2.0.1]
+[1767039263.138] [00:11:36.898] [NET: wlan0] execute_ping: Closing ping pipe...
+[1767039263.138] [00:11:36.898] [NET: wlan0] execute_ping: Ping command exited with status: 0
+[1767039263.138] [00:11:36.898] [NET: wlan0] execute_ping: Ping command completed normally with exit code: 0
+[1767039263.138] [00:11:36.898] [NET: wlan0] execute_ping: Final results - replies: 3, avg_latency: 44 ms, packet_loss: 0%
+[1767039263.138] [00:11:36.898] [NET] execute_ping: Returning true (replies:3 summary:true)
+[1767039263.138] [00:11:36.898] [NET] ping_thread_fn: wlan0 ping result - success:true replies:3 latency:44
+[1767039263.138] [00:11:36.898] [NET] wlan0: replies=3 avg_lat=44ms link_up=true
+[1767039263.138] [00:11:36.898] [NET] ping_thread_fn: wlan0 thread completed and marked as not running/invalid
+[1767039263.138] [00:11:36.898] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread exiting normally, thread_valid=false, thread_id=2943860100
+[1767039263.138] [00:11:36.898] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: cleanup_ping_thread called, thread_id=2943860100
+[1767039263.138] [00:11:36.899] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Cleanup complete, thread marked as not running/invalid
+[1767039263.139] [00:11:36.899] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread cleanup complete, exiting
+[1767039264.045] [00:11:37.805] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | ppp0 obtained IP address, starting grace period
+[1767039264.045] [00:11:37.805] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | PPP0 timeout but other interfaces available, stopping without blacklist
+[1767039264.132] [00:11:37.892] [Cellular Connection - Stopping PPPD (cellular_reset=false)]
+[1767039266.311] [00:11:40.071] [Cellular Connection - PPPD did not exit gracefully, forcing kill]
+[1767039266.444] [00:11:40.204] [Cellular Connection - PPPD stopped (count=4)]
+[1767039266.444] [00:11:40.204] [Cellular Connection - PPPD stopped (count balanced at 0)]
+[1767039266.444] [00:11:40.204] [Cellular Connection - PPPD stopped (reset=false, count=0)]
+[1767039266.444] [00:11:40.204] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | PPPD stopped due to failure, resetting cellular_started flag
+[1767039266.530] [00:11:40.290] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039266.643] [00:11:40.403] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039266.645] [00:11:40.405] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Interface test complete - score:10, latency: 44
+[1767039266.645] [00:11:40.405] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State transition: NET_ONLINE_CHECK_RESULTS -> NET_ONLINE
+[1767039266.750] [00:11:40.510] [NETMGR] State: NET_ONLINE | State changed from NET_ONLINE_CHECK_RESULTS to NET_ONLINE
+[1767039266.839] [00:11:40.599] [NETMGR-PPP0] State: NET_ONLINE | PPPD already running, marking cellular_started=true
+[1767039266.876] [00:11:40.636] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039266.933] [00:11:40.693] [NETMGR] State: NET_ONLINE | Default route verified for wlan0
+[1767039266.996] [00:11:40.756] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[1767039266.996] [00:11:40.756] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: launch_ping_thread called
+[1767039266.996] [00:11:40.756] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Creating new thread for ping test
+[1767039266.996] [00:11:40.756] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Thread created and detached successfully, thread_id=2943860100
+[1767039266.996] [00:11:40.756] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Thread state updated - running=true, thread_valid=true
+[1767039266.996] [00:11:40.756] [NETMGR] State: NET_ONLINE | Started ping test for wlan0
+[1767039266.996] [00:11:40.756] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_CHECK_RESULTS
+[1767039267.002] [00:11:40.762] [NET] ping_thread_fn: Starting ping thread for wlan0 to IP 34.94.71.128
+[1767039267.002] [00:11:40.762] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread started, thread_id=2943860100, target_ip=34.94.71.128
+[1767039267.002] [00:11:40.762] [NET: wlan0] execute_ping: Starting ping to IP: 34.94.71.128
+[1767039267.002] [00:11:40.762] [NET: wlan0] execute_ping: Target IP string: 34.94.71.128
+[1767039267.002] [00:11:40.762] [NET: wlan0] execute_ping: Executing command: ping -n -I wlan0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[1767039267.009] [00:11:40.769] [NET: wlan0] execute_ping: Ping command started (PID ~1001), reading output...
+[1767039267.009] [00:11:40.769] [NET: wlan0] execute_ping: Starting read loop with 18 second timeout
+[1767039267.026] [00:11:40.786] [NET: wlan0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+
+[1767039267.074] [00:11:40.834] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=54 time=47.853 ms
+
+[1767039267.074] [00:11:40.835] [NET: wlan0] execute_ping: Found reply #1
+[1767039267.075] [00:11:40.835] [NET: wlan0] execute_ping: Latency: 47.853 ms
+[1767039267.823] [00:11:41.583] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State changed from NET_ONLINE to NET_ONLINE_CHECK_RESULTS
+[1767039267.970] [00:11:41.730] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039268.038] [00:11:41.798] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039268.038] [00:11:41.798] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Deferring PPPD conflict resolution - ping test running on wlan0
+[1767039268.070] [00:11:41.830] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=1 ttl=54 time=42.543 ms
+
+[1767039268.070] [00:11:41.830] [NET: wlan0] execute_ping: Found reply #2
+[1767039268.070] [00:11:41.830] [NET: wlan0] execute_ping: Latency: 42.543 ms
+[1767039268.902] [00:11:42.662] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039268.958] [00:11:42.718] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039268.959] [00:11:42.719] [NETMGR-PPP0] State: NET_ONLINE_CHECK_RESULTS | Deferring PPPD conflict resolution - ping test running on wlan0
+[1767039269.075] [00:11:42.835] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=2 ttl=54 time=46.427 ms
+
+[1767039269.075] [00:11:42.835] [NET: wlan0] execute_ping: Found reply #3
+[1767039269.075] [00:11:42.835] [NET: wlan0] execute_ping: Latency: 46.427 ms
+[1767039269.075] [00:11:42.835] [NET: wlan0] execute_ping: Raw output: 
+
+[1767039269.075] [00:11:42.835] [NET: wlan0] execute_ping: Raw output: --- 34.94.71.128 ping statistics ---
+
+[1767039269.076] [00:11:42.836] [NET: wlan0] execute_ping: Found ping statistics line
+[1767039269.076] [00:11:42.836] [NET: wlan0] execute_ping: Raw output: 3 packets transmitted, 3 packets received, 0% packet loss
+
+[1767039269.076] [00:11:42.836] [NET: wlan0] execute_ping: Found summary line for 3 packets transmitted, 3 packets received, 0% packet loss
+[1767039269.076] [00:11:42.836] [NET: wlan0] execute_ping: Parsed packet loss: 0%
+[1767039269.076] [00:11:42.836] [NET: wlan0] execute_ping: Finished reading output after 7 lines, total replies: 3, found_summary: true, packet_loss: 0, found_error: false
+[1767039269.076] [00:11:42.836] [NET: wlan0] execute_ping: Closing ping pipe...
+[1767039269.077] [00:11:42.837] [NET: wlan0] execute_ping: Ping command exited with status: 0
+[1767039269.077] [00:11:42.837] [NET: wlan0] execute_ping: Ping command completed normally with exit code: 0
+[1767039269.077] [00:11:42.837] [NET: wlan0] execute_ping: Final results - replies: 3, avg_latency: 45 ms, packet_loss: 0%
+[1767039269.077] [00:11:42.837] [NET] execute_ping: Returning true (replies:3 summary:true)
+[1767039269.077] [00:11:42.837] [NET] ping_thread_fn: wlan0 ping result - success:true replies:3 latency:45
+[1767039269.077] [00:11:42.837] [NET] wlan0: replies=3 avg_lat=45ms link_up=true
+[1767039269.077] [00:11:42.837] [NET] ping_thread_fn: wlan0 thread completed and marked as not running/invalid
+[1767039269.077] [00:11:42.837] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread exiting normally, thread_valid=false, thread_id=2943860100
+[1767039269.077] [00:11:42.837] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: cleanup_ping_thread called, thread_id=2943860100
+[1767039269.077] [00:11:42.837] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Cleanup complete, thread marked as not running/invalid
+[1767039269.077] [00:11:42.837] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread cleanup complete, exiting
+[1767039269.923] [00:11:43.683] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039269.981] [00:11:43.741] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Default route verified for wlan0
+[1767039269.983] [00:11:43.743] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | Interface test complete - score:10, latency: 45
+[1767039269.983] [00:11:43.743] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | State transition: NET_ONLINE_CHECK_RESULTS -> NET_ONLINE
+Dec 29 20:14:30 iMatrix:FC-1:0513973109 daemon.err pppd[7774]: Connect script failed
+[1767039270.906] [00:11:44.666] [NETMGR] State: NET_ONLINE | State changed from NET_ONLINE_CHECK_RESULTS to NET_ONLINE
+[1767039270.945] [00:11:44.705] [NET] Verified default route exists for wlan0: default via 10.2.0.1 dev wlan0 
+
+[1767039271.006] [00:11:44.766] [NETMGR] State: NET_ONLINE | Default route verified for wlan0
+[1767039271.068] [00:11:44.828] [NET] get_ping_target_ip: Using DNS-resolved address: 34.94.71.128
+[1767039271.068] [00:11:44.828] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: launch_ping_thread called
+[1767039271.068] [00:11:44.828] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Creating new thread for ping test
+[1767039271.069] [00:11:44.829] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Thread created and detached successfully, thread_id=2943860100
+[1767039271.069] [00:11:44.829] [NETMGR] State: NET_ONLINE | [THREAD] wlan0: Thread state updated - running=true, thread_valid=true
+[1767039271.069] [00:11:44.829] [NETMGR] State: NET_ONLINE | Started ping test for wlan0
+[1767039271.069] [00:11:44.829] [NETMGR] State: NET_ONLINE | State transition: NET_ONLINE -> NET_ONLINE_CHECK_RESULTS
+[1767039271.073] [00:11:44.833] [NET] ping_thread_fn: Starting ping thread for wlan0 to IP 34.94.71.128
+[1767039271.073] [00:11:44.833] [NETMGR] State: NET_ONLINE_CHECK_RESULTS | [THREAD] wlan0: Thread started, thread_id=2943860100, target_ip=34.94.71.128
+[1767039271.073] [00:11:44.833] [NET: wlan0] execute_ping: Starting ping to IP: 34.94.71.128
+[1767039271.073] [00:11:44.833] [NET: wlan0] execute_ping: Target IP string: 34.94.71.128
+[1767039271.073] [00:11:44.833] [NET: wlan0] execute_ping: Executing command: ping -n -I wlan0 -c 3 -W 1 -s 56 34.94.71.128 2>&1
+[1767039271.080] [00:11:44.840] [NET: wlan0] execute_ping: Ping command started (PID ~1001), reading output...
+[1767039271.080] [00:11:44.840] [NET: wlan0] execute_ping: Starting read loop with 18 second timeout
+[1767039271.099] [00:11:44.859] [NET: wlan0] execute_ping: Raw output: PING 34.94.71.128 (34.94.71.128): 56 data bytes
+
+[1767039271.149] [00:11:44.909] [NET: wlan0] execute_ping: Raw output: 64 bytes from 34.94.71.128: seq=0 ttl=54 time=49.260 ms
+
+[1767039271.149] [00:11:44.909] [NET: wlan0] execute_ping: Found reply #1
+[1767039271.149] [00:11:44.909] [NET: wlan0] execute_ping: Latency: 49.260 ms

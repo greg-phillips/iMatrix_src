@@ -1,0 +1,47 @@
+# Logging system modification task for FC-1
+# Created: 2025-01-XX
+
+title: "Direct All Logs to Filesystem"
+
+complexity_level: "simple"
+
+prompt_name: "direct_logs_to_filesystem"
+
+branch: "feature/filesystem-logging"
+
+references:
+  documentation:
+    - /home/greg/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md
+    - /home/greg/iMatrix/iMatrix_Client/docs/ssh_access_to_Fleet_Connect.md
+  source_files:
+    - path: iMatrix/cli/interface.c
+      focus: "logging system implementation"
+
+task: |
+  ## Objective
+  Modify the FC-1 logging system to direct all logs from the buffered system to the filesystem.
+
+  ## Requirements
+  1. Read and understand the CLI and Debug system from the documentation
+  2. Analyze the current logging implementation in iMatrix/cli/interface.c
+  3. Implement filesystem logging with the following specifications:
+     - Log directory: /var/log/
+     - Log filename: fc-1.log
+     - Rotation trigger: Daily OR on FC-1 application restart
+     - Maximum file size: 10MB
+     - Retention: Last 5 days OR maximum 100MB total
+
+  ## Verification
+  1. SSH into the FC-1 device (see ssh_access_to_Fleet_Connect.md)
+  2. Run the FC-1 application
+  3. Verify logs are written to /var/log/fc-1.log
+  4. Test log rotation by restarting the application
+  5. Verify size limits and retention policy work correctly
+
+files_to_modify:
+  - iMatrix/cli/interface.c
+
+notes: |
+  - Use the CLI debug flags to enable verbose logging during testing
+  - Consider existing log rotation libraries if available in the codebase
+  - Ensure thread-safe file operations for concurrent logging

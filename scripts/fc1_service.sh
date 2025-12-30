@@ -223,6 +223,140 @@ show_log() {
     fi
 }
 
+show_ppp_status() {
+    echo "========================================"
+    echo " PPP Link Status"
+    echo "========================================"
+
+    # 1. Check ppp0 interface
+    echo ""
+    echo "=== PPP0 Interface ==="
+    if ip addr show ppp0 2>/dev/null; then
+        echo ""
+        echo "[OK]  ppp0 interface exists"
+    else
+        echo "[--]  ppp0 interface not found"
+    fi
+
+    # 2. Check pppd service status
+    echo ""
+    echo "=== PPPD Service Status ==="
+    sv status pppd 2>/dev/null || echo "  pppd service not configured"
+
+    # 3. Check if pppd process is running
+    echo ""
+    PPPD_PID=$(pidof pppd 2>/dev/null)
+    if [ -n "$PPPD_PID" ]; then
+        echo "[OK]  pppd process: Running (PID: $PPPD_PID)"
+    else
+        echo "[--]  pppd process: Not running"
+    fi
+
+    # 4. Show PPP log tail
+    echo ""
+    echo "=== PPP Log (last 30 lines) ==="
+    if [ -f /var/log/pppd/current ]; then
+        tail -30 /var/log/pppd/current
+    else
+        echo "  No log file at /var/log/pppd/current"
+    fi
+
+    # 5. Show connection status summary
+    echo ""
+    echo "=== Connection Summary ==="
+
+    # Analyze current state
+    PPP_STATUS="UNKNOWN"
+    LOCAL_IP=""
+    REMOTE_IP=""
+    DNS1=""
+    DNS2=""
+
+    if [ -f /var/log/pppd/current ]; then
+        # Extract connection info from recent log (handle "local  IP" with flexible spacing)
+        LOCAL_IP=$(tail -50 /var/log/pppd/current | grep -E "local[[:space:]]+IP address" | tail -1 | sed 's/.*local[[:space:]]*IP address[[:space:]]*//')
+        REMOTE_IP=$(tail -50 /var/log/pppd/current | grep -E "remote[[:space:]]+IP address" | tail -1 | sed 's/.*remote[[:space:]]*IP address[[:space:]]*//')
+        DNS1=$(tail -50 /var/log/pppd/current | grep "primary.*DNS" | tail -1 | sed 's/.*primary[[:space:]]*DNS address[[:space:]]*//')
+        DNS2=$(tail -50 /var/log/pppd/current | grep "secondary.*DNS" | tail -1 | sed 's/.*secondary[[:space:]]*DNS address[[:space:]]*//')
+
+        # Check for recent failures
+        RECENT_FAIL=$(tail -30 /var/log/pppd/current | grep -E "Connect script failed|CME ERROR|NO CARRIER|LCP terminated|Hangup")
+    fi
+
+    # Determine overall status
+    if [ -n "$PPPD_PID" ] && ip addr show ppp0 2>/dev/null | grep -q "inet "; then
+        PPP_STATUS="CONNECTED"
+    elif [ -n "$PPPD_PID" ]; then
+        PPP_STATUS="CONNECTING"
+    elif [ -n "$RECENT_FAIL" ]; then
+        PPP_STATUS="FAILED"
+    else
+        PPP_STATUS="DISCONNECTED"
+    fi
+
+    # Print summary
+    echo ""
+    case "$PPP_STATUS" in
+        CONNECTED)
+            echo "  Status:     [OK] CONNECTED"
+            ;;
+        CONNECTING)
+            echo "  Status:     [..] CONNECTING (waiting for IP)"
+            ;;
+        FAILED)
+            echo "  Status:     [ERR] FAILED"
+            ;;
+        *)
+            echo "  Status:     [--] DISCONNECTED"
+            ;;
+    esac
+
+    if [ -n "$LOCAL_IP" ]; then
+        echo "  Local IP:   $LOCAL_IP"
+    fi
+    if [ -n "$REMOTE_IP" ]; then
+        echo "  Remote IP:  $REMOTE_IP"
+    fi
+    if [ -n "$DNS1" ]; then
+        echo "  DNS 1:      $DNS1"
+    fi
+    if [ -n "$DNS2" ]; then
+        echo "  DNS 2:      $DNS2"
+    fi
+
+    # Show uptime from sv status (only first match - pppd, not log)
+    if [ -n "$PPPD_PID" ]; then
+        UPTIME=$(sv status pppd 2>/dev/null | grep -oE '\(pid [0-9]+\) [0-9]+s' | head -1 | grep -oE '[0-9]+s$')
+        if [ -n "$UPTIME" ]; then
+            # Convert seconds to human readable
+            SECS=$(echo "$UPTIME" | tr -d 's')
+            if [ "$SECS" -ge 3600 ]; then
+                HOURS=$((SECS / 3600))
+                MINS=$(((SECS % 3600) / 60))
+                echo "  Uptime:     ${HOURS}h ${MINS}m"
+            elif [ "$SECS" -ge 60 ]; then
+                MINS=$((SECS / 60))
+                REMAINING=$((SECS % 60))
+                echo "  Uptime:     ${MINS}m ${REMAINING}s"
+            else
+                echo "  Uptime:     ${SECS}s"
+            fi
+        fi
+    fi
+
+    # Show recent errors if any
+    if [ -n "$RECENT_FAIL" ]; then
+        echo ""
+        echo "  Recent errors:"
+        echo "$RECENT_FAIL" | tail -3 | while read line; do
+            echo "    $line"
+        done
+    fi
+
+    echo ""
+    echo "========================================"
+}
+
 show_help() {
     echo "FC-1 Service Control Script"
     echo ""
@@ -239,6 +373,7 @@ show_help() {
     echo "  run [opts]  Run FC-1 in foreground (for testing)"
     echo "              Accepts FC-1 options: -S, -P, -I, -R, --help"
     echo "  log         Show recent log entries"
+    echo "  ppp         Show PPP link status (interface, service, log)"
     echo "  create-run  Create the runsv run script"
     echo "  help        Show this help"
     echo ""
@@ -251,6 +386,7 @@ show_help() {
     echo "  $0 run             # Run in foreground"
     echo "  $0 run -S          # Run with config summary"
     echo "  $0 status          # Check status"
+    echo "  $0 ppp             # Show PPP link status"
     echo ""
 }
 
@@ -282,6 +418,9 @@ case "$1" in
     log)
         show_log
         ;;
+    ppp)
+        show_ppp_status
+        ;;
     create-run)
         create_run_script
         ;;
@@ -289,7 +428,7 @@ case "$1" in
         show_help
         ;;
     *)
-        echo "Usage: $0 {start|stop|restart|status|enable|disable|run|log|help}"
+        echo "Usage: $0 {start|stop|restart|status|enable|disable|run|log|ppp|help}"
         echo "Run '$0 help' for more information."
         exit 1
         ;;

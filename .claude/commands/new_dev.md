@@ -111,7 +111,7 @@ QUAKE_LIBS_OK=false
 
 # 3. mbedTLS Built Libraries (REQUIRED)
 MBEDTLS_OK=false
-[ -d ~/iMatrix/iMatrix_Client/mbedtls/build_arm ] && MBEDTLS_OK=true
+[ -f ~/iMatrix/iMatrix_Client/mbedtls/build/library/libmbedtls.a ] && MBEDTLS_OK=true
 
 # 4. CMSIS-DSP (REQUIRED for ARM math functions)
 CMSIS_OK=false
@@ -132,7 +132,7 @@ TOOLCHAIN STATUS:
 
 LIBRARY STATUS:
   [status] QUAKE Libs:  ~/qfc/arm_musl/libs/
-  [status] mbedTLS:     ~/iMatrix/iMatrix_Client/mbedtls/build_arm/
+  [status] mbedTLS:     ~/iMatrix/iMatrix_Client/mbedtls/build/library/
   [status] CMSIS-DSP:   ~/iMatrix/iMatrix_Client/iMatrix/CMSIS-DSP/
 
 ══════════════════════════════════════════════════════════════════
@@ -185,7 +185,7 @@ If user provides alternate location, verify it exists and use it.
 **If mbedTLS is missing:**
 Use AskUserQuestion tool to prompt user:
 ```
-mbedTLS ARM libraries not built at ~/iMatrix/iMatrix_Client/mbedtls/build_arm/
+mbedTLS ARM libraries not built at ~/iMatrix/iMatrix_Client/mbedtls/build/library/
 
 Options:
 1. Build mbedTLS now (runs build_mbedtls.sh)
@@ -197,7 +197,7 @@ Select an option:
 
 If user selects option 1, run:
 ```bash
-cd ~/iMatrix/iMatrix_Client/Fleet-Connect-1
+cd ~/iMatrix/iMatrix_Client/iMatrix
 ./build_mbedtls.sh
 ```
 Then continue if successful.
@@ -247,7 +247,7 @@ ACTIONS THAT WOULD BE TAKEN:
    - Check /opt/qconnect_sdk_musl/bin/arm-linux-g++
    - Check sysroot at /opt/qconnect_sdk_musl/arm-buildroot-linux-musleabihf/sysroot
    - Check QUAKE libs at ~/qfc/arm_musl/libs/
-   - Check mbedTLS at ~/iMatrix/iMatrix_Client/mbedtls/build_arm/
+   - Check mbedTLS at ~/iMatrix/iMatrix_Client/mbedtls/build/library/
    - Check CMSIS-DSP at ~/iMatrix/iMatrix_Client/iMatrix/CMSIS-DSP/
 
 2. Create directory: ~/iMatrix/${environment_name}
@@ -536,10 +536,10 @@ Set QUAKE_LIBS environment variable to specify alternate location.
 
 **mbedTLS not built:**
 ```
-WARNING: mbedTLS ARM libraries not found at ~/iMatrix/iMatrix_Client/mbedtls/build_arm/
+WARNING: mbedTLS ARM libraries not found at ~/iMatrix/iMatrix_Client/mbedtls/build/library/
 
 To build mbedTLS:
-  cd ~/iMatrix/iMatrix_Client/Fleet-Connect-1
+  cd ~/iMatrix/iMatrix_Client/iMatrix
   ./build_mbedtls.sh
 
 Or use --no-build to skip build validation.
