@@ -85,10 +85,148 @@ Verify before proceeding (skip if --dry-run):
    - If `${DEST_DIR}` exists AND `--clean` NOT specified: FAIL with error
    - If `${DEST_DIR}` exists AND `--clean` specified: proceed to cleanup
 
-5. **ARM cross-compiler exists (skip if --no-build):**
+5. **ARM cross-compiler basic check (skip if --no-build):**
    ```bash
    ls /opt/qconnect_sdk_musl/bin/arm-linux-gcc
    ```
+   If this fails, proceed to Step 3.5 for detailed diagnostics.
+
+### Step 3.5: ARM Cross-Compiler Requirements Validation (Skip if --no-build)
+
+**IMPORTANT:** If `--no-build` is NOT specified, perform comprehensive ARM toolchain validation.
+
+Run these checks and track which requirements are missing:
+
+```bash
+# 1. Core Toolchain (REQUIRED)
+TOOLCHAIN_OK=true
+[ ! -f /opt/qconnect_sdk_musl/bin/arm-linux-gcc ] && TOOLCHAIN_OK=false
+[ ! -f /opt/qconnect_sdk_musl/bin/arm-linux-g++ ] && TOOLCHAIN_OK=false
+[ ! -d /opt/qconnect_sdk_musl/arm-buildroot-linux-musleabihf/sysroot ] && TOOLCHAIN_OK=false
+
+# 2. QUAKE Libraries (REQUIRED for linking)
+QUAKE_LIBS_OK=false
+[ -d ~/qfc/arm_musl/libs ] && QUAKE_LIBS_OK=true
+[ -d /home/greg/qconnect_sw/svc_sdk/source/qfc/arm_musl/libs ] && QUAKE_LIBS_OK=true
+
+# 3. mbedTLS Built Libraries (REQUIRED)
+MBEDTLS_OK=false
+[ -d ~/iMatrix/iMatrix_Client/mbedtls/build_arm ] && MBEDTLS_OK=true
+
+# 4. CMSIS-DSP (REQUIRED for ARM math functions)
+CMSIS_OK=false
+[ -d ~/iMatrix/iMatrix_Client/iMatrix/CMSIS-DSP ] && CMSIS_OK=true
+```
+
+**If ANY requirements are missing, display the following diagnostic:**
+
+```
+══════════════════════════════════════════════════════════════════
+ARM CROSS-COMPILER REQUIREMENTS CHECK
+══════════════════════════════════════════════════════════════════
+
+TOOLCHAIN STATUS:
+  [status] ARM GCC:     /opt/qconnect_sdk_musl/bin/arm-linux-gcc
+  [status] ARM G++:     /opt/qconnect_sdk_musl/bin/arm-linux-g++
+  [status] Sysroot:     /opt/qconnect_sdk_musl/arm-buildroot-linux-musleabihf/sysroot
+
+LIBRARY STATUS:
+  [status] QUAKE Libs:  ~/qfc/arm_musl/libs/
+  [status] mbedTLS:     ~/iMatrix/iMatrix_Client/mbedtls/build_arm/
+  [status] CMSIS-DSP:   ~/iMatrix/iMatrix_Client/iMatrix/CMSIS-DSP/
+
+══════════════════════════════════════════════════════════════════
+```
+
+Where [status] is:
+- `[OK]` if the requirement exists
+- `[MISSING]` if the requirement does not exist
+
+**If TOOLCHAIN is missing:**
+Use AskUserQuestion tool to prompt user:
+```
+The ARM cross-compiler toolchain is not installed at /opt/qconnect_sdk_musl/
+
+This toolchain must be installed manually. Options:
+1. Continue with --no-build (skip build validation)
+2. Abort and install toolchain first
+
+Would you like to continue without building?
+```
+
+If user selects option 1, set `--no-build` flag internally and continue.
+If user selects option 2 or other, display:
+```
+TOOLCHAIN INSTALLATION:
+The QConnect SDK ARM toolchain must be obtained from Sierra Telecom.
+Contact your administrator for installation instructions.
+
+After installation, verify with:
+  /opt/qconnect_sdk_musl/bin/arm-linux-gcc --version
+```
+Then ABORT.
+
+**If QUAKE_LIBS is missing:**
+Use AskUserQuestion tool to prompt user:
+```
+QUAKE libraries not found at ~/qfc/arm_musl/libs/
+
+Options:
+1. Continue anyway (build may fail at link time)
+2. Set QUAKE_LIBS environment variable to alternate location
+3. Continue with --no-build (skip build validation)
+4. Abort
+
+Select an option:
+```
+
+If user provides alternate location, verify it exists and use it.
+
+**If mbedTLS is missing:**
+Use AskUserQuestion tool to prompt user:
+```
+mbedTLS ARM libraries not built at ~/iMatrix/iMatrix_Client/mbedtls/build_arm/
+
+Options:
+1. Build mbedTLS now (runs build_mbedtls.sh)
+2. Continue with --no-build (skip build validation)
+3. Abort
+
+Select an option:
+```
+
+If user selects option 1, run:
+```bash
+cd ~/iMatrix/iMatrix_Client/Fleet-Connect-1
+./build_mbedtls.sh
+```
+Then continue if successful.
+
+**If CMSIS-DSP is missing:**
+Use AskUserQuestion tool to prompt user:
+```
+CMSIS-DSP directory not found at ~/iMatrix/iMatrix_Client/iMatrix/CMSIS-DSP/
+
+This is required for ARM math functions. Options:
+1. Clone CMSIS-DSP now
+2. Continue with --no-build (skip build validation)
+3. Abort
+
+Select an option:
+```
+
+If user selects option 1, run:
+```bash
+cd ~/iMatrix/iMatrix_Client/iMatrix
+git clone https://github.com/ARM-software/CMSIS-DSP.git
+```
+Then continue if successful.
+
+**If ALL requirements pass:**
+Display briefly and continue:
+```
+ARM toolchain requirements: OK
+```
 
 ### Step 4: Handle --dry-run
 
@@ -104,22 +242,30 @@ Location:    ~/iMatrix/${environment_name}
 
 ACTIONS THAT WOULD BE TAKEN:
 
-1. Create directory: ~/iMatrix/${environment_name}
+1. Validate ARM cross-compiler requirements:
+   - Check /opt/qconnect_sdk_musl/bin/arm-linux-gcc
+   - Check /opt/qconnect_sdk_musl/bin/arm-linux-g++
+   - Check sysroot at /opt/qconnect_sdk_musl/arm-buildroot-linux-musleabihf/sysroot
+   - Check QUAKE libs at ~/qfc/arm_musl/libs/
+   - Check mbedTLS at ~/iMatrix/iMatrix_Client/mbedtls/build_arm/
+   - Check CMSIS-DSP at ~/iMatrix/iMatrix_Client/iMatrix/CMSIS-DSP/
 
-2. Create worktrees (detached HEAD mode):
+2. Create directory: ~/iMatrix/${environment_name}
+
+3. Create worktrees (detached HEAD mode):
    git -C ~/iMatrix/iMatrix_Client/iMatrix worktree add --detach ~/iMatrix/${environment_name}/iMatrix Aptera_1_Clean
    git -C ~/iMatrix/iMatrix_Client/Fleet-Connect-1 worktree add --detach ~/iMatrix/${environment_name}/Fleet-Connect-1 Aptera_1_Clean
    git -C ~/iMatrix/iMatrix_Client/btstack worktree add --detach ~/iMatrix/${environment_name}/btstack imatrix_release
    git -C ~/iMatrix/iMatrix_Client/mbedtls worktree add --detach ~/iMatrix/${environment_name}/mbedtls v3.6.2
 
-3. Initialize mbedtls submodules:
+4. Initialize mbedtls submodules:
    git -C ~/iMatrix/${environment_name}/mbedtls submodule update --init --recursive
 
-4. Copy configuration:
+5. Copy configuration:
    cp -r ~/iMatrix/iMatrix_Client/.claude ~/iMatrix/${environment_name}/
    cp ~/iMatrix/iMatrix_Client/CLAUDE.md ~/iMatrix/${environment_name}/
 
-5. Build (DebugGDB):
+6. Build (DebugGDB):
    cd ~/iMatrix/${environment_name}/Fleet-Connect-1
    mkdir build && cd build
    cmake .. -DENABLE_TESTING=OFF
@@ -130,9 +276,11 @@ Run without --dry-run to execute these actions.
 ══════════════════════════════════════════════════════════════════
 ```
 
-If `--no-build` is also specified, replace step 5 with:
+If `--no-build` is also specified, replace steps 1 and 6 with:
 ```
-5. Build: SKIPPED (--no-build specified)
+1. ARM requirements: SKIPPED (--no-build specified)
+...
+6. Build: SKIPPED (--no-build specified)
 ```
 
 ### Step 5: Handle --clean
@@ -357,6 +505,55 @@ ERROR: ARM cross-compiler not found at /opt/qconnect_sdk_musl/bin/arm-linux-gcc
 
 The build cannot proceed without the ARM toolchain.
 Use --no-build to skip build validation.
+```
+
+**ARM toolchain incomplete:**
+```
+ERROR: ARM cross-compiler toolchain is incomplete
+
+Missing components:
+  [MISSING] /opt/qconnect_sdk_musl/bin/arm-linux-gcc
+  [MISSING] /opt/qconnect_sdk_musl/bin/arm-linux-g++
+  [MISSING] /opt/qconnect_sdk_musl/arm-buildroot-linux-musleabihf/sysroot
+
+The QConnect SDK ARM toolchain must be obtained from Sierra Telecom.
+Contact your administrator for installation instructions.
+
+Use --no-build to skip build validation.
+```
+
+**QUAKE libraries not found:**
+```
+WARNING: QUAKE libraries not found
+
+Searched locations:
+  - ~/qfc/arm_musl/libs/
+  - /home/greg/qconnect_sw/svc_sdk/source/qfc/arm_musl/libs/
+
+Build may fail at link time without these libraries.
+Set QUAKE_LIBS environment variable to specify alternate location.
+```
+
+**mbedTLS not built:**
+```
+WARNING: mbedTLS ARM libraries not found at ~/iMatrix/iMatrix_Client/mbedtls/build_arm/
+
+To build mbedTLS:
+  cd ~/iMatrix/iMatrix_Client/Fleet-Connect-1
+  ./build_mbedtls.sh
+
+Or use --no-build to skip build validation.
+```
+
+**CMSIS-DSP not found:**
+```
+WARNING: CMSIS-DSP directory not found at ~/iMatrix/iMatrix_Client/iMatrix/CMSIS-DSP/
+
+To install CMSIS-DSP:
+  cd ~/iMatrix/iMatrix_Client/iMatrix
+  git clone https://github.com/ARM-software/CMSIS-DSP.git
+
+Or use --no-build to skip build validation.
 ```
 
 **Build failed:**
