@@ -1,0 +1,67 @@
+# FC-1 Console Symlink at /usr/qk/etc/sv/FC-1/console
+# Created: 2025-12-30
+
+title: "FC-1 Console Symlink at /usr/qk/etc/sv/FC-1/console"
+
+complexity_level: "simple"
+
+prompt_name: "fc1_console_symlink"
+
+branch: "feature/fc1-console-symlink"
+
+references:
+  documentation:
+    - /home/greg/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md
+    - /home/greg/iMatrix/iMatrix_Client/docs/ssh_access_to_Fleet_Connect.md
+  source_files:
+    - path: iMatrix/IMX_Platform/LINUX_Platform/imx_linux_tty.c
+      focus: "PTY creation and management"
+    - path: iMatrix/IMX_Platform/LINUX_Platform/imx_linux_tty.h
+      focus: "TTY constants and declarations"
+    - path: Fleet-Connect-1/init/init.c
+      focus: "FC-1 details file creation"
+
+task: |
+  ## Objective
+  Create a well-known symlink at /usr/qk/etc/sv/FC-1/console that always points to FC-1's
+  current PTY device, providing a consistent access path regardless of dynamically assigned
+  PTY number.
+
+  ## Requirements
+  1. Create symlink at /usr/qk/etc/sv/FC-1/console pointing to actual PTY device
+  2. Move FC-1_details.txt from /root/ to /usr/qk/etc/sv/FC-1/FC-1_details.txt
+  3. Ensure directory /usr/qk/etc/sv/FC-1/ is created if it doesn't exist
+  4. Remove stale symlink on startup before creating new one
+  5. Remove symlink on clean shutdown
+  6. Update details file to include symlink path and connection instructions
+  7. After implementation allow me to review before proceeding with testing.
+
+  ## Directory Structure
+  /usr/qk/etc/sv/FC-1/
+  ├── console          # Symlink to actual PTY (e.g., -> /dev/pts/3)
+  └── FC-1_details.txt # Startup details including PTY info and debug flags
+
+  ## Verification
+  1. SSH into the FC-1 device (see ssh_access_to_Fleet_Connect.md)
+  2. Run the FC-1 application
+  3. Verify directory exists: ls -la /usr/qk/etc/sv/FC-1/
+  4. Verify symlink exists: ls -la /usr/qk/etc/sv/FC-1/console
+  5. Connect using symlink: microcom /usr/qk/etc/sv/FC-1/console
+  6. Verify CLI access - should see FC-1 CLI interface
+  7. Restart FC-1 and verify symlink is updated to new PTY
+  8. Verify details file: cat /usr/qk/etc/sv/FC-1/FC-1_details.txt
+
+files_to_modify:
+  - iMatrix/IMX_Platform/LINUX_Platform/imx_linux_tty.c
+  - iMatrix/IMX_Platform/LINUX_Platform/imx_linux_tty.h
+  - Fleet-Connect-1/init/init.c
+
+notes: |
+  - Connection command: microcom /usr/qk/etc/sv/FC-1/console
+  - Linux's devpts filesystem allocates PTY numbers dynamically; applications cannot
+    request a specific PTY number through standard APIs
+  - The symlink provides a consistent access path that doesn't change between restarts
+  - All FC-1 related files consolidated in /usr/qk/etc/sv/FC-1/
+
+deliverables:
+  plan_document: "docs/gen/fc1_console_symlink_plan.md"

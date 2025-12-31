@@ -1,8 +1,8 @@
 # Testing the FC-1 Application on QConnect Gateway
 
-**Document Version**: 1.1
+**Document Version**: 1.2
 **Date**: 2025-12-30
-**Last Updated**: 2025-12-30 17:48 UTC
+**Last Updated**: 2025-12-31 UTC
 **Author**: Development Team
 
 ## Overview
@@ -29,9 +29,12 @@ This document provides detailed instructions for developers to connect to and te
 | SSH Port | `22222` (non-standard) |
 | Username | `root` |
 | Password | `PasswordQConnect` |
-| FC-1 CLI PTY | `/dev/pts/2` |
+| FC-1 Console | `/usr/qk/etc/sv/FC-1/console` (symlink to PTY) |
+| FC-1 Details | `/usr/qk/etc/sv/FC-1/FC-1_details.txt` |
 
 **Important**: The SSH port is `22222`, not the standard port 22.
+
+**Note**: The console symlink always points to the current PTY device (e.g., `/dev/pts/3`), providing a consistent access path regardless of the dynamically assigned PTY number.
 
 ## Connection Methods
 
@@ -86,7 +89,7 @@ sshpass -p 'PasswordQConnect' scp -P 22222 -o StrictHostKeyChecking=no root@192.
 
 ## Connecting to the FC-1 CLI
 
-The FC-1 application provides an interactive command-line interface (CLI) accessible via a pseudo-terminal (PTY). This is the primary method for testing and debugging.
+The FC-1 application provides an interactive command-line interface (CLI) accessible via a pseudo-terminal (PTY). A well-known symlink at `/usr/qk/etc/sv/FC-1/console` always points to the current PTY, providing consistent access.
 
 ### Step-by-Step CLI Connection
 
@@ -119,15 +122,21 @@ If FC-1 is not running:
 sv start FC-1
 ```
 
-#### Step 3: Find the FC-1 PTY Device
-The FC-1 CLI is typically available on `/dev/pts/2`. Verify with:
+#### Step 3: Connect Using the Console Symlink (Recommended)
 ```bash
-ls -la /dev/pts/
+microcom /usr/qk/etc/sv/FC-1/console
 ```
 
-#### Step 4: Connect Using microcom
+The symlink automatically points to the current PTY device. You can verify the symlink target with:
 ```bash
-microcom /dev/pts/2
+ls -la /usr/qk/etc/sv/FC-1/console
+```
+
+#### Step 4 (Alternative): Connect Using Direct PTY
+If the symlink is unavailable, find and use the direct PTY device:
+```bash
+ls -la /dev/pts/
+microcom /dev/pts/X  # Replace X with actual PTY number
 ```
 
 **Important microcom notes:**
@@ -145,15 +154,15 @@ Once connected, press Enter to see the prompt. You can now type commands:
 
 ### Alternative: Using screen (if microcom unavailable)
 ```bash
-screen /dev/pts/2
+screen /usr/qk/etc/sv/FC-1/console
 ```
 Exit screen with: `Ctrl+A` then `K`, then `Y` to confirm
 
 ### Alternative: Sending Commands Non-Interactively
 For scripting or automation, you can send commands directly:
 ```bash
-# From host machine
-sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "echo 'cell status' > /dev/pts/2"
+# From host machine (using console symlink)
+sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "echo 'cell status' > /usr/qk/etc/sv/FC-1/console"
 ```
 
 **Note**: Non-interactive command sending may not work reliably for all commands as the CLI expects an interactive terminal.
@@ -238,6 +247,8 @@ rm /etc/service/FC-1/down     # Enable auto-start
 | FC-1 Binary | `/usr/qk/etc/sv/FC-1/FC-1` |
 | Service Directory | `/usr/qk/etc/sv/FC-1/` |
 | Run Script | `/usr/qk/etc/sv/FC-1/run` |
+| Console Symlink | `/usr/qk/etc/sv/FC-1/console` (-> `/dev/pts/X`) |
+| Details File | `/usr/qk/etc/sv/FC-1/FC-1_details.txt` |
 | Log Directory | `/var/log/FC-1/` |
 
 ### Viewing FC-1 Logs
@@ -351,13 +362,24 @@ sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "chmod +x /usr/qk/et
 
 ### FC-1 Not Responding to CLI
 1. Verify FC-1 is running: `sv status FC-1`
-2. Check PTY exists: `ls /dev/pts/2`
-3. Try restarting FC-1: `sv restart FC-1`
+2. Check console symlink exists: `ls -la /usr/qk/etc/sv/FC-1/console`
+3. Verify symlink target is valid: The symlink should point to an existing `/dev/pts/X` device
+4. Try restarting FC-1: `sv restart FC-1`
+
+### Console Symlink Issues
+1. **Symlink doesn't exist**: FC-1 may not have started correctly. Check `sv status FC-1`
+2. **Symlink points to stale PTY**: Restart FC-1 to create fresh symlink: `sv restart FC-1`
+3. **Permission denied**: Verify you're running as root
+4. **Fall back to direct PTY**: If symlink issues persist, find the PTY manually:
+   ```bash
+   ls -la /dev/pts/
+   cat /usr/qk/etc/sv/FC-1/FC-1_details.txt  # Shows actual PTY device
+   ```
 
 ### microcom Connection Issues
 1. Ensure no other process is using the PTY
-2. Try different PTY: `/dev/pts/1`, `/dev/pts/3`
-3. Use screen as alternative: `screen /dev/pts/2`
+2. Try using console symlink: `microcom /usr/qk/etc/sv/FC-1/console`
+3. Use screen as alternative: `screen /usr/qk/etc/sv/FC-1/console`
 
 ### PPP Connection Failures
 1. Check modem: `microcom /dev/ttyACM2` then `AT+CSQ`
@@ -377,8 +399,14 @@ debug off
 # Connect to gateway
 ssh -p 22222 root@192.168.7.1  # Password: PasswordQConnect
 
-# Connect to FC-1 CLI
-microcom /dev/pts/2            # Exit: Ctrl+X
+# Connect to FC-1 CLI (using console symlink - recommended)
+microcom /usr/qk/etc/sv/FC-1/console   # Exit: Ctrl+X
+
+# Check symlink target
+ls -la /usr/qk/etc/sv/FC-1/console     # Shows -> /dev/pts/X
+
+# View FC-1 startup details
+cat /usr/qk/etc/sv/FC-1/FC-1_details.txt
 
 # Common FC-1 CLI commands
 cell status                    # Cellular status
@@ -405,3 +433,4 @@ tail -f /var/log/pppd/current  # PPP log
 - `docs/ppp_testing_status.md` - Current testing status and handoff document
 - `docs/gen/fix3_deployment_test_plan.md` - Post-scan PPP fix deployment procedure
 - `docs/gen/cell_scan_test_plan.md` - Cell scan test procedure
+- `docs/gen/fc1_console_symlink_plan.md` - Console symlink implementation details
