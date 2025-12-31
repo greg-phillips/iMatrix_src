@@ -1,0 +1,28 @@
+# Add a command to run a command on the FC-1 device and get the output.
+
+complexity_level: "simple"
+
+prompt_name: "run_command_on_FC-1"
+date: "2025-12-30"
+branch: "feature/run_command_on_FC-1"
+
+title: "Add a command to run a command on the FC-1 device and get the output."
+
+task: |
+  Using the FC script add a new command to run a command on the FC-1 device and get the output.
+  Connect to the FC-1 device using the ssh_access_to_Fleet_Connect.md document.
+  Connect to the cli using micocom connection to the console symlink. 
+  Run the command on the FC-1 device and get the output.
+  Exit the cli using Ctrl+X.
+
+  Return the output to the user.
+  
+  
+  Ask any questions you need to before starting the work.
+
+references:
+  documentation:
+    - "/home/greg/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md"
+    - "/home/greg/iMatrix/iMatrix_Client/docs/testing_fc_1_application.md"
+    - "/home/greg/iMatrix/iMatrix_Client/docs/ssh_access_to_Fleet_Connect.md"
+    - "/home/greg/iMatrix/iMatrix_Client/docs/connecting_to_Fleet-Connect-1.md"

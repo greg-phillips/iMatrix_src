@@ -33,10 +33,39 @@ check_sshpass() {
     fi
 }
 
-# Check if target is reachable
+# Clear SSH known_hosts entry for target (handles host key changes)
+clear_host_key() {
+    echo "Clearing old SSH host key for [${TARGET_HOST}]:${TARGET_PORT}..."
+    ssh-keygen -f "$HOME/.ssh/known_hosts" -R "[${TARGET_HOST}]:${TARGET_PORT}" 2>/dev/null
+}
+
+# Check if target is reachable and SSH works
 check_target() {
     if ! ping -c 1 -W 2 "$TARGET_HOST" &> /dev/null; then
         echo "Error: Cannot reach target at $TARGET_HOST"
+        exit 1
+    fi
+
+    # Test SSH connection and check for host key issues
+    SSH_TEST=$(eval $SSH_CMD "echo ok" 2>&1)
+    if echo "$SSH_TEST" | grep -q "REMOTE HOST IDENTIFICATION HAS CHANGED"; then
+        echo "Device changed detected - host key mismatch"
+        clear_host_key
+        echo "Retrying connection..."
+        SSH_TEST=$(eval $SSH_CMD "echo ok" 2>&1)
+    fi
+
+    # Check if it's a host key verification issue
+    if echo "$SSH_TEST" | grep -q "Host key verification failed"; then
+        clear_host_key
+        echo "Retrying connection..."
+        SSH_TEST=$(eval $SSH_CMD "echo ok" 2>&1)
+    fi
+
+    # Success if output contains "ok" (may also have banner/warnings)
+    if ! echo "$SSH_TEST" | grep -q "^ok$"; then
+        echo "Error: SSH connection failed"
+        echo "$SSH_TEST"
         exit 1
     fi
 }
@@ -118,6 +147,7 @@ show_help() {
     echo "  push        Push built FC-1 binary to target (leaves service stopped)"
     echo "  push -run   Push binary and start FC-1 service"
     echo "  ssh         Open SSH session to target"
+    echo "  clear-key   Clear SSH host key (for device changes)"
     echo "  help        Show this help"
     echo ""
     echo "Target: ${TARGET_USER}@${TARGET_HOST}:${TARGET_PORT}"
@@ -169,6 +199,10 @@ case "$1" in
         check_target
         echo "Connecting to ${TARGET_HOST}..."
         eval $SSH_CMD
+        ;;
+    clear-key)
+        clear_host_key
+        echo "Host key cleared. Next connection will accept new key."
         ;;
     help|--help|-h)
         show_help
