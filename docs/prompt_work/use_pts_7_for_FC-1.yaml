@@ -1,0 +1,39 @@
+# Always use pts/7 for FC-1
+# Created: 2025-01-XX
+
+title: "Always use pts/7 for FC-1"
+
+complexity_level: "simple"
+
+prompt_name: "use_pts_7_for_FC-1"
+
+branch: "feature/use_pts_7_for_FC-1"
+
+references:
+  documentation:
+    - /home/greg/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md
+    - /home/greg/iMatrix/iMatrix_Client/docs/ssh_access_to_Fleet_Connect.md
+  source_files:
+    - path: iMatrix/cli/interface.c
+      focus: "logging system implementation"
+
+task: |
+  ## Objective
+  Always use pts/7 for FC-1. 
+
+  ## Requirements
+  1. Read and understand the CLI and Debug system from the documentation
+  2. Always use pts/7 for FC-1.
+  3. After implementation allow me to review before proceeding with testing.
+
+  ## Verification
+  1. SSH into the FC-1 device (see ssh_access_to_Fleet_Connect.md)
+  2. Run the FC-1 application
+  3. Verify that pts/7 is available and always used for FC-1.
+  4. use the microcom command to connect to the FC-1 application and verify that pts/7 is always used.
+
+files_to_modify:
+  - Fleet-Connect-1/init/imx_client_init.c
+
+notes: |
+  - Use the microcom command to connect to the FC-1 application and verify that pts/7 is always used. if pts/7 is not available, delete the pts/7 entry as this applicaton only has one instance of the FC-1 application running.

@@ -2,8 +2,8 @@
 
 **Date Created:** 2025-12-30
 **Last Updated:** 2025-12-30
-**Document Version:** 1.0
-**Status:** Awaiting Approval
+**Document Version:** 2.0
+**Status:** Implemented
 **Author:** Claude Code
 **Branch:** feature/filesystem-logging
 
@@ -94,16 +94,34 @@ This document outlines the implementation plan for directing all FC-1 logs from 
                                       └──────────────────┘
 ```
 
-### 3.3 Key Files to Modify
+### 3.3 Command Line Interface
+
+#### 3.3.1 New Option: `-i` (Interactive Mode)
+
+```
+Usage: FC-1 [options]
+  -i    Interactive mode: display logs to console AND write to filesystem
+        Default (without -i): logs written to filesystem only, console quiet
+```
+
+#### 3.3.2 Behavior Matrix
+
+| Mode | Console Output | Filesystem Output | Use Case |
+|------|---------------|-------------------|----------|
+| Default (no `-i`) | Disabled | Enabled | Production: quiet operation, logs to file |
+| Interactive (`-i`) | Enabled | Enabled | Development/debugging: see logs in real-time |
+
+### 3.4 Key Files to Modify
 
 | File | Modifications |
 |------|--------------|
-| `iMatrix/cli/interface.c` | Add call to filesystem logger in `imx_cli_log_printf()` |
-| `iMatrix/cli/interface.h` | Add function declarations for filesystem logger |
+| `iMatrix/cli/interface.c` | Add call to filesystem logger in `imx_cli_log_printf()`, respect interactive flag |
+| `iMatrix/cli/interface.h` | Add function declarations for filesystem logger and interactive mode |
 | **NEW**: `iMatrix/cli/filesystem_logger.c` | Main implementation |
 | **NEW**: `iMatrix/cli/filesystem_logger.h` | Header file |
 | `iMatrix/CMakeLists.txt` | Add new source file |
-| `Fleet-Connect-1/init/linux_gateway.c` | Initialize/shutdown filesystem logger |
+| `Fleet-Connect-1/init/linux_gateway.c` | Parse `-i` option, initialize/shutdown filesystem logger |
+| `Fleet-Connect-1/cli/fcgw_cli.c` | Store interactive mode flag |
 
 ---
 
@@ -158,7 +176,87 @@ typedef struct {
 #define FS_LOG_MAX_RETENTION    5                     /* 5 days */
 ```
 
-#### 4.1.3 API Functions
+### 4.2 Interactive Mode Flag
+
+#### 4.2.1 Global Flag
+
+```c
+/* In interface.h or filesystem_logger.h */
+
+/**
+ * @brief Interactive mode flag
+ * @note When true, logs are displayed to console AND written to filesystem
+ *       When false (default), logs are written to filesystem only
+ */
+extern bool fs_logger_interactive_mode;
+```
+
+#### 4.2.2 Command Line Parsing (linux_gateway.c)
+
+```c
+int main(int argc, char *argv[])
+{
+    int opt;
+
+    /* Default: non-interactive (filesystem only) */
+    fs_logger_interactive_mode = false;
+
+    while ((opt = getopt(argc, argv, "iSh")) != -1) {
+        switch (opt) {
+            case 'i':
+                fs_logger_interactive_mode = true;
+                break;
+            case 'S':
+                /* Existing -S option handling */
+                break;
+            case 'h':
+                print_usage(argv[0]);
+                exit(0);
+            default:
+                print_usage(argv[0]);
+                exit(1);
+        }
+    }
+
+    /* Initialize filesystem logger */
+    fs_logger_init();
+
+    /* ... rest of initialization ... */
+}
+
+static void print_usage(const char *prog_name)
+{
+    printf("Usage: %s [options]\n", prog_name);
+    printf("  -i    Interactive mode: display logs to console AND write to filesystem\n");
+    printf("  -S    Run in foreground (don't daemonize)\n");
+    printf("  -h    Show this help message\n");
+}
+```
+
+#### 4.2.3 Modified imx_cli_log_printf() Behavior
+
+```c
+void imx_cli_log_printf(bool print_time, char *format, ...)
+{
+    char full_message[LOG_MSG_MAX_LENGTH];
+
+    /* Build formatted message with timestamp */
+    build_message(full_message, sizeof(full_message), print_time, format, args);
+
+    /* ALWAYS write to filesystem logger */
+    if (fs_logger_is_active()) {
+        fs_logger_write(full_message);
+    }
+
+    /* Only output to console if interactive mode is enabled */
+    if (fs_logger_interactive_mode) {
+        /* Existing console/device output logic */
+        output_to_console_or_device(full_message);
+    }
+}
+```
+
+### 4.3 API Functions
 
 ```c
 /**
@@ -208,7 +306,7 @@ const char* fs_logger_get_current_path(void);
 bool fs_logger_is_active(void);
 ```
 
-#### 4.1.4 Internal Functions
+### 4.4 Internal Functions
 
 ```c
 /**
@@ -234,7 +332,7 @@ static bool fs_logger_check_rotation_needed(void);
 static void fs_logger_generate_rotated_name(char *buffer, size_t size, const char *base_path);
 ```
 
-### 4.2 Log Rotation Strategy
+### 4.5 Log Rotation Strategy
 
 #### 4.2.1 Rotation Triggers
 1. **Application Restart**: Rotate on `fs_logger_init()` if existing log file found
@@ -318,7 +416,7 @@ fc-1.2025-12-30.1.log <- Second rotation same day (if needed)
 3. Loop back to wait (or exit if shutdown_requested)
 ```
 
-### 4.3 Retention Policy
+### 4.6 Retention Policy
 
 #### 4.3.1 Policy Rules
 - Keep logs from the last 5 days
@@ -334,7 +432,7 @@ fc-1.2025-12-30.1.log <- Second rotation same day (if needed)
 5. If total > 100MB, delete oldest files until under limit
 ```
 
-### 4.4 Integration with interface.c
+### 4.7 Integration with interface.c
 
 Modify `imx_cli_log_printf()` to add filesystem logging:
 
@@ -365,7 +463,7 @@ void imx_cli_log_printf(bool print_time, char *format, ...)
 }
 ```
 
-### 4.5 Thread Safety
+### 4.8 Thread Safety
 
 - All filesystem operations protected by `log_mutex`
 - Non-blocking writes (buffer if file I/O slow)
@@ -397,7 +495,10 @@ void imx_cli_log_printf(bool print_time, char *format, ...)
 
 ### Phase 4: Integration
 - [ ] Modify interface.c to call fs_logger_write()
+- [ ] Modify interface.c to check fs_logger_interactive_mode before console output
+- [ ] Modify linux_gateway.c to parse `-i` command line option
 - [ ] Modify linux_gateway.c to call fs_logger_init() and fs_logger_shutdown()
+- [ ] Add print_usage() function with help text for `-i` option
 - [ ] Update CMakeLists.txt to include new source file
 - [ ] Add CLI command: `log status` to show current log info (optional)
 
@@ -440,9 +541,19 @@ void imx_cli_log_printf(bool print_time, char *format, ...)
 
 ### 7.2 Integration Tests (on FC-1 device)
 1. SSH into FC-1: `ssh -p 22222 root@192.168.7.1`
-2. Run FC-1 application: `sv restart FC-1`
-3. Verify log file created: `ls -la /var/log/fc-1.log`
-4. Tail log file: `tail -f /var/log/fc-1.log`
+2. **Test default mode (filesystem only)**:
+   - Run FC-1: `sv restart FC-1`
+   - Verify no console output (quiet)
+   - Verify log file created: `ls -la /var/log/fc-1.log`
+   - Tail log file: `tail -f /var/log/fc-1.log`
+3. **Test interactive mode (-i)**:
+   - Stop FC-1: `sv stop FC-1`
+   - Run manually: `/usr/qk/bin/FC-1 -i`
+   - Verify logs appear on console
+   - Verify logs also written to file: `tail /var/log/fc-1.log`
+4. **Test help option**:
+   - Run: `/usr/qk/bin/FC-1 -h`
+   - Verify usage message shows `-i` option
 5. Restart FC-1 and verify rotation
 6. Check disk usage: `df -h /var/log`
 
@@ -454,7 +565,9 @@ void imx_cli_log_printf(bool print_time, char *format, ...)
 - [ ] Old logs deleted after 5 days
 - [ ] Total log size stays under 100MB
 - [ ] No performance degradation observed
-- [ ] Console output still works normally
+- [ ] **Default mode**: Console is quiet (no log output)
+- [ ] **Interactive mode (-i)**: Logs appear on console AND in file
+- [ ] **Help (-h)**: Usage message displays correctly with -i option
 
 ---
 
@@ -468,10 +581,10 @@ void imx_cli_log_printf(bool print_time, char *format, ...)
 | - Background rotation thread | ~150 lines |
 | - Retention policy enforcement | ~100 lines |
 | - Utility functions | ~100 lines |
-| interface.c modifications | ~20 lines |
-| linux_gateway.c modifications | ~10 lines |
-| CMakeLists.txt modifications | ~5 lines |
-| **Total** | **~635 lines** |
+| interface.c modifications | ~40 lines |
+| imatrix_interface.c modifications | ~50 lines |
+| CMakeLists.txt modifications | ~1 line |
+| **Total** | **~930 lines** |
 
 ---
 
@@ -485,21 +598,95 @@ void imx_cli_log_printf(bool print_time, char *format, ...)
 
 ## 10. Implementation Notes
 
-*(To be filled in after implementation is complete)*
+### Files Created
+| File | Description | Lines |
+|------|-------------|-------|
+| `iMatrix/cli/filesystem_logger.h` | Header with configuration constants and API declarations | ~180 |
+| `iMatrix/cli/filesystem_logger.c` | Full implementation with async rotation | ~760 |
+
+### Files Modified
+| File | Changes |
+|------|---------|
+| `iMatrix/cli/interface.c` | Added filesystem logging integration at start of `imx_cli_log_printf()`. Added include for `filesystem_logger.h`. Added early return when NOT in interactive mode. |
+| `iMatrix/imatrix_interface.c` | Added `-i` command line option for interactive mode. Added `fs_logger_init()` call in `imatrix_start()`. Added help text for `-i` option. |
+| `iMatrix/CMakeLists.txt` | Added `cli/filesystem_logger.c` to source files list |
+
+### Key Design Decisions
+1. **Async Rotation**: Background pthread handles slow file operations (close, rename, cleanup) to avoid blocking CAN processing
+2. **Interactive Mode**: Default is filesystem-only (quiet); `-i` enables console+filesystem (for debugging)
+3. **Rate-Limited Rotation**: Minimum 60 seconds between rotations to prevent rapid rotation during high-frequency logging
+4. **Flushed Writes**: Every log write is immediately flushed for reliability
+5. **Existing Log Rotation on Startup**: Any existing `fc-1.log` is rotated before starting fresh log
+
+### Build Fixes
+1. Removed unused helper functions (`fs_logger_parse_log_date`, `fs_logger_get_total_log_size`) that triggered `-Werror=unused-function`
 
 ---
 
-## 11. Completion Summary
+## 11. Deployment and Testing
 
-*(To be filled in after work is verified complete)*
+### 11.1 Deployment Steps
+
+1. **Stop the running FC-1 service on target**
+   ```bash
+   sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "sv stop FC-1"
+   ```
+
+2. **Backup existing binary**
+   ```bash
+   sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "cp /usr/qk/etc/sv/FC-1/FC-1 /usr/qk/etc/sv/FC-1/FC-1.backup"
+   ```
+
+3. **Deploy new binary**
+   ```bash
+   sshpass -p 'PasswordQConnect' scp -P 22222 FC-1 root@192.168.7.1:/usr/qk/etc/sv/FC-1/FC-1
+   ```
+
+4. **Set executable permissions**
+   ```bash
+   sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "chmod +x /usr/qk/etc/sv/FC-1/FC-1"
+   ```
+
+5. **Start FC-1 service**
+   ```bash
+   sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "sv start FC-1"
+   ```
+
+6. **Verify service is running**
+   ```bash
+   sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "sv status FC-1; pidof FC-1"
+   ```
+
+### 11.2 Verification Steps
+
+1. **Check log file creation**
+   ```bash
+   sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "ls -la /var/log/fc-1.log"
+   ```
+
+2. **Monitor log output**
+   ```bash
+   sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "tail -f /var/log/fc-1.log"
+   ```
+
+3. **Check log file size growth**
+   ```bash
+   sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "ls -la /var/log/fc-1*"
+   ```
+
+---
+
+## 12. Completion Summary
+
+Implementation completed successfully with clean build (zero errors, zero warnings).
 
 | Metric | Value |
 |--------|-------|
-| Tokens Used | TBD |
-| Recompilations for Syntax Errors | TBD |
-| Elapsed Time | TBD |
-| Actual Work Time | TBD |
-| Time Waiting on User | TBD |
+| Tokens Used | ~40,000 (estimated) |
+| Recompilations for Syntax Errors | 1 (unused function fix) |
+| Elapsed Time | ~45 minutes |
+| Actual Work Time | ~30 minutes |
+| Time Waiting on User | ~15 minutes (context handover)
 
 ---
 
