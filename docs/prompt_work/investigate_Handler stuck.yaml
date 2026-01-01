@@ -1,24 +1,53 @@
-# TheFC-1 and iMatrix system has many logs to detect when the system is stuck in a loop.
+# investigate_handler_stuck.yaml
+# Investigation procedure for FC-1/iMatrix handler stuck conditions
+# Created: 2025-12-31
 
-title: "The FC-1 and iMatrix system has many logs to detect when the system is stuck in a loop."
+complexity_level: simple
+
+title: "Investigate FC-1 Handler Stuck in Loop - 24 Hour Stability Test"
 
 task: |
-Generate a detailed plan to investigate the problem and fix it.
-The command provided is "loopstatus" and it is used to detect when the system is stuck in a loop.
-The output of the command is as follows:
-==================== MAIN LOOP STATUS ====================
-Handler Position:    Before imx_process() (0)
-Time at Handler:     38218888 ms
+  Monitor the FC-1/iMatrix system for 24 continuous hours to verify the handler
+  does not become stuck in a loop.
+  
+  **Connection:**
+  1. Connect via SSH (see ssh_access_to_Fleet_Connect.md)
+  2. Connect to CLI using minicom to the console symlink
+  
+  **Verification Commands:**
+  - Main CLI (>) "s" command - verify MAIN_IMATRIX_NORMAL state
+  - Main CLI (>) "threads" or "threads -v" - check for stuck warnings
+  - App CLI (app>) "s" command - verify CAN controller registered
+  - App CLI (app>) "loopstatus" - detect loop conditions
+  
+  **CLI Mode Switching:**
+  - Type "app" to enter app CLI mode (prompt changes to "app>")
+  - Type "exit" or press <tab> to return to main CLI
+  
+  **Monitoring Schedule:**
+  Check status every 4 hours (6 checks total over 24 hours)
+  
+  **Success Criteria:**
+  - No "WARNING: Handler stuck" messages
+  - No "BLOCKING IN:" messages  
+  - Timer status not showing persistent OVERRUN
+  - Boot count unchanged (no unexpected reboots)
+  
+  **Failure Indicators:**
+  - "WARNING: Handler stuck at 'Before imx_process()' for XXXXX ms!"
+  - "BLOCKING IN: imatrix_upload() (position 50)"
+  - "GPS Nema serial data processing failure" (frequent occurrences)
+  
+  **If Stuck Detected:** Document handler position, time stuck, blocking function,
+  and timestamp. Test is FAILED.
 
-imx_process() Pos:   50
-Time at imx_proc:    38218888 ms
+notes: |
+  This is a stability validation test, not a development task.
+  Document results at each 4-hour interval.
+  Final deliverable: PASS (24hr clean) or FAIL (with stuck details)
 
-do_everything() Pos: EXIT (19)
-Time at Position:    38218988 ms
-Loop Executions:     39852
-
-*** WARNING: Handler stuck at 'Before imx_process()' for 38218888 ms! ***
-*** BLOCKING IN: imx_process() function (position 50) ***
-==========================================================
-
-Ask any questions you need to before starting.
+references:
+  documentation:
+    - "/home/greg/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md"
+    - "/home/greg/iMatrix/iMatrix_Client/docs/ssh_access_to_Fleet_Connect.md"
+    - "/home/greg/iMatrix/iMatrix_Client/docs/connecting_to_Fleet-Connect-1.md"

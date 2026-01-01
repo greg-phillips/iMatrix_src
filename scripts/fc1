@@ -3,7 +3,7 @@
 # FC-1 Remote Control Script
 # Run from host machine to control FC-1 on target
 #
-# Usage: ./fc1 [start|stop|restart|status|enable|disable|run|log|deploy|push|ssh]
+# Usage: ./fc1 [-d destination] [start|stop|restart|status|enable|disable|run|log|deploy|push|ssh]
 #
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -11,6 +11,12 @@ TARGET_HOST="192.168.7.1"
 TARGET_PORT="22222"
 TARGET_USER="root"
 TARGET_PASS="PasswordQConnect"
+
+# Parse optional -d argument
+if [ "$1" = "-d" ] && [ -n "$2" ]; then
+    TARGET_HOST="$2"
+    shift 2
+fi
 
 # Remote script location
 REMOTE_SCRIPT="/tmp/fc1_service.sh"
@@ -130,7 +136,10 @@ run_service_cmd() {
 show_help() {
     echo "FC-1 Remote Control"
     echo ""
-    echo "Usage: $0 <command> [options]"
+    echo "Usage: $0 [-d destination] <command> [options]"
+    echo ""
+    echo "Options:"
+    echo "  -d <addr>   Specify target host (default: 192.168.7.1)"
     echo ""
     echo "Commands:"
     echo "  start       Start FC-1 service on target"
@@ -153,18 +162,20 @@ show_help() {
     echo "Target: ${TARGET_USER}@${TARGET_HOST}:${TARGET_PORT}"
     echo ""
     echo "Examples:"
-    echo "  $0 start        # Start FC-1"
-    echo "  $0 stop         # Stop FC-1"
-    echo "  $0 enable       # Enable auto-start"
-    echo "  $0 disable      # Disable auto-start (prompts)"
-    echo "  $0 disable -y   # Disable without prompt"
-    echo "  $0 status       # Check status"
-    echo "  $0 run -S       # Run with config summary"
-    echo "  $0 ppp          # Show PPP link status"
-    echo "  $0 deploy       # Update service script on target"
-    echo "  $0 push         # Deploy binary (service stays stopped)"
-    echo "  $0 push -run    # Deploy binary and start service"
-    echo "  $0 ssh          # Open SSH shell"
+    echo "  $0 start                 # Start FC-1 on default host"
+    echo "  $0 -d 192.168.1.100 start  # Start FC-1 on specific host"
+    echo "  $0 stop                  # Stop FC-1"
+    echo "  $0 enable                # Enable auto-start"
+    echo "  $0 disable               # Disable auto-start (prompts)"
+    echo "  $0 disable -y            # Disable without prompt"
+    echo "  $0 status                # Check status"
+    echo "  $0 -d 10.0.0.50 status   # Check status on specific host"
+    echo "  $0 run -S                # Run with config summary"
+    echo "  $0 ppp                   # Show PPP link status"
+    echo "  $0 deploy                # Update service script on target"
+    echo "  $0 push                  # Deploy binary (service stays stopped)"
+    echo "  $0 push -run             # Deploy binary and start service"
+    echo "  $0 -d beaglebone.local ssh  # SSH to specific host"
     echo ""
 }
 
