@@ -1,7 +1,8 @@
 # Connecting to Fleet-Connect-1 Device
 
 **Date**: 2025-12-23
-**Document Version**: 1.0
+**Document Version**: 1.1
+**Last Updated**: 2025-12-31
 **Status**: Active
 
 ## Overview
@@ -115,7 +116,7 @@ sshpass -p "PasswordQConnect" ssh -p 22222 root@192.168.7.1 "ls -la /usr/qk"
 
 ```bash
 # Upload to target (note: -P uppercase for scp)
-sshpass -p "PasswordQConnect" scp -P 22222 ./FC-1 root@192.168.7.1:/usr/qk/bin/
+sshpass -p "PasswordQConnect" scp -P 22222 ./FC-1 root@192.168.7.1:/usr/qk/etc/sv/FC-1/
 
 # Download from target
 sshpass -p "PasswordQConnect" scp -P 22222 root@192.168.7.1:/var/log/messages ./
@@ -151,33 +152,48 @@ sshpass -p "PasswordQConnect" ssh fc1
 ```bash
 source Profiler/config/target_connection.conf
 
-# Stop the running application
-run_ssh "killall FC-1 2>/dev/null || true"
+# Stop the running application (runit service)
+run_ssh "sv stop FC-1"
 
 # Upload new binary
-run_scp "./Fleet-Connect-1/build/FC-1" "$(get_target):/usr/qk/bin/"
+run_scp "./Fleet-Connect-1/build/FC-1" "$(get_target):/usr/qk/etc/sv/FC-1/"
 
 # Set permissions
-run_ssh "chmod +x /usr/qk/bin/FC-1"
+run_ssh "chmod +x /usr/qk/etc/sv/FC-1/FC-1"
 
-# Restart (or let supervisor restart it)
-run_ssh "/usr/qk/bin/FC-1 &"
+# Start the service
+run_ssh "sv start FC-1"
+```
+
+**Alternative**: Use the `scripts/fc1` helper script:
+```bash
+cd scripts
+./fc1 push -run  # Deploys binary and starts service
 ```
 
 ### View Live Logs
 
 ```bash
-# Tail system log
+# FC-1 application log (filesystem logger)
+run_ssh "tail -f /var/log/fc-1.log"
+
+# FC-1 runit service log (stdout/stderr)
+run_ssh "tail -f /var/log/FC-1/current"
+
+# System log
 run_ssh "tail -f /var/log/messages"
 
 # Or with direct SSH for better interactivity
-sshpass -p "PasswordQConnect" ssh -p 22222 root@192.168.7.1 "tail -f /var/log/messages"
+sshpass -p "PasswordQConnect" ssh -p 22222 root@192.168.7.1 "tail -f /var/log/fc-1.log"
 ```
 
 ### Check Application Status
 
 ```bash
 source Profiler/config/target_connection.conf
+
+# Check runit service status
+run_ssh "sv status FC-1"
 
 # Is FC-1 running?
 run_ssh "pidof FC-1 && echo 'Running' || echo 'Not running'"

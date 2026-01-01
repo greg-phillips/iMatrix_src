@@ -1,8 +1,8 @@
 # Testing the FC-1 Application on QConnect Gateway
 
-**Document Version**: 1.2
+**Document Version**: 1.4
 **Date**: 2025-12-30
-**Last Updated**: 2025-12-31 UTC
+**Last Updated**: 2025-12-31
 **Author**: Development Team
 
 ## Overview
@@ -158,6 +158,45 @@ screen /usr/qk/etc/sv/FC-1/console
 ```
 Exit screen with: `Ctrl+A` then `K`, then `Y` to confirm
 
+### Method 4: Telnet CLI Access (Port 23)
+
+FC-1 runs a telnet server on port 23 that provides direct CLI access without needing to use microcom or screen on the gateway.
+
+#### From Host Machine
+```bash
+# Using telnet
+telnet 192.168.7.1 23
+
+# Using netcat (nc)
+nc 192.168.7.1 23
+```
+
+#### Interactive Session Example
+```bash
+$ nc 192.168.7.1 23
+IoT Device Command Line Processor
+> help
+...command list...
+> cell status
+...cellular status output...
+> log
+...logging status...
+```
+
+**Note**: Press Enter after connecting to see the CLI prompt. Type `quit` or press Ctrl+C to disconnect.
+
+#### Scripted Command Execution
+```bash
+# Send a single command
+echo "cell status" | nc 192.168.7.1 23
+
+# Send multiple commands
+echo -e "cell status\nppp\nlog" | nc 192.168.7.1 23
+
+# Capture output to file
+echo "imx stats" | nc 192.168.7.1 23 > output.txt
+```
+
 ### Alternative: Sending Commands Non-Interactively
 For scripting or automation, you can send commands directly:
 ```bash
@@ -202,6 +241,16 @@ sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "echo 'cell status' 
 | `debug off` | Disable debug output |
 | `debug <flag>` | Toggle specific debug flag |
 | `reboot` | Reboot the gateway |
+
+### Log Commands
+| Command | Description |
+|---------|-------------|
+| `log` | Show current logging status |
+| `log on` | Enable iMatrix cloud logging |
+| `log off` | Disable iMatrix cloud logging |
+| `log test` | Run log rotation test (generates test messages) |
+
+**Note**: FC-1 also writes logs to the filesystem at `/var/log/fc-1.log` with automatic rotation.
 
 ### iMatrix Commands
 | Command | Description |
@@ -249,9 +298,12 @@ rm /etc/service/FC-1/down     # Enable auto-start
 | Run Script | `/usr/qk/etc/sv/FC-1/run` |
 | Console Symlink | `/usr/qk/etc/sv/FC-1/console` (-> `/dev/pts/X`) |
 | Details File | `/usr/qk/etc/sv/FC-1/FC-1_details.txt` |
-| Log Directory | `/var/log/FC-1/` |
+| runit Log Directory | `/var/log/FC-1/` |
+| Application Log File | `/var/log/fc-1.log` |
 
 ### Viewing FC-1 Logs
+
+**runit Service Logs** (stdout/stderr captured by svlogd):
 ```bash
 # View current log
 cat /var/log/FC-1/current
@@ -262,6 +314,27 @@ tail -f /var/log/FC-1/current
 # View with timestamps (svlogd format)
 cat /var/log/FC-1/current | tai64nlocal
 ```
+
+**Filesystem Logger Logs** (application logs with rotation):
+```bash
+# View current application log
+cat /var/log/fc-1.log
+
+# Tail application log in real-time
+tail -f /var/log/fc-1.log
+
+# List all log files (including rotated)
+ls -la /var/log/fc-1*.log
+
+# View rotated logs (format: fc-1.YYYY-MM-DD.N.log)
+cat /var/log/fc-1.2025-12-31.1.log
+```
+
+**Log File Rotation**:
+- Maximum file size: 10 MB per file
+- Maximum total storage: 100 MB
+- Retention: 5 days
+- Format: `/var/log/fc-1.YYYY-MM-DD.N.log` (N = sequence number)
 
 ## PPP Service Management
 
@@ -396,10 +469,14 @@ debug off
 ## Quick Reference Card
 
 ```bash
-# Connect to gateway
+# Connect to gateway via SSH
 ssh -p 22222 root@192.168.7.1  # Password: PasswordQConnect
 
-# Connect to FC-1 CLI (using console symlink - recommended)
+# Connect to FC-1 CLI via telnet (from host machine - recommended)
+nc 192.168.7.1 23              # Exit: Ctrl+C or type 'quit'
+telnet 192.168.7.1 23          # Alternative
+
+# Connect to FC-1 CLI via console (on gateway)
 microcom /usr/qk/etc/sv/FC-1/console   # Exit: Ctrl+X
 
 # Check symlink target
@@ -412,6 +489,8 @@ cat /usr/qk/etc/sv/FC-1/FC-1_details.txt
 cell status                    # Cellular status
 cell scan                      # Trigger carrier scan
 ppp                           # PPP status
+log                           # Logging status
+log test                      # Test log rotation
 help                          # List commands
 
 # Service management
@@ -421,7 +500,8 @@ sv status pppd                # Check PPP
 sv restart pppd               # Restart PPP
 
 # Logs
-tail -f /var/log/FC-1/current  # FC-1 log
+tail -f /var/log/fc-1.log      # Application log (filesystem logger)
+tail -f /var/log/FC-1/current  # runit service log
 tail -f /var/log/pppd/current  # PPP log
 ```
 

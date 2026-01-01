@@ -1,0 +1,187 @@
+# Add Claude Code Hooks to iMatrix_Client
+# Reference: /home/greg/agentic_lessons/claude-code-hooks-mastery
+# This is a moderate complexity task - adding hook infrastructure to an existing project
+
+complexity_level: "moderate"
+
+prompt_name: "add_hooks_to_imatrix"
+title: "Add Claude Code Hooks Infrastructure to iMatrix_Client"
+date: "2025-12-30"
+branch: "feature/add-claude-hooks"
+objective: "Implement Claude Code hooks system with TTS feedback and security controls for the iMatrix development workflow"
+
+project:
+  auto_populate_standard_info: true
+  additional_context: |
+    This task adds Claude Code hooks infrastructure to the iMatrix_Client repository.
+    The hooks will provide:
+    - Audio TTS feedback when Claude needs input or completes tasks
+    - Security validation to block dangerous commands
+    - Logging of all tool usage for audit/debugging
+    - Session context loading on startup
+
+    Reference implementation: /home/greg/agentic_lessons/claude-code-hooks-mastery
+
+references:
+  read_first:
+    - "/home/greg/agentic_lessons/claude-code-hooks-mastery/README.md"
+    - "/home/greg/agentic_lessons/claude-code-hooks-mastery/.claude/settings.json"
+    - "/home/greg/agentic_lessons/claude-code-hooks-mastery/ai_docs/cc_hooks_docs.md"
+
+  source_files:
+    - path: "/home/greg/agentic_lessons/claude-code-hooks-mastery/.claude/hooks"
+      focus:
+        - "notification.py"
+        - "stop.py"
+        - "pre_tool_use.py"
+        - "user_prompt_submit.py"
+        - "session_start.py"
+    - path: "/home/greg/agentic_lessons/claude-code-hooks-mastery/.claude/hooks/utils/tts"
+      focus:
+        - "elevenlabs_tts.py"
+        - "openai_tts.py"
+        - "pyttsx3_tts.py"
+
+  templates:
+    - "/home/greg/agentic_lessons/claude-code-hooks-mastery/.env.sample"
+
+task:
+  summary: "Implement Claude Code hooks with TTS feedback for iMatrix_Client development workflow"
+
+  description: |
+    Create a hooks infrastructure adapted from the claude-code-hooks-mastery lesson.
+    The hooks will enhance the iMatrix development experience by:
+    1. Providing audio feedback when Claude needs input (notification hook)
+    2. Announcing task completion with AI-generated summaries (stop hook)
+    3. Blocking dangerous commands before execution (pre_tool_use hook)
+    4. Logging all prompts and tool usage for debugging (all hooks)
+    5. Loading project context on session start (session_start hook)
+
+  requirements:
+    - "Create .claude/hooks/ directory structure in iMatrix_Client"
+    - "Implement all 8 hook types from the reference implementation"
+    - "Set up TTS provider priority: ElevenLabs > OpenAI > pyttsx3"
+    - "Configure hooks in .claude/settings.json (merge with existing settings.local.json)"
+    - "Create .env.sample with required API keys (ELEVENLABS_API_KEY, OPENAI_API_KEY, ENGINEER_NAME)"
+    - "Adapt security patterns for iMatrix-specific dangerous commands"
+    - "Set up logs/ directory for hook event logging"
+    - "Use UV single-file script architecture for dependency isolation"
+
+  implementation_notes:
+    - "Reference implementation uses 'uv run' for script execution - ensure UV is installed"
+    - "The hooks use python-dotenv for environment variable loading"
+    - "ElevenLabs uses voice_id 'WejK3H1m7MI9CHnIjW9K' and turbo_v2_5 model"
+    - "Security blocking uses exit code 2 to feed error back to Claude"
+    - "PreToolUse hook should block: rm -rf, sudo rm, chmod 777, writes to .env files"
+    - "Notification hook has 30% chance to include ENGINEER_NAME for personalization"
+    - "Stop hook can generate completion messages using LLM (priority: OpenAI > Anthropic > Ollama)"
+    - "Session start hook should load git status and recent issues for context"
+
+  detailed_specifications:
+    - section: "Directory Structure"
+      details: |
+        .claude/
+        ├── hooks/
+        │   ├── notification.py
+        │   ├── stop.py
+        │   ├── subagent_stop.py
+        │   ├── pre_tool_use.py
+        │   ├── post_tool_use.py
+        │   ├── user_prompt_submit.py
+        │   ├── pre_compact.py
+        │   ├── session_start.py
+        │   └── utils/
+        │       ├── tts/
+        │       │   ├── elevenlabs_tts.py
+        │       │   ├── openai_tts.py
+        │       │   └── pyttsx3_tts.py
+        │       └── llm/
+        │           ├── oai.py
+        │           ├── anth.py
+        │           └── ollama.py
+        ├── settings.json (merged config)
+        └── data/
+            └── sessions/
+        logs/
+        .env (created from .env.sample)
+
+    - section: "Hook Configuration (settings.json)"
+      details: |
+        Merge with existing settings.local.json permissions, add:
+        {
+          "hooks": {
+            "PreToolUse": [{"matcher": "", "hooks": [{"type": "command", "command": "uv run .claude/hooks/pre_tool_use.py"}]}],
+            "PostToolUse": [{"matcher": "", "hooks": [{"type": "command", "command": "uv run .claude/hooks/post_tool_use.py"}]}],
+            "Notification": [{"matcher": "", "hooks": [{"type": "command", "command": "uv run .claude/hooks/notification.py --notify"}]}],
+            "Stop": [{"matcher": "", "hooks": [{"type": "command", "command": "uv run .claude/hooks/stop.py --chat"}]}],
+            "SubagentStop": [{"matcher": "", "hooks": [{"type": "command", "command": "uv run .claude/hooks/subagent_stop.py --notify"}]}],
+            "UserPromptSubmit": [{"hooks": [{"type": "command", "command": "uv run .claude/hooks/user_prompt_submit.py --log-only --store-last-prompt"}]}],
+            "PreCompact": [{"matcher": "", "hooks": [{"type": "command", "command": "uv run .claude/hooks/pre_compact.py"}]}],
+            "SessionStart": [{"matcher": "", "hooks": [{"type": "command", "command": "uv run .claude/hooks/session_start.py"}]}]
+          }
+        }
+
+    - section: "iMatrix-Specific Security Patterns"
+      details: |
+        Block these patterns in pre_tool_use.py:
+        - rm -rf (especially on iMatrix, Fleet-Connect-1 directories)
+        - sudo rm operations
+        - chmod 777 (dangerous permissions)
+        - Writes to .env, credentials.json, *.key files
+        - Force pushes to main/master branches
+        - Any command touching /etc/ppp/peers (sensitive config)
+        - Modifications to build output directories without explicit approval
+
+deliverables:
+  plan_document: "docs/gen/add_hooks_plan.md"
+  use_standard_workflow: true
+
+  additional_steps:
+    - "Install UV package manager if not present: curl -LsSf https://astral.sh/uv/install.sh | sh"
+    - "Copy and adapt hook scripts from reference implementation"
+    - "Create .env.sample with placeholder API keys"
+    - "Create actual .env file with user's API keys (do not commit)"
+    - "Add .env to .gitignore if not already present"
+    - "Test each hook individually before full integration"
+    - "Verify TTS works (if API keys configured)"
+    - "Document hook behavior in CLAUDE.md"
+
+  additional_deliverables:
+    - "Working hooks infrastructure in .claude/hooks/"
+    - "Merged settings.json configuration"
+    - "logs/ directory for event tracking"
+    - "Updated .gitignore with .env exclusion"
+    - "Test verification that hooks execute correctly"
+
+questions:
+  - question: "TTS Provider: Which TTS provider do you have API keys for?"
+    suggested_answer: "ElevenLabs (recommended for best quality)"
+    answer: "ElevenLabs (API key to be stored in .env file only)"
+
+  - question: "Should the stop hook generate AI completion messages, or use static messages?"
+    suggested_answer: "AI-generated (more engaging, requires LLM API key)"
+    answer: "AI-generated using Anthropic API (key to be stored in .env file only)"
+
+  - question: "Security Level: Should pre_tool_use block operations or just warn?"
+    suggested_answer: "Block with exit code 2 (recommended for safety)"
+    answer: "Block with exit code 2"
+
+  - question: "Logging: Where should hook logs be stored?"
+    suggested_answer: "logs/ directory in project root"
+    answer: "logs/ directory in project root"
+
+  - question: "Session Context: What context should session_start.py load?"
+    suggested_answer: "Git status, recent commits, and project issues"
+    answer: "Git status, recent commits, and project issues"
+
+  - question: "Engineer Name: What name should be used for personalized TTS?"
+    suggested_answer: "Greg"
+    answer: "Greg"
+
+guidelines:
+  principles:
+    - "Keep hooks lightweight - they run on every tool call"
+    - "Fail gracefully - hooks should not break Claude Code if they error"
+    - "Use UV single-file scripts for dependency isolation"
+    - "Log all events for debugging but don't expose sensitive data"
+    - "TTS should be optional - work without API keys configured"

@@ -73,6 +73,77 @@ python3 scripts/build_prompt.py specs/my_feature.yaml
 - Complete Guide: `docs/prompt_yaml_guide.md`
 - Examples: `specs/examples/`
 
+### Claude Code Hooks System
+
+This repository includes a comprehensive hooks system for Claude Code providing:
+- **TTS Audio Feedback**: Spoken notifications when Claude needs input or completes tasks
+- **Security Controls**: Pre-tool-use validation to block dangerous commands
+- **Comprehensive Logging**: All tool usage logged for audit and debugging
+- **Session Context**: Automatic loading of git status and project context
+
+#### Hook Types Configured
+
+| Hook | Purpose |
+|------|---------|
+| `PreToolUse` | Security validation before any tool executes |
+| `PostToolUse` | Logging after tool completion |
+| `Notification` | TTS announcements for user attention |
+| `Stop` | TTS completion message with LLM summary |
+| `SubagentStop` | Notification when subagents complete |
+| `UserPromptSubmit` | Session tracking and prompt logging |
+| `PreCompact` | Transcript backup before compaction |
+| `SessionStart` | Load development context on startup |
+
+#### Setup
+
+1. **Create environment file** (required for TTS/LLM features):
+   ```bash
+   cp .env.sample .env
+   # Edit .env and add your API keys
+   ```
+
+2. **Install UV** (if not already installed):
+   ```bash
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+
+3. **Restart Claude Code** - hooks activate automatically
+
+#### TTS Provider Priority
+1. ElevenLabs Turbo v2.5 (highest quality)
+2. OpenAI gpt-4o-mini-tts
+3. pyttsx3 local fallback (no API key required)
+
+#### Security Patterns Blocked
+- `rm -rf` variants
+- `sudo rm` operations
+- `chmod 777` (world-writable)
+- `.env` file access
+- Credential files (`.key`, `.pem`, `credentials.json`)
+- Force push to main/master
+
+#### File Structure
+```
+.claude/
+├── hooks/
+│   ├── pre_tool_use.py      # Security validation
+│   ├── post_tool_use.py     # Tool logging
+│   ├── notification.py      # TTS notifications
+│   ├── stop.py              # Completion messages
+│   ├── subagent_stop.py     # Subagent completion
+│   ├── user_prompt_submit.py # Session tracking
+│   ├── session_start.py     # Context loading
+│   ├── pre_compact.py       # Transcript backup
+│   └── utils/
+│       ├── tts/             # TTS providers
+│       └── llm/             # LLM providers
+├── settings.json            # Hooks configuration
+└── settings.local.json      # Permissions
+```
+
+#### Logs
+Hook events are logged to `logs/` directory for debugging.
+
 ### Implementation Guidelines
 
 1. **Think and Plan First**: Read the codebase for relevant files and write a plan to projectplan.md
@@ -374,5 +445,5 @@ make
 
 ---
 
-*Last Updated: 2025-08-20*
+*Last Updated: 2026-01-01*
 *This guide consolidates information from all submodule CLAUDE.md files and project documentation.*

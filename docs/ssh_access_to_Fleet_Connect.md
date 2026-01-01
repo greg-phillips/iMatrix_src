@@ -1,8 +1,8 @@
 # SSH Access to Fleet-Connect-1 Gateway
 
 **Date Created:** 2025-12-23
-**Last Updated:** 2025-12-23
-**Version:** 1.0
+**Last Updated:** 2025-12-31
+**Version:** 1.1
 **Author:** Claude Code
 
 ---
@@ -175,9 +175,9 @@ dmesg | tail -50
 # System log (if available)
 cat /var/log/messages
 
-# FC-1 specific logs
-ls -la /var/log/fc-1/
-cat /var/log/fc-1/*.log
+# FC-1 specific logs (filesystem logger)
+ls -la /var/log/fc-1*.log
+cat /var/log/fc-1.log
 ```
 
 ---
@@ -188,10 +188,11 @@ cat /var/log/fc-1/*.log
 
 | Path | Description |
 |------|-------------|
-| `/usr/qk/bin/FC-1` | Main application binary |
-| `/usr/qk/bin/` | Application binaries directory |
+| `/usr/qk/etc/sv/FC-1/FC-1` | Main application binary |
+| `/usr/qk/etc/sv/FC-1/` | Service directory (binary, run script, console) |
 | `/usr/qk/etc/` | Application configuration |
-| `/var/log/fc-1/` | Application logs and profiles |
+| `/var/log/fc-1.log` | Application log file (filesystem logger) |
+| `/var/log/FC-1/` | runit service logs (svlogd) |
 
 ### 5.2 System Configuration
 
@@ -254,11 +255,11 @@ sshpass -p 'PasswordQConnect' scp -P 22222 localfile.txt root@192.168.7.1:/tmp/
 ### 7.2 Copy Files FROM Target
 
 ```bash
-# Copy single file
-scp -P 22222 root@192.168.7.1:/var/log/fc-1/app.log ./
+# Copy single file (application log)
+scp -P 22222 root@192.168.7.1:/var/log/fc-1.log ./
 
-# Copy directory
-scp -P 22222 -r root@192.168.7.1:/var/log/fc-1/ ./logs/
+# Copy all log files
+scp -P 22222 root@192.168.7.1:/var/log/fc-1*.log ./logs/
 
 # With sshpass
 sshpass -p 'PasswordQConnect' scp -P 22222 root@192.168.7.1:/tmp/file.txt ./
@@ -413,5 +414,5 @@ ssh fc1
 
 ---
 
-*Document Version: 1.0*
-*Last Updated: 2025-12-23*
+*Document Version: 1.1*
+*Last Updated: 2025-12-31*

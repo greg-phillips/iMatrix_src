@@ -26,3 +26,41 @@ references:
     - "/home/greg/iMatrix/iMatrix_Client/docs/testing_fc_1_application.md"
     - "/home/greg/iMatrix/iMatrix_Client/docs/ssh_access_to_Fleet_Connect.md"
     - "/home/greg/iMatrix/iMatrix_Client/docs/connecting_to_Fleet-Connect-1.md"
+
+  Questions before proceeding:
+
+  1. Which FC script should be modified? Is there an existing FC script, or should I create a new one? (I should look at the referenced docs for context)
+  2. Preferred connection method: The telnet approach (echo "command" | nc 192.168.7.1 23) is simpler for scripting. Should I use that instead of the microcom approach, which requires interactive terminal handling?
+  3. Should I read the referenced documentation files first to understand the existing CLI/debug system before creating the plan?
+
+  Would you like me to start by reading the referenced documentation files to understand the existing infrastructure?
+
+  Answers
+  1. The FC script is in the scripts directory.
+  2. Use the microcom approach.
+  3. Yes.
+
+  Questions before creating the plan:
+
+  1. Is expect installed on your development machine? (Check with which expect)
+    - Required to automate microcom interaction
+    - If not available: sudo apt-get install expect
+  2. Command timeout? How long should we wait for a command response before timing out? (e.g., 5 seconds, 10 seconds?)
+  3. Multi-command support? Should the new command support:
+    - Single command only: ./fc1 cmd "cell status"
+    - Multiple commands: ./fc1 cmd "cell status" "ppp"
+  4. Output format preference?
+    - Raw output (includes debug noise from console)
+    - Cleaned output (strip timestamps, prompts, etc.)
+  5. Interactive mode? Should there also be an option for interactive CLI access via the script (similar to ./fc1 ssh but for the CLI console)?
+
+  Answers
+  1. no.
+root@iMatrix:FC-1:0131557250:~# which expect
+root@iMatrix:FC-1:0131557250:~# apt-get install expect
+-sh: apt-get: not found
+  2. 10 seconds.
+  3. Single command only.
+  4. Raw output.
+  5. No.
+

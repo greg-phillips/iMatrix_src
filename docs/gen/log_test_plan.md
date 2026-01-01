@@ -1,9 +1,10 @@
 # Log Test Subcommand Implementation Plan
 
 **Date**: 2025-12-31
-**Status**: IN PROGRESS
+**Status**: COMPLETE
 **Author**: Claude Code
 **Related**: docs/gen/logging_work_plan.md, docs/gen/early_logger_init_plan.md
+**Test Report**: docs/gen/log_rotation_test_report.md
 
 ## Overview
 
@@ -81,14 +82,14 @@ static void cli_log_test(void)
 ## Implementation Steps
 
 1. [x] Create plan document
-2. [ ] Temporarily change FS_LOG_MAX_FILE_SIZE to 100KB
-3. [ ] Add `log test` subcommand to cli_log.c
-4. [ ] Build Fleet-Connect-1
-5. [ ] Deploy to gateway and run test
-6. [ ] Verify rotation and capture results
-7. [ ] Create success report
-8. [ ] Change FS_LOG_MAX_FILE_SIZE back to 10MB
-9. [ ] Rebuild and redeploy
+2. [x] Temporarily change FS_LOG_MAX_FILE_SIZE to 100KB
+3. [x] Add `log test` subcommand to cli_log.c
+4. [x] Build Fleet-Connect-1
+5. [x] Deploy to gateway and run test
+6. [x] Verify rotation and capture results
+7. [x] Create success report (docs/gen/log_rotation_test_report.md)
+8. [x] Change FS_LOG_MAX_FILE_SIZE back to 10MB
+9. [x] Rebuild and redeploy
 
 ## Files to Modify
 

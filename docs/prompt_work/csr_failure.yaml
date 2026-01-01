@@ -1,0 +1,16 @@
+# The Certificate Signing Request (CSR) process is failing, investigate and fix.
+
+complexity_level: "simple"
+
+prompt_name: "csr_process_fix"
+date: "2025-12-30"
+branch: "feature/csr_process_fix"
+
+title: "The Certificate Signing Request (CSR) process is failing, investigate and fix."
+
+task: |
+  The CSR process is failing with the following error in the log file logs/CSR.log:
+  Review the logs and the source code /home/greg/iMatrix/iMatrix_Client/iMatrix/bind/process_csr.c
+  
+  Ask any questions you need to before starting the work.
+
