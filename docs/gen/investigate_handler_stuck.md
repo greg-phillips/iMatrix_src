@@ -1,16 +1,16 @@
 <!--
 AUTO-GENERATED PROMPT
-Generated from: docs/prompt_work/investigate_Handler stuck.yaml
-Generated on: 2025-12-29
+Generated from: /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/investigate_Handler_stuck.yaml
+Generated on: 2026-01-01 20:02 UTC
 Schema version: 1.0
 Complexity level: simple
 
 To modify this prompt, edit the source YAML file and regenerate.
 -->
 
-## Aim: The FC-1 and iMatrix system has many logs to detect when the system is stuck in a loop.
+## Aim Investigate FC-1 Handler Stuck in Loop - 24 Hour Stability Test
 
-**Date:** 2025-12-29
+**Date:** 2026-01-01
 **Branch:** debug/investigate_handler_stuck
 
 ---
@@ -32,8 +32,9 @@ The user's name is Greg
 
 Read and understand the following
 
-- iMatrix/CLAUDE.md
-- Fleet-Connect-1/CLAUDE.md
+- /home/greg/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md
+- /home/greg/iMatrix/iMatrix_Client/docs/ssh_access_to_Fleet_Connect.md
+- /home/greg/iMatrix/iMatrix_Client/docs/connecting_to_Fleet-Connect-1.md
 
 use the template files as a base for any new files created
 iMatrix/templates/blank.c
@@ -43,47 +44,50 @@ Always create extensive comments using doxygen style
 
 **Use the KISS principle - do not over-engineer. keep it simple and maintainable.**
 
+This is a stability validation test, not a development task.
+Document results at each 4-hour interval.
+Final deliverable: PASS (24hr clean) or FAIL (with stuck details)
+
 ## Task
 
-Generate a detailed plan to investigate the problem and fix it.
-The command provided is "loopstatus" and it is used to detect when the system is stuck in a loop.
-The output of the command is as follows:
-```
-==================== MAIN LOOP STATUS ====================
-Handler Position:    Before imx_process() (0)
-Time at Handler:     38218888 ms
+Monitor the FC-1/iMatrix system for 24 continuous hours to verify the handler
+does not become stuck in a loop.
 
-imx_process() Pos:   50
-Time at imx_proc:    38218888 ms
+**Connection:**
+1. Connect via SSH (see ssh_access_to_Fleet_Connect.md)
+2. Connect to CLI using minicom to the console symlink
 
-do_everything() Pos: EXIT (19)
-Time at Position:    38218988 ms
-Loop Executions:     39852
+**Verification Commands:**
+- Main CLI (>) "s" command - verify MAIN_IMATRIX_NORMAL state
+- Main CLI (>) "threads" or "threads -v" - check for stuck warnings
+- App CLI (app>) "s" command - verify CAN controller registered
+- App CLI (app>) "loopstatus" - detect loop conditions
 
-*** WARNING: Handler stuck at 'Before imx_process()' for 38218888 ms! ***
-*** BLOCKING IN: imx_process() function (position 50) ***
-==========================================================
-```
+**CLI Mode Switching:**
+- Type "app" to enter app CLI mode (prompt changes to "app>")
+- Type "exit" or press <tab> to return to main CLI
 
-Ask any questions you need to before starting.
+**Monitoring Schedule:**
+Check status every 4 hours (6 checks total over 24 hours)
 
-### Analysis of the Problem
+**Success Criteria:**
+- No "WARNING: Handler stuck" messages
+- No "BLOCKING IN:" messages  
+- Timer status not showing persistent OVERRUN
+- Boot count unchanged (no unexpected reboots)
 
-The `loopstatus` output reveals:
-1. **Handler Position 0** - Stuck "Before imx_process()" for 38218888 ms (~10.6 hours)
-2. **imx_process() Position 50** - The blocking is occurring inside `imx_process()` at position 50
-3. **do_everything() Position 19 (EXIT)** - The FC-1 side completed normally
-4. **39852 loop executions** before getting stuck
+**Failure Indicators:**
+- "WARNING: Handler stuck at 'Before imx_process()' for XXXXX ms!"
+- "BLOCKING IN: imatrix_upload() (position 50)"
+- "GPS Nema serial data processing failure" (frequent occurrences)
 
-The investigation should focus on:
-- What code executes at position 50 in `imx_process()`
-- What could cause it to block indefinitely
-- Whether this is related to networking, storage, or another subsystem
+**If Stuck Detected:** Document handler position, time stuck, blocking function,
+and timestamp. Test is FAILED.
 
 ## Deliverables
 
 1. Make a note of the current branches for iMatrix and Fleet-Connect-1 and create new git branches for any work created.
-2. Detailed plan document, *** docs/gen/investigate_handler_stuck_plan.md ***, of all aspects and detailed todo list for me to review before commencing the implementation.
+2. Detailed plan document, *** docs/gen/investigate_handler_stuck.md ***, of all aspects and detailed todo list for me to review before commencing the implementation.
 3. Once plan is approved implement and check off the items on the todo list as they are completed.
 4. **Build verification**: After every code change run the linter and build the system to ensure there are no compile errors or warnings. If compile errors or warnings are found fix them immediately.
 5. **Final build verification**: Before marking work complete, perform a final clean build to verify:
@@ -99,5 +103,5 @@ The investigation should focus on:
 ---
 
 **Plan Created By:** Claude Code (via YAML specification)
-**Source Specification:** docs/prompt_work/investigate_Handler stuck.yaml
-**Generated:** 2025-12-29
+**Source Specification:** /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/investigate_Handler_stuck.yaml
+**Generated:** 2026-01-01 20:02 UTC
