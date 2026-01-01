@@ -1,0 +1,71 @@
+#!/usr/local/bin/expect-wrapper
+#
+# fc1_cmd.exp - Execute CLI command via microcom
+#
+# Usage: fc1_cmd.exp <command>
+#
+# This script connects to the FC-1 CLI via microcom, executes a command,
+# and returns the output.
+#
+# Exit codes:
+#   0 - Success
+#   1 - Timeout or error
+#   2 - Usage error
+#
+
+# Configuration
+set timeout 10
+set console_path "/usr/qk/etc/sv/FC-1/console"
+
+# Get command from arguments
+if {$argc < 1} {
+    puts stderr "Usage: fc1_cmd.exp <command>"
+    exit 2
+}
+
+set cmd [lindex $argv 0]
+
+# Enable logging to see all output
+log_user 1
+
+# Start microcom connected to the console
+spawn microcom $console_path
+
+# Wait for microcom to connect and send enter to get prompt
+sleep 0.5
+send "\r"
+sleep 0.3
+
+# Wait for initial prompt
+expect {
+    ">" {
+        # Got prompt
+    }
+    timeout {
+        puts stderr "Timeout waiting for CLI prompt"
+        send "\x18"
+        exit 1
+    }
+}
+
+# Send the command
+send "$cmd\r"
+
+# Wait for output and next prompt (longer timeout for big outputs)
+set timeout 15
+expect {
+    -re "\r\n>" {
+        # Got next prompt - command complete
+    }
+    timeout {
+        puts stderr "Timeout waiting for command response"
+    }
+}
+
+# Clean exit from microcom using Ctrl+X
+send "\x18"
+
+# Wait for microcom to exit
+expect eof
+
+exit 0

@@ -1,0 +1,8 @@
+#!/bin/sh
+# Expect wrapper script for FC-1
+# Sets up library paths for expect to work correctly
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+LIB_DIR="$(dirname "$SCRIPT_DIR")/lib"
+export LD_LIBRARY_PATH="${LIB_DIR}:${LIB_DIR}/expect5.45.3:${LD_LIBRARY_PATH}"
+export TCL_LIBRARY="${LIB_DIR}/tcl8.6"
+exec "${SCRIPT_DIR}/expect" "$@"

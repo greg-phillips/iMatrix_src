@@ -3,7 +3,7 @@
 # FC-1 Remote Control Script
 # Run from host machine to control FC-1 on target
 #
-# Usage: ./fc1 [-d destination] [start|stop|restart|status|enable|disable|run|log|deploy|push|ssh]
+# Usage: ./fc1 [-d destination] [start|stop|restart|status|enable|disable|run|log|cmd|deploy|push|ssh]
 #
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -25,6 +25,12 @@ LOCAL_SCRIPT="${SCRIPT_DIR}/fc1_service.sh"
 # Binary paths
 LOCAL_BINARY="${SCRIPT_DIR}/../Fleet-Connect-1/build/FC-1"
 REMOTE_BINARY="/usr/qk/etc/sv/FC-1/FC-1"
+
+# Expect tools paths
+EXPECT_PACKAGE="${SCRIPT_DIR}/../external_tools/build/expect-arm.tar.gz"
+EXPECT_CMD_SCRIPT="${SCRIPT_DIR}/fc1_cmd.exp"
+REMOTE_EXPECT_DIR="/usr/local"
+REMOTE_EXPECT_CMD="/tmp/fc1_cmd.exp"
 
 # SSH command with options
 SSH_CMD="sshpass -p '${TARGET_PASS}' ssh -p ${TARGET_PORT} -o StrictHostKeyChecking=no -o ConnectTimeout=10 ${TARGET_USER}@${TARGET_HOST}"
@@ -133,6 +139,61 @@ run_service_cmd() {
     run_remote "sh ${REMOTE_SCRIPT} $*"
 }
 
+# Deploy expect tools to target
+deploy_expect() {
+    if [ ! -f "$EXPECT_PACKAGE" ]; then
+        echo "Error: Expect package not found at $EXPECT_PACKAGE"
+        echo "Run the build_expect.sh script first"
+        exit 1
+    fi
+
+    echo "Deploying expect tools to target..."
+
+    # Copy expect package to target
+    eval $SCP_CMD "$EXPECT_PACKAGE" "${TARGET_USER}@${TARGET_HOST}:/tmp/expect-arm.tar.gz"
+
+    # Extract to /usr/local
+    run_remote "mkdir -p ${REMOTE_EXPECT_DIR} && cd ${REMOTE_EXPECT_DIR} && tar xzf /tmp/expect-arm.tar.gz && rm /tmp/expect-arm.tar.gz"
+
+    echo "Expect tools deployed to ${REMOTE_EXPECT_DIR}"
+}
+
+# Check if expect is installed on target
+check_expect_installed() {
+    run_remote "test -x ${REMOTE_EXPECT_DIR}/bin/expect" 2>/dev/null
+}
+
+# Execute CLI command via expect/microcom
+run_cli_cmd() {
+    local cli_cmd="$1"
+
+    if [ -z "$cli_cmd" ]; then
+        echo "Error: No command specified"
+        echo "Usage: $0 cmd \"<command>\""
+        exit 1
+    fi
+
+    # Check if expect is installed, deploy if not
+    if ! check_expect_installed; then
+        echo "Expect not found on target. Deploying..."
+        deploy_expect
+    fi
+
+    # Copy expect script to target
+    if [ ! -f "$EXPECT_CMD_SCRIPT" ]; then
+        echo "Error: Expect script not found at $EXPECT_CMD_SCRIPT"
+        exit 1
+    fi
+
+    eval $SCP_CMD "$EXPECT_CMD_SCRIPT" "${TARGET_USER}@${TARGET_HOST}:${REMOTE_EXPECT_CMD}"
+    run_remote "chmod +x ${REMOTE_EXPECT_CMD}"
+
+    # Run the expect script with the command
+    echo "Executing: $cli_cmd"
+    echo "---"
+    run_remote "${REMOTE_EXPECT_DIR}/bin/expect-wrapper ${REMOTE_EXPECT_CMD} \"$cli_cmd\""
+}
+
 show_help() {
     echo "FC-1 Remote Control"
     echo ""
@@ -152,6 +213,7 @@ show_help() {
     echo "  run [opts]  Run FC-1 in foreground on target"
     echo "  log         Show recent logs"
     echo "  ppp         Show PPP link status (interface, service, log)"
+    echo "  cmd <cmd>   Execute CLI command via microcom (returns output)"
     echo "  deploy      Deploy service script to target"
     echo "  push        Push built FC-1 binary to target (leaves service stopped)"
     echo "  push -run   Push binary and start FC-1 service"
@@ -172,6 +234,9 @@ show_help() {
     echo "  $0 -d 10.0.0.50 status   # Check status on specific host"
     echo "  $0 run -S                # Run with config summary"
     echo "  $0 ppp                   # Show PPP link status"
+    echo "  $0 cmd \"help\"            # Execute 'help' CLI command"
+    echo "  $0 cmd \"cell status\"     # Execute 'cell status' CLI command"
+    echo "  $0 cmd \"imx stats\"       # Execute 'imx stats' CLI command"
     echo "  $0 deploy                # Update service script on target"
     echo "  $0 push                  # Deploy binary (service stays stopped)"
     echo "  $0 push -run             # Deploy binary and start service"
@@ -210,6 +275,11 @@ case "$1" in
         check_target
         echo "Connecting to ${TARGET_HOST}..."
         eval $SSH_CMD
+        ;;
+    cmd)
+        check_target
+        shift
+        run_cli_cmd "$*"
         ;;
     clear-key)
         clear_host_key
