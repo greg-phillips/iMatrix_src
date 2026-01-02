@@ -1,19 +1,7 @@
 === FC-1 Handler Status Check ===
-Timestamp: 2026-01-01 17:23:00 UTC
+Timestamp: 2026-01-01 21:23:13 UTC
 
-Uptime:  17:23:02 up 19:16,  0 users,  load average: 1.01, 1.22, 1.28
-FC-1 PID: 19054
-Memory: Used: 46528/508276 (9%)
-Boot Count: N/A
-
-Checking for handler stuck warnings...
-Handler stuck warnings found: 0
-Blocking messages found: 0
-
-Status: NORMAL - No issues detected
-
-=== CLI Status Check ===
-Note: 'expect' not installed - skipping interactive CLI check
-Install with: sudo apt-get install expect
+Uptime:  21:23:15 up 23:17,  0 users,  load average: 0.01, 0.06, 0.01
+WARNING: FC-1 is not running!
 
 ======================================

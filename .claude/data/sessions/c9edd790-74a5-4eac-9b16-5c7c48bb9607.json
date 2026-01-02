@@ -1,0 +1,14 @@
+{
+  "session_id": "c9edd790-74a5-4eac-9b16-5c7c48bb9607",
+  "prompts": [
+    "/new_dev udhcp_issue",
+    "read /home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/docs/ARM_CROSS_COMPILE_DETAILS.md and /home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/docs/BUILD_SYSTEM_DOCUMENTATION.md and install tool chain",
+    "the tool chain is available: \\home\\greg\\qconnect_sw",
+    "I have updated the files in the /home/greg/qconnect_sw directoryt they now contain all the ARM toolchain files needed, apply them ",
+    "task completed attempt to build the system",
+    "the paths in CMake should work on this system as we have idential macines using this build. adapt local environment ",
+    "done",
+    "the current souce builds correctly on the existing systems. If this is failing here it is a local issue that must be resolved not by changing the cloned source files",
+    "create a new document, docs/wsl_build_issues.md, that I can give to the other developer using wsl that explains your issues that they can then report how to resolve them explain in great detail and include all releveant information"
+  ]
+}
