@@ -1,0 +1,7 @@
+{
+  "session_id": "a0cc456d-31e6-4f5a-bc5f-4f6f2c45f065",
+  "prompts": [
+    "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/memory_manger_issue_1.yaml",
+    "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/memory_manger_issue_1.yaml"
+  ]
+}

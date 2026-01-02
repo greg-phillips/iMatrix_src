@@ -1,0 +1,6 @@
+{
+  "session_id": "6824d2dc-7ad1-4794-a439-40aa529e942f",
+  "prompts": [
+    "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/ft2200_sensors.yaml"
+  ]
+}

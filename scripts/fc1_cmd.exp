@@ -31,31 +31,39 @@ log_user 1
 # Start microcom connected to the console
 spawn microcom $console_path
 
-# Wait for microcom to connect and send enter to get prompt
-sleep 0.5
-send "\r"
+# Wait for microcom to initialize
 sleep 0.3
 
-# Wait for initial prompt
+# Send enter to wake up the CLI and get to a known state
+send "\r"
+
+# Drain any welcome banner or existing output and wait for prompt
+# The prompt is ">" possibly followed by a space
+set timeout 5
 expect {
-    ">" {
-        # Got prompt
+    -re {>[ ]?$} {
+        # Got clean prompt at end of line
+    }
+    -re {>\s*\r?\n} {
+        # Got prompt with newline, wait for the next one
+        expect -re {>[ ]?$}
     }
     timeout {
-        puts stderr "Timeout waiting for CLI prompt"
-        send "\x18"
-        exit 1
+        # Try one more enter
+        send "\r"
+        expect -re {>[ ]?$}
     }
 }
 
-# Send the command
+# Now send the actual command
 send "$cmd\r"
 
-# Wait for output and next prompt (longer timeout for big outputs)
-set timeout 15
+# Wait for the command output and next prompt
+# Use a longer timeout for commands that produce lots of output
+set timeout 20
 expect {
-    -re "\r\n>" {
-        # Got next prompt - command complete
+    -re {>[ ]?$} {
+        # Got the next prompt - command complete
     }
     timeout {
         puts stderr "Timeout waiting for command response"

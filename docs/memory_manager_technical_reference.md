@@ -831,61 +831,137 @@ imx_result_t bulk_read(source, csb, csd, array, count) {
 
 ## 9. Disk Spillover System (Linux)
 
-### 9.1 Spillover Trigger Conditions
+### 9.1 Tiered Storage Architecture (Updated 2026-01-02)
+
+**IMPORTANT**: The memory manager now implements **tiered storage** per the
+MM2_Functional_Clarification.md specification. The previous "spillover" model
+(migrating RAM data to disk) has been replaced with direct disk allocation.
+
+```
+Functional Requirement:
+"The Memory Manager must operate using RAM based sectors for storage of control/sensor
+data until the RAM use reaches 80%. At that point all new sectors are allocated from disk."
+
+"Only spool RAM based sectors to disk when in shutdown mode."
+```
+
+### 9.2 Tiered Storage vs. Old Spillover
+
+| Aspect | Old Spillover Model | New Tiered Storage |
+|--------|--------------------|--------------------|
+| At 80% RAM | Move existing RAM→disk | NEW data goes to disk |
+| RAM data | Migrated away | Stays in RAM until uploaded |
+| Normal operation | Spillover state machine active | **No spooling** |
+| Shutdown | Emergency spool | Emergency spool (unchanged) |
+| Upload order | Mixed | RAM first, then disk |
+
+### 9.3 Tiered Storage Decision Logic
 
 ```c
-bool should_trigger_spillover() {
-    // Primary trigger: Memory pressure
-    if ((used_sectors * 100 / total_sectors) >= 80) {
-        return true;
+// Called from imx_write_tsd() and imx_write_evt()
+int mm2_should_use_disk_storage(void) {
+    if (g_memory_pool.total_sectors == 0) {
+        return 0;  // Pool not initialized
     }
 
-    // Secondary trigger: Sensor-specific threshold
-    if (sensor_sector_count > MAX_SECTORS_PER_SENSOR) {
-        return true;
-    }
+    uint32_t utilization =
+        ((g_memory_pool.total_sectors - g_memory_pool.free_sectors) * 100) /
+        g_memory_pool.total_sectors;
 
-    // Tertiary trigger: Time-based (old data)
-    if (oldest_sector_age > MAX_RAM_RETENTION_TIME) {
-        return true;
-    }
-
-    return false;
+    return (utilization >= MEMORY_PRESSURE_THRESHOLD_PERCENT) ? 1 : 0;
 }
 ```
 
-### 9.2 Spillover State Machine
+### 9.4 Tiered Storage Write Flow
 
 ```
-States: IDLE → SELECTING → WRITING → VERIFYING → CLEANUP → IDLE
+Application calls imx_write_tsd() or imx_write_evt()
+    ↓
+Check if new sector needed
+    ↓
+Call mm2_should_use_disk_storage()
+    ├─ Returns 0 (RAM < 80%): Normal RAM allocation
+    └─ Returns 1 (RAM >= 80%): Call mm2_write_*_to_disk()
+         ↓
+    Buffer value in MMCB
+         ├─ TSD: Up to 6 values
+         └─ EVT: Up to 2 pairs
+         ↓
+    Buffer full?
+         ├─ No: Return success (buffered)
+         └─ Yes: Write disk sector header + data
+              ↓
+         Update total_disk_records
+              ↓
+         Return success
+```
 
-IDLE:
-    - Monitor memory pressure
-    - Check trigger conditions
-    - Transition to SELECTING if triggered
+### 9.5 Disk Write Functions
 
-SELECTING:
-    - Choose up to 10 oldest sectors
-    - Prioritize fully-written sectors
-    - Build write batch
+```c
+// Write TSD value to disk when RAM >= 80%
+imx_result_t mm2_write_tsd_to_disk(
+    imatrix_upload_source_t upload_source,
+    imx_control_sensor_block_t* csb,
+    control_sensor_data_t* csd,
+    imx_data_32_t value);
 
-WRITING:
-    - Open/create spool file
-    - Write disk_sector_header
-    - Write sector data
-    - Update file size tracking
-    - Max 5 sectors per cycle (<5ms)
+// Write EVT value to disk when RAM >= 80%
+imx_result_t mm2_write_evt_to_disk(
+    imatrix_upload_source_t upload_source,
+    imx_control_sensor_block_t* csb,
+    control_sensor_data_t* csd,
+    imx_data_32_t value,
+    imx_utc_time_ms_t utc_time_ms);
 
-VERIFYING:
-    - Read back written data
-    - Calculate CRC32
-    - Compare with expected
-    - Mark sectors as spooled
+// Flush partial buffers at shutdown
+imx_result_t mm2_flush_disk_buffers(
+    imatrix_upload_source_t upload_source,
+    imx_control_sensor_block_t* csb,
+    control_sensor_data_t* csd);
+```
 
-CLEANUP:
-    - Free verified sectors from RAM
-    - Update chain pointers
-    - Reset to IDLE
+### 9.6 MMCB Disk Buffer Fields
+
+```c
+// In imx_mmcb_t (common.h)
+#ifdef LINUX_PLATFORM
+/* Tiered Storage Direct Disk Write Buffering */
+unsigned int disk_write_active : 1;
+unsigned int disk_sector_type : 1;   // 0=TSD, 1=EVT
+
+// TSD buffering (6 values per sector)
+uint8_t disk_tsd_values_count;
+uint64_t disk_tsd_first_utc;
+uint32_t disk_tsd_values[6];
+
+// EVT buffering (2 pairs per sector)
+uint8_t disk_evt_pairs_count;
+struct {
+    uint32_t value;
+    uint64_t utc_time_ms;
+} disk_evt_pairs[2];
+#endif
+```
+
+### 9.7 Normal Spooling State Machine (DISABLED)
+
+**NOTE**: The normal spooling state machine is **disabled** during normal operation
+per MM2_Functional_Clarification.md. The code is preserved in mm2_disk_spooling.c
+for emergency/shutdown scenarios only.
+
+The `process_memory_manager()` phase 2 now only logs memory utilization and
+proceeds directly to garbage collection (phase 3).
+
+```c
+case 2: /* Memory pressure check - TIERED STORAGE (no normal spooling) */
+    // Log utilization for monitoring
+    if (utilization >= THRESHOLD) {
+        PRINTF("MM2: Memory utilization %u%% - tiered storage active\r\n", utilization);
+    }
+    // Skip spooling, proceed to GC
+    process_phase = 3;
+    break;
 ```
 
 ### 9.3 Disk File Format

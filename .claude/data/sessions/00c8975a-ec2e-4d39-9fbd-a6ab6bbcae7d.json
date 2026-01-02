@@ -1,0 +1,8 @@
+{
+  "session_id": "00c8975a-ec2e-4d39-9fbd-a6ab6bbcae7d",
+  "prompts": [
+    "read and implement /home/greg/iMatrix/iMatrix_Client/docs/gen/ft2200_sensors.md",
+    "in the report list sensors that match, and units, then in next section list sensors that currently do not match existing internal sensors",
+    "creaet a tar of the contents of the tools directory"
+  ]
+}

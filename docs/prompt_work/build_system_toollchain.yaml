@@ -1,0 +1,17 @@
+# The Fleet-Connect-1 system uses arm toolchain to build the system.
+# I need to duplicate the build system for the Fleet-Connect-1 project on another WSL instance.
+
+complexity_level: "simple"
+
+prompt_name: "build_system_toollchain"
+date: "2025-12-30"
+branch: "feature/build_system_toollchain"
+
+title: "The Fleet-Connect-1 system uses arm toolchain to build the system. I need to duplicate the build system for the Fleet-Connect-1 project on another WSL instance."
+
+task: |
+  The Fleet-Connect-1 system uses arm toolchain to build the system. I need to duplicate the build system for the Fleet-Connect-1 project on another WSL instance.
+  Review the build system documentation in the Fleet-Connect-1 project and duplicate the build system for the Fleet-Connect-1 project on another WSL instance.
+  The build system documentation is in the Fleet-Connect-1/docs/BUILD_SYSTEM_DOCUMENTATION.md file.
+  The ARM related documentation is in /home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/ARM_CROSS_COMPILE_DETAILS.md.
+  Copy all required ARM build tools to a /home/greg/qconnect_sw/ARM_Tools directory.

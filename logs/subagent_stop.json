@@ -1,0 +1,362 @@
+[
+  {
+    "session_id": "813a0466-afc2-4a71-8e9a-381a7c76c89d",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/813a0466-afc2-4a71-8e9a-381a7c76c89d.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a63d4f1",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a63d4f1.jsonl"
+  },
+  {
+    "session_id": "813a0466-afc2-4a71-8e9a-381a7c76c89d",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/813a0466-afc2-4a71-8e9a-381a7c76c89d.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "ad166d1",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-ad166d1.jsonl"
+  },
+  {
+    "session_id": "813a0466-afc2-4a71-8e9a-381a7c76c89d",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/813a0466-afc2-4a71-8e9a-381a7c76c89d.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a4e8a21",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a4e8a21.jsonl"
+  },
+  {
+    "session_id": "813a0466-afc2-4a71-8e9a-381a7c76c89d",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/813a0466-afc2-4a71-8e9a-381a7c76c89d.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "aed8362",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-aed8362.jsonl"
+  },
+  {
+    "session_id": "813a0466-afc2-4a71-8e9a-381a7c76c89d",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/813a0466-afc2-4a71-8e9a-381a7c76c89d.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a958abf",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a958abf.jsonl"
+  },
+  {
+    "session_id": "b486e2c5-943d-4328-b602-f8e6e7986fd4",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/b486e2c5-943d-4328-b602-f8e6e7986fd4.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a62e800",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a62e800.jsonl"
+  },
+  {
+    "session_id": "b486e2c5-943d-4328-b602-f8e6e7986fd4",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/b486e2c5-943d-4328-b602-f8e6e7986fd4.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a0b534b",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a0b534b.jsonl"
+  },
+  {
+    "session_id": "4a8baaa5-148a-4f6a-adf0-c8b70ddfea00",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/4a8baaa5-148a-4f6a-adf0-c8b70ddfea00.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a63c586",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a63c586.jsonl"
+  },
+  {
+    "session_id": "4a8baaa5-148a-4f6a-adf0-c8b70ddfea00",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/4a8baaa5-148a-4f6a-adf0-c8b70ddfea00.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a4c846e",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a4c846e.jsonl"
+  },
+  {
+    "session_id": "e8fdf272-7ce3-4942-8a61-69dcd428a3b3",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/e8fdf272-7ce3-4942-8a61-69dcd428a3b3.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a31929d",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a31929d.jsonl"
+  },
+  {
+    "session_id": "e8fdf272-7ce3-4942-8a61-69dcd428a3b3",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/e8fdf272-7ce3-4942-8a61-69dcd428a3b3.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a94142d",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a94142d.jsonl"
+  },
+  {
+    "session_id": "e8fdf272-7ce3-4942-8a61-69dcd428a3b3",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/e8fdf272-7ce3-4942-8a61-69dcd428a3b3.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "aa7feef",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-aa7feef.jsonl"
+  },
+  {
+    "session_id": "991b73da-5315-49d7-a76f-25855e59d6b5",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/991b73da-5315-49d7-a76f-25855e59d6b5.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "aa44b65",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-aa44b65.jsonl"
+  },
+  {
+    "session_id": "deaa9218-f8a0-49c6-a006-9079913d128f",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/deaa9218-f8a0-49c6-a006-9079913d128f.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "aecb0f4",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-aecb0f4.jsonl"
+  },
+  {
+    "session_id": "4ee17306-29a0-4fbb-b649-ed487b4c93ba",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-imx-command/4ee17306-29a0-4fbb-b649-ed487b4c93ba.jsonl",
+    "cwd": "/home/greg/iMatrix/imx_command",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a643b52",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-imx-command/agent-a643b52.jsonl"
+  },
+  {
+    "session_id": "4ee17306-29a0-4fbb-b649-ed487b4c93ba",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-imx-command/4ee17306-29a0-4fbb-b649-ed487b4c93ba.jsonl",
+    "cwd": "/home/greg/iMatrix/imx_command",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "abd161e",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-imx-command/agent-abd161e.jsonl"
+  },
+  {
+    "session_id": "a0cc456d-31e6-4f5a-bc5f-4f6f2c45f065",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/a0cc456d-31e6-4f5a-bc5f-4f6f2c45f065.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a1783b8",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a1783b8.jsonl"
+  },
+  {
+    "session_id": "a0cc456d-31e6-4f5a-bc5f-4f6f2c45f065",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/a0cc456d-31e6-4f5a-bc5f-4f6f2c45f065.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a640c14",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a640c14.jsonl"
+  },
+  {
+    "session_id": "a0cc456d-31e6-4f5a-bc5f-4f6f2c45f065",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/a0cc456d-31e6-4f5a-bc5f-4f6f2c45f065.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "aa46771",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-aa46771.jsonl"
+  },
+  {
+    "session_id": "a0cc456d-31e6-4f5a-bc5f-4f6f2c45f065",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/a0cc456d-31e6-4f5a-bc5f-4f6f2c45f065.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "af842fd",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-af842fd.jsonl"
+  },
+  {
+    "session_id": "b36e508b-eeb6-4029-9686-879ad3c4b909",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/b36e508b-eeb6-4029-9686-879ad3c4b909.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a7bac66",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a7bac66.jsonl"
+  },
+  {
+    "session_id": "4ee17306-29a0-4fbb-b649-ed487b4c93ba",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-imx-command/4ee17306-29a0-4fbb-b649-ed487b4c93ba.jsonl",
+    "cwd": "/home/greg/iMatrix/imx_command",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "aadc6e0",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-imx-command/agent-aadc6e0.jsonl"
+  },
+  {
+    "session_id": "12418a00-5a30-4eaa-b699-af2596ceceaf",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/12418a00-5a30-4eaa-b699-af2596ceceaf.jsonl",
+    "cwd": "/home/greg/iMatrix/mm1_issue",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "ab9e652",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/agent-ab9e652.jsonl"
+  },
+  {
+    "session_id": "12418a00-5a30-4eaa-b699-af2596ceceaf",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/12418a00-5a30-4eaa-b699-af2596ceceaf.jsonl",
+    "cwd": "/home/greg/iMatrix/mm1_issue",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "abf7b62",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/agent-abf7b62.jsonl"
+  },
+  {
+    "session_id": "12418a00-5a30-4eaa-b699-af2596ceceaf",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/12418a00-5a30-4eaa-b699-af2596ceceaf.jsonl",
+    "cwd": "/home/greg/iMatrix/mm1_issue",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a83f387",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/agent-a83f387.jsonl"
+  },
+  {
+    "session_id": "12418a00-5a30-4eaa-b699-af2596ceceaf",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/12418a00-5a30-4eaa-b699-af2596ceceaf.jsonl",
+    "cwd": "/home/greg/iMatrix/mm1_issue",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "aceb990",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/agent-aceb990.jsonl"
+  },
+  {
+    "session_id": "12418a00-5a30-4eaa-b699-af2596ceceaf",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/12418a00-5a30-4eaa-b699-af2596ceceaf.jsonl",
+    "cwd": "/home/greg/iMatrix/mm1_issue",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a660655",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/agent-a660655.jsonl"
+  },
+  {
+    "session_id": "12418a00-5a30-4eaa-b699-af2596ceceaf",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/12418a00-5a30-4eaa-b699-af2596ceceaf.jsonl",
+    "cwd": "/home/greg/iMatrix/mm1_issue",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "af25029",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/agent-af25029.jsonl"
+  },
+  {
+    "session_id": "6824d2dc-7ad1-4794-a439-40aa529e942f",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/6824d2dc-7ad1-4794-a439-40aa529e942f.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a75bfc9",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a75bfc9.jsonl"
+  },
+  {
+    "session_id": "00c8975a-ec2e-4d39-9fbd-a6ab6bbcae7d",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/00c8975a-ec2e-4d39-9fbd-a6ab6bbcae7d.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "ab00d88",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-ab00d88.jsonl"
+  },
+  {
+    "session_id": "00c8975a-ec2e-4d39-9fbd-a6ab6bbcae7d",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/00c8975a-ec2e-4d39-9fbd-a6ab6bbcae7d.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "ab3b982",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-ab3b982.jsonl"
+  },
+  {
+    "session_id": "00c8975a-ec2e-4d39-9fbd-a6ab6bbcae7d",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/00c8975a-ec2e-4d39-9fbd-a6ab6bbcae7d.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "afd36ca",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-afd36ca.jsonl"
+  },
+  {
+    "session_id": "12418a00-5a30-4eaa-b699-af2596ceceaf",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/12418a00-5a30-4eaa-b699-af2596ceceaf.jsonl",
+    "cwd": "/home/greg/iMatrix/mm1_issue",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "add97f3",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/agent-add97f3.jsonl"
+  },
+  {
+    "session_id": "8e272239-f944-440f-a60f-6fb053f17e57",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/8e272239-f944-440f-a60f-6fb053f17e57.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a177cf4",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a177cf4.jsonl"
+  },
+  {
+    "session_id": "8e272239-f944-440f-a60f-6fb053f17e57",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/8e272239-f944-440f-a60f-6fb053f17e57.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a77ed4b",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a77ed4b.jsonl"
+  },
+  {
+    "session_id": "8e272239-f944-440f-a60f-6fb053f17e57",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/8e272239-f944-440f-a60f-6fb053f17e57.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a21fc2b",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a21fc2b.jsonl"
+  }
+]

@@ -1,0 +1,20 @@
+# We are integraging a new OBD2 gateway into the sytem and need to map the supported sensors into the system.
+
+complexity_level: "simple"
+
+prompt_name: "ft2200_sensors"
+date: "2025-12-30"
+branch: "feature/ft2200_sensors"
+
+title: "We are integraging a new OBD2 gateway into the sytem and need to map the supported sensors into the system."
+
+task: |
+  The JSON file: /home/greg/iMatrix/iMatrix_Client/docs/FT220/list_of_sensors_returned.json 
+  contains a list of the sensors supported by the FT2200 gateway.
+  We need to map these sensors to the system.
+  The system is using the iMatrix internal sensor definitions.
+  The iMatrix internal sensor definitions are located in the file: /home/greg/iMatrix/iMatrix_Client/iMatrix/internal_sensors_def.h
+  Review the JSON file along with the internal_sensors_def.h file to determine the mapping of the sensors.
+  Create a document, docs/ft2200_mapping.md that describes the mapping of the sensors to the system. List any issues with data types and units.
+
+Ask any questions you need to before starting the work.

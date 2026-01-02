@@ -1,0 +1,997 @@
+[
+    {
+        "device_id": "016080006010700",
+        "timestamp": "2025-12-31T05:50:42.318Z",
+        "report_type": "vbus",
+        "obd_snapshot": {
+            "engine_rpm": {
+                "value": 1628.5,
+                "type": "float",
+                "unit": "RPM"
+            },
+            "vehicle_speed": {
+                "value": 14,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "time_since_engine_start": {
+                "value": 14,
+                "type": "integer",
+                "unit": "seconds"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            }
+        }
+    },
+    {
+        "device_id": "016080006010700",
+        "timestamp": "2025-12-31T05:50:43.313Z",
+        "report_type": "hf",
+        "event": "start",
+        "obd_snapshot": {
+            "vehicle_speed": {
+                "value": 14,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "fuel_level_input": {
+                "value": 51,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "fuel_rail_pressure": {
+                "value": 1.8,
+                "type": "float",
+                "unit": "kPa"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            }
+        }
+    },
+    {
+        "device_id": "016080006010700",
+        "timestamp": "2025-12-31T05:50:59.252Z",
+        "report_type": "vbus",
+        "obd_snapshot": {
+            "maf_air_flow_rate": {
+                "value": 9.72,
+                "type": "float",
+                "unit": "grams/sec"
+            },
+            "throttle_position": {
+                "value": 20,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "ambient_air_temperature": {
+                "value": 9,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "monitor_status": {
+                "value": 517376,
+                "type": "integer",
+                "unit": "bitmask"
+            },
+            "mil_status": {
+                "value": 0,
+                "type": "integer",
+                "unit": "bool/count"
+            },
+            "engine_coolant_temperature": {
+                "value": 54,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "engine_rpm": {
+                "value": 830,
+                "type": "integer",
+                "unit": "RPM"
+            },
+            "vehicle_speed": {
+                "value": 0,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "time_since_engine_start": {
+                "value": 30,
+                "type": "integer",
+                "unit": "seconds"
+            },
+            "fuel_rail_pressure": {
+                "value": 0.48,
+                "type": "float",
+                "unit": "kPa"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            },
+            "engine_oil_temperature": {
+                "value": 60,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "calculated_engine_load": {
+                "value": 5,
+                "type": "integer",
+                "unit": "percentage"
+            }
+        }
+    },
+    {
+        "device_id": "016080006009199",
+        "timestamp": "2025-12-31T05:50:41.817Z",
+        "report_type": "vbus",
+        "obd_snapshot": {
+            "engine_rpm": {
+                "value": 1527.5,
+                "type": "float",
+                "unit": "RPM"
+            },
+            "vehicle_speed": {
+                "value": 13,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "time_since_engine_start": {
+                "value": 14,
+                "type": "integer",
+                "unit": "seconds"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            }
+        }
+    },
+    {
+        "device_id": "016080006010700",
+        "timestamp": "2025-12-31T05:50:59.313Z",
+        "report_type": "hf",
+        "event": "stop",
+        "obd_snapshot": {
+            "maf_air_flow_rate": {
+                "value": 9.72,
+                "type": "float",
+                "unit": "grams/sec"
+            },
+            "vehicle_speed": {
+                "value": 0,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "fuel_level_input": {
+                "value": 51,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "fuel_rail_pressure": {
+                "value": 0.48,
+                "type": "float",
+                "unit": "kPa"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            }
+        }
+    },
+    {
+        "device_id": "016080006009199",
+        "timestamp": "2025-12-31T05:50:42.812Z",
+        "report_type": "hf",
+        "event": "start",
+        "obd_snapshot": {
+            "vehicle_speed": {
+                "value": 13,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "fuel_level_input": {
+                "value": 51,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "fuel_rail_pressure": {
+                "value": 1.8,
+                "type": "float",
+                "unit": "kPa"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            }
+        }
+    },
+    {
+        "device_id": "016080006009199",
+        "timestamp": "2025-12-31T05:50:48.812Z",
+        "report_type": "hf",
+        "event": "stop",
+        "obd_snapshot": {
+            "maf_air_flow_rate": {
+                "value": 31.88,
+                "type": "float",
+                "unit": "grams/sec"
+            },
+            "fuel_level_input": {
+                "value": 51,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "fuel_rail_pressure": {
+                "value": 0.46,
+                "type": "float",
+                "unit": "kPa"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            }
+        }
+    },
+    {
+        "device_id": "016080006010700",
+        "timestamp": "2025-12-31T05:52:12.816Z",
+        "report_type": "vbus",
+        "obd_snapshot": {
+            "maf_air_flow_rate": {
+                "value": 3.83,
+                "type": "float",
+                "unit": "grams/sec"
+            },
+            "throttle_position": {
+                "value": 14,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "ambient_air_temperature": {
+                "value": 6,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "monitor_status": {
+                "value": 517376,
+                "type": "integer",
+                "unit": "bitmask"
+            },
+            "mil_status": {
+                "value": 0,
+                "type": "integer",
+                "unit": "bool"
+            },
+            "engine_coolant_temperature": {
+                "value": 60,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "engine_rpm": {
+                "value": 665,
+                "type": "integer",
+                "unit": "RPM"
+            },
+            "vehicle_speed": {
+                "value": 0,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "time_since_engine_start": {
+                "value": 104,
+                "type": "integer",
+                "unit": "seconds"
+            },
+            "fuel_rail_pressure": {
+                "value": 0.26,
+                "type": "float",
+                "unit": "kPa"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            },
+            "calculated_engine_load": {
+                "value": 9,
+                "type": "integer",
+                "unit": "percentage"
+            }
+        }
+    },
+    {
+        "device_id": "016080006009199",
+        "timestamp": "2025-12-31T05:51:58.916Z",
+        "report_type": "vbus",
+        "obd_snapshot": {
+            "maf_air_flow_rate": {
+                "value": 3.99,
+                "type": "float",
+                "unit": "grams/sec"
+            },
+            "throttle_position": {
+                "value": 14,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "ambient_air_temperature": {
+                "value": 6,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "monitor_status": {
+                "value": 517376,
+                "type": "integer",
+                "unit": "bitmask"
+            },
+            "mil_status": {
+                "value": 0,
+                "type": "integer",
+                "unit": "bool"
+            },
+            "engine_coolant_temperature": {
+                "value": 60,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "engine_rpm": {
+                "value": 653.5,
+                "type": "float",
+                "unit": "RPM"
+            },
+            "vehicle_speed": {
+                "value": 0,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "time_since_engine_start": {
+                "value": 89,
+                "type": "integer",
+                "unit": "seconds"
+            },
+            "fuel_rail_pressure": {
+                "value": 0.26,
+                "type": "float",
+                "unit": "kPa"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            },
+            "calculated_engine_load": {
+                "value": 9,
+                "type": "integer",
+                "unit": "percentage"
+            }
+        }
+    },
+    {
+        "device_id": "016080006009199",
+        "timestamp": "2025-12-31T05:52:58.954Z",
+        "report_type": "vbus",
+        "obd_snapshot": {
+            "maf_air_flow_rate": {
+                "value": 3.77,
+                "type": "float",
+                "unit": "grams/sec"
+            },
+            "ambient_air_temperature": {
+                "value": 10,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "monitor_status": {
+                "value": 517376,
+                "type": "integer",
+                "unit": "bitmask"
+            },
+            "engine_coolant_temperature": {
+                "value": 61,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "engine_rpm": {
+                "value": 668,
+                "type": "integer",
+                "unit": "RPM"
+            },
+            "vehicle_speed": {
+                "value": 0,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "time_since_engine_start": {
+                "value": 149,
+                "type": "integer",
+                "unit": "seconds"
+            },
+            "fuel_rail_pressure": {
+                "value": 0.24,
+                "type": "float",
+                "unit": "kPa"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            },
+            "engine_oil_temperature": {
+                "value": 63,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "calculated_engine_load": {
+                "value": 8,
+                "type": "integer",
+                "unit": "percentage"
+            }
+        }
+    },
+    {
+        "device_id": "016080006010700",
+        "timestamp": "2025-12-31T05:53:12.077Z",
+        "report_type": "vbus",
+        "obd_snapshot": {
+            "maf_air_flow_rate": {
+                "value": 3.69,
+                "type": "float",
+                "unit": "grams/sec"
+            },
+            "ambient_air_temperature": {
+                "value": 10,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "monitor_status": {
+                "value": 517376,
+                "type": "integer",
+                "unit": "bitmask"
+            },
+            "mil_status": {
+                "value": 0,
+                "type": "integer",
+                "unit": "bool"
+            },
+            "engine_coolant_temperature": {
+                "value": 61,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "engine_rpm": {
+                "value": 669,
+                "type": "integer",
+                "unit": "RPM"
+            },
+            "vehicle_speed": {
+                "value": 0,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "time_since_engine_start": {
+                "value": 163,
+                "type": "integer",
+                "unit": "seconds"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            },
+            "engine_oil_temperature": {
+                "value": 63,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "calculated_engine_load": {
+                "value": 8,
+                "type": "integer",
+                "unit": "percentage"
+            }
+        }
+    },
+    {
+        "device_id": "016080006010700",
+        "timestamp": "2025-12-31T05:53:53.079Z",
+        "report_type": "vbus",
+        "obd_snapshot": {
+            "maf_air_flow_rate": {
+                "value": 4.72,
+                "type": "float",
+                "unit": "grams/sec"
+            },
+            "throttle_position": {
+                "value": 15,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "ambient_air_temperature": {
+                "value": 8,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "monitor_status": {
+                "value": 517376,
+                "type": "integer",
+                "unit": "bitmask"
+            },
+            "mil_status": {
+                "value": 0,
+                "type": "integer",
+                "unit": "bool"
+            },
+            "engine_coolant_temperature": {
+                "value": 63,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "engine_rpm": {
+                "value": 850.5,
+                "type": "float",
+                "unit": "RPM"
+            },
+            "vehicle_speed": {
+                "value": 9,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "time_since_engine_start": {
+                "value": 202,
+                "type": "integer",
+                "unit": "seconds"
+            },
+            "fuel_rail_pressure": {
+                "value": 0.32,
+                "type": "float",
+                "unit": "kPa"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            },
+            "engine_oil_temperature": {
+                "value": 64,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "calculated_engine_load": {
+                "value": 10,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "miles_per_gallon": {
+                "value": 0,
+                "type": "integer",
+                "unit": "MPG"
+            }
+        }
+    },
+    {
+        "device_id": "016080006009199",
+        "timestamp": "2025-12-31T05:53:51.868Z",
+        "report_type": "vbus",
+        "obd_snapshot": {
+            "throttle_position": {
+                "value": 15,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "ambient_air_temperature": {
+                "value": 8,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "monitor_status": {
+                "value": 517376,
+                "type": "integer",
+                "unit": "bitmask"
+            },
+            "mil_status": {
+                "value": 0,
+                "type": "integer",
+                "unit": "bool"
+            },
+            "engine_coolant_temperature": {
+                "value": 63,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "engine_rpm": {
+                "value": 701,
+                "type": "integer",
+                "unit": "RPM"
+            },
+            "vehicle_speed": {
+                "value": 7,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "time_since_engine_start": {
+                "value": 204,
+                "type": "integer",
+                "unit": "seconds"
+            },
+            "fuel_rail_pressure": {
+                "value": 0.32,
+                "type": "float",
+                "unit": "kPa"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            },
+            "engine_oil_temperature": {
+                "value": 64,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "calculated_engine_load": {
+                "value": 10,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "miles_per_gallon": {
+                "value": 0,
+                "type": "integer",
+                "unit": "MPG"
+            }
+        }
+    },
+    {
+        "device_id": "016080006009199",
+        "timestamp": "2025-12-31T05:56:17.684Z",
+        "report_type": "vbus",
+        "obd_snapshot": {
+            "maf_air_flow_rate": {
+                "value": 5.24,
+                "type": "float",
+                "unit": "grams/sec"
+            },
+            "throttle_position": {
+                "value": 15,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "ambient_air_temperature": {
+                "value": 2,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "monitor_status": {
+                "value": 517376,
+                "type": "integer",
+                "unit": "bitmask"
+            },
+            "mil_status": {
+                "value": 0,
+                "type": "integer",
+                "unit": "bool"
+            },
+            "engine_coolant_temperature": {
+                "value": 71,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "vehicle_speed": {
+                "value": 2,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "time_since_engine_start": {
+                "value": 349,
+                "type": "integer",
+                "unit": "seconds"
+            },
+            "fuel_rail_pressure": {
+                "value": 0.3,
+                "type": "float",
+                "unit": "kPa"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            },
+            "engine_oil_temperature": {
+                "value": 73,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "calculated_engine_load": {
+                "value": 10,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "miles_per_gallon": {
+                "value": 0,
+                "type": "integer",
+                "unit": "MPG"
+            }
+        }
+    },
+    {
+        "device_id": "016080006009199",
+        "timestamp": "2025-12-31T05:57:27.332Z",
+        "report_type": "vbus",
+        "obd_snapshot": {
+            "maf_air_flow_rate": {
+                "value": 16.74,
+                "type": "float",
+                "unit": "grams/sec"
+            },
+            "monitor_status": {
+                "value": 517376,
+                "type": "integer",
+                "unit": "bitmask"
+            },
+            "mil_status": {
+                "value": 0,
+                "type": "integer",
+                "unit": "bool"
+            },
+            "engine_rpm": {
+                "value": 1042,
+                "type": "integer",
+                "unit": "RPM"
+            },
+            "vehicle_speed": {
+                "value": 11,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "time_since_engine_start": {
+                "value": 415,
+                "type": "integer",
+                "unit": "seconds"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            },
+            "miles_per_gallon": {
+                "value": 0.01,
+                "type": "float",
+                "unit": "MPG"
+            }
+        }
+    },
+    {
+        "device_id": "016080006010700",
+        "timestamp": "2025-12-31T05:58:21.999Z",
+        "report_type": "vbus",
+        "obd_snapshot": {
+            "maf_air_flow_rate": {
+                "value": 10.16,
+                "type": "float",
+                "unit": "grams/sec"
+            },
+            "monitor_status": {
+                "value": 517376,
+                "type": "integer",
+                "unit": "bitmask"
+            },
+            "mil_status": {
+                "value": 0,
+                "type": "integer",
+                "unit": "bool"
+            },
+            "engine_coolant_temperature": {
+                "value": 77,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "engine_rpm": {
+                "value": 1216.5,
+                "type": "float",
+                "unit": "RPM"
+            },
+            "vehicle_speed": {
+                "value": 48,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "time_since_engine_start": {
+                "value": 474,
+                "type": "integer",
+                "unit": "seconds"
+            },
+            "fuel_level_input": {
+                "value": 49,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "fuel_rail_pressure": {
+                "value": 0.7,
+                "type": "float",
+                "unit": "kPa"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            },
+            "engine_oil_temperature": {
+                "value": 79,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "calculated_engine_load": {
+                "value": 14,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "miles_per_gallon": {
+                "value": 0.01,
+                "type": "float",
+                "unit": "MPG"
+            }
+        }
+    },
+    {
+        "device_id": "016080006009199",
+        "timestamp": "2025-12-31T05:58:26.848Z",
+        "report_type": "vbus",
+        "obd_snapshot": {
+            "maf_air_flow_rate": {
+                "value": 11.24,
+                "type": "float",
+                "unit": "grams/sec"
+            },
+            "throttle_position": {
+                "value": 19,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "monitor_status": {
+                "value": 517376,
+                "type": "integer",
+                "unit": "bitmask"
+            },
+            "mil_status": {
+                "value": 0,
+                "type": "integer",
+                "unit": "bool"
+            },
+            "engine_coolant_temperature": {
+                "value": 77,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "engine_rpm": {
+                "value": 1193.5,
+                "type": "float",
+                "unit": "RPM"
+            },
+            "vehicle_speed": {
+                "value": 47,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "time_since_engine_start": {
+                "value": 479,
+                "type": "integer",
+                "unit": "seconds"
+            },
+            "fuel_level_input": {
+                "value": 49,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "fuel_rail_pressure": {
+                "value": 0.68,
+                "type": "float",
+                "unit": "kPa"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            },
+            "engine_oil_temperature": {
+                "value": 79,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "calculated_engine_load": {
+                "value": 15,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "miles_per_gallon": {
+                "value": 0.01,
+                "type": "float",
+                "unit": "MPG"
+            }
+        }
+    },
+    {
+        "device_id": "016080006010700",
+        "timestamp": "2025-12-31T05:59:22.063Z",
+        "report_type": "vbus",
+        "obd_snapshot": {
+            "maf_air_flow_rate": {
+                "value": 10.19,
+                "type": "float",
+                "unit": "grams/sec"
+            },
+            "throttle_position": {
+                "value": 14,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "monitor_status": {
+                "value": 517376,
+                "type": "integer",
+                "unit": "bitmask"
+            },
+            "mil_status": {
+                "value": 0,
+                "type": "integer",
+                "unit": "bool"
+            },
+            "engine_coolant_temperature": {
+                "value": 80,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "engine_rpm": {
+                "value": 1365.5,
+                "type": "float",
+                "unit": "RPM"
+            },
+            "vehicle_speed": {
+                "value": 41,
+                "type": "integer",
+                "unit": "km/h"
+            },
+            "time_since_engine_start": {
+                "value": 532,
+                "type": "integer",
+                "unit": "seconds"
+            },
+            "fuel_level_input": {
+                "value": 48,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "fuel_rail_pressure": {
+                "value": 0.62,
+                "type": "float",
+                "unit": "kPa"
+            },
+            "odometer_extended": {
+                "value": 1338940,
+                "type": "integer",
+                "unit": "meters/interpreted"
+            },
+            "engine_oil_temperature": {
+                "value": 84,
+                "type": "integer",
+                "unit": "Celsius"
+            },
+            "calculated_engine_load": {
+                "value": 6,
+                "type": "integer",
+                "unit": "percentage"
+            },
+            "miles_per_gallon": {
+                "value": 0.01,
+                "type": "float",
+                "unit": "MPG"
+            }
+        }
+    }
+]

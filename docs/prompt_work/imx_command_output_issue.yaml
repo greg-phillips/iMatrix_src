@@ -1,0 +1,185 @@
+# The main app command imx is generating incorrect output.
+
+complexity_level: "simple"
+
+prompt_name: "imx_command_output_issue"
+date: "2025-12-30"
+branch: "feature/imx_command_output_issue"
+
+title: "The main app command imx is generating incorrect output."
+
+task: |
+  After printing the details for the first control and sensors there is a repeated section
+  Controls Parameters
+  Sensors Parameters
+  Variables Parameters
+  This looks wrong.
+
+  Review the source file: iMatrix/imatrix_upload.c
+
+  Determine why this is happening and fix it.
+  After completion provide a summary of the changes made.
+  Use the /home/greg/iMatrix/iMatrix_Client/docs/testing_fc_1_application.md to test the changes.
+
+background:
+output from the imx command is the following: 
+'''
+imx
+iMatrix Server: coap-dev.imatrixsys.com ->IP: 34.94.71.128, OTA Server: ota-dev.imatrixsys.com ->IP: 34.68.184.222, Manufacturing Bind Server: certification-dev.imatrixsys.com ->IP: 35.226.170.134
+iMatrix DNS Successful: Monitor: BLE Devices - iMatrix state: Checking for pending data, Device Check period: 300 Seconds, Checked @:0, Uploaded @: 103141, No Uploads: 8, CAN Platform active
+Gateway Serial No: 0513973109, Control/Sensor Data. Pending upload - (P):
+Controls Parameters
+No:  0: 0x0000006e (       110): Samples:   0, GPIO Settings                    No Samples stored, Event Driven
+No:  1: 0x00000067 (       103):               Digital Output 1                 Enabled: False, Send iMatrix: False
+No:  2: 0x00000068 (       104):               Digital Output 2                 Enabled: False, Send iMatrix: False
+No:  3: 0x00000069 (       105):               Digital Output 3                 Enabled: False, Send iMatrix: False
+No:  4: 0x0000006a (       106):               Digital Output 4                 Enabled: False, Send iMatrix: False
+No:  5: 0x0000006b (       107):               Digital Output 5                 Enabled: False, Send iMatrix: False
+No:  6: 0x0000006c (       108):               Digital Output 6                 Enabled: False, Send iMatrix: False
+No:  7: 0x0000006d (       109):               Digital Output 7                 Enabled: False, Send iMatrix: False
+Sensors Parameters
+No:  0: 0x00000002 (         2): Samples:  11, Latitude                         Event Driven: @ 1767312278613, 38.901810 @ 1767312293701, 38.901833 @ 1767312308765, 38.901848 @ 1767312323849, 38.901844 @ 1767312338907, 38.901836 
+No:  1: 0x00000003 (         3): Samples:  11, Longitude                        Event Driven: @ 1767312278613, -119.962692 @ 1767312293701, -119.962685 @ 1767312308765, -119.962685 @ 1767312323849, -119.962662 @ 1767312338907, -119.962654 
+No:  2: 0x00000004 (         4): Samples:  11, Altitude                         Event Driven: @ 1767312278613, 1970.300049 @ 1767312293701, 1973.199951 @ 1767312308765, 1975.000000 @ 1767312323849, 1975.500000 @ 1767312338907, 1974.900024 
+No:  3: 0x0000002d (        45): Samples:   3, No Satellites                    27 30 27 
+No:  4: 0x0000002c (        44): Samples:   3, HDOP                             0.78 0.67 0.68 
+No:  5: 0x0000002e (        46): Samples:   3, GPS Signal Quality               1 1 1 
+No:  6: 0x0000001d (        29): Samples:   3, 4G RSSI                          -83 -83 -83 
+No:  7: 0x0000001f (        31): Samples:   0, 4G RSRP                          No Samples stored, Event Driven
+No:  8: 0x00000020 (        32): Samples:   0, 4G RSRQ                          No Samples stored, Event Driven
+No:  9: 0x00000021 (        33): Samples:   0, 4G SINR                          No Samples stored, Event Driven
+No: 10: 0x0000002b (        43): Samples:   2, 4G BER                           99 99 
+No: 11: 0x00000022 (        34): Samples:   0, 4G Carrier                       No Samples stored, Event Driven
+No: 12: 0x00000023 (        35): Samples:   0, 4G Band                          No Samples stored, Event Driven
+No: 13: 0x00000024 (        36): Samples:   0, 4G IMEI                          No Samples stored, Event Driven
+No: 14: 0x00000025 (        37): Samples:   0, 4G SIM State                     No Samples stored, Event Driven
+No: 15: 0x00000026 (        38): Samples:   0, 4G IMSI                          No Samples stored, Event Driven
+No: 16: 0x00000027 (        39): Samples:   0, 4G ICCID                         No Samples stored, Event Driven
+No: 17: 0x00000029 (        41): Samples:   0, Geofence                         No Samples stored, Event Driven
+No: 18: 0x0000002a (        42): Samples:   0, Host                             No Samples stored, Event Driven
+No: 19: 0x0000008e (       142): Samples:  11, Speed                            Event Driven: @ 1767312278613, 0.027266 @ 1767312293701, 0.024693 @ 1767312308765, 0.024693 @ 1767312323849, 0.056589 @ 1767312338907, 0.017491 
+No: 20: 0x00000041 (        65): Samples:   2, Eth0 TX Data Bps                 24204 19412 
+No: 21: 0x00000042 (        66): Samples:   2, Eth0 RX Data Bps                 64429 60106 
+No: 22: 0x00000043 (        67): Samples:   2, Wi-Fi TX Data Bps                48 39 
+No: 23: 0x00000044 (        68): Samples:   2, Wi-Fi RX Data Bps                119 102 
+No: 24: 0x00000045 (        69): Samples:   2, Cellular TX Data Bps             107 28 
+No: 25: 0x00000046 (        70): Samples:   2, Cellular RX Data Bps             72 31 
+No: 26: 0x00000047 (        71): Samples:   2, G Force X                        0.00 0.00 
+No: 27: 0x00000048 (        72): Samples:   2, G Force Y                        0.00 0.00 
+No: 28: 0x00000049 (        73): Samples:   2, G Force Z                        0.00 0.00 
+No: 29: 0x0000004a (        74): Samples:   2, G Force Max                      -0.11 -0.11 
+No: 30: 0x00000060 (        96): Samples:   0, Digital Input 1                  No Samples stored, Event Driven
+No: 31: 0x00000061 (        97): Samples:   0, Digital Input 2                  No Samples stored, Event Driven
+No: 32: 0x00000062 (        98): Samples:   0, Digital Input 3                  No Samples stored, Event Driven
+No: 33: 0x00000063 (        99): Samples:   0, Digital Input 4                  No Samples stored, Event Driven
+No: 34: 0x00000064 (       100): Samples:   0, Digital Input 5                  No Samples stored, Event Driven
+No: 35: 0x00000065 (       101): Samples:   0, Digital Input 6                  No Samples stored, Event Driven
+No: 36: 0x00000066 (       102): Samples:   0, Digital Input 7                  No Samples stored, Event Driven
+No: 37: 0x0000005d (        93): Samples:   0, Ignition Switch                  No Samples stored, Event Driven
+No: 38: 0x00000071 (       113): Samples:   2, Analog Input 1                   0.00 0.00 
+No: 39: 0x00000072 (       114): Samples:   2, Analog Input 2                   0.00 0.00 
+No: 40: 0x0000006f (       111): Samples:   0, Battery Gas Gauge                No Samples stored, Waiting for next sample
+No: 41: 0x00000070 (       112): Samples:   0, Battery Temperature              No Samples stored, Waiting for next sample
+No: 42: 0x00000032 (        50): Samples:   0, Vehicle Stopped                  No Samples stored, Event Driven
+No: 43: 0x00000075 (       117): Samples:   0, Geofence Leave                   No Samples stored, Event Driven
+No: 44: 0x00000076 (       118): Samples:   0, Geofence Enter Buffer            No Samples stored, Event Driven
+No: 45: 0x00000077 (       119): Samples:   0, Geofence Leave Buffer            No Samples stored, Event Driven
+No: 46: 0x0000002b (        43): Samples:   0, No Monitored BLE Devices         No Samples stored, Event Driven
+No: 47: 0x0000002c (        44): Samples:   0, No Active Monitored BLE Devices  No Samples stored, Event Driven
+Variables Parameters
+Controls Parameters
+Sensors Parameters
+Variables Parameters
+Controls Parameters
+Sensors Parameters
+Variables Parameters
+Controls Parameters
+Sensors Parameters
+Variables Parameters
+Controls Parameters
+Sensors Parameters
+Variables Parameters
+Controls Parameters
+Sensors Parameters
+Variables Parameters
+Controls Parameters
+Sensors Parameters
+Variables Parameters
+Controls Parameters
+Sensors Parameters
+Variables Parameters
+Controls Parameters
+Sensors Parameters
+Variables Parameters
+Controls Parameters
+Sensors Parameters
+Variables Parameters
+Controls Parameters
+Sensors Parameters
+Variables Parameters
+Controls Parameters
+Sensors Parameters
+Variables Parameters
+Controls Parameters
+Sensors Parameters
+Variables Parameters
+Controls Parameters
+Sensors Parameters
+Variables Parameters
+Controls Parameters
+Sensors Parameters
+No:  0: 0x00000002 (         2): Samples:  11, Latitude                         Event Driven: @ 1767312278613, 38.901810 @ 1767312293701, 38.901833 @ 1767312308765, 38.901848 @ 1767312323849, 38.901844 @ 1767312338907, 38.901836 
+No:  1: 0x00000003 (         3): Samples:  11, Longitude                        Event Driven: @ 1767312278613, -119.962692 @ 1767312293701, -119.962685 @ 1767312308765, -119.962685 @ 1767312323849, -119.962662 @ 1767312338907, -119.962654 
+No:  2: 0x00000004 (         4): Samples:  11, Altitude                         Event Driven: @ 1767312278613, 1970.300049 @ 1767312293701, 1973.199951 @ 1767312308765, 1975.000000 @ 1767312323849, 1975.500000 @ 1767312338907, 1974.900024 
+No:  3: 0x0000002d (        45): Samples:   3, No Satellites                    27 30 27 
+No:  4: 0x0000002c (        44): Samples:   3, HDOP                             0.78 0.67 0.68 
+No:  5: 0x0000002e (        46): Samples:   3, GPS Signal Quality               1 1 1 
+No:  6: 0x0000001d (        29): Samples:   3, 4G RSSI                          -83 -83 -83 
+No:  7: 0x0000001f (        31): Samples:   0, 4G RSRP                          No Samples stored, Event Driven
+No:  8: 0x00000020 (        32): Samples:   0, 4G RSRQ                          No Samples stored, Event Driven
+No:  9: 0x00000021 (        33): Samples:   0, 4G SINR                          No Samples stored, Event Driven
+No: 10: 0x0000002b (        43): Samples:   2, 4G BER                           99 99 
+No: 11: 0x00000022 (        34): Samples:   0, 4G Carrier                       No Samples stored, Event Driven
+No: 12: 0x00000023 (        35): Samples:   0, 4G Band                          No Samples stored, Event Driven
+No: 13: 0x00000024 (        36): Samples:   0, 4G IMEI                          No Samples stored, Event Driven
+No: 14: 0x00000025 (        37): Samples:   0, 4G SIM State                     No Samples stored, Event Driven
+No: 15: 0x00000026 (        38): Samples:   0, 4G IMSI                          No Samples stored, Event Driven
+No: 16: 0x00000027 (        39): Samples:   0, 4G ICCID                         No Samples stored, Event Driven
+No: 17: 0x00000029 (        41): Samples:   0, Geofence                         No Samples stored, Event Driven
+No: 18: 0x0000002a (        42): Samples:   0, Host                             No Samples stored, Event Driven
+No: 19: 0x0000008e (       142): Samples:  11, Speed                            Event Driven: @ 1767312278613, 0.027266 @ 1767312293701, 0.024693 @ 1767312308765, 0.024693 @ 1767312323849, 0.056589 @ 1767312338907, 0.017491 
+No: 20: 0x00000041 (        65): Samples:   2, Eth0 TX Data Bps                 24204 19412 
+No: 21: 0x00000042 (        66): Samples:   2, Eth0 RX Data Bps                 64429 60106 
+No: 22: 0x00000043 (        67): Samples:   2, Wi-Fi TX Data Bps                48 39 
+No: 23: 0x00000044 (        68): Samples:   2, Wi-Fi RX Data Bps                119 102 
+No: 24: 0x00000045 (        69): Samples:   2, Cellular TX Data Bps             107 28 
+No: 25: 0x00000046 (        70): Samples:   2, Cellular RX Data Bps             72 31 
+No: 26: 0x00000047 (        71): Samples:   3, G Force X                        0.00 0.00 0.00 
+No: 27: 0x00000048 (        72): Samples:   3, G Force Y                        0.00 0.00 0.00 
+No: 28: 0x00000049 (        73): Samples:   2, G Force Z                        0.00 0.00 
+No: 29: 0x0000004a (        74): Samples:   2, G Force Max                      -0.11 -0.11 
+No: 30: 0x00000060 (        96): Samples:   0, Digital Input 1                  No Samples stored, Event Driven
+No: 31: 0x00000061 (        97): Samples:   0, Digital Input 2                  No Samples stored, Event Driven
+No: 32: 0x00000062 (        98): Samples:   0, Digital Input 3                  No Samples stored, Event Driven
+No: 33: 0x00000063 (        99): Samples:   0, Digital Input 4                  No Samples stored, Event Driven
+No: 34: 0x00000064 (       100): Samples:   0, Digital Input 5                  No Samples stored, Event Driven
+No: 35: 0x00000065 (       101): Samples:   0, Digital Input 6                  No Samples stored, Event Driven
+No: 36: 0x00000066 (       102): Samples:   0, Digital Input 7                  No Samples stored, Event Driven
+No: 37: 0x0000005d (        93): Samples:   0, Ignition Switch                  No Samples stored, Event Driven
+No: 38: 0x00000071 (       113): Samples:   2, Analog Input 1                   0.00 0.00 
+No: 39: 0x00000072 (       114): Samples:   2, Analog Input 2                   0.00 0.00 
+No: 40: 0x0000006f (       111): Samples:   0, Battery Gas Gauge                No Samples stored, Waiting for next sample
+No: 41: 0x00000070 (       112): Samples:   0, Battery Temperature              No Samples stored, Waiting for next sample
+No: 42: 0x00000032 (        50): Samples:   0, Vehicle Stopped                  No Samples stored, Event Driven
+No: 43: 0x00000075 (       117): Samples:   0, Geofence Leave                   No Samples stored, Event Driven
+No: 44: 0x00000076 (       118): Samples:   0, Geofence Enter Buffer            No Samples stored, Event Driven
+No: 45: 0x00000077 (       119): Samples:   0, Geofence Leave Buffer            No Samples stored, Event Driven
+No: 46: 0x0000002b (        43): Samples:   0, No Monitored BLE Devices         No Samples stored, Event Driven
+No: 47: 0x0000002c (        44): Samples:   0, No Active Monitored BLE Devices  No Samples stored, Event Driven
+Variables Parameters
+Host Device Aptera Production Intent-1 Serial No: 513973109, Control/Sensor Data. Pending upload - (P):
+CAN Device CAN Controller Serial No: 0, Control/Sensor Data. Pending upload - (P):
+>
+'''
+
+Ask any questions you need to before starting the work.

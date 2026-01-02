@@ -1,0 +1,92 @@
+[
+    {
+        "key": "01",
+        "description": "Monitor status since DTCs cleared",
+        "type": "integer",
+        "unit": "bitmask"
+    },
+    {
+        "key": "04",
+        "description": "Calculated engine load",
+        "type": "integer",
+        "unit": "percentage"
+    },
+    {
+        "key": "05",
+        "description": "Engine coolant temperature",
+        "type": "integer",
+        "unit": "Celsius"
+    },
+    {
+        "key": "0C",
+        "description": "Engine RPM",
+        "type": "float",
+        "unit": "RPM"
+    },
+    {
+        "key": "0D",
+        "description": "Vehicle speed",
+        "type": "integer",
+        "unit": "km/h"
+    },
+    {
+        "key": "10",
+        "description": "MAF air flow rate",
+        "type": "float",
+        "unit": "grams/sec"
+    },
+    {
+        "key": "11",
+        "description": "Throttle position",
+        "type": "integer",
+        "unit": "percentage"
+    },
+    {
+        "key": "1F",
+        "description": "Time since engine start",
+        "type": "integer",
+        "unit": "seconds"
+    },
+    {
+        "key": "2F",
+        "description": "Fuel Level Input",
+        "type": "integer",
+        "unit": "percentage"
+    },
+    {
+        "key": "46",
+        "description": "Ambient air temperature",
+        "type": "integer",
+        "unit": "Celsius"
+    },
+    {
+        "key": "5C",
+        "description": "Engine oil temperature",
+        "type": "integer",
+        "unit": "Celsius"
+    },
+    {
+        "key": "9D",
+        "description": "Fuel Rail Pressure",
+        "type": "float",
+        "unit": "kPa"
+    },
+    {
+        "key": "A6",
+        "description": "Odometer (Extended PID)",
+        "type": "integer",
+        "unit": "meters"
+    },
+    {
+        "key": "MIL",
+        "description": "Malfunction Indicator Lamp Status",
+        "type": "integer",
+        "unit": "bool"
+    },
+    {
+        "key": "MPG",
+        "description": "Miles Per Gallon (Calculated)",
+        "type": "float",
+        "unit": "MPG"
+    }
+]

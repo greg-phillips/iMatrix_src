@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run .claude/hooks/pre_tool_use.py"
+            "command": "sh -c 'cd /home/greg/iMatrix/iMatrix_Client && uv run .claude/hooks/pre_tool_use.py'"
           }
         ]
       }
@@ -17,7 +17,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run .claude/hooks/post_tool_use.py"
+            "command": "sh -c 'cd /home/greg/iMatrix/iMatrix_Client && uv run .claude/hooks/post_tool_use.py'"
           }
         ]
       }
@@ -28,7 +28,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run .claude/hooks/notification.py --notify"
+            "command": "sh -c 'cd /home/greg/iMatrix/iMatrix_Client && uv run .claude/hooks/notification.py --notify'"
           }
         ]
       }
@@ -39,7 +39,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run .claude/hooks/stop.py --chat"
+            "command": "sh -c 'cd /home/greg/iMatrix/iMatrix_Client && uv run .claude/hooks/stop.py --chat'"
           }
         ]
       }
@@ -50,7 +50,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run .claude/hooks/subagent_stop.py --notify"
+            "command": "sh -c 'cd /home/greg/iMatrix/iMatrix_Client && uv run .claude/hooks/subagent_stop.py --notify'"
           }
         ]
       }
@@ -60,7 +60,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run .claude/hooks/user_prompt_submit.py --log-only --store-last-prompt"
+            "command": "sh -c 'cd /home/greg/iMatrix/iMatrix_Client && uv run .claude/hooks/user_prompt_submit.py --log-only --store-last-prompt'"
           }
         ]
       }
@@ -71,7 +71,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run .claude/hooks/pre_compact.py"
+            "command": "sh -c 'cd /home/greg/iMatrix/iMatrix_Client && uv run .claude/hooks/pre_compact.py'"
           }
         ]
       }
@@ -82,7 +82,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run .claude/hooks/session_start.py"
+            "command": "sh -c 'cd /home/greg/iMatrix/iMatrix_Client && uv run .claude/hooks/session_start.py'"
           }
         ]
       }

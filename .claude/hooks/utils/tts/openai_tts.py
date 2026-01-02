@@ -3,14 +3,13 @@
 # requires-python = ">=3.8"
 # dependencies = [
 #     "openai",
-#     "openai[voice_helpers]",
 #     "python-dotenv",
 # ]
 # ///
 """
 OpenAI TTS Script for iMatrix_Client
 
-Uses OpenAI's latest TTS model for high-quality text-to-speech.
+Uses OpenAI's TTS model for high-quality text-to-speech.
 Accepts optional text prompt as command-line argument.
 
 Usage:
@@ -18,19 +17,47 @@ Usage:
     uv run openai_tts.py "Your custom text" # Uses provided text
 
 Features:
-    - OpenAI gpt-4o-mini-tts model (latest)
+    - OpenAI tts-1 model (fast)
     - Nova voice (engaging and warm)
-    - Streaming audio with instructions support
+    - WSL compatible (uses paplay)
 """
 
 import os
 import sys
-import asyncio
+import tempfile
+import subprocess
 from pathlib import Path
 from dotenv import load_dotenv
 
 
-async def main():
+def play_audio_wsl(audio_path):
+    """Play audio using paplay (works in WSL with WSLg)."""
+    wav_path = None
+    try:
+        # Convert MP3 to WAV using sox
+        wav_path = audio_path.replace('.mp3', '.wav')
+        result = subprocess.run(
+            ['sox', audio_path, wav_path],
+            capture_output=True,
+            timeout=10
+        )
+        if result.returncode != 0:
+            return
+
+        # Play WAV with paplay (works with WSLg PulseAudio)
+        subprocess.run(
+            ['paplay', wav_path],
+            capture_output=True,
+            timeout=30
+        )
+    except Exception:
+        pass
+    finally:
+        if wav_path and os.path.exists(wav_path):
+            os.unlink(wav_path)
+
+
+def main():
     """Main entry point for OpenAI TTS."""
     # Load environment variables
     load_dotenv()
@@ -42,11 +69,10 @@ async def main():
         sys.exit(1)
 
     try:
-        from openai import AsyncOpenAI
-        from openai.helpers import LocalAudioPlayer
+        from openai import OpenAI
 
         # Initialize OpenAI client
-        openai = AsyncOpenAI(api_key=api_key)
+        client = OpenAI(api_key=api_key)
 
         # Get text from command line argument or use default
         if len(sys.argv) > 1:
@@ -55,15 +81,23 @@ async def main():
             text = "Today is a wonderful day to build something people love!"
 
         try:
-            # Generate and stream audio using OpenAI TTS
-            async with openai.audio.speech.with_streaming_response.create(
-                model="gpt-4o-mini-tts",
+            # Generate audio using OpenAI TTS
+            response = client.audio.speech.create(
+                model="tts-1",
                 voice="nova",
                 input=text,
-                instructions="Speak in a cheerful, positive yet professional tone.",
                 response_format="mp3",
-            ) as response:
-                await LocalAudioPlayer().play(response)
+            )
+
+            # Save to temp file and play
+            with tempfile.NamedTemporaryFile(suffix='.mp3', delete=False) as f:
+                f.write(response.content)
+                temp_path = f.name
+
+            try:
+                play_audio_wsl(temp_path)
+            finally:
+                os.unlink(temp_path)
 
         except Exception as e:
             print(f"Error generating audio: {e}", file=sys.stderr)
@@ -78,4 +112,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()

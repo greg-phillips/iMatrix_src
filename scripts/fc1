@@ -27,12 +27,17 @@ LOCAL_BINARY="${SCRIPT_DIR}/../Fleet-Connect-1/build/FC-1"
 REMOTE_BINARY="/usr/qk/etc/sv/FC-1/FC-1"
 
 # Expect tools paths
+# Deploy to /usr/qk/etc/sv/FC-1/expect/ which is persistent across reboots
+# (unlike /usr/local which may be volatile on embedded systems)
 EXPECT_PACKAGE="${SCRIPT_DIR}/../external_tools/build/expect-arm.tar.gz"
 EXPECT_CMD_SCRIPT="${SCRIPT_DIR}/fc1_cmd.exp"
-REMOTE_EXPECT_DIR="/usr/local"
+REMOTE_EXPECT_DIR="/usr/qk/etc/sv/FC-1/expect"
 REMOTE_EXPECT_CMD="/tmp/fc1_cmd.exp"
 
-# SSH command with options
+# SSH command with options (using arrays to avoid eval issues with special chars)
+SSH_OPTS=(-p "${TARGET_PORT}" -o StrictHostKeyChecking=no -o ConnectTimeout=10)
+SCP_OPTS=(-P "${TARGET_PORT}" -o StrictHostKeyChecking=no)
+# Legacy string versions for backwards compatibility with existing code
 SSH_CMD="sshpass -p '${TARGET_PASS}' ssh -p ${TARGET_PORT} -o StrictHostKeyChecking=no -o ConnectTimeout=10 ${TARGET_USER}@${TARGET_HOST}"
 SCP_CMD="sshpass -p '${TARGET_PASS}' scp -P ${TARGET_PORT} -o StrictHostKeyChecking=no"
 
@@ -126,9 +131,14 @@ push_binary() {
     run_remote "ls -la ${REMOTE_BINARY}"
 }
 
-# Run command on target
+# Run command on target (uses eval - avoid for commands with special chars)
 run_remote() {
     eval $SSH_CMD "$@"
+}
+
+# Run command on target safely without eval (preserves special characters like ?)
+run_ssh() {
+    sshpass -p "${TARGET_PASS}" ssh "${SSH_OPTS[@]}" "${TARGET_USER}@${TARGET_HOST}" "$@"
 }
 
 # Run service script on target
@@ -147,15 +157,43 @@ deploy_expect() {
         exit 1
     fi
 
-    echo "Deploying expect tools to target..."
+    echo "Deploying expect tools to target (persistent location)..."
+    echo "Package: $EXPECT_PACKAGE"
+    echo "Target: ${REMOTE_EXPECT_DIR}"
 
-    # Copy expect package to target
-    eval $SCP_CMD "$EXPECT_PACKAGE" "${TARGET_USER}@${TARGET_HOST}:/tmp/expect-arm.tar.gz"
+    # Copy expect package to target with verification
+    echo "Copying package to target..."
+    if ! eval $SCP_CMD "$EXPECT_PACKAGE" "${TARGET_USER}@${TARGET_HOST}:/tmp/expect-arm.tar.gz"; then
+        echo "Error: SCP failed to copy expect package"
+        exit 1
+    fi
 
-    # Extract to /usr/local
-    run_remote "mkdir -p ${REMOTE_EXPECT_DIR} && cd ${REMOTE_EXPECT_DIR} && tar xzf /tmp/expect-arm.tar.gz && rm /tmp/expect-arm.tar.gz"
+    # Verify the file arrived
+    if ! run_remote "test -f /tmp/expect-arm.tar.gz"; then
+        echo "Error: Package file not found on target after SCP"
+        exit 1
+    fi
 
-    echo "Expect tools deployed to ${REMOTE_EXPECT_DIR}"
+    # Create directory and extract
+    echo "Extracting to ${REMOTE_EXPECT_DIR}..."
+    run_remote "mkdir -p ${REMOTE_EXPECT_DIR}"
+
+    if ! run_remote "cd ${REMOTE_EXPECT_DIR} && tar xzf /tmp/expect-arm.tar.gz"; then
+        echo "Error: Failed to extract expect package"
+        run_remote "rm -f /tmp/expect-arm.tar.gz"
+        exit 1
+    fi
+
+    # Clean up temp file
+    run_remote "rm -f /tmp/expect-arm.tar.gz"
+
+    # Verify deployment
+    if run_remote "test -x ${REMOTE_EXPECT_DIR}/bin/expect-wrapper"; then
+        echo "Expect tools deployed successfully to ${REMOTE_EXPECT_DIR}"
+    else
+        echo "Error: expect-wrapper not found after deployment"
+        exit 1
+    fi
 }
 
 # Check if expect is installed on target
@@ -189,9 +227,10 @@ run_cli_cmd() {
     run_remote "chmod +x ${REMOTE_EXPECT_CMD}"
 
     # Run the expect script with the command
+    # Quote the command argument for remote shell to prevent glob expansion
     echo "Executing: $cli_cmd"
     echo "---"
-    run_remote "${REMOTE_EXPECT_DIR}/bin/expect-wrapper ${REMOTE_EXPECT_CMD} \"$cli_cmd\""
+    run_ssh "${REMOTE_EXPECT_DIR}/bin/expect-wrapper ${REMOTE_EXPECT_CMD} '${cli_cmd}'"
 }
 
 show_help() {

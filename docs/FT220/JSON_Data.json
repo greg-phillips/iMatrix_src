@@ -1,0 +1,1043 @@
+[
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:50:42.318Z",
+    "report_type": "loc",
+    "details": {
+      "vin": "5UXTS3C5XK0Z02656",
+      "location": { "lat": 38.959747, "lon": -119.940735 },
+      "state": "moving",
+      "ignition": "on",
+      "battery": { "percent": 100, "voltage_mv": 4016, "current_ma": 1, "charging": true },
+      "environment": { "temp_c": 11, "ext_power": true },
+      "diagnostics": { "vbat_mv": 14392, "eng_hours": 5.17, "total_gps_dist": 139911.44 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:50:42.318Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": { "rpm": 1628.5, "speed_kmh": 14, "time_since_start_sec": 14, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:50:43.313Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.959747, "lon": -119.940735 },
+      "obd_snapshot": { "speed_kmh": 14, "fuel_level_pct": 51, "fuel_rail_pressure": 1.8, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:50:41.817Z",
+    "report_type": "loc",
+    "details": {
+      "vin": "5UXTS3C5XK0Z02656",
+      "location": { "lat": 38.959614, "lon": -119.940842 },
+      "state": "moving",
+      "ignition": "on",
+      "battery": { "percent": 100, "voltage_mv": 4017, "current_ma": 0, "charging": true },
+      "diagnostics": { "vbat_mv": 14437, "eng_hours": 8.07, "total_gps_dist": 343318.38 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:50:59.252Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 9.72, "throttle_pct": 20, "ambient_temp_c": 9, "monitor_status": 517376, 
+        "mil_status": 0, "coolant_temp_c": 54, "rpm": 830, "speed_kmh": 0, "time_since_start_sec": 30,
+        "fuel_rail_pressure": 0.48, "odometer_ext": 1338940, "oil_temp_c": 60, "engine_load_pct": 5
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:50:41.817Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": { "rpm": 1527.5, "speed_kmh": 13, "time_since_start_sec": 14, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:50:59.313Z",
+    "report_type": "hf",
+    "event_type": "stop",
+    "details": {
+      "location": { "lat": 38.959747, "lon": -119.940735 },
+      "obd_snapshot": { "maf_flow": 9.72, "speed_kmh": 0, "fuel_level_pct": 51, "fuel_rail_pressure": 0.48, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:50:42.812Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.959614, "lon": -119.940842 },
+      "obd_snapshot": { "speed_kmh": 13, "fuel_level_pct": 51, "fuel_rail_pressure": 1.8, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:51:16.314Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.959747, "lon": -119.940735 },
+      "obd_snapshot": { "maf_flow": 11.8, "speed_kmh": 7, "fuel_level_pct": 51, "fuel_rail_pressure": 0.38, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:50:48.812Z",
+    "report_type": "hf",
+    "event_type": "stop",
+    "details": {
+      "location": { "lat": 38.959614, "lon": -119.940842 },
+      "obd_snapshot": { "maf_flow": 31.88, "fuel_level_pct": 51, "fuel_rail_pressure": 0.46, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:51:36.315Z",
+    "report_type": "hf",
+    "event_type": "stop",
+    "details": {
+      "location": { "lat": 38.959747, "lon": -119.940735 },
+      "obd_snapshot": { "maf_flow": 6.83, "speed_kmh": 0, "fuel_level_pct": 51, "fuel_rail_pressure": 0.36, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:50:51.812Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.959614, "lon": -119.940842 },
+      "obd_snapshot": { "maf_flow": 5.72, "speed_kmh": 23, "fuel_level_pct": 51, "fuel_rail_pressure": 0.46, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:52:12.816Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 3.83, "throttle_pct": 14, "ambient_temp_c": 6, "monitor_status": 517376,
+        "mil_status": 0, "coolant_temp_c": 60, "rpm": 665, "speed_kmh": 0, "time_since_start_sec": 104,
+        "fuel_rail_pressure": 0.26, "odometer_ext": 1338940, "engine_load_pct": 9
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:50:53.812Z",
+    "report_type": "hf",
+    "event_type": "stop",
+    "details": {
+      "location": { "lat": 38.959614, "lon": -119.940842 },
+      "obd_snapshot": { "maf_flow": 5.72, "fuel_level_pct": 51, "fuel_rail_pressure": 0.46, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:50:59.085Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "throttle_pct": 21, "ambient_temp_c": 9, "monitor_status": 517376, "mil_status": 0,
+        "coolant_temp_c": 54, "rpm": 1173.5, "speed_kmh": 0, "fuel_rail_pressure": 0.4,
+        "odometer_ext": 1338940, "oil_temp_c": 60, "engine_load_pct": 6
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:51:16.813Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.959614, "lon": -119.940842 },
+      "obd_snapshot": { "speed_kmh": 7, "fuel_level_pct": 51, "fuel_rail_pressure": 0.38, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:51:19.813Z",
+    "report_type": "hf",
+    "event_type": "stop",
+    "details": {
+      "location": { "lat": 38.959614, "lon": -119.940842 },
+      "obd_snapshot": { "fuel_level_pct": 51, "fuel_rail_pressure": 1.12, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:51:23.813Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.959614, "lon": -119.940842 },
+      "obd_snapshot": { "maf_flow": 5.49, "speed_kmh": 7, "fuel_level_pct": 51, "fuel_rail_pressure": 1.12, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:51:26.813Z",
+    "report_type": "hf",
+    "event_type": "stop",
+    "details": {
+      "location": { "lat": 38.959614, "lon": -119.940842 },
+      "obd_snapshot": { "maf_flow": 12.38, "fuel_level_pct": 51, "fuel_rail_pressure": 0.4, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:51:27.813Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.959614, "lon": -119.940842 },
+      "obd_snapshot": { "maf_flow": 12.38, "speed_kmh": 9, "fuel_level_pct": 51, "fuel_rail_pressure": 0.9, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:51:35.813Z",
+    "report_type": "hf",
+    "event_type": "stop",
+    "details": {
+      "location": { "lat": 38.959614, "lon": -119.940842 },
+      "obd_snapshot": { "maf_flow": 6.8, "speed_kmh": 0, "fuel_level_pct": 51, "fuel_rail_pressure": 0.42, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:51:58.916Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 3.99, "throttle_pct": 14, "ambient_temp_c": 6, "monitor_status": 517376,
+        "mil_status": 0, "coolant_temp_c": 60, "rpm": 653.5, "speed_kmh": 0, "time_since_start_sec": 89,
+        "fuel_rail_pressure": 0.26, "odometer_ext": 1338940, "engine_load_pct": 9
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:52:58.954Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 3.77, "ambient_temp_c": 10, "monitor_status": 517376, "mil_status": 0,
+        "coolant_temp_c": 61, "rpm": 668, "speed_kmh": 0, "time_since_start_sec": 149,
+        "fuel_rail_pressure": 0.24, "odometer_ext": 1338940, "oil_temp_c": 63, "engine_load_pct": 8
+      }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:53:12.077Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 3.69, "ambient_temp_c": 10, "monitor_status": 517376, "mil_status": 0,
+        "coolant_temp_c": 61, "rpm": 669, "speed_kmh": 0, "time_since_start_sec": 163,
+        "odometer_ext": 1338940, "oil_temp_c": 63, "engine_load_pct": 8
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:53:30.249Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 4.74, "monitor_status": 517376, "mil_status": 0, "rpm": 663, "speed_kmh": 1,
+        "time_since_start_sec": 181, "fuel_rail_pressure": 0.34, "odometer_ext": 1338940, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:53:30.833Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.959763, "lon": -119.940674 },
+      "obd_snapshot": { "maf_flow": 4.74, "speed_kmh": 1, "fuel_level_pct": 51, "fuel_rail_pressure": 0.34, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:53:32.034Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 4.77, "monitor_status": 517376, "mil_status": 0, "rpm": 656.5, "speed_kmh": 3,
+        "time_since_start_sec": 183, "fuel_rail_pressure": 0.34, "odometer_ext": 1338940, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:53:32.317Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.959755, "lon": -119.940788 },
+      "obd_snapshot": { "maf_flow": 4.77, "speed_kmh": 3, "fuel_level_pct": 51, "fuel_rail_pressure": 0.34, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:53:53.079Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 4.72, "throttle_pct": 15, "ambient_temp_c": 8, "monitor_status": 517376,
+        "mil_status": 0, "coolant_temp_c": 63, "rpm": 850.5, "speed_kmh": 9, "time_since_start_sec": 202,
+        "fuel_rail_pressure": 0.32, "odometer_ext": 1338940, "oil_temp_c": 64, "engine_load_pct": 10, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:53:51.868Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "throttle_pct": 15, "ambient_temp_c": 8, "monitor_status": 517376, "mil_status": 0,
+        "coolant_temp_c": 63, "rpm": 701, "speed_kmh": 7, "time_since_start_sec": 204,
+        "fuel_rail_pressure": 0.32, "odometer_ext": 1338940, "oil_temp_c": 64, "engine_load_pct": 10, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:54:00.833Z",
+    "report_type": "hf",
+    "event_type": "stop",
+    "details": {
+      "location": { "lat": 38.959763, "lon": -119.940674 },
+      "obd_snapshot": { "maf_flow": 5.3, "speed_kmh": 0, "fuel_level_pct": 51, "fuel_rail_pressure": 0.36, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:54:02.901Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 5.33, "monitor_status": 517376, "mil_status": 0, "rpm": 681, "speed_kmh": 2,
+        "time_since_start_sec": 214, "fuel_rail_pressure": 0.36, "odometer_ext": 1338940, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:54:03.833Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.959763, "lon": -119.940674 },
+      "obd_snapshot": { "maf_flow": 5.33, "speed_kmh": 2, "fuel_level_pct": 51, "fuel_rail_pressure": 0.34, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:54:01.318Z",
+    "report_type": "hf",
+    "event_type": "stop",
+    "details": {
+      "location": { "lat": 38.959755, "lon": -119.940788 },
+      "obd_snapshot": { "maf_flow": 5.41, "speed_kmh": 0, "fuel_level_pct": 51, "fuel_rail_pressure": 0.36, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:54:02.911Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 5.16, "monitor_status": 517376, "mil_status": 0, "rpm": 681, "speed_kmh": 2,
+        "time_since_start_sec": 214, "fuel_rail_pressure": 0.36, "odometer_ext": 1338940, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:54:03.318Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.959755, "lon": -119.940788 },
+      "obd_snapshot": { "maf_flow": 5.16, "speed_kmh": 2, "fuel_level_pct": 51, "fuel_rail_pressure": 0.36, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:54:05.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.960297, "lon": -119.941444 },
+      "spd_raw": 119.3,
+      "obd_snapshot": { "maf_flow": 4.88, "speed_kmh": 4, "fuel_level_pct": 51, "fuel_rail_pressure": 0.32, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:54:06.318Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.960209, "lon": -119.94175 },
+      "spd_raw": 127.7,
+      "obd_snapshot": { "maf_flow": 4.8, "speed_kmh": 5, "fuel_level_pct": 51, "fuel_rail_pressure": 0.32, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:54:14.319Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.960239, "lon": -119.94175 },
+      "obd_snapshot": { "maf_flow": 8.97, "speed_kmh": 6, "fuel_level_pct": 51, "fuel_rail_pressure": 0.3, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:54:16.320Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.960228, "lon": -119.941734 },
+      "spd_raw": 202.7,
+      "obd_snapshot": { "maf_flow": 18.33, "speed_kmh": 6, "fuel_level_pct": 51, "fuel_rail_pressure": 0.74, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:54:13.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.960323, "lon": -119.941429 },
+      "obd_snapshot": { "maf_flow": 4.61, "speed_kmh": 4, "fuel_level_pct": 51, "fuel_rail_pressure": 0.34, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:54:15.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.960316, "lon": -119.941452 },
+      "spd_raw": 173.1,
+      "obd_snapshot": { "maf_flow": 16.08, "speed_kmh": 10, "fuel_level_pct": 51, "fuel_rail_pressure": 0.34, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:54:17.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.960316, "lon": -119.941505 },
+      "spd_raw": 311.5,
+      "obd_snapshot": { "maf_flow": 20.66, "speed_kmh": 16, "fuel_level_pct": 51, "fuel_rail_pressure": 1.54, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:54:18.322Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.960197, "lon": -119.941772 },
+      "spd_raw": 308.9,
+      "obd_snapshot": { "maf_flow": 28.27, "speed_kmh": 13, "fuel_level_pct": 51, "fuel_rail_pressure": 1.28, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:54:19.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.960266, "lon": -119.941566 },
+      "spd_raw": 494.2,
+      "obd_snapshot": { "maf_flow": 20.05, "speed_kmh": 21, "fuel_level_pct": 51, "fuel_rail_pressure": 1.54, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:54:20.323Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.960148, "lon": -119.941826 },
+      "spd_raw": 545.8,
+      "obd_snapshot": { "maf_flow": 28.27, "speed_kmh": 20, "fuel_level_pct": 51, "fuel_rail_pressure": 1.42, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:54:22.325Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.960072, "lon": -119.941849 },
+      "spd_raw": 631.7,
+      "obd_snapshot": { "maf_flow": 18.74, "speed_kmh": 24, "fuel_level_pct": 51, "fuel_rail_pressure": 1.32, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:54:21.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.96019, "lon": -119.941643 },
+      "spd_raw": 623.7,
+      "obd_snapshot": { "maf_flow": 19.63, "speed_kmh": 24, "fuel_level_pct": 51, "fuel_rail_pressure": 1.32, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:54:36.327Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.959442, "lon": -119.942123 },
+      "spd_raw": 280,
+      "obd_snapshot": { "maf_flow": 3.72, "speed_kmh": 11, "fuel_level_pct": 51, "fuel_rail_pressure": 0.26, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:54:42.329Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.959328, "lon": -119.942162 },
+      "spd_raw": 144.8,
+      "obd_snapshot": { "maf_flow": 4.66, "speed_kmh": 5, "fuel_level_pct": 51, "fuel_rail_pressure": 0.32, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:54:45.658Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 5.24, "monitor_status": 517376, "mil_status": 0, "rpm": 674.5, "speed_kmh": 0,
+        "time_since_start_sec": 256, "odometer_ext": 1338940, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:54:45.036Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 5.16, "monitor_status": 517376, "mil_status": 0, "rpm": 692.5, "speed_kmh": 0,
+        "time_since_start_sec": 253, "fuel_rail_pressure": 0.32, "odometer_ext": 1338940, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:54:54.363Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 4.91, "throttle_pct": 16, "ambient_temp_c": 4, "monitor_status": 517376,
+        "mil_status": 0, "coolant_temp_c": 66, "rpm": 676.5, "speed_kmh": 2, "time_since_start_sec": 263,
+        "fuel_rail_pressure": 0.34, "odometer_ext": 1338940, "oil_temp_c": 69, "engine_load_pct": 20, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:54:55.828Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 4.8, "throttle_pct": 24, "ambient_temp_c": 4, "monitor_status": 517376,
+        "mil_status": 0, "coolant_temp_c": 66, "rpm": 675, "speed_kmh": 9, "time_since_start_sec": 264,
+        "fuel_rail_pressure": 0.32, "odometer_ext": 1338940, "oil_temp_c": 69, "engine_load_pct": 17, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:54:54.834Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.959324, "lon": -119.942093 },
+      "obd_snapshot": { "maf_flow": 4.91, "speed_kmh": 2, "fuel_level_pct": 51, "fuel_rail_pressure": 0.34, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:54:56.333Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.959301, "lon": -119.942146 },
+      "spd_raw": 209.3,
+      "obd_snapshot": { "maf_flow": 4.8, "speed_kmh": 9, "fuel_level_pct": 51, "fuel_rail_pressure": 0.32, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:55:35.106Z",
+    "report_type": "orient_chg",
+    "details": {
+      "location": { "lat": 38.955875, "lon": -119.944374 },
+      "spd": 952.5,
+      "bear": 208.281,
+      "alt": 1914.05,
+      "sats": 16,
+      "theta": 346.67
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:55:45.628Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 5.49, "monitor_status": 517376, "mil_status": 0, "rpm": 673, "speed_kmh": 0,
+        "time_since_start_sec": 316, "fuel_rail_pressure": 0.36, "odometer_ext": 1338940, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:55:46.333Z",
+    "report_type": "hf",
+    "event_type": "stop",
+    "details": {
+      "location": { "lat": 38.955578, "lon": -119.94458 },
+      "obd_snapshot": { "maf_flow": 5.49, "speed_kmh": 0, "fuel_level_pct": 51, "fuel_rail_pressure": 0.36, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:55:44.233Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 5.55, "monitor_status": 517376, "mil_status": 0, "rpm": 660, "speed_kmh": 0,
+        "time_since_start_sec": 315, "odometer_ext": 1338940, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:55:44.833Z",
+    "report_type": "hf",
+    "event_type": "stop",
+    "details": {
+      "location": { "lat": 38.955585, "lon": -119.94458 },
+      "obd_snapshot": { "maf_flow": 5.55, "speed_kmh": 0, "fuel_level_pct": 51, "fuel_rail_pressure": 0.36, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:56:17.684Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 5.24, "throttle_pct": 15, "ambient_temp_c": 2, "monitor_status": 517376,
+        "mil_status": 0, "coolant_temp_c": 71, "speed_kmh": 2, "time_since_start_sec": 349,
+        "fuel_rail_pressure": 0.3, "odometer_ext": 1338940, "oil_temp_c": 73, "engine_load_pct": 10, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:56:17.833Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.955589, "lon": -119.94458 },
+      "obd_snapshot": { "maf_flow": 5.24, "speed_kmh": 2, "fuel_level_pct": 51, "fuel_rail_pressure": 0.3, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:56:33.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.954666, "lon": -119.945343 },
+      "spd_raw": 1235.6,
+      "obd_snapshot": { "maf_flow": 8.11, "speed_kmh": 44, "fuel_level_pct": 49, "fuel_rail_pressure": 0.56, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:56:37.333Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.954311, "lon": -119.945663 },
+      "spd_raw": 1255.1,
+      "obd_snapshot": { "maf_flow": 16.61, "speed_kmh": 45, "fuel_level_pct": 51, "fuel_rail_pressure": 0.62, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:56:41.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.953987, "lon": -119.946091 },
+      "spd_raw": 1198.3,
+      "obd_snapshot": { "maf_flow": 3.8, "speed_kmh": 42, "fuel_level_pct": 49, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:56:43.333Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.953865, "lon": -119.946281 },
+      "spd_raw": 1126.9,
+      "obd_snapshot": { "maf_flow": 8.8, "fuel_level_pct": 51, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:56:52.833Z",
+    "report_type": "hf",
+    "event_type": "stop",
+    "details": {
+      "location": { "lat": 38.953537, "lon": -119.946701 },
+      "obd_snapshot": { "maf_flow": 4.3, "fuel_level_pct": 49, "fuel_rail_pressure": 0.32, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:56:53.833Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.953529, "lon": -119.946716 },
+      "spd_raw": 124.2,
+      "obd_snapshot": { "maf_flow": 4.3, "speed_kmh": 5, "fuel_level_pct": 49, "fuel_rail_pressure": 0.32, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:56:55.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.953503, "lon": -119.946739 },
+      "spd_raw": 204.9,
+      "obd_snapshot": { "maf_flow": 4.3, "speed_kmh": 5, "fuel_level_pct": 49, "fuel_rail_pressure": 0.54, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:56:57.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.953461, "lon": -119.946739 },
+      "spd_raw": 310.3,
+      "obd_snapshot": { "maf_flow": 5.97, "speed_kmh": 12, "fuel_level_pct": 49, "fuel_rail_pressure": 0.54, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:56:59.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.953423, "lon": -119.946716 },
+      "spd_raw": 182.6,
+      "obd_snapshot": { "maf_flow": 5.97, "speed_kmh": 7, "fuel_level_pct": 49, "fuel_rail_pressure": 0.34, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:56:57.333Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.953484, "lon": -119.946739 },
+      "spd_raw": 277.3,
+      "obd_snapshot": { "maf_flow": 8.86, "speed_kmh": 11, "fuel_level_pct": 51, "fuel_rail_pressure": 0.58, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:56:59.333Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.953449, "lon": -119.946716 },
+      "spd_raw": 179.3,
+      "obd_snapshot": { "maf_flow": 3.44, "speed_kmh": 9, "fuel_level_pct": 51, "fuel_rail_pressure": 0.58, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:57:01.333Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.953426, "lon": -119.946678 },
+      "spd_raw": 211.9,
+      "obd_snapshot": { "maf_flow": 3.44, "speed_kmh": 6, "fuel_level_pct": 51, "fuel_rail_pressure": 0.6, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:57:01.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.9534, "lon": -119.946678 },
+      "spd_raw": 217.4,
+      "obd_snapshot": { "maf_flow": 3.99, "fuel_level_pct": 49, "fuel_rail_pressure": 0.34, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:57:16.886Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 4.94, "throttle_pct": 14, "ambient_temp_c": 0, "monitor_status": 517376,
+        "mil_status": 0, "coolant_temp_c": 73, "rpm": 671, "speed_kmh": 1, "time_since_start_sec": 408,
+        "fuel_level_pct": 49, "fuel_rail_pressure": 0.32, "odometer_ext": 1338940, "oil_temp_c": 76,
+        "engine_load_pct": 6, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:57:17.197Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "monitor_status": 517376, "mil_status": 0, "speed_kmh": 0, "odometer_ext": 1338940, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:57:17.833Z",
+    "report_type": "hf",
+    "event_type": "stop",
+    "details": {
+      "location": { "lat": 38.953243, "lon": -119.946472 },
+      "obd_snapshot": { "maf_flow": 4.94, "speed_kmh": 0, "fuel_level_pct": 49, "fuel_rail_pressure": 0.32, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:57:16.030Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 4.94, "throttle_pct": 17, "ambient_temp_c": 0, "monitor_status": 517376,
+        "mil_status": 0, "coolant_temp_c": 73, "rpm": 673.5, "speed_kmh": 0, "time_since_start_sec": 406,
+        "odometer_ext": 1338940, "oil_temp_c": 76, "engine_load_pct": 16, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:57:16.333Z",
+    "report_type": "hf",
+    "event_type": "stop",
+    "details": {
+      "location": { "lat": 38.953285, "lon": -119.946487 },
+      "obd_snapshot": { "maf_flow": 4.94, "speed_kmh": 0, "fuel_level_pct": 51, "fuel_rail_pressure": 0.3, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:57:22.966Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 8.38, "monitor_status": 517376, "mil_status": 0, "rpm": 669, "speed_kmh": 2,
+        "time_since_start_sec": 413, "fuel_rail_pressure": 0.32, "odometer_ext": 1338940, "mpg": 0
+      }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:57:23.333Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.953278, "lon": -119.946472 },
+      "obd_snapshot": { "maf_flow": 8.38, "speed_kmh": 2, "fuel_level_pct": 51, "fuel_rail_pressure": 0.32, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:57:26.833Z",
+    "report_type": "hf",
+    "event_type": "start",
+    "details": {
+      "location": { "lat": 38.953243, "lon": -119.946472 },
+      "obd_snapshot": { "maf_flow": 16.74, "speed_kmh": 5, "fuel_level_pct": 49, "fuel_rail_pressure": 0.32, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:57:27.332Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 16.74, "monitor_status": 517376, "mil_status": 0, "rpm": 1042, "speed_kmh": 11,
+        "time_since_start_sec": 415, "odometer_ext": 1338940, "mpg": 0.01
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:57:29.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.947483, "lon": -119.949097 },
+      "spd_raw": 1320.3,
+      "obd_snapshot": { "maf_flow": 10.3, "speed_kmh": 47, "fuel_level_pct": 49, "fuel_rail_pressure": 0.7, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:57:31.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.9534, "lon": -119.946678 },
+      "spd_raw": 217.4,
+      "obd_snapshot": { "maf_flow": 3.99, "speed_kmh": 49, "fuel_level_pct": 49, "fuel_rail_pressure": 0.34, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:57:33.333Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.953152, "lon": -119.946487 },
+      "spd_raw": 579.9,
+      "obd_snapshot": { "maf_flow": 27.69, "speed_kmh": 17, "fuel_level_pct": 49, "fuel_rail_pressure": 2.18, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:57:55.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.951263, "lon": -119.947601 },
+      "spd_raw": 1127.8,
+      "obd_snapshot": { "maf_flow": 13.02, "speed_kmh": 40, "fuel_level_pct": 49, "fuel_rail_pressure": 0.88, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:57:57.333Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.951103, "lon": -119.947662 },
+      "spd_raw": 1155.7,
+      "obd_snapshot": { "maf_flow": 13.49, "speed_kmh": 41, "fuel_level_pct": 49, "fuel_rail_pressure": 0.94, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:58:21.999Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 10.16, "monitor_status": 517376, "mil_status": 0, "coolant_temp_c": 77,
+        "rpm": 1216.5, "speed_kmh": 48, "time_since_start_sec": 474, "fuel_level_pct": 49,
+        "fuel_rail_pressure": 0.7, "odometer_ext": 1338940, "oil_temp_c": 79, "engine_load_pct": 14, "mpg": 0.01
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:58:26.848Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 11.24, "throttle_pct": 19, "monitor_status": 517376, "mil_status": 0,
+        "coolant_temp_c": 77, "rpm": 1193.5, "speed_kmh": 47, "time_since_start_sec": 479,
+        "fuel_level_pct": 49, "fuel_rail_pressure": 0.68, "odometer_ext": 1338940, "oil_temp_c": 79,
+        "engine_load_pct": 15, "mpg": 0.01
+      }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:58:27.335Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.947788, "lon": -119.948914 },
+      "spd_raw": 1305,
+      "obd_snapshot": { "maf_flow": 10.83, "speed_kmh": 47, "fuel_level_pct": 49, "fuel_rail_pressure": 0.72, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:58:29.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.947483, "lon": -119.949097 },
+      "spd_raw": 1320.3,
+      "obd_snapshot": { "maf_flow": 10.3, "speed_kmh": 47, "fuel_level_pct": 49, "fuel_rail_pressure": 0.7, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:58:37.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.946598, "lon": -119.949585 },
+      "spd_raw": 1393.3,
+      "obd_snapshot": { "maf_flow": 14.33, "speed_kmh": 50, "fuel_level_pct": 49, "fuel_rail_pressure": 1.46, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:58:37.335Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.946682, "lon": -119.949547 },
+      "spd_raw": 1367.9,
+      "obd_snapshot": { "maf_flow": 20.22, "speed_kmh": 49, "fuel_level_pct": 49, "fuel_rail_pressure": 1.28, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:59:22.063Z",
+    "report_type": "vbus",
+    "obd_data": {
+      "mode_01_current": {
+        "maf_flow": 10.19, "throttle_pct": 14, "monitor_status": 517376, "mil_status": 0,
+        "coolant_temp_c": 80, "rpm": 1365.5, "speed_kmh": 41, "time_since_start_sec": 532,
+        "fuel_level_pct": 48, "fuel_rail_pressure": 0.62, "odometer_ext": 1338940, "oil_temp_c": 84,
+        "engine_load_pct": 6, "mpg": 0.01
+      }
+    }
+  },
+  {
+    "device_id": "016080006009199",
+    "timestamp": "2025-12-31T05:59:15.833Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.94268, "lon": -119.951256 },
+      "spd_raw": 1134.4,
+      "obd_snapshot": { "maf_flow": 9.55, "speed_kmh": 40, "fuel_level_pct": 48, "fuel_rail_pressure": 0.6, "odometer_ext": 1338940 }
+    }
+  },
+  {
+    "device_id": "016080006010700",
+    "timestamp": "2025-12-31T05:59:47.335Z",
+    "report_type": "hf",
+    "details": {
+      "location": { "lat": 38.939285, "lon": -119.953178 },
+      "spd_raw": 1643,
+      "obd_snapshot": { "maf_flow": 10.94, "speed_kmh": 60, "fuel_level_pct": 48, "fuel_rail_pressure": 0.76, "odometer_ext": 1338940 }
+    }
+  }
+]

@@ -1,0 +1,38 @@
+# The memory manager is not spooling to disk when 80% level is reached
+complexity_level: "simple"
+
+prompt_name: "memory_manger_issue_1"
+date: "2025-12-30"
+branch: "feature/memory_manger_issue_1"
+
+title: "The memory manager is not spooling to disk when 80% level is reached."
+
+task: |
+  Determine why the memory manager is not spooling data to disk when 80% threshold is reached
+  Read /home/greg/iMatrix/iMatrix_Client/docs/memory_manager_technical_reference.md
+  Read using a sub agent is small sections this vey long log file: logs/mm1.log
+  Determine why this is happening and fix it.
+  After completion provide a summary of the changes made.
+  Use the /home/greg/iMatrix/iMatrix_Client/docs/testing_fc_1_application.md to test the changes.
+
+  Note the output from the ms command:
+  '''
+  
+>ms
+Memory: 1945/2048 sectors (95.0%), Free: 103, Efficiency: 75%
+Summary:
+  Total active sensors: 1120
+  Total sectors used: 600
+  Total pending: 317
+  Total records: 3356
+>ms disk
+
+=== Disk Storage Statistics (MM2) ===
+Disk Spooling:
+  Status: Automatic (managed by MM2)
+  Storage path: /tmp/mm2_spool/
+
+Note: MM2 handles disk spooling automatically
+      when memory pressure is detected.
+'''
+Ask any questions you need to before starting the work.

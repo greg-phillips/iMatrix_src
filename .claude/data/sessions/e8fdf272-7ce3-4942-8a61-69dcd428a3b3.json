@@ -1,0 +1,7 @@
+{
+  "session_id": "e8fdf272-7ce3-4942-8a61-69dcd428a3b3",
+  "prompts": [
+    "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/imx_command_output_issue.yaml",
+    "continue"
+  ]
+}
