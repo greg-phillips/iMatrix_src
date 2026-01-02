@@ -318,5 +318,13 @@
     "permission_mode": "bypassPermissions",
     "hook_event_name": "UserPromptSubmit",
     "prompt": "a printf will be output to the console not the log file. you must use imx_cli_log_printf to log to the log file"
+  },
+  {
+    "session_id": "12418a00-5a30-4eaa-b699-af2596ceceaf",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/12418a00-5a30-4eaa-b699-af2596ceceaf.jsonl",
+    "cwd": "/home/greg/iMatrix/mm1_issue",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "update script"
   }
 ]

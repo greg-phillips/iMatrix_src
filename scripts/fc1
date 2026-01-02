@@ -24,7 +24,7 @@ LOCAL_SCRIPT="${SCRIPT_DIR}/fc1_service.sh"
 
 # Binary paths
 LOCAL_BINARY="${SCRIPT_DIR}/../Fleet-Connect-1/build/FC-1"
-REMOTE_BINARY="/usr/qk/etc/sv/FC-1/FC-1"
+REMOTE_BINARY="/usr/qk/bin/FC-1"
 
 # Expect tools paths
 # Deploy to /usr/qk/etc/sv/FC-1/expect/ which is persistent across reboots
