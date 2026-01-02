@@ -378,5 +378,85 @@
     "stop_hook_active": false,
     "agent_id": "ad6f661",
     "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/agent-ad6f661.jsonl"
+  },
+  {
+    "session_id": "12418a00-5a30-4eaa-b699-af2596ceceaf",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/12418a00-5a30-4eaa-b699-af2596ceceaf.jsonl",
+    "cwd": "/home/greg/iMatrix/mm1_issue",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "acaacd6",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/agent-acaacd6.jsonl"
+  },
+  {
+    "session_id": "12418a00-5a30-4eaa-b699-af2596ceceaf",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/12418a00-5a30-4eaa-b699-af2596ceceaf.jsonl",
+    "cwd": "/home/greg/iMatrix/mm1_issue",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a8ffb1b",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/agent-a8ffb1b.jsonl"
+  },
+  {
+    "session_id": "8e272239-f944-440f-a60f-6fb053f17e57",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/8e272239-f944-440f-a60f-6fb053f17e57.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a2335e4",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a2335e4.jsonl"
+  },
+  {
+    "session_id": "12418a00-5a30-4eaa-b699-af2596ceceaf",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/12418a00-5a30-4eaa-b699-af2596ceceaf.jsonl",
+    "cwd": "/home/greg/iMatrix/mm1_issue",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a9ae832",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/agent-a9ae832.jsonl"
+  },
+  {
+    "session_id": "e8376004-f703-4736-9e7b-edee925de6e8",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/e8376004-f703-4736-9e7b-edee925de6e8.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "ac5126b",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-ac5126b.jsonl"
+  },
+  {
+    "session_id": "e8376004-f703-4736-9e7b-edee925de6e8",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/e8376004-f703-4736-9e7b-edee925de6e8.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a349fe9",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a349fe9.jsonl"
+  },
+  {
+    "session_id": "e77efb82-feea-4932-85e2-b47375419dfb",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/e77efb82-feea-4932-85e2-b47375419dfb.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a5a8692",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a5a8692.jsonl"
+  },
+  {
+    "session_id": "e77efb82-feea-4932-85e2-b47375419dfb",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/e77efb82-feea-4932-85e2-b47375419dfb.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a721784",
+    "agent_transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/agent-a721784.jsonl"
   }
 ]

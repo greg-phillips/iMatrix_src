@@ -78,9 +78,11 @@ Deploy expect tools to `/usr/qk/etc/sv/FC-1/expect/` which is:
 
 Verified working commands:
 ```bash
-scripts/fc1 cmd "?"    # Shows full CLI help
-scripts/fc1 cmd "v"    # Shows version info
-scripts/fc1 cmd "ms"   # Memory statistics
+scripts/fc1 cmd "?"         # Shows full CLI help
+scripts/fc1 cmd "v"         # Shows version info
+scripts/fc1 cmd "ms"        # Memory statistics
+scripts/fc1 cmd "debug ?"   # Debug flags with special char
+scripts/fc1 cmd "cell status"  # Cellular status
 ```
 
 ### Deployment Location
@@ -94,9 +96,41 @@ scripts/fc1 cmd "ms"   # Memory statistics
 
 ---
 
+## Related Fix: Special Character Handling (2026-01-02)
+
+During testing, an additional issue was discovered where special characters like `?` were being lost during command execution.
+
+### Problem
+
+Commands containing `?` were interpreted as shell glob patterns:
+```bash
+scripts/fc1 cmd "debug ?"   # Only sent "debug", lost the "?"
+```
+
+### Root Cause
+
+The `eval` command used for SSH execution was causing shell glob expansion of `?`.
+
+### Solution
+
+1. Added `run_ssh()` function using bash arrays instead of `eval`
+2. Properly quoted the command with single quotes in the SSH call:
+   ```bash
+   run_ssh "${REMOTE_EXPECT_DIR}/bin/expect-wrapper ${REMOTE_EXPECT_CMD} '${cli_cmd}'"
+   ```
+
+### Files Modified
+
+| File | Changes |
+|------|---------|
+| `scripts/fc1` | Added `SSH_OPTS` array, `run_ssh()` function, fixed command quoting |
+
+---
+
 ## Approval Checklist
 
 - [x] Approach documented
 - [x] Implementation complete
 - [x] Testing on hardware verified
+- [x] Special character handling verified
 

@@ -1,8 +1,8 @@
 # Testing the FC-1 Application on QConnect Gateway
 
-**Document Version**: 1.4
+**Document Version**: 1.5
 **Date**: 2025-12-30
-**Last Updated**: 2025-12-31
+**Last Updated**: 2026-01-02
 **Author**: Development Team
 
 ## Overview
@@ -65,7 +65,18 @@ cd /home/greg/iMatrix/iMatrix_Client/scripts
 # Deploy new FC-1 binary
 ./fc1 push         # Deploy but don't start
 ./fc1 push -run    # Deploy and start service
+
+# Execute CLI commands remotely (via expect/microcom)
+./fc1 cmd "help"        # Show CLI help
+./fc1 cmd "?"           # Full command list
+./fc1 cmd "v"           # Version info
+./fc1 cmd "ms"          # Memory statistics
+./fc1 cmd "cell status" # Cellular status
+./fc1 cmd "debug ?"     # Debug flags
+./fc1 cmd "imx stats"   # iMatrix statistics
 ```
+
+**Note**: The `cmd` command automatically deploys expect tools on first use if not present.
 
 ### Method 2: Direct SSH Connection
 
@@ -485,7 +496,12 @@ ls -la /usr/qk/etc/sv/FC-1/console     # Shows -> /dev/pts/X
 # View FC-1 startup details
 cat /usr/qk/etc/sv/FC-1/FC-1_details.txt
 
-# Common FC-1 CLI commands
+# Execute CLI commands remotely from host (recommended)
+./fc1 cmd "cell status"       # Cellular status
+./fc1 cmd "?"                 # Full command help
+./fc1 cmd "debug ?"           # Debug flags
+
+# Common FC-1 CLI commands (when connected via microcom)
 cell status                    # Cellular status
 cell scan                      # Trigger carrier scan
 ppp                           # PPP status
@@ -514,3 +530,5 @@ tail -f /var/log/pppd/current  # PPP log
 - `docs/gen/fix3_deployment_test_plan.md` - Post-scan PPP fix deployment procedure
 - `docs/gen/cell_scan_test_plan.md` - Cell scan test procedure
 - `docs/gen/fc1_console_symlink_plan.md` - Console symlink implementation details
+- `docs/gen/run_command_on_FC-1_plan.md` - Remote CLI command execution via fc1 script
+- `docs/gen/fix_expect_persistent_deployment_plan.md` - Expect tools persistent deployment

@@ -152,5 +152,19 @@
     "cwd": "/home/greg/iMatrix/mm1_issue",
     "hook_event_name": "SessionStart",
     "source": "compact"
+  },
+  {
+    "session_id": "12418a00-5a30-4eaa-b699-af2596ceceaf",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/12418a00-5a30-4eaa-b699-af2596ceceaf.jsonl",
+    "cwd": "/home/greg/iMatrix/mm1_issue",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "e77efb82-feea-4932-85e2-b47375419dfb",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/e77efb82-feea-4932-85e2-b47375419dfb.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "hook_event_name": "SessionStart",
+    "source": "resume"
   }
 ]

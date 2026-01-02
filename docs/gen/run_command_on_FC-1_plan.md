@@ -3,8 +3,8 @@
 **Date**: 2025-12-31
 **Author**: Claude Code
 **Branch**: feature/run_command_on_FC-1
-**Status**: Implemented (Pending Testing)
-**Last Updated**: 2025-12-31
+**Status**: COMPLETED
+**Last Updated**: 2026-01-02
 
 ---
 
@@ -108,13 +108,14 @@ The FC-1 CLI is accessed via microcom connected to a PTY device (`/usr/qk/etc/sv
   - Single command execution
 - [x] Add auto-deployment of expect tools to target
 
-### Phase 6: Testing (Pending)
+### Phase 6: Testing
 
-- [ ] Test expect installation on target
-- [ ] Test basic command execution (e.g., `help`)
-- [ ] Test commands with multi-line output
-- [ ] Test timeout handling
-- [ ] Verify clean exit from microcom
+- [x] Test expect installation on target
+- [x] Test basic command execution (e.g., `help`, `?`, `v`)
+- [x] Test commands with multi-line output (`imx stats`, `ms`)
+- [x] Test timeout handling
+- [x] Verify clean exit from microcom
+- [x] Test special characters (e.g., `?`) in commands
 
 ---
 
@@ -197,7 +198,7 @@ Use screen with scripting capabilities.
 - [x] Approach approved by user
 - [x] Build dependencies available
 - [x] Target has sufficient disk space for expect (~776KB package)
-- [ ] Testing on actual hardware
+- [x] Testing on actual hardware
 
 ---
 
@@ -243,4 +244,54 @@ First run will automatically deploy expect tools to target.
 
 ---
 
-**Ready for testing on actual hardware.**
+## Post-Implementation Fixes (2026-01-02)
+
+### Issue 1: Expect Tools Lost After Reboot
+
+**Problem**: Expect tools deployed to `/usr/local` were lost after device reboot because `/usr/local` is volatile on the embedded system.
+
+**Solution**: Changed deployment location to `/usr/qk/etc/sv/FC-1/expect/` which is persistent storage.
+
+**Files Modified**:
+- `scripts/fc1` - Updated `REMOTE_EXPECT_DIR` from `/usr/local` to `/usr/qk/etc/sv/FC-1/expect`
+- Added error handling in `deploy_expect()` function with SCP verification
+
+### Issue 2: Special Characters Lost in Commands
+
+**Problem**: Commands containing special characters like `?` were not passed correctly. For example, `fc1 cmd "debug ?"` only sent "debug" without the `?`.
+
+**Root Cause**: Shell glob expansion of `?` during SSH command processing via `eval`.
+
+**Solution**:
+1. Added `run_ssh()` function that uses arrays instead of `eval`
+2. Properly quoted the command argument with single quotes in the SSH call
+
+**Files Modified**:
+- `scripts/fc1`:
+  - Added `SSH_OPTS` and `SCP_OPTS` arrays for safe SSH execution
+  - Added `run_ssh()` function to avoid eval issues with special chars
+  - Fixed command quoting in `run_cli_cmd()` function
+
+### Deployment Locations
+
+| Component | Path |
+|-----------|------|
+| expect binary | `/usr/qk/etc/sv/FC-1/expect/bin/expect` |
+| expect-wrapper | `/usr/qk/etc/sv/FC-1/expect/bin/expect-wrapper` |
+| libtcl8.6.so | `/usr/qk/etc/sv/FC-1/expect/lib/libtcl8.6.so` |
+| Tcl init scripts | `/usr/qk/etc/sv/FC-1/expect/lib/tcl8.6/` |
+
+### Verified Working Commands
+
+```bash
+scripts/fc1 cmd "?"         # Full CLI help
+scripts/fc1 cmd "v"         # Version info
+scripts/fc1 cmd "ms"        # Memory statistics
+scripts/fc1 cmd "debug ?"   # Debug flags (special char works)
+scripts/fc1 cmd "cell status"  # Cellular status
+scripts/fc1 cmd "imx stats"    # iMatrix statistics
+```
+
+---
+
+**COMPLETED**: All implementation and testing complete as of 2026-01-02.

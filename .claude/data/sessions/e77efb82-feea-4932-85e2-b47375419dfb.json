@@ -1,6 +1,8 @@
 {
   "session_id": "e77efb82-feea-4932-85e2-b47375419dfb",
   "prompts": [
-    "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/build_system_toollchain.yaml"
+    "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/build_system_toollchain.yaml",
+    "the other developer has had isues builing the system review /home/greg/iMatrix/iMatrix_Client/docs/wsl_build_issues.md and create a plan for them to resulve the issues in docs/wsl_build_issues_fix.md",
+    "the developer should be  using exactly the same environment as is on this system. no changes to CMake should be needed. if anything is missing from the remote system add to the plan to update/replace those components. if needed creaet a tar file file the other developer to use to update their system"
   ]
 }
