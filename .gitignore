@@ -60,6 +60,7 @@ debug_keystore_password.txt
 # Log files
 *.log
 debug.log
+logs/
 
 # IDE and workspace files
 *.code-workspace
