@@ -1,0 +1,31 @@
+# DUring testing the GPS logging is not working correctly
+complexity_level: "simple"
+
+prompt_name: "GPS_logging_issue"
+date: "2026-01-04"
+branch: "feature/GPS_logging_issue"
+
+title: "During testing the GPS logging is not working correctly"
+
+task: 
+  DUring testing we have found the logging of the GPS data is generating many invalid values.
+  Review this file: U:\home\greg\iMatrix\iMatrix_Client\tools\142994297_2_3_20260102.json
+  From my analysis I see the following:
+  Data Quality & AnomaliesWhile most coordinates appear to center around 38.90° N, 119.96° W (near Lake Tahoe, Nevada/California border), there are several significant data integrity issues:1.
+  Extreme Outliers & Measurement ErrorsThe statistics reveal physical impossibilities for coordinate data:Latitude Max (1974): Latitude cannot exceed 90°.
+  This value is likely a transmission error or a different data type accidentally logged in this field.Latitude Min (-119.9626):
+  This value is numerically identical to the standard Longitude for this set, suggesting a "flip" where longitude data was recorded in the latitude column.Longitude Max (38.9019):
+  Similarly, this matches the standard Latitude for this set, indicating another column-flip error.2.
+  Zero-Value ClustersThere are numerous instances where both Latitude and Longitude drop to 0.0 simultaneously (e.g., at 12:39:51Z on Jan 2nd).
+  Impact: This usually indicates a loss of GPS fix or a sensor "warm-up" period where valid data was not yet acquired.
+  3. Precision ShiftsTowards the end of the log (starting around 2026-01-03T15:12:53Z), the latitude values shift to extremely small scientific notations (e.g., $9.1835e-41$) while Longitude stays at exactly 0.
+  This suggests a sensor failure or a software bug in the data export process.Key ObservationsPrimary Location: When the sensor is stable, the device is located at approximately 38.9018° N, 119.9625° W.
+  Data Reliability: The data is highly unstable. Of the 7,329 points, a significant portion contains either zeros, column-swapped values, or impossible outliers (1974).
+  
+  Review the code in: /home/greg/iMatrix/iMatrix_Client/iMatrix/get_location.c
+  and iMatrix/location/process_nmea.c
+  
+  and see if you can find the issue and fix it.
+
+
+  Ask any questions you need to before starting the work.
