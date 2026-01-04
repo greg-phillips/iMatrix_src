@@ -34,6 +34,14 @@ EXPECT_CMD_SCRIPT="${SCRIPT_DIR}/fc1_cmd.exp"
 REMOTE_EXPECT_DIR="/usr/qk/etc/sv/FC-1/expect"
 REMOTE_EXPECT_CMD="/tmp/fc1_cmd.exp"
 
+# OS Upgrade Configuration
+LATEST_OS_VERSION="4.0.0"
+UPGRADE_DIR="${SCRIPT_DIR}/../quake_sw/rev_4.0.0"
+UPGRADE_DIR_512MB="${UPGRADE_DIR}/OSv4.0.0_512MB"
+UPGRADE_DIR_128MB="${UPGRADE_DIR}/OSv4.0.0_128MB"
+REMOTE_UPGRADE_DIR="/root"
+MEMORY_THRESHOLD_KB=509740  # 512MB threshold
+
 # SSH command with options (using arrays to avoid eval issues with special chars)
 SSH_OPTS=(-p "${TARGET_PORT}" -o StrictHostKeyChecking=no -o ConnectTimeout=10)
 SCP_OPTS=(-P "${TARGET_PORT}" -o StrictHostKeyChecking=no)
@@ -288,6 +296,230 @@ run_cli_cmd() {
     run_ssh "${REMOTE_EXPECT_DIR}/bin/expect-wrapper ${REMOTE_EXPECT_CMD} '${cli_cmd}'"
 }
 
+##
+# @brief Check if OS upgrade is needed by comparing versions
+# @return 0 if upgrade needed, 1 if current or error
+##
+check_os_version() {
+    echo "Checking OS version on target..."
+
+    local versions
+    versions=$(run_remote "cat /var/ver/versions 2>/dev/null")
+
+    if [ -z "$versions" ]; then
+        echo "Warning: Could not read /var/ver/versions"
+        return 1
+    fi
+
+    # Extract version components
+    local uboot_ver kernel_ver squash_ver rootfs_ver
+    uboot_ver=$(echo "$versions" | grep "^u-boot=" | cut -d= -f2)
+    kernel_ver=$(echo "$versions" | grep "^kernel=" | cut -d= -f2)
+    squash_ver=$(echo "$versions" | grep "^squash-fs=" | cut -d= -f2)
+    rootfs_ver=$(echo "$versions" | grep "^root-fs=" | cut -d= -f2)
+
+    echo "Current versions:"
+    echo "  u-boot:    ${uboot_ver:-unknown}"
+    echo "  kernel:    ${kernel_ver:-unknown}"
+    echo "  squash-fs: ${squash_ver:-unknown}"
+    echo "  root-fs:   ${rootfs_ver:-unknown}"
+    echo "  Latest:    ${LATEST_OS_VERSION}"
+
+    # Check if all components are at latest version
+    if [ "$uboot_ver" = "$LATEST_OS_VERSION" ] && \
+       [ "$kernel_ver" = "$LATEST_OS_VERSION" ] && \
+       [ "$squash_ver" = "$LATEST_OS_VERSION" ] && \
+       [ "$rootfs_ver" = "$LATEST_OS_VERSION" ]; then
+        echo ""
+        echo "OS is up to date (${LATEST_OS_VERSION})"
+        return 1
+    fi
+
+    echo ""
+    echo "OS upgrade available: current -> ${LATEST_OS_VERSION}"
+    return 0
+}
+
+##
+# @brief Detect memory model (512MB or 128MB)
+# @return 0 on success (sets MEMORY_MODEL), 1 on error
+##
+detect_memory_model() {
+    echo "Detecting memory model..."
+
+    local meminfo
+    meminfo=$(run_remote "cat /proc/meminfo 2>/dev/null")
+
+    if [ -z "$meminfo" ]; then
+        echo "Error: Could not read /proc/meminfo"
+        return 1
+    fi
+
+    local mem_total_kb
+    mem_total_kb=$(echo "$meminfo" | grep "^MemTotal:" | awk '{print $2}')
+
+    if [ -z "$mem_total_kb" ]; then
+        echo "Error: Could not parse MemTotal"
+        return 1
+    fi
+
+    echo "Detected memory: ${mem_total_kb} kB"
+
+    if [ "$mem_total_kb" -ge "$MEMORY_THRESHOLD_KB" ]; then
+        MEMORY_MODEL="512"
+        echo "Memory model: 512MB"
+    else
+        MEMORY_MODEL="128"
+        echo "Memory model: 128MB"
+    fi
+
+    return 0
+}
+
+##
+# @brief Run update_universal.sh and check for success
+# @param $1 Component type (squash-fs, kernel, u-boot, root-fs)
+# @param $2 Archive filename
+# @return 0 on success, 1 on failure
+# @note update_universal.sh returns non-zero exit codes even on success,
+#       so we check for "Finish update artifact" in the output instead
+##
+run_update_component() {
+    local component="$1"
+    local archive="$2"
+    local output
+
+    output=$(run_remote "/etc/update_universal.sh --yes --type ${component} --save --arch ${archive} --dir ${REMOTE_UPGRADE_DIR}" 2>&1)
+    echo "$output"
+
+    # Check for success string in output (script may return non-zero even on success)
+    if echo "$output" | grep -q "Finish update artifact"; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+##
+# @brief Perform OS upgrade on target device
+# @note Requires MEMORY_MODEL to be set (call detect_memory_model first)
+# @return 0 on success, 1 on failure
+##
+perform_os_upgrade() {
+    if [ -z "$MEMORY_MODEL" ]; then
+        echo "Error: Memory model not detected"
+        return 1
+    fi
+
+    local upgrade_src_dir uboot_file
+    if [ "$MEMORY_MODEL" = "512" ]; then
+        upgrade_src_dir="$UPGRADE_DIR_512MB"
+        uboot_file="u-boot-512_4.0.0.zip"
+    else
+        upgrade_src_dir="$UPGRADE_DIR_128MB"
+        uboot_file="u-boot-128_4.0.0.zip"
+    fi
+
+    # Verify upgrade files exist
+    echo "Verifying upgrade files in ${upgrade_src_dir}..."
+    for file in kernel_4.0.0.zip root-fs_4.0.0.zip squash-fs_4.0.0.zip "$uboot_file"; do
+        if [ ! -f "${upgrade_src_dir}/${file}" ]; then
+            echo "Error: Missing upgrade file: ${file}"
+            return 1
+        fi
+    done
+    echo "All upgrade files found."
+
+    # Copy upgrade files to target
+    echo ""
+    echo "Copying upgrade files to target ${REMOTE_UPGRADE_DIR}..."
+    for file in kernel_4.0.0.zip root-fs_4.0.0.zip squash-fs_4.0.0.zip "$uboot_file"; do
+        echo "  Copying ${file}..."
+        if ! eval $SCP_CMD "${upgrade_src_dir}/${file}" "${TARGET_USER}@${TARGET_HOST}:${REMOTE_UPGRADE_DIR}/"; then
+            echo "Error: Failed to copy ${file}"
+            return 1
+        fi
+    done
+    echo "All files copied successfully."
+
+    # Execute upgrade commands in order
+    echo ""
+    echo "Executing OS upgrade sequence..."
+
+    echo "1. Upgrading squash-fs..."
+    if ! run_update_component "squash-fs" "squash-fs_4.0.0.zip"; then
+        echo "Error: squash-fs upgrade failed"
+        return 1
+    fi
+
+    echo "2. Upgrading kernel..."
+    if ! run_update_component "kernel" "kernel_4.0.0.zip"; then
+        echo "Error: kernel upgrade failed"
+        return 1
+    fi
+
+    echo "3. Upgrading u-boot (${MEMORY_MODEL}MB)..."
+    if ! run_update_component "u-boot" "${uboot_file}"; then
+        echo "Error: u-boot upgrade failed"
+        return 1
+    fi
+
+    echo "4. Upgrading root-fs (this will trigger reboot)..."
+    if ! run_update_component "root-fs" "root-fs_4.0.0.zip"; then
+        echo "Error: root-fs upgrade failed"
+        return 1
+    fi
+
+    echo ""
+    echo "OS upgrade complete. The device will reboot."
+    echo "Please wait for the device to come back online, then verify with:"
+    echo "  ./fc1 ssh"
+    echo "  cat /var/ver/versions"
+
+    return 0
+}
+
+##
+# @brief Check for OS upgrade and prompt user
+# @return 0 to continue, exits on upgrade or abort
+##
+check_and_prompt_upgrade() {
+    if check_os_version; then
+        echo ""
+        printf "Would you like to upgrade the OS before continuing? [y/N]: "
+        read -r response
+        case "$response" in
+            [yY]|[yY][eE][sS])
+                if ! detect_memory_model; then
+                    echo "Cannot determine memory model. Skipping upgrade."
+                    return 0
+                fi
+                if perform_os_upgrade; then
+                    echo ""
+                    echo "Upgrade initiated. Please reconnect after reboot."
+                    exit 0
+                else
+                    echo ""
+                    printf "Upgrade failed. Continue with deploy/push anyway? [y/N]: "
+                    read -r cont
+                    case "$cont" in
+                        [yY]|[yY][eE][sS])
+                            return 0
+                            ;;
+                        *)
+                            exit 1
+                            ;;
+                    esac
+                fi
+                ;;
+            *)
+                echo "Skipping OS upgrade."
+                ;;
+        esac
+    fi
+    return 0
+}
+
 show_help() {
     echo "FC-1 Remote Control"
     echo ""
@@ -309,9 +541,11 @@ show_help() {
     echo "  ppp         Show PPP link status (interface, service, log)"
     echo "  cmd <cmd>   Execute CLI command via microcom (returns output)"
     echo "  config <file> Deploy config file to target (removes old .bin files first)"
-    echo "  deploy      Deploy service script to target"
-    echo "  push        Push built FC-1 binary to target (leaves service stopped)"
+    echo "  deploy      Deploy service script to target (checks OS version first)"
+    echo "  push        Push built FC-1 binary to target (checks OS version first)"
     echo "  push -run   Push binary and start FC-1 service"
+    echo "  upgrade     Check and upgrade target OS to ${LATEST_OS_VERSION}"
+    echo "  fix-eth0    Fix eth0 IP address if USB ethernet is down"
     echo "  ssh         Open SSH session to target"
     echo "  clear-key   Clear SSH host key (for device changes)"
     echo "  help        Show this help"
@@ -336,6 +570,7 @@ show_help() {
     echo "  $0 deploy                # Update service script on target"
     echo "  $0 push                  # Deploy binary (service stays stopped)"
     echo "  $0 push -run             # Deploy binary and start service"
+    echo "  $0 upgrade               # Check and upgrade OS if needed"
     echo "  $0 -d beaglebone.local ssh  # SSH to specific host"
     echo ""
 }
@@ -360,12 +595,26 @@ case "$1" in
         ;;
     deploy)
         check_target
+        check_and_prompt_upgrade
         deploy_script
         ;;
     push)
         check_target
+        check_and_prompt_upgrade
         shift
         push_binary "$@"
+        ;;
+    upgrade)
+        check_target
+        if check_os_version; then
+            if ! detect_memory_model; then
+                echo "Error: Cannot determine memory model"
+                exit 1
+            fi
+            perform_os_upgrade
+        else
+            echo "No upgrade needed."
+        fi
         ;;
     ssh)
         check_target
@@ -385,6 +634,13 @@ case "$1" in
     clear-key)
         clear_host_key
         echo "Host key cleared. Next connection will accept new key."
+        ;;
+    fix-eth0)
+        check_target
+        echo "Fixing eth0 on target..."
+        run_remote "ip addr flush dev eth0; ip addr add 192.168.7.1/24 dev eth0; ip link set eth0 up"
+        echo "Done. Verifying:"
+        run_remote "ip addr show eth0 | grep inet"
         ;;
     help|--help|-h)
         show_help
