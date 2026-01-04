@@ -3,7 +3,7 @@
 # FC-1 Remote Control Script
 # Run from host machine to control FC-1 on target
 #
-# Usage: ./fc1 [-d destination] [start|stop|restart|status|enable|disable|run|log|cmd|deploy|push|ssh]
+# Usage: ./fc1 [-d destination] [start|stop|restart|status|enable|disable|run|log|cmd|config|deploy|push|ssh]
 #
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -131,6 +131,61 @@ push_binary() {
     run_remote "ls -la ${REMOTE_BINARY}"
 }
 
+# Push configuration file to target
+# Usage: push_config <config_file>
+push_config() {
+    local config_file="$1"
+    local remote_config_dir="/usr/qk/etc/sv/FC-1"
+
+    if [ -z "$config_file" ]; then
+        echo "Error: No configuration file specified"
+        echo "Usage: $0 config <config_file>"
+        exit 1
+    fi
+
+    if [ ! -f "$config_file" ]; then
+        echo "Error: Configuration file not found: $config_file"
+        exit 1
+    fi
+
+    local config_basename
+    config_basename=$(basename "$config_file")
+
+    echo "Deploying configuration file to target..."
+    echo "Source: $config_file"
+    echo "Target: ${remote_config_dir}/${config_basename}"
+
+    # Delete any existing .bin files in the config directory
+    echo "Removing existing .bin files from ${remote_config_dir}..."
+    local bin_files
+    bin_files=$(run_remote "ls ${remote_config_dir}/*.bin 2>/dev/null" || true)
+    if [ -n "$bin_files" ]; then
+        echo "Found .bin files to remove:"
+        echo "$bin_files"
+        run_remote "rm -f ${remote_config_dir}/*.bin"
+        echo "Removed .bin files"
+    else
+        echo "No .bin files found"
+    fi
+
+    # Copy the configuration file
+    echo "Copying configuration file..."
+    if ! eval $SCP_CMD "$config_file" "${TARGET_USER}@${TARGET_HOST}:${remote_config_dir}/${config_basename}"; then
+        echo "Error: Failed to copy configuration file"
+        exit 1
+    fi
+
+    # Verify the file was copied
+    if run_remote "test -f ${remote_config_dir}/${config_basename}"; then
+        echo ""
+        echo "Configuration deployed successfully:"
+        run_remote "ls -la ${remote_config_dir}/${config_basename}"
+    else
+        echo "Error: Configuration file not found on target after copy"
+        exit 1
+    fi
+}
+
 # Run command on target (uses eval - avoid for commands with special chars)
 run_remote() {
     eval $SSH_CMD "$@"
@@ -253,6 +308,7 @@ show_help() {
     echo "  log         Show recent logs"
     echo "  ppp         Show PPP link status (interface, service, log)"
     echo "  cmd <cmd>   Execute CLI command via microcom (returns output)"
+    echo "  config <file> Deploy config file to target (removes old .bin files first)"
     echo "  deploy      Deploy service script to target"
     echo "  push        Push built FC-1 binary to target (leaves service stopped)"
     echo "  push -run   Push binary and start FC-1 service"
@@ -276,6 +332,7 @@ show_help() {
     echo "  $0 cmd \"help\"            # Execute 'help' CLI command"
     echo "  $0 cmd \"cell status\"     # Execute 'cell status' CLI command"
     echo "  $0 cmd \"imx stats\"       # Execute 'imx stats' CLI command"
+    echo "  $0 config myconfig.bin   # Deploy config file to target"
     echo "  $0 deploy                # Update service script on target"
     echo "  $0 push                  # Deploy binary (service stays stopped)"
     echo "  $0 push -run             # Deploy binary and start service"
@@ -319,6 +376,11 @@ case "$1" in
         check_target
         shift
         run_cli_cmd "$*"
+        ;;
+    config)
+        check_target
+        shift
+        push_config "$1"
         ;;
     clear-key)
         clear_host_key

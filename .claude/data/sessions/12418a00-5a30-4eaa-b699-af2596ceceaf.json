@@ -14,6 +14,10 @@
     "create a plan to rewiew that the system has gone though a power down sequence review the logs to see if all data was flushed to disk and restored on power up",
     "yes",
     "look back over rotated memory logs, do not wait for 80% this is to test spooling and restoring the system",
-    "think ultra hard and create a plan to Implement a SIGTERM handler that triggers the graceful shutdown sequence, during this sequence all pending data and any disk data should be erased so the system starts clean on the next boot. for testing we have graceful shutdown methods."
+    "think ultra hard and create a plan to Implement a SIGTERM handler that triggers the graceful shutdown sequence, during this sequence all pending data and any disk data should be erased so the system starts clean on the next boot. for testing we have graceful shutdown methods.",
+    "you have access to the system create a plan to do this test",
+    "update all documents",
+    "move local documetns to the /home/greg/iMatrix/iMatrix_Client/docs directory",
+    "merge all changes back to the relevant Aptera_1_Clean branch in each repository"
   ]
 }

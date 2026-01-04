@@ -77,18 +77,18 @@ blacklist_entry_t* get_blacklist_entry(const char* mccmnc)
  */
 void display_blacklist(void)
 {
-    PRINTF("\n");
-    PRINTF("=== Carrier Blacklist ===\n");
-    PRINTF("\n");
+    PRINTF("\r\n");
+    PRINTF("=== Carrier Blacklist ===\r\n");
+    PRINTF("\r\n");
 
     if (blacklist_count == 0) {
-        PRINTF("No carriers currently blacklisted.\n");
-        PRINTF("\n");
+        PRINTF("No carriers currently blacklisted.\r\n");
+        PRINTF("\r\n");
         return;
     }
 
-    PRINTF("MCCMNC  | Reason              | Status    | Timeout    | Failures\n");
-    PRINTF("--------+---------------------+-----------+------------+---------\n");
+    PRINTF("MCCMNC  | Reason              | Status    | Timeout    | Failures\r\n");
+    PRINTF("--------+---------------------+-----------+------------+---------\r\n");
 
     time_t now = get_timestamp();
 
@@ -130,11 +130,11 @@ void display_blacklist(void)
             status = "Active";
         }
 
-        PRINTF("%-7s | %-19s | %-9s | %-10s | %d\n",
+        PRINTF("%-7s | %-19s | %-9s | %-10s | %d\r\n",
                entry->mccmnc, reason, status, timeout_str, entry->failure_count);
     }
 
-    PRINTF("\n");
+    PRINTF("\r\n");
 
     /* Add statistics */
     int active = 0, expired = 0, permanent = 0;
@@ -148,21 +148,21 @@ void display_blacklist(void)
         }
     }
 
-    PRINTF("Statistics:\n");
-    PRINTF("  Total entries: %d/%d\n", blacklist_count, MAX_BLACKLIST_SIZE);
-    PRINTF("  Active: %d\n", active);
-    PRINTF("  Expired: %d (will be cleared on next operation)\n", expired);
-    PRINTF("  Permanent: %d (for this session)\n", permanent);
+    PRINTF("Statistics:\r\n");
+    PRINTF("  Total entries: %d/%d\r\n", blacklist_count, MAX_BLACKLIST_SIZE);
+    PRINTF("  Active: %d\r\n", active);
+    PRINTF("  Expired: %d (will be cleared on next operation)\r\n", expired);
+    PRINTF("  Permanent: %d (for this session)\r\n", permanent);
 
     if (expired > 0) {
-        PRINTF("\nRun 'cell retry' to clear expired entries and retry those carriers.\n");
+        PRINTF("\nRun 'cell retry' to clear expired entries and retry those carriers.\r\n");
     }
 
     if (blacklist_count == MAX_BLACKLIST_SIZE) {
-        PRINTF("\n⚠️  Blacklist is full. Oldest entries will be replaced.\n");
+        PRINTF("\n⚠️  Blacklist is full. Oldest entries will be replaced.\r\n");
     }
 
-    PRINTF("\n");
+    PRINTF("\r\n");
 }
 
 /**
@@ -181,7 +181,7 @@ int get_blacklist_summary(char* buffer, size_t size)
     buffer[0] = '\0';
 
     if (blacklist_count == 0) {
-        snprintf(buffer, size, "No blacklisted carriers\n");
+        snprintf(buffer, size, "No blacklisted carriers\r\n");
         return 0;
     }
 
@@ -196,7 +196,7 @@ int get_blacklist_summary(char* buffer, size_t size)
 
             /* Add carrier to summary */
             int written = snprintf(buffer + offset, size - offset,
-                                  "  %s: %s%s\n",
+                                  "  %s: %s%s\r\n",
                                   blacklist[i].mccmnc,
                                   blacklist[i].reason,
                                   blacklist[i].permanent ? " [PERMANENT]" : "");
@@ -231,7 +231,7 @@ bool remove_from_blacklist(const char* mccmnc)
             }
             blacklist_count--;
 
-            PRINTF("[Cellular Blacklist] Removed %s from blacklist\n", mccmnc);
+            PRINTF("[Cellular Blacklist] Removed %s from blacklist\r\n", mccmnc);
             return true;
         }
     }

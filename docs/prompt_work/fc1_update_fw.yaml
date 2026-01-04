@@ -1,0 +1,95 @@
+# Update fc1 script to check for software upgrade of base OS file system.
+
+complexity_level: "simple"
+
+prompt_name: "update_fc1_script"
+date: "2025-12-30"
+branch: "feature/update_fc1_script"
+
+title: "Update fc1 script to check for software upgrade of base OS file system."
+
+task: 
+  When running the fc1 script option deploy or push check the current OS version and determine if it is the latest version.
+  The latest version is 4.0.0.
+  To check the version of the base OS file system, run the command: cat /var/ver/versions and check the values for u-boot, kernel, squash-fs, root-fs, and app.
+'''
+# cat /var/ver/versions
+u-boot=3.0.0
+kernel=3.0.0
+squash-fs=3.0.0
+root-fs=3.0.0
+app=0
+'''
+  There are two memory models for the Fleet-Connect-1 Gateway. One supports 512MB of RAM and the other supports 128MB of RAM.
+  use the command: cat /proc/meminfo to determine the memory size.
+  If the value of the "MemTotal" size is 509740 kB or greater, then use the 512MB verson for upgrade. Otherwise use the 128MB version.
+  Example:
+ '''
+# cat  /proc/meminfo 
+MemTotal:         509740 kB
+MemFree:          447992 kB
+MemAvailable:     415272 kB
+Buffers:             852 kB
+Cached:            29388 kB
+SwapCached:            0 kB
+Active:            13624 kB
+Inactive:          20032 kB
+Active(anon):       7412 kB
+Inactive(anon):      892 kB
+Active(file):       6212 kB
+Inactive(file):    19140 kB
+Unevictable:         612 kB
+Mlocked:             612 kB
+SwapTotal:         32764 kB
+SwapFree:          32764 kB
+Dirty:                 0 kB
+Writeback:             0 kB
+AnonPages:          4048 kB
+Mapped:             9860 kB
+Shmem:              4320 kB
+Slab:               9244 kB
+SReclaimable:       1368 kB
+SUnreclaim:         7876 kB
+KernelStack:        1232 kB
+PageTables:         1408 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:      287632 kB
+Committed_AS:      19456 kB
+VmallocTotal:     507904 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+'''
+  The upgrade files  for 512MB are located in the following directory:~/iMatrix/iMatrix_Client/quake_sw/rev_4.0.0/OSv4.0.0_512MB
+  kernel_4.0.0.zip  root-fs_4.0.0.zip  squash-fs_4.0.0.zip  u-boot-512_4.0.0.zip
+  The upgrade files  for 128MB are located in the following directory:~/iMatrix/iMatrix_Client/quake_sw/rev_4.0.0/OSv4.0.0_128MB
+  The file names are: kernel_4.0.0.zip  root-fs_4.0.0.zip  squash-fs_4.0.0.zip  u-boot-128_4.0.0.zip
+  Validate the location of the files and the file names.
+  To upgrade the file system, use the following procedure:
+  Copy each of the files to the /root/ directory on the gateway.
+  Then execute the following commands:
+  /etc/update_universal.sh --yes --type squash-fs --save --arch squash-fs_4.0.0.zip --dir /root;
+  /etc/update_universal.sh --yes --type kernel --save --arch kernel_4.0.0.zip --dir /root;
+  if the 512MB model, then execute the following command:
+  /etc/update_universal.sh --yes --type u-boot --save --arch u-boot-512_4.0.0.zip --dir /root;
+  else execute the following command:
+  /etc/update_universal.sh --yes --type u-boot --save --arch u-boot-128_4.0.0.zip --dir /root;
+  then execute the following command:
+  /etc/update_universal.sh --yes --type root-fs --save --arch root-fs_4.0.0.zip --dir /root;
+  after the completion of the commands, reboot the gateway.
+  The gateway will then boot into the new file system.
+  reconnect to the gateway and check the version of the file system using the command: cat /var/ver/versions
+  '''
+# cat /var/ver/versions
+u-boot=4.0.0
+kernel=4.0.0
+squash-fs=4.0.0
+root-fs=4.0.0
+app=0
+'''
+  The version of the file system should be 4.0.0.
+  
+  Ask any questions you need to before starting the work.

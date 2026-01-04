@@ -1,8 +1,8 @@
 # IMX Command Output Issue - Implementation Plan
 
 **Date**: 2026-01-01
-**Document Version**: 1.1
-**Status**: Implementation Complete - Ready for Testing
+**Document Version**: 1.2
+**Status**: Complete - Merged to Aptera_1_Clean
 **Author**: Claude Code Analysis
 **Branch**: feature/imx_command_output_issue
 
@@ -188,7 +188,7 @@ If BLE device details should not be shown in CLI:
 - [ ] 5. Test on hardware using `imx` command
 - [ ] 6. Verify fix resolves the repeated output issue
 - [x] 7. Final clean build verification
-- [ ] 8. Merge branch and update documentation
+- [x] 8. Merge branch and update documentation
 
 ## 6. Questions for Greg
 
@@ -275,13 +275,19 @@ Added fallback `else` blocks in all three conditional compilation branches:
 - **Commit**: `8d31370e` - "Fix repeated Controls/Sensors/Variables output in imx CLI command"
 - **Files Changed**: 1 file, 20 insertions
 
-### 7.5 Pending
+### 7.5 Merge Complete
 
-- Hardware testing on QConnect gateway
-- Merge to original branches after successful hardware test
+- **iMatrix**: Fix merged to `Aptera_1_Clean` (commit `8d31370e` in branch history)
+- **Fleet-Connect-1**: No changes needed (fix was in iMatrix library)
+- **Feature branches deleted**: `feature/imx_command_output_issue` removed from both repos
+
+### 7.6 Remaining
+
+- Hardware testing on QConnect gateway to verify fix
 
 ---
 
 **Plan Created By**: Claude Code
 **Date**: 2026-01-01
-**Implementation Date**: 2026-01-01
+**Implementation Date**: 2026-01-04
+**Merge Date**: 2026-01-04

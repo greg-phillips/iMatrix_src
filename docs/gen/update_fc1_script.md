@@ -1,16 +1,16 @@
 <!--
 AUTO-GENERATED PROMPT
-Generated from: docs/prompt_work/udpdate_fc1_script.yaml
-Generated on: 2025-12-29
+Generated from: docs/prompt_work/fc1_update_fw.yaml
+Generated on: 2026-01-04
 Schema version: 1.0
 Complexity level: simple
 
 To modify this prompt, edit the source YAML file and regenerate.
 -->
 
-## Aim: The fc1 script provides the ability to start/stop/restart the FC-1 application with the runsv service.
+## Aim: Update fc1 script to check for software upgrade of base OS file system.
 
-**Date:** 2025-12-29
+**Date:** 2025-12-30
 **Branch:** feature/update_fc1_script
 
 ---
@@ -32,44 +32,117 @@ The user's name is Greg
 
 Read and understand the following:
 
-- scripts/fc1 - Host-side remote control script
-- scripts/fc1_service.sh - Target-side service control script
+- iMatrix/CLAUDE.md
+- Fleet-Connect-1/CLAUDE.md
+- scripts/fc1 (the main script to be modified)
+- scripts/fc1_service.sh (related service script)
 
 use the template files as a base for any new files created
-iMatrix/templates/blank.c
-iMatrix/templates/blank.h
+- iMatrix/templates/blank.c
+- iMatrix/templates/blank.h
 
 Always create extensive comments using doxygen style
 
 **Use the KISS principle - do not over-engineer. keep it simple and maintainable.**
 
-### Current Implementation Notes
-
-The fc1 script currently supports the following commands:
-- `start` - Start FC-1 service on target
-- `stop` - Stop FC-1 service on target
-- `restart` - Restart FC-1 service
-- `status` - Show service status
-- `run [opts]` - Run FC-1 in foreground on target
-- `log` - Show recent logs
-- `deploy` - Deploy service script to target
-- `ssh` - Open SSH session to target
-
-The service uses runsv (runit supervision) at:
-- Service directory: `/usr/qk/etc/sv/FC-1`
-- Run script: `/usr/qk/etc/sv/FC-1/run`
-- Log directory: `/var/log/FC-1/current`
-
 ## Task
 
-Update the script to provide the ability to remove and add the FC-1 application to the runsv service.
+When running the fc1 script with option `deploy` or `push`, check the current OS version and determine if it is the latest version. The latest version is **4.0.0**.
 
-Ask any questions you need to before starting.
+### Checking OS Version
+
+To check the version of the base OS file system, run the command: `cat /var/ver/versions` and check the values for u-boot, kernel, squash-fs, root-fs, and app.
+
+Example output:
+```
+# cat /var/ver/versions
+u-boot=3.0.0
+kernel=3.0.0
+squash-fs=3.0.0
+root-fs=3.0.0
+app=0
+```
+
+### Determining Memory Model
+
+There are two memory models for the Fleet-Connect-1 Gateway:
+- **512MB RAM** - use 512MB upgrade files
+- **128MB RAM** - use 128MB upgrade files
+
+Use the command: `cat /proc/meminfo` to determine the memory size.
+
+If the value of "MemTotal" is **509740 kB or greater**, use the 512MB version for upgrade. Otherwise use the 128MB version.
+
+Example:
+```
+# cat /proc/meminfo
+MemTotal:         509740 kB
+MemFree:          447992 kB
+MemAvailable:     415272 kB
+...
+```
+
+### Upgrade Files Location
+
+**512MB version files** (located in `~/iMatrix/iMatrix_Client/quake_sw/rev_4.0.0/OSv4.0.0_512MB`):
+- kernel_4.0.0.zip
+- root-fs_4.0.0.zip
+- squash-fs_4.0.0.zip
+- u-boot-512_4.0.0.zip
+
+**128MB version files** (located in `~/iMatrix/iMatrix_Client/quake_sw/rev_4.0.0/OSv4.0.0_128MB`):
+- kernel_4.0.0.zip
+- root-fs_4.0.0.zip
+- squash-fs_4.0.0.zip
+- u-boot-128_4.0.0.zip
+
+### Upgrade Procedure
+
+If an upgrade is needed:
+
+1. Copy each of the upgrade files to the `/root/` directory on the gateway.
+
+2. Execute the following commands in order:
+   ```bash
+   /etc/update_universal.sh --yes --type squash-fs --save --arch squash-fs_4.0.0.zip --dir /root
+   /etc/update_universal.sh --yes --type kernel --save --arch kernel_4.0.0.zip --dir /root
+   ```
+
+3. For u-boot (depends on memory model):
+   - **512MB model:**
+     ```bash
+     /etc/update_universal.sh --yes --type u-boot --save --arch u-boot-512_4.0.0.zip --dir /root
+     ```
+   - **128MB model:**
+     ```bash
+     /etc/update_universal.sh --yes --type u-boot --save --arch u-boot-128_4.0.0.zip --dir /root
+     ```
+
+4. Finally:
+   ```bash
+   /etc/update_universal.sh --yes --type root-fs --save --arch root-fs_4.0.0.zip --dir /root
+   ```
+
+5. After completion, reboot the gateway.
+
+6. Reconnect and verify the upgrade:
+   ```bash
+   cat /var/ver/versions
+   ```
+   Expected output:
+   ```
+   u-boot=4.0.0
+   kernel=4.0.0
+   squash-fs=4.0.0
+   root-fs=4.0.0
+   app=0
+   ```
 
 ### Files to Modify
 
-- `scripts/fc1` - Host-side script (add new commands)
-- `scripts/fc1_service.sh` - Target-side script (add service enable/disable logic)
+- `scripts/fc1` - Main script requiring modification
+
+Ask any questions you need to before starting the work.
 
 ## Deliverables
 
@@ -90,5 +163,5 @@ Ask any questions you need to before starting.
 ---
 
 **Plan Created By:** Claude Code (via YAML specification)
-**Source Specification:** docs/prompt_work/udpdate_fc1_script.yaml
-**Generated:** 2025-12-29
+**Source Specification:** docs/prompt_work/fc1_update_fw.yaml
+**Generated:** 2026-01-04

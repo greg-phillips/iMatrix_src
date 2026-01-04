@@ -1,6 +1,7 @@
 {
   "session_id": "4ee17306-29a0-4fbb-b649-ed487b4c93ba",
   "prompts": [
-    "read and impment /home/greg/iMatrix/iMatrix_Client/docs/gen/imx_command_output_issue.md"
+    "read and impment /home/greg/iMatrix/iMatrix_Client/docs/gen/imx_command_output_issue.md",
+    "complete feature and merge all back to respective Aptera_1_Clean branches"
   ]
 }

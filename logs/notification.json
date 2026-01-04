@@ -110,5 +110,21 @@
     "hook_event_name": "Notification",
     "message": "Claude Code needs your attention",
     "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "12418a00-5a30-4eaa-b699-af2596ceceaf",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/12418a00-5a30-4eaa-b699-af2596ceceaf.jsonl",
+    "cwd": "/home/greg/iMatrix/mm1_issue",
+    "hook_event_name": "Notification",
+    "message": "Claude Code needs your approval for the plan",
+    "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "0a76b53f-6aee-4c45-8d3e-2a33ce746b01",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/0a76b53f-6aee-4c45-8d3e-2a33ce746b01.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1",
+    "hook_event_name": "Notification",
+    "message": "Claude Code needs your attention",
+    "notification_type": "permission_prompt"
   }
 ]

@@ -33,17 +33,17 @@ extern int selected_operator;
  */
 void display_cellular_operators(void)
 {
-    PRINTF("\n");
-    PRINTF("================================================================================\n");
-    PRINTF(" Cellular Operators Status\n");
-    PRINTF("================================================================================\n");
-    PRINTF("Idx | Carrier Name         | MCCMNC  | CSQ  | RSSI     | Tested | Blacklist\n");
-    PRINTF("----+----------------------+---------+------+----------+--------+-------------\n");
+    PRINTF("\r\n");
+    PRINTF("================================================================================\r\n");
+    PRINTF(" Cellular Operators Status\r\n");
+    PRINTF("================================================================================\r\n");
+    PRINTF("Idx | Carrier Name         | MCCMNC  | CSQ  | RSSI     | Tested | Blacklist\r\n");
+    PRINTF("----+----------------------+---------+------+----------+--------+-------------\r\n");
 
     /* First check scan_operators if available (from recent scan) */
     if (scan_operator_count > 0) {
-        PRINTF("Recent Scan Results:\n");
-        PRINTF("----+----------------------+---------+------+----------+--------+-------------\n");
+        PRINTF("Recent Scan Results:\r\n");
+        PRINTF("----+----------------------+---------+------+----------+--------+-------------\r\n");
 
         for (int i = 0; i < scan_operator_count; i++) {
             operator_info_t *op = &scan_operators[i];
@@ -118,16 +118,16 @@ void display_cellular_operators(void)
             }
 
             /* Print row */
-            PRINTF("%s | %-20s | %-7s | %4s | %-8s | %-6s | %s\n",
+            PRINTF("%s | %-20s | %-7s | %4s | %-8s | %-6s | %s\r\n",
                    idx_str, name, mccmnc, csq_str, rssi_str, tested_str, blacklist_str);
         }
     }
 
     /* Also show operators from last successful connection if different */
     if (operator_count > 0) {
-        PRINTF("\n");
-        PRINTF("Available Operators (from last AT+COPS query):\n");
-        PRINTF("----+----------------------+---------+------+----------+--------+-------------\n");
+        PRINTF("\r\n");
+        PRINTF("Available Operators (from last AT+COPS query):\r\n");
+        PRINTF("----+----------------------+---------+------+----------+--------+-------------\r\n");
 
         for (int i = 0; i < operator_count; i++) {
             Operator_t *op = &operators[i];
@@ -204,7 +204,7 @@ void display_cellular_operators(void)
             }
 
             /* Print row */
-            PRINTF("%s | %-20s | %-7s | %4s | %-8s | %-6s | %s %s\n",
+            PRINTF("%s | %-20s | %-7s | %4s | %-8s | %-6s | %s %s\r\n",
                    idx_str, name, mccmnc, csq_str, rssi_str, tested_str,
                    blacklist_str, status_str);
         }
@@ -212,13 +212,13 @@ void display_cellular_operators(void)
 
     /* If no operators at all */
     if (scan_operator_count == 0 && operator_count == 0) {
-        PRINTF("No operators found. Run 'cell scan' to search for carriers.\n");
+        PRINTF("No operators found. Run 'cell scan' to search for carriers.\r\n");
     }
 
-    PRINTF("================================================================================\n");
+    PRINTF("================================================================================\r\n");
 
     /* Add summary */
-    PRINTF("\nSummary:\n");
+    PRINTF("\nSummary:\r\n");
 
     if (scan_operator_count > 0) {
         int tested = 0, blacklisted = 0;
@@ -238,36 +238,36 @@ void display_cellular_operators(void)
             }
         }
 
-        PRINTF("  Carriers found: %d\n", scan_operator_count);
-        PRINTF("  Tested: %d/%d\n", tested, scan_operator_count);
-        PRINTF("  Blacklisted: %d\n", blacklisted);
+        PRINTF("  Carriers found: %d\r\n", scan_operator_count);
+        PRINTF("  Tested: %d/%d\r\n", tested, scan_operator_count);
+        PRINTF("  Blacklisted: %d\r\n", blacklisted);
 
         if (best_signal > 0) {
-            PRINTF("  Best signal: %s (CSQ:%d)\n", best_carrier, best_signal);
+            PRINTF("  Best signal: %s (CSQ:%d)\r\n", best_carrier, best_signal);
         }
 
         /* Warnings */
         if (blacklisted == scan_operator_count && scan_operator_count > 0) {
-            PRINTF("\n⚠️  WARNING: All carriers are blacklisted!\n");
-            PRINTF("   Run 'cell clear' to reset blacklist\n");
+            PRINTF("\n⚠️  WARNING: All carriers are blacklisted!\r\n");
+            PRINTF("   Run 'cell clear' to reset blacklist\r\n");
         } else if (tested == 0 && scan_operator_count > 0) {
-            PRINTF("\n⚠️  No carriers have been tested\n");
-            PRINTF("   Run 'cell scan' to test signal strength\n");
+            PRINTF("\n⚠️  No carriers have been tested\r\n");
+            PRINTF("   Run 'cell scan' to test signal strength\r\n");
         }
     }
 
     /* Legend */
-    PRINTF("\nLegend:\n");
-    PRINTF("  * = Currently testing this carrier\n");
-    PRINTF("  > = Currently selected carrier\n");
-    PRINTF("  CSQ: 0-31 (higher is better), 99=unknown\n");
-    PRINTF("  Blacklist times: m=minutes, s=seconds\n");
-    PRINTF("\nCommands:\n");
-    PRINTF("  cell scan  - Test all carriers\n");
-    PRINTF("  cell clear - Clear blacklist\n");
-    PRINTF("  cell test <mccmnc> - Test specific carrier\n");
+    PRINTF("\nLegend:\r\n");
+    PRINTF("  * = Currently testing this carrier\r\n");
+    PRINTF("  > = Currently selected carrier\r\n");
+    PRINTF("  CSQ: 0-31 (higher is better), 99=unknown\r\n");
+    PRINTF("  Blacklist times: m=minutes, s=seconds\r\n");
+    PRINTF("\nCommands:\r\n");
+    PRINTF("  cell scan  - Test all carriers\r\n");
+    PRINTF("  cell clear - Clear blacklist\r\n");
+    PRINTF("  cell test <mccmnc> - Test specific carrier\r\n");
 
-    PRINTF("\n");
+    PRINTF("\r\n");
 }
 
 /**
@@ -275,10 +275,10 @@ void display_cellular_operators(void)
  */
 void display_cellular_operators_simple(void)
 {
-    PRINTF("\nCarrier Status:\n");
+    PRINTF("\nCarrier Status:\r\n");
 
     if (scan_operator_count == 0) {
-        PRINTF("  No scan data available. Run 'cell scan'\n");
+        PRINTF("  No scan data available. Run 'cell scan'\r\n");
         return;
     }
 
@@ -300,7 +300,7 @@ void display_cellular_operators_simple(void)
         if (op->blacklisted) strcat(flags, "[BLACKLISTED] ");
         if (is_carrier_blacklisted(op->operator_id)) strcat(flags, "[BLOCKED] ");
 
-        PRINTF("  %2d. %-20s CSQ:%2d [%s] %s\n",
+        PRINTF("  %2d. %-20s CSQ:%2d [%s] %s\r\n",
                i + 1,
                op->operator_name,
                op->tested ? op->signal_strength : -1,
@@ -308,7 +308,7 @@ void display_cellular_operators_simple(void)
                flags);
     }
 
-    PRINTF("\n");
+    PRINTF("\r\n");
 }
 
 /* Helper function to get blacklist entry (needs to be added to cellular_blacklist.c) */

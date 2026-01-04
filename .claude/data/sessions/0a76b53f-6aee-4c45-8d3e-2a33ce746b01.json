@@ -1,0 +1,16 @@
+{
+  "session_id": "0a76b53f-6aee-4c45-8d3e-2a33ce746b01",
+  "prompts": [
+    "we did some work on updating the expect program on the gateway read all documents to understand what work was done and list the documentatio",
+    "does the expect functionality get pushed to the gateway when the \"fc1 deploy\" script is run?",
+    "This is not working \\ greg@Greg-P1-Laptop:~/iMatrix/iMatrix_Client$ scripts/fc1 cmd \"s\"\nExpect not found on target. Deploying...\nDeploying expect tools to target (persistent location)...\nPackage: /home/greg/iMatrix/iMatrix_Client/scripts/../external_tools/build/expect-arm.tar.gz\nTarget: /usr/qk/etc/sv/FC-1/expect\nCopying package to target...\n*** WARNING ***\nThis is a private system. Unauthorized access is prohibited.\nAll activities may be monitored and recorded.\nUse of this system constitutes consent to monitoring.\n*** WARNING ***\nThis is a private system. Unauthorized access is prohibited.\nAll activities may be monitored and recorded.\nUse of this system constitutes consent to monitoring.\nExtracting to /usr/qk/etc/sv/FC-1/expect...\n*** WARNING ***\nThis is a private system. Unauthorized access is prohibited.\nAll activities may be monitored and recorded.\nUse of this system constitutes consent to monitoring.\n*** WARNING ***\nThis is a private system. Unauthorized access is prohibited.\nAll activities may be monitored and recorded.\nUse of this system constitutes consent to monitoring.\ntar (child): /tmp/expect-arm.tar.gz: Cannot open: No such file or directory\ntar (child): Error is not recoverable: exiting now\ntar: Child returned status 2\ntar: Error is not recoverable: exiting now\nError: Failed to extract expect package\n*** WARNING ***\nThis is a private system. Unauthorized access is prohibited.\nAll activities may be monitored and recorded.\nUse of this system constitutes consent to monitoring",
+    "lock file reomove - i had a session - now canceled",
+    "creare a document docs/accept_tool_use.md that details the building and use of this facility",
+    "merge the iMatrix and FLeet-Connect-1 development back to the respoective Aptera_1_Clean branches",
+    "yes",
+    "go ahead and do both",
+    "Read /home/greg/iMatrix/iMatrix_Client/docs/connecting_to_Fleet-Connect-1.md and /home/greg/iMatrix/iMatrix_Client/docs/validating_FC-1_application.md and /home/greg/iMatrix/iMatrix_Client/docs/testing_fc_1_application.md and the source of /home/greg/iMatrix/iMatrix_Client/scripts/fc1 and then creaet a document for developers and users that details the operation of the  fc-1 script",
+    "exapnd the script to include a new command config which takes the path of a configuration file and copies it to the directory /usr/qk/etc/sv/FC-1/ before copying the file delete any files the end with the extension .bin",
+    "update the document /home/greg/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md to include information on how to use the direction connection and fc1 script to access the system for testing"
+  ]
+}

@@ -166,5 +166,110 @@
     "cwd": "/home/greg/iMatrix/iMatrix_Client",
     "hook_event_name": "SessionStart",
     "source": "resume"
+  },
+  {
+    "session_id": "12418a00-5a30-4eaa-b699-af2596ceceaf",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/12418a00-5a30-4eaa-b699-af2596ceceaf.jsonl",
+    "cwd": "/home/greg/iMatrix/mm1_issue",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "12418a00-5a30-4eaa-b699-af2596ceceaf",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-mm1-issue/12418a00-5a30-4eaa-b699-af2596ceceaf.jsonl",
+    "cwd": "/home/greg/iMatrix/mm1_issue",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "0a76b53f-6aee-4c45-8d3e-2a33ce746b01",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/0a76b53f-6aee-4c45-8d3e-2a33ce746b01.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "hook_event_name": "SessionStart",
+    "source": "startup"
+  },
+  {
+    "session_id": "0a76b53f-6aee-4c45-8d3e-2a33ce746b01",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/0a76b53f-6aee-4c45-8d3e-2a33ce746b01.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "a435db14-578c-478a-82f3-257f524e1f95",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/a435db14-578c-478a-82f3-257f524e1f95.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "hook_event_name": "SessionStart",
+    "source": "clear"
+  },
+  {
+    "session_id": "21f13f26-586b-4a56-95dc-3562cc2278ed",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/21f13f26-586b-4a56-95dc-3562cc2278ed.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "hook_event_name": "SessionStart",
+    "source": "clear"
+  },
+  {
+    "session_id": "21f13f26-586b-4a56-95dc-3562cc2278ed",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/21f13f26-586b-4a56-95dc-3562cc2278ed.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "21f13f26-586b-4a56-95dc-3562cc2278ed",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/21f13f26-586b-4a56-95dc-3562cc2278ed.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "21f13f26-586b-4a56-95dc-3562cc2278ed",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/21f13f26-586b-4a56-95dc-3562cc2278ed.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "21f13f26-586b-4a56-95dc-3562cc2278ed",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/21f13f26-586b-4a56-95dc-3562cc2278ed.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/scripts",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "21f13f26-586b-4a56-95dc-3562cc2278ed",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/21f13f26-586b-4a56-95dc-3562cc2278ed.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/build",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "21f13f26-586b-4a56-95dc-3562cc2278ed",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/21f13f26-586b-4a56-95dc-3562cc2278ed.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/build",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "21f13f26-586b-4a56-95dc-3562cc2278ed",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/21f13f26-586b-4a56-95dc-3562cc2278ed.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/build",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "21f13f26-586b-4a56-95dc-3562cc2278ed",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/21f13f26-586b-4a56-95dc-3562cc2278ed.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/iMatrix",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "0a45ad5f-5640-4ba6-b730-f99b8989ffd9",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/0a45ad5f-5640-4ba6-b730-f99b8989ffd9.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "hook_event_name": "SessionStart",
+    "source": "startup"
   }
 ]

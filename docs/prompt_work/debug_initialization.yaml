@@ -1,0 +1,107 @@
+# Debugging system start of of the Light Vehicle Application. Current causing segmentation fault.
+
+complexity_level: "simple"
+
+prompt_name: "debug_initialization"
+date: "2025-12-30"
+branch: "feature/debug_initialization"
+
+title: "Debugging Light Vehicle Application"
+
+task: |
+  All start up messages should be logged to the logging system not the console. 
+  First change all the messages listed below to use the imx_cli_log_printf() function.
+  Expect most of these come from Fleet-Connect-1/init/imx_client_init.c file.
+  Use the details on connecting to the system in this document /home/greg/iMatrix/iMatrix_Client/docs/connecting_to_Fleet-Connect-1.md
+  start the program directly to watch for the segmentation fault.
+  to start the program run /usr/qk/bin/FC-1 once the ssh connection is established.
+
+  Ask any questions you need to before starting the work.
+'''
+root@iMatrix:FC-1:0174664659:~# /usr/qk/bin/FC-1
+Async log queue initialized (10000 message capacity)
+[FS_LOGGER] Initialized - logging to /var/log/fc-1.log
+Startup looking for lockfile: /usr/qk/etc/sv/FC-1/iMatrix.lock
+iMatrix Configuration size: 560648
+Read both pages, valid flag = 0, seq=[0, 0], using page 0
+Configuration Loaded
+iMX6 Ultralite Serial Number: 0x00000000072A51D4
+Clone or Raw Device Detected
+iMatrix memory tracking initialized
+Using 8740 Bytes of storage for message queues
+Creating Lists
+25 message_t structs added to the free list.
+RTC using System time
+System time used
+Core System Initialized
+Command Line Processor
+Setting up Fleet Connect, Product ID: 374664309, Serial Number: 
+Initializing Variable length data pool, pool size: 5048 Bytes
+Variable Length Pools:  7 Bytes[ 8 ] 32 Bytes[ 6 ] 64 Bytes[ 0 ] 128 Bytes[ 10 ] 256 Bytes[ 0 ] 512 Bytes[ 0 ] 768 Bytes[ 4 ]
+System has 8 Controls, 48 Sensors and 0 Variables
+Initializing Controls & Sensors
+Setting up Control Data @: 0xa04c14 - Adding 8 entries
+Setting up Sensor Data @: 0xa05c14 - Adding 48 entries
+Setting up Variable Data @: 0xa0bc14 - Adding 0 entries
+Initializing Location System
+system_init.c:1089 - force AP setup
+Initialization Complete, Thing will run in Wi-FI Setup mode
+Loading Application Config: 274360 Bytes
+System contains Application Configuration
+Magic: 0x00000000
+System did not contain Valid Linux Gateway Configuration, using factory defaults
+Application Configuration saved to file system during initialization
+iMatrix memory tracking initialized
+Found matching file: /usr/qk/etc/sv/FC-1/Light_Vehicle_cfg.bin
+read_config: Successfully read config file '/usr/qk/etc/sv/FC-1/Light_Vehicle_cfg.bin'Loading 2 network interface(s) from configuration file
+  Mapping eth0 from config[0] to device_config[2]
+    DHCP range: 192.168.7.100 - 192.168.7.199
+  Config[0] → device_config[2]: eth0, mode=server, IP=192.168.7.1
+  Mapping wlan0 from config[1] to device_config[0]
+  Config[1] → device_config[0]: wlan0, mode=client, IP=DHCP
+Network configuration loaded successfully
+Total interfaces configured: 2 (max 4)
+Product ID updated: 0x00000000 -> 0xB9C3E2A2
+Vehicle type changed: Product ID 0x00000000 -> 0xB9C3E2A2
+Internal sensor count changed: Saved 0 -> Current 52
+Configuration for CAN Product missing or changed. Replacing with file data
+Loading 52 predefined sensors from configuration
+Successfully loaded 52 valid predefined sensors
+Configuration updated: 52 predefined sensors loaded from config
+Sensor configuration breakdown:
+  - Predefined sensors: 52
+  - Product controls: 0
+  - Product sensors: 1
+  - Total control_sensors (array size): 53
+  Product sensor details:
+    [0] ID: 0x0D3EA3AF, Name: Fault Code
+  After sorting, sensor at index 52 (first non-predefined):
+    ID: 0x0D3EA3AF, Name: Fault Code
+Configuration for CAN Product contains 0 Controls and 53 Sensors
+Configuration for CAN BUS contains 4 Sensors
+No DBC files configured for Ethernet CAN bus (bus 2)
+Ethernet CAN format: none (CAN_FORMAT_NONE = 0)
+OBD2 frame processing: ENABLED (support_obd2 = 1)
+Configuration Summary:
+  Product ID: 3116622498
+  Organization ID: 250007060
+  Name: Light Vehicle 2
+  No. Predefined: 52
+  No. DBC Files: 0
+  No. Controls: 0
+  No. Sensors: 53
+  No. Control Sensors: 53
+  No. CAN Controls: 0
+  No. CAN Sensors: 596
+  No. CAN Control Sensors: 596
+  Check-in Period: 300 seconds
+  Ethernet CAN Format: none (0)
+  OBD2 Processing: ENABLED (1)
+  Mapped logical bus 'O-11' (2 nodes) to physical CAN bus 0
+  Mapped logical bus 'O-29' (2 nodes) to physical CAN bus 0
+Physical CAN bus 0: 4 total nodes (sorted)
+Physical CAN bus 1: No nodes configured
+No Ethernet CAN buses configured
+Segmentation fault
+'''
+Ask any questions you need to before starting the work.
