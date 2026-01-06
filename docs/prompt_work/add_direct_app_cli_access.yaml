@@ -1,0 +1,27 @@
+# Add direct app CLI access to the program
+complexity_level: "simple"
+
+prompt_name: "add_direct_app_cli_access"
+date: "2026-01-06"
+branch: "feature/add_direct_app_cli_access"
+
+title: "Add direct app CLI access to the program"
+
+task: 
+ The software has been deployed using the fc1 script. see: /home/greg/iMatrix/iMatrix_Client/docs/fc1_script_reference.md and /home/greg/iMatrix/iMatrix_Client/docs/ssh_access_to_Fleet_Connect.md
+ Use SSH to connect to the host device and review the logs. see: /home/greg/iMatrix/iMatrix_Client/docs/connecting_to_Fleet-Connect-1.md
+ The CLI has two modes. The default mode is the normal CLI mode. The other mode is the app CLI mode. 
+ to switch between the the use can use the TAB key. or use the app command.
+ Add new method to access the app cli directly without using the TAB key or the app command.
+ Allow the entry of the prefix "app:" to access the app cli directly from the main CLI mode.
+ Example:
+ ```
+ app: loopstatus
+ ```
+ will switch to the app CLI mode and display the loopstatus command.
+
+The cli will stay in the main cli mode after the app command is entered.
+  Ask any questions you need to before starting the work.
+
+  reference:
+  /home/greg/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md

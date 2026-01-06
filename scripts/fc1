@@ -397,6 +397,10 @@ run_service_cmd() {
 
 # Deploy expect tools to target
 deploy_expect() {
+    local max_retries=3
+    local retry_count=0
+    local scp_success=false
+
     if [ ! -f "$EXPECT_PACKAGE" ]; then
         echo "Error: Expect package not found at $EXPECT_PACKAGE"
         echo "Run the build_expect.sh script first"
@@ -407,16 +411,40 @@ deploy_expect() {
     echo "Package: $EXPECT_PACKAGE"
     echo "Target: ${REMOTE_EXPECT_DIR}"
 
-    # Copy expect package to target with verification
-    echo "Copying package to target..."
-    if ! eval $SCP_CMD "$EXPECT_PACKAGE" "${TARGET_USER}@${TARGET_HOST}:/tmp/expect-arm.tar.gz"; then
-        echo "Error: SCP failed to copy expect package"
-        exit 1
-    fi
+    # Clean up any old expect installation first
+    run_remote "rm -rf ${REMOTE_EXPECT_DIR}" 2>/dev/null || true
 
-    # Verify the file arrived
-    if ! run_remote "test -f /tmp/expect-arm.tar.gz"; then
-        echo "Error: Package file not found on target after SCP"
+    # Copy expect package to target with retry logic
+    echo "Copying package to target..."
+    while [ $retry_count -lt $max_retries ] && [ "$scp_success" = "false" ]; do
+        retry_count=$((retry_count + 1))
+
+        if [ $retry_count -gt 1 ]; then
+            echo "Retry $retry_count of $max_retries..."
+            sleep 2
+        fi
+
+        # Remove any partial file from previous attempt
+        run_remote "rm -f /tmp/expect-arm.tar.gz" 2>/dev/null || true
+
+        if eval $SCP_CMD "$EXPECT_PACKAGE" "${TARGET_USER}@${TARGET_HOST}:/tmp/expect-arm.tar.gz" 2>/dev/null; then
+            # Verify the file arrived and has correct size
+            local remote_size=$(run_remote "stat -c%s /tmp/expect-arm.tar.gz 2>/dev/null" 2>/dev/null || echo "0")
+            local local_size=$(stat -c%s "$EXPECT_PACKAGE" 2>/dev/null || echo "-1")
+
+            if [ "$remote_size" = "$local_size" ]; then
+                scp_success=true
+                echo "Package transferred successfully (${remote_size} bytes)"
+            else
+                echo "Warning: File size mismatch (local: ${local_size}, remote: ${remote_size})"
+            fi
+        else
+            echo "Warning: SCP command failed"
+        fi
+    done
+
+    if [ "$scp_success" = "false" ]; then
+        echo "Error: Failed to copy expect package after $max_retries attempts"
         exit 1
     fi
 
