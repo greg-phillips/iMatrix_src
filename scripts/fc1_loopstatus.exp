@@ -1,0 +1,77 @@
+#!/usr/bin/expect -f
+#
+# fc1_loopstatus.exp - Execute loopstatus command via microcom
+#
+# Usage: fc1_loopstatus.exp
+#
+# This script:
+# 1. Connects to the FC-1 CLI via microcom
+# 2. Switches to app mode
+# 3. Runs loopstatus
+# 4. Returns the output
+#
+# Author: Claude Code
+# Date: 2026-01-06
+#
+
+# Configuration
+set timeout 10
+set console_path "/usr/qk/etc/sv/FC-1/console"
+
+# Enable logging to see all output
+log_user 1
+
+# Start microcom connected to the console
+spawn microcom $console_path
+
+# Wait for microcom to initialize
+sleep 0.3
+
+# Send enter to wake up the CLI
+send "\r"
+
+# Wait for any prompt (either > or app>)
+set timeout 5
+expect {
+    "app>" {
+        # Already in app mode
+    }
+    -re {>[ ]?$} {
+        # In CLI mode, switch to app mode
+        send "app\r"
+        expect "app>"
+    }
+    timeout {
+        # Try one more enter
+        send "\r"
+        expect {
+            "app>" { }
+            ">" {
+                send "app\r"
+                expect "app>"
+            }
+        }
+    }
+}
+
+# Now send loopstatus command
+send "loopstatus\r"
+
+# Wait for the output and next prompt
+set timeout 20
+expect {
+    "app>" {
+        # Got the next prompt - command complete
+    }
+    timeout {
+        puts stderr "Timeout waiting for loopstatus response"
+    }
+}
+
+# Clean exit from microcom using Ctrl+X
+send "\x18"
+
+# Wait for microcom to exit
+expect eof
+
+exit 0

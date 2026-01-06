@@ -1,0 +1,167 @@
+# While running the program, the device locks up in the mainand the only way to get it to work again is to power cycle the device
+complexity_level: "simple"
+
+prompt_name: "Lockup_fix_1"
+date: "2026-01-06"
+branch: "feature/Lockup_fix_plan_1"
+
+title: "Develop a plan to fix the lockup issue"
+
+task: 
+ The software has been deployed using the fc1 script. see: /home/greg/iMatrix/iMatrix_Client/docs/fc1_script_reference.md
+ The host device is on address: 10.2.0.169
+ Use SSH to connect to the host device and review the logs. see: /home/greg/iMatrix/iMatrix_Client/docs/connecting_to_Fleet-Connect-1.md
+ The program has generated log files that are on the sytem. see: /home/greg/iMatrix/iMatrix_Client/docs/logging_system_use.md
+ This current investigation has been documented in /home/greg/iMatrix/iMatrix_Client/docs/loop_stuck_investigation.md
+ Develop a plan investigating the issue and provide a detailed plan to fix it.
+ current output from the deice is:
+ ```
+app>loopstatus
+
+==================== MAIN LOOP STATUS ====================
+
+--- System Timing ---
+Boot Time:           2026-01-06T04:17:12 UTC
+Uptime:              0d 9h 44m 37s (35077 sec)
+
+--- Loop Position ---
+Handler Position:    Before imx_process() (0)
+Time at Handler:     27710021 ms
+
+imx_process() Pos:   50
+Time at imx_proc:    27710021 ms
+
+do_everything() Pos: EXIT (19)
+Time at Position:    27710121 ms
+Loop Executions:     48228
+
+*** WARNING: Handler stuck at 'Before imx_process()' for 27710021 ms! ***
+*** Lock occurred at: 2026-01-06T06:19:59 UTC ***
+*** Time after boot:  2h 2m 47s (7367 sec after boot) ***
+*** BLOCKING IN: imatrix_upload() (position 50) ***
+==========================================================
+
+app>
+Switched to CLI mode
+>threads
+
+THREADS:
+TID      NAME                 STATUS      CREATED          CPU(us)  STACK   CREATOR
+-------- -------------------- ----------- ---------------- -------- ------- ------------------
+2797424004 tty_input            RUNNING     05:04:36.014     0        128    K imx_linux_btstack.c:344
+2797280644 nmea_gps             RUNNING     05:04:39.734     0        128    K quake_gps.c:808
+2797038980 can_process          RUNNING     05:04:42.887     0        128    K can_processing_thread.c:172
+2796895620 can_tcp_srv          RUNNING     05:04:43.008     0        128    K can_server.c:908
+2796608900 accel_proc           RUNNING     05:04:48.045     0        128    K accel_process.c:1457
+
+Total: 5 threads (5 active, 0 terminated)
+
+TIMERS:
+NAME                 INTERVAL STATUS      EXECUTIONS   AVG_TIME   MAX_TIME   LATE/MISS CREATOR
+-------------------- -------- ----------- ------------ ---------- ---------- --------- ------------------
+imx_process_handler  100ms    RUNNING     48228        51.0ms     6646.8ms   7520/0    linux_gateway.c:271 [CRITICAL]
+
+Total: 1 timers (1 active, 0 stalled)
+
+>threads -v
+
+===== THREADS =====
+
+Thread 1:
+  TID:             2797424004
+  Name:            tty_input
+  Status:          RUNNING
+  Created:         10 hr 14 min ago
+  Started:         10 hr 14 min ago
+  Creator:         /home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/imx_linux_btstack.c:344 (imx_btstack_init)
+  Stack Size:      131072 bytes
+  Detached:        Yes
+
+Thread 2:
+  TID:             2797280644
+  Name:            nmea_gps
+  Status:          RUNNING
+  Created:         10 hr 14 min ago
+  Started:         10 hr 14 min ago
+  Creator:         /home/greg/iMatrix/iMatrix_Client/iMatrix/quake/quake_gps.c:808 (quake_gps_init)
+  Stack Size:      131072 bytes
+  Detached:        Yes
+
+Thread 3:
+  TID:             2797038980
+  Name:            can_process
+  Status:          RUNNING
+  Created:         10 hr 14 min ago
+  Started:         10 hr 14 min ago
+  Creator:         /home/greg/iMatrix/iMatrix_Client/iMatrix/canbus/can_processing_thread.c:172 (start_can_processing_thread)
+  Stack Size:      131072 bytes
+  Detached:        Yes
+
+Thread 4:
+  TID:             2796895620
+  Name:            can_tcp_srv
+  Status:          RUNNING
+  Created:         10 hr 14 min ago
+  Started:         10 hr 14 min ago
+  Creator:         /home/greg/iMatrix/iMatrix_Client/iMatrix/canbus/can_server.c:908 (start_can_server)
+  Stack Size:      131072 bytes
+  Detached:        Yes
+
+Thread 5:
+  TID:             2796608900
+  Name:            accel_proc
+  Status:          RUNNING
+  Created:         10 hr 14 min ago
+  Started:         10 hr 14 min ago
+  Creator:         /home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/hal/accel_process.c:1457 (process_accel)
+  Stack Size:      131072 bytes
+  Detached:        Yes
+
+
+===== TIMERS =====
+
+Timer 1:
+  Name:            imx_process_handler
+  Status:          RUNNING
+  Interval:        100 ms
+  Registered:      10 hr 14 min ago
+  Creator:         /home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/linux_gateway.c:271 (imx_host_application_start)
+
+  Execution Stats:
+    Total Executions:    48228
+    Last Execution:      8 hr 11 min ago
+
+  Performance:
+    Avg Time:           51.018 ms
+    Min Time:           0.606 ms
+    Max Time:           6646.811 ms
+    Last Time:          11.673 ms
+
+  Health:
+    Late Count:         7520
+    Missed Count:       0
+    Max Delay:          6646 ms
+    Interval Range:     99-6746 ms
+
+  Critical:          Yes
+
+>
+ ```
+ 
+  Ask any questions you need to before starting the work.
+
+    Questions Before Implementation
+
+  1. Root Cause Investigation: Should we also investigate WHY the chain corruption occurs, or is preventing the infinite loop sufficient for now?
+  2. Recovery Strategy: When corruption is detected, should we:
+    - (a) Skip the corrupted sensor and continue
+    - (b) Reset the corrupted sensor's chain entirely
+    - (c) Both with configurable behavior
+  3. Testing Duration: How long should the fix be tested before merging?
+
+  Answers.
+  1. investigate WHY the chain corruption occurs, but for now, prevent the infinite loop and add logging regarding the chain corruption.
+  2. (b) Reset the corrupted sensor's chain entirely
+  3. 24 hrs minutes
+  We must determine the root cause of the chain corruption before we can fix it. review the logs in more detail and determine where additional logging should be added to track the root cause. 
+  

@@ -3838,5 +3838,213 @@
     "permission_mode": "bypassPermissions",
     "hook_event_name": "UserPromptSubmit",
     "prompt": "/new_dev main_loop_lockup"
+  },
+  {
+    "session_id": "b7531143-c29e-47d7-a61c-168d799dfc81",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/b7531143-c29e-47d7-a61c-168d799dfc81.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/fix_lockup.yaml"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/fix_lockup.yaml"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "now use the prompt"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "  Answers.\n  1. investigate WHY the chain corruption occurs, but for now, prevent the infinite loop and add logging regarding the chain corruption.\n  2. (b) Reset the corrupted sensor's chain entirely\n  3. 24 hrs minutes\n  We must determine the root cause of the chain corruption before we can fix it. review the logs in more detail and determine where additional logging should be added to track the root cause."
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "10.2.0.169 is online. maybe its a wsl issue - review"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "the device does not use telnet - the device uses ssh only"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "read the document /home/greg/iMatrix/iMatrix_Client/docs/ssh_access_to_Fleet_Connect.md the device uses port 22222"
+  },
+  {
+    "session_id": "544eb189-f003-4236-818a-4b7f8a6de0c2",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/544eb189-f003-4236-818a-4b7f8a6de0c2.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md"
+  },
+  {
+    "session_id": "544eb189-f003-4236-818a-4b7f8a6de0c2",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/544eb189-f003-4236-818a-4b7f8a6de0c2.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "continue"
+  },
+  {
+    "session_id": "544eb189-f003-4236-818a-4b7f8a6de0c2",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/544eb189-f003-4236-818a-4b7f8a6de0c2.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/add_direct_app_cli_access.yaml"
+  },
+  {
+    "session_id": "544eb189-f003-4236-818a-4b7f8a6de0c2",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/544eb189-f003-4236-818a-4b7f8a6de0c2.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "start work on the task"
+  },
+  {
+    "session_id": "544eb189-f003-4236-818a-4b7f8a6de0c2",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/544eb189-f003-4236-818a-4b7f8a6de0c2.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/build",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "deploy and test"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "both sytems are locked up review logs \\ app>loopstatus\n\n==================== MAIN LOOP STATUS ====================\n\n--- System Timing ---\nBoot Time:           2026-01-06T15:15:31 UTC\nUptime:              0d 1h 30m 44s (5444 sec)\n\n--- Loop Position ---\nHandler Position:    Before imx_process() (0)\nTime at Handler:     4752904 ms\n\nimx_process() Pos:   50\nTime at imx_proc:    4752904 ms\n\ndo_everything() Pos: EXIT (19)\nTime at Position:    4753004 ms\nLoop Executions:     4919\n\n*** WARNING: Handler stuck at 'Before imx_process()' for 4752904 ms! ***\n*** Lock occurred at: 2026-01-06T15:27:03 UTC ***\n*** Time after boot:  0h 11m 32s (692 sec after boot) ***\n*** BLOCKING IN: imatrix_upload() (position 50) ***\n=========================================================="
+  },
+  {
+    "session_id": "544eb189-f003-4236-818a-4b7f8a6de0c2",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/544eb189-f003-4236-818a-4b7f8a6de0c2.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "update the fc1 script to automatically deploy the tools needed"
+  },
+  {
+    "session_id": "544eb189-f003-4236-818a-4b7f8a6de0c2",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/544eb189-f003-4236-818a-4b7f8a6de0c2.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "yes"
+  },
+  {
+    "session_id": "544eb189-f003-4236-818a-4b7f8a6de0c2",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/544eb189-f003-4236-818a-4b7f8a6de0c2.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/iMatrix",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "create a very extensive document detailing how to connect to the device under etst and how to use ssh to access and download log files and how to use the fc1 script to send commands like loopstatus to the app cli, how do use the debug flags to set debug options that can provide output in the logs for debugging. reference /home/greg/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md to ptoved additional background. This document wil be used for developers debugging the Fleet-Connect-1 applcation"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "creaet a plan to use the document /home/greg/iMatrix/iMatrix_Client/docs/Developer_Debugging_Guide.md to login to each system every 10 minutes and check the status using the command \"app: loopstatus\" if the system is locked up then download the logs to deterimine the failure. create a plan to fix this and then repeat until the problem does not happen for 24 hrs. THe root cause of the issue must be determined , not just a corective action when the fault is detected."
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "continue"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "annoucne using tts each check and the result in a consise statement"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "lock up was detected on 10.2.0.169. WHat is the plan to find and fix"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "deply with the same plan, check every 5 minutes and notify me with tts for both devices, when failure detected you must immediately look and the logs and determine issue - confirm "
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "<bash-notification>\n<shell-id>bf45fb7</shell-id>\n<output-file>/tmp/claude/-home-greg-iMatrix-main-loop-lockup/tasks/bf45fb7.output</output-file>\n<status>failed</status>\n<summary>Background command \"Deploy FC-1 to device 78\" failed with exit code 1.</summary>\nRead the output file to retrieve the output.\n</bash-notification>"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "the two devices under test are located at address 10.2.0.169 and 10.2.0.`79"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "these device ue ssh not telent remove that idea. use this document: /home/greg/iMatrix/iMatrix_Client/docs/Developer_Debugging_Guide.md. Detail to me exactly the test plan"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "for each add a check run the command \"app loopstatus\" and verify that the device has not hung"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "permission_mode": "bypassPermissions",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "continue"
   }
 ]

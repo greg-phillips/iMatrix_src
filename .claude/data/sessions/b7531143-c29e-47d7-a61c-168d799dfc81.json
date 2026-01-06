@@ -1,0 +1,6 @@
+{
+  "session_id": "b7531143-c29e-47d7-a61c-168d799dfc81",
+  "prompts": [
+    "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/fix_lockup.yaml"
+  ]
+}

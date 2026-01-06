@@ -1,0 +1,13 @@
+{
+  "session_id": "544eb189-f003-4236-818a-4b7f8a6de0c2",
+  "prompts": [
+    "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md",
+    "continue",
+    "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/add_direct_app_cli_access.yaml",
+    "start work on the task",
+    "deploy and test",
+    "update the fc1 script to automatically deploy the tools needed",
+    "yes",
+    "create a very extensive document detailing how to connect to the device under etst and how to use ssh to access and download log files and how to use the fc1 script to send commands like loopstatus to the app cli, how do use the debug flags to set debug options that can provide output in the logs for debugging. reference /home/greg/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md to ptoved additional background. This document wil be used for developers debugging the Fleet-Connect-1 applcation"
+  ]
+}
