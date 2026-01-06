@@ -634,17 +634,17 @@ void imx_cli_log_printf(bool print_time, char *format, ...)
 
 2. **Backup existing binary**
    ```bash
-   sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "cp /usr/qk/etc/sv/FC-1/FC-1 /usr/qk/etc/sv/FC-1/FC-1.backup"
+   sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "cp /usr/qk/bin/FC-1 /usr/qk/bin/FC-1.backup"
    ```
 
 3. **Deploy new binary**
    ```bash
-   sshpass -p 'PasswordQConnect' scp -P 22222 FC-1 root@192.168.7.1:/usr/qk/etc/sv/FC-1/FC-1
+   sshpass -p 'PasswordQConnect' scp -P 22222 FC-1 root@192.168.7.1:/usr/qk/bin/FC-1
    ```
 
 4. **Set executable permissions**
    ```bash
-   sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "chmod +x /usr/qk/etc/sv/FC-1/FC-1"
+   sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "chmod +x /usr/qk/bin/FC-1"
    ```
 
 5. **Start FC-1 service**

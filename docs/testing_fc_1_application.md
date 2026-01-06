@@ -304,7 +304,7 @@ rm /etc/service/FC-1/down     # Enable auto-start
 ### Service Locations
 | Item | Path |
 |------|------|
-| FC-1 Binary | `/usr/qk/etc/sv/FC-1/FC-1` |
+| FC-1 Binary | `/usr/qk/bin/FC-1` |
 | Service Directory | `/usr/qk/etc/sv/FC-1/` |
 | Run Script | `/usr/qk/etc/sv/FC-1/run` |
 | Console Symlink | `/usr/qk/etc/sv/FC-1/console` (-> `/dev/pts/X`) |
@@ -430,10 +430,10 @@ sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "sv stop FC-1"
 # Copy new binary
 sshpass -p 'PasswordQConnect' scp -P 22222 \
     /home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/build/FC-1 \
-    root@192.168.7.1:/usr/qk/etc/sv/FC-1/FC-1
+    root@192.168.7.1:/usr/qk/bin/FC-1
 
 # Set permissions and start
-sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "chmod +x /usr/qk/etc/sv/FC-1/FC-1 && sv start FC-1"
+sshpass -p 'PasswordQConnect' ssh -p 22222 root@192.168.7.1 "chmod +x /usr/qk/bin/FC-1 && sv start FC-1"
 ```
 
 ## Troubleshooting

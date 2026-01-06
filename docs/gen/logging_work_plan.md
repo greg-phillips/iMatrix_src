@@ -278,7 +278,7 @@ These will be assessed and converted in subsequent work if needed. Lower priorit
 - [x] Build and verify zero errors/warnings
 
 ### Step 5: Testing
-- [ ] Run FC-1 directly: `/usr/qk/etc/sv/FC-1/FC-1`
+- [ ] Run FC-1 directly: `/usr/qk/bin/FC-1`
 - [ ] Verify no console output in quiet mode
 - [ ] Verify logs appear in `/var/log/fc-1.log`
 - [ ] Run with `-i` flag and verify console output
@@ -308,13 +308,13 @@ echo $?  # Should be 0
 ./scripts/fc1 push
 
 # Test quiet mode (no console output expected)
-ssh -p 22222 root@192.168.7.1 "/usr/qk/etc/sv/FC-1/FC-1 &"
+ssh -p 22222 root@192.168.7.1 "/usr/qk/bin/FC-1 &"
 
 # Check logs are being written
 ssh -p 22222 root@192.168.7.1 "tail -20 /var/log/fc-1.log"
 
 # Test interactive mode
-ssh -p 22222 root@192.168.7.1 "/usr/qk/etc/sv/FC-1/FC-1 -i"
+ssh -p 22222 root@192.168.7.1 "/usr/qk/bin/FC-1 -i"
 ```
 
 ## Questions for User (Resolved)

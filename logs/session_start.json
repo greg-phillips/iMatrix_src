@@ -530,5 +530,68 @@
     "cwd": "/home/greg/iMatrix/main_loop_lockup",
     "hook_event_name": "SessionStart",
     "source": "compact"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "1cbebc5f-910e-45eb-8832-bd46a9758976",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-Maintainer/1cbebc5f-910e-45eb-8832-bd46a9758976.jsonl",
+    "cwd": "/home/greg/iMatrix/Maintainer",
+    "hook_event_name": "SessionStart",
+    "source": "startup"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "hook_event_name": "SessionStart",
+    "source": "resume"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "hook_event_name": "SessionStart",
+    "source": "resume"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
   }
 ]

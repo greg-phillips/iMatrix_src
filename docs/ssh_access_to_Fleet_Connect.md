@@ -188,8 +188,8 @@ cat /var/log/fc-1.log
 
 | Path | Description |
 |------|-------------|
-| `/usr/qk/etc/sv/FC-1/FC-1` | Main application binary |
-| `/usr/qk/etc/sv/FC-1/` | Service directory (binary, run script, console) |
+| `/usr/qk/bin/FC-1` | Main application binary |
+| `/usr/qk/etc/sv/FC-1/` | Service directory (run script, console, details) |
 | `/usr/qk/etc/` | Application configuration |
 | `/var/log/fc-1.log` | Application log file (filesystem logger) |
 | `/var/log/FC-1/` | runit service logs (svlogd) |

@@ -57,7 +57,7 @@ cd /home/greg/iMatrix/iMatrix_Client/scripts
 
 This command will:
 1. Stop the running FC-1 service
-2. Copy the new binary to `/usr/qk/etc/sv/FC-1/FC-1`
+2. Copy the new binary to `/usr/qk/bin/FC-1`
 3. Start the FC-1 service
 
 ### Step 3: Verify Deployment

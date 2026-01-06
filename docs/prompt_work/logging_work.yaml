@@ -13,7 +13,7 @@ task: |
   Review all the other logging functions and convert them to use the imx_cli_log_printf() function.
   Code starts in: /home/greg/iMatrix/iMatrix_Client/iMatrix/imatrix_interface.c
   Build and deploy the sytem using the information from the testing_fc_1_application.md document.
-  run the program directly from the bash interface using: "/usr/qk/etc/sv/FC-1/FC-1" and monitor output to ensure that all the start up messages are being logged correctly to the log files and not the cli.
+  run the program directly from the bash interface using: "/usr/qk/bin/FC-1" and monitor output to ensure that all the start up messages are being logged correctly to the log files and not the cli.
   check the log files to ensure that all the start up messages are being logged correctly.
 
 ```

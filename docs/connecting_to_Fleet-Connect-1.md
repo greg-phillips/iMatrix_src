@@ -116,7 +116,7 @@ sshpass -p "PasswordQConnect" ssh -p 22222 root@192.168.7.1 "ls -la /usr/qk"
 
 ```bash
 # Upload to target (note: -P uppercase for scp)
-sshpass -p "PasswordQConnect" scp -P 22222 ./FC-1 root@192.168.7.1:/usr/qk/etc/sv/FC-1/
+sshpass -p "PasswordQConnect" scp -P 22222 ./FC-1 root@192.168.7.1:/usr/qk/bin/FC-1
 
 # Download from target
 sshpass -p "PasswordQConnect" scp -P 22222 root@192.168.7.1:/var/log/messages ./
@@ -156,10 +156,10 @@ source Profiler/config/target_connection.conf
 run_ssh "sv stop FC-1"
 
 # Upload new binary
-run_scp "./Fleet-Connect-1/build/FC-1" "$(get_target):/usr/qk/etc/sv/FC-1/"
+run_scp "./Fleet-Connect-1/build/FC-1" "$(get_target):/usr/qk/bin/FC-1"
 
 # Set permissions
-run_ssh "chmod +x /usr/qk/etc/sv/FC-1/FC-1"
+run_ssh "chmod +x /usr/qk/bin/FC-1"
 
 # Start the service
 run_ssh "sv start FC-1"

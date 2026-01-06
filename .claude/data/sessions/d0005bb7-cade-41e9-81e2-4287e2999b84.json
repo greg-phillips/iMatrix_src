@@ -17,6 +17,14 @@
     "the two devices under test are located at address 10.2.0.169 and 10.2.0.`79",
     "these device ue ssh not telent remove that idea. use this document: /home/greg/iMatrix/iMatrix_Client/docs/Developer_Debugging_Guide.md. Detail to me exactly the test plan",
     "for each add a check run the command \"app loopstatus\" and verify that the device has not hung",
-    "continue"
+    "continue",
+    "do check on both device now",
+    "yes",
+    "lock up detected take action",
+    "once the new version is deployed and running validate the the correct version is runing using the fc1 cmd \"v\" script to check the version number. the Running Product version should increment with each build and match teh value in /home/greg/iMatrix/main_loop_lockup/Fleet-Connect-1/linux_gateway_build.h",
+    "the version should be updated corectly on each load, locate the issue in the intitialiation of the device and fix it for future builds look into Fleet-Connect-1/init/imx_init_client.c",
+    "continue",
+    "contine",
+    "find all documents and scripts that refernce the incorrect path and correct them. provide a list"
   ]
 }
