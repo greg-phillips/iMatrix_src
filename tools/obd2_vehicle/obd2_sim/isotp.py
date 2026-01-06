@@ -18,6 +18,8 @@ except ImportError:
     can = None
 
 from .profile import ECUConfig
+from .can_id import (OBD2_RESPONSE_BASE, OBD2_EXT_RESPONSE_BASE,
+                     OBD2_PHYSICAL_REQUEST_BASE, OBD2_EXT_PHYSICAL_REQUEST_BASE)
 
 logger = logging.getLogger(__name__)
 
@@ -80,12 +82,56 @@ class ISOTPHandler:
         self._sessions: Dict[int, MultiFrameSession] = {}  # keyed by ECU response ID
         self._lock = threading.Lock()
 
+    def _get_tx_arbitration_id(self, ecu_response_id: int) -> int:
+        """
+        Get the correct CAN arbitration ID for transmission.
+
+        Converts 11-bit ECU response IDs to 29-bit format when in extended mode.
+
+        Args:
+            ecu_response_id: ECU response ID from profile (e.g., 0x7E8)
+
+        Returns:
+            Correct arbitration ID for current mode
+        """
+        if not self.extended:
+            return ecu_response_id
+
+        # Convert 11-bit response ID to 29-bit format
+        # 0x7E8 -> 0x18DAF100, 0x7E9 -> 0x18DAF101, etc.
+        if OBD2_RESPONSE_BASE <= ecu_response_id <= (OBD2_RESPONSE_BASE + 7):
+            ecu_index = ecu_response_id - OBD2_RESPONSE_BASE
+            return OBD2_EXT_RESPONSE_BASE | ecu_index
+
+        # Already extended or non-standard ID - use as-is
+        return ecu_response_id
+
+    def _normalize_fc_arbitration_id(self, arbitration_id: int) -> int:
+        """
+        Normalize incoming flow control ID to 11-bit format for session matching.
+
+        When in extended mode, converts 29-bit physical request IDs to 11-bit.
+
+        Args:
+            arbitration_id: Incoming flow control CAN ID
+
+        Returns:
+            Normalized 11-bit physical request ID
+        """
+        # Check if this is a 29-bit extended physical request ID
+        # Format: 0x18DAxxF1 where xx is target ECU (00-07)
+        if (arbitration_id & 0xFFFF00FF) == OBD2_EXT_PHYSICAL_REQUEST_BASE:
+            ecu_index = (arbitration_id >> 8) & 0xFF
+            return OBD2_PHYSICAL_REQUEST_BASE + ecu_index
+
+        return arbitration_id
+
     def send_single_frame(self, arbitration_id: int, data: bytes) -> bool:
         """
         Send a single-frame message.
 
         Args:
-            arbitration_id: CAN arbitration ID
+            arbitration_id: CAN arbitration ID (will be converted for extended mode)
             data: Frame data (already formatted with PCI)
 
         Returns:
@@ -95,20 +141,26 @@ class ISOTPHandler:
             logger.error(f"Single frame data too long: {len(data)}")
             return False
 
+        # Convert arbitration ID for extended mode if needed
+        tx_id = self._get_tx_arbitration_id(arbitration_id)
+
         # Ensure 8 bytes
         padded_data = bytearray(data)
         while len(padded_data) < 8:
             padded_data.append(0x00)
 
         msg = can.Message(
-            arbitration_id=arbitration_id,
+            arbitration_id=tx_id,
             data=bytes(padded_data),
             is_extended_id=self.extended,
         )
 
         try:
             self.can_bus.send(msg)
-            logger.debug(f"Sent SF to 0x{arbitration_id:03X}: {data.hex(' ').upper()}")
+            if self.extended:
+                logger.debug(f"Sent SF to 0x{tx_id:08X}: {data.hex(' ').upper()}")
+            else:
+                logger.debug(f"Sent SF to 0x{tx_id:03X}: {data.hex(' ').upper()}")
             return True
         except can.CanError as e:
             logger.error(f"Failed to send single frame: {e}")
@@ -179,15 +231,22 @@ class ISOTPHandler:
         st_byte = data[2]
         separation_time = self._decode_separation_time(st_byte)
 
+        # Normalize the incoming ID (convert 29-bit to 11-bit for matching)
+        normalized_id = self._normalize_fc_arbitration_id(arbitration_id)
+
         # Find matching session (arbitration_id is tester's physical ID)
         # We need to find which ECU session this FC is for
         with self._lock:
             for ecu_id, session in self._sessions.items():
-                if session.tester_id == arbitration_id and session.waiting_for_fc:
+                if session.tester_id == normalized_id and session.waiting_for_fc:
+                    logger.debug(f"Flow control received from 0x{arbitration_id:X} for ECU 0x{ecu_id:03X}")
                     self._process_flow_control(session, flow_status, block_size, separation_time)
                     return
 
-        logger.debug(f"No session waiting for FC from 0x{arbitration_id:03X}")
+        if self.extended:
+            logger.debug(f"No session waiting for FC from 0x{arbitration_id:08X}")
+        else:
+            logger.debug(f"No session waiting for FC from 0x{arbitration_id:03X}")
 
     def _process_flow_control(self, session: MultiFrameSession, flow_status: FlowStatus,
                               block_size: int, separation_time: float) -> None:
@@ -244,20 +303,26 @@ class ISOTPHandler:
 
     def _send_frame(self, arbitration_id: int, data: bytes) -> bool:
         """Send a single CAN frame."""
+        # Convert arbitration ID for extended mode if needed
+        tx_id = self._get_tx_arbitration_id(arbitration_id)
+
         # Ensure 8 bytes
         padded_data = bytearray(data)
         while len(padded_data) < 8:
             padded_data.append(0x00)
 
         msg = can.Message(
-            arbitration_id=arbitration_id,
+            arbitration_id=tx_id,
             data=bytes(padded_data[:8]),
             is_extended_id=self.extended,
         )
 
         try:
             self.can_bus.send(msg)
-            logger.debug(f"Sent to 0x{arbitration_id:03X}: {data.hex(' ').upper()}")
+            if self.extended:
+                logger.debug(f"Sent to 0x{tx_id:08X}: {data.hex(' ').upper()}")
+            else:
+                logger.debug(f"Sent to 0x{tx_id:03X}: {data.hex(' ').upper()}")
             return True
         except can.CanError as e:
             logger.error(f"Failed to send frame: {e}")

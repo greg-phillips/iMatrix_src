@@ -1,0 +1,18 @@
+{
+  "session_id": "dd2b098a-0487-4e66-9b74-c2607d7c3715",
+  "prompts": [
+    "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/GPS_errors_issue.yaml",
+    "let's do it",
+    "     1. Separate module for maintainability.\n     2. A\n     3. A new dedicated flag.\n     4. Reset on each boot.\n     5. Answer: Yes, convert internally.",
+    "Initialization Guard: The plan initializes on the first high-confidence fix ($HDOP < 2.0$). To prevent \"seeding\" the filter with a transient multipath point that happens to have a low HDOP, consider requiring 3 consecutive samples to be within $10\\text{m}$ of each other before setting the initial last_lat/last_lon.Hysteresis for Moving $\\to$ Stationary: The transition to STATIONARY requires 10 consecutive samples. However, ensure the transition from STATIONARY to MOVING is immediate (1 or 2 samples) to ensure trips aren't \"clipped\" at the start of a drive.",
+    "update the plan to reflect these changes",
+    "using /home/greg/iMatrix/iMatrix_Client/docs/testing_fc_1_application.md and /home/greg/iMatrix/iMatrix_Client/docs/fc1_script_reference.md and /home/greg/iMatrix/iMatrix_Client/docs/logging_system_use.md add to the plan a full testing procedure and validation",
+    "implement the testing and rework code if needed until 100% functional",
+    "deploy to the device on address 10.2.0.179",
+    "what has been the spent doing this development and total tokens used?",
+    "deploy to the device on address 10.2.0.169",
+    "update plan with details of outstanding test items",
+    "merge all changes back to the branches Aptera_1_Clean",
+    "push both to origin"
+  ]
+}

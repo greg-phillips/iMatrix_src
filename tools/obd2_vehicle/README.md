@@ -70,6 +70,87 @@ ip link show vcan0
 python3 -m obd2_sim --profile profiles/BMW_X3_2019.json --interface vcan0
 ```
 
+### Option C: Using USB PCAN Adapter (Hardware CAN Interface)
+
+For testing with real CAN hardware, you can use a PEAK-System PCAN-USB adapter. There are two approaches:
+
+#### Method 1: PCAN via SocketCAN Driver (Recommended for Linux)
+
+```bash
+# Load the peak_usb kernel driver
+sudo modprobe peak_usb
+
+# Plug in your PCAN-USB adapter - it will appear as can0 (or can1, can2, etc.)
+# Verify the interface is detected
+ip link show can0
+
+# Configure the CAN interface with 500kbps bitrate (standard OBD2)
+sudo ip link set can0 type can bitrate 500000
+sudo ip link set up can0
+
+# Run simulator with BMW X3 profile on hardware CAN interface
+python3 -m obd2_sim --profile profiles/BMW_X3_2019.json --interface can0
+
+# With TUI visualization for real-time monitoring
+python3 -m obd2_sim --profile profiles/BMW_X3_2019.json --interface can0 --tui
+```
+
+#### Method 2: PCAN Native Interface (Windows Only)
+
+On Windows, use PEAK's native PCAN driver.
+
+**Step 1: Install PCAN Driver**
+
+Download and install from PEAK-System: https://www.peak-system.com/Drivers.523.0.html
+
+**Step 2: Install Python Dependencies**
+
+Use `python3 -m pip` to ensure packages install for the correct Python version:
+
+```powershell
+python3 -m pip install python-can[pcan]
+python3 -m pip install rich   # Required for TUI mode
+```
+
+**Step 3: Verify PCAN Connection**
+
+Test that python-can can communicate with your adapter:
+
+```powershell
+python3 -c "import can; bus = can.Bus(interface='pcan', channel='PCAN_USBBUS1', bitrate=500000); print('PCAN OK'); bus.shutdown()"
+```
+
+**Step 4: Run the Simulator**
+
+```powershell
+# Basic usage with PCAN-USB
+python3 -m obd2_sim --profile profiles/BMW_X3_2019.json ^
+    --interface-type pcan --interface PCAN_USBBUS1 --bitrate 500000
+
+# With TUI for real-time monitoring
+python3 -m obd2_sim --profile profiles/BMW_X3_2019.json ^
+    --interface-type pcan --interface PCAN_USBBUS1 --bitrate 500000 --tui
+
+# With debug logging
+python3 -m obd2_sim --profile profiles/BMW_X3_2019.json ^
+    --interface-type pcan --interface PCAN_USBBUS1 --bitrate 500000 --log-level debug
+```
+
+**Common PCAN Channel Names:**
+
+| Channel | Description |
+|---------|-------------|
+| `PCAN_USBBUS1` | First PCAN-USB adapter |
+| `PCAN_USBBUS2` | Second PCAN-USB adapter |
+| `PCAN_PCIBUS1` | PCI CAN card |
+
+**Troubleshooting:**
+- Verify adapter works in PCAN-View first
+- Use `python3 -m pip` (not just `pip`) to ensure correct Python version
+- SocketCAN options (`vcan0`, `can0`) do not work on Windows
+
+**Note:** On Linux, always use Method 1 (SocketCAN) for PCAN adapters. The native PCAN interface type is for Windows only.
+
 ### Running Examples
 
 ```bash

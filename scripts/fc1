@@ -18,13 +18,18 @@ if [ "$1" = "-d" ] && [ -n "$2" ]; then
     shift 2
 fi
 
-# Remote script location
-REMOTE_SCRIPT="/tmp/fc1_service.sh"
+# Remote script location (persistent across reboots)
+REMOTE_SCRIPT_DIR="/usr/qk/etc/sv/FC-1"
+REMOTE_SCRIPT="${REMOTE_SCRIPT_DIR}/fc1_service.sh"
 LOCAL_SCRIPT="${SCRIPT_DIR}/fc1_service.sh"
 
 # Binary paths
 LOCAL_BINARY="${SCRIPT_DIR}/../Fleet-Connect-1/build/FC-1"
 REMOTE_BINARY="/usr/qk/bin/FC-1"
+
+# Run script configuration - single source of truth for binary path
+# All scripts and run files should reference this path
+REMOTE_RUN_SCRIPT="${REMOTE_SCRIPT_DIR}/run"
 
 # Expect tools paths
 # Deploy to /usr/qk/etc/sv/FC-1/expect/ which is persistent across reboots
@@ -98,9 +103,164 @@ check_target() {
 # Deploy script to target
 deploy_script() {
     echo "Deploying fc1_service.sh to target..."
+    # Create directory if it doesn't exist
+    eval $SSH_CMD "mkdir -p ${REMOTE_SCRIPT_DIR}"
     eval $SCP_CMD "$LOCAL_SCRIPT" "${TARGET_USER}@${TARGET_HOST}:${REMOTE_SCRIPT}"
     eval $SSH_CMD "chmod +x ${REMOTE_SCRIPT}"
     echo "Deployed to ${REMOTE_SCRIPT}"
+}
+
+##
+# @brief Validate that local fc1_service.sh has correct paths
+# @return 0 if valid, 1 if paths are wrong
+##
+validate_local_service_script() {
+    local errors=0
+
+    # Check FC1_BIN path in local script
+    local local_bin_path
+    local_bin_path=$(grep '^FC1_BIN=' "$LOCAL_SCRIPT" 2>/dev/null | cut -d'"' -f2)
+
+    if [ "$local_bin_path" != "$REMOTE_BINARY" ]; then
+        echo "[ERR] Local fc1_service.sh has wrong FC1_BIN path"
+        echo "      Found:    $local_bin_path"
+        echo "      Expected: $REMOTE_BINARY"
+        errors=1
+    fi
+
+    # Check exec path in create_run_script function
+    local exec_path
+    exec_path=$(grep '^exec /.*FC-1' "$LOCAL_SCRIPT" 2>/dev/null | head -1 | awk '{print $2}')
+
+    if [ -n "$exec_path" ] && [ "$exec_path" != "$REMOTE_BINARY" ]; then
+        echo "[ERR] Local fc1_service.sh create_run_script() has wrong exec path"
+        echo "      Found:    $exec_path"
+        echo "      Expected: $REMOTE_BINARY"
+        errors=1
+    fi
+
+    return $errors
+}
+
+##
+# @brief Validate and fix remote run script to use correct binary path
+# @return 0 on success (valid or fixed), 1 on failure
+##
+validate_remote_run_script() {
+    echo "Validating remote run script..."
+
+    # Check if run script exists
+    if ! run_remote "test -f ${REMOTE_RUN_SCRIPT}" 2>/dev/null; then
+        echo "[WARN] Run script missing at ${REMOTE_RUN_SCRIPT}"
+        echo "       Creating run script..."
+        create_remote_run_script
+        return $?
+    fi
+
+    # Check the exec path in the run script - look for exec followed by path to FC-1
+    local current_exec
+    current_exec=$(run_remote "grep 'exec.*/FC-1' ${REMOTE_RUN_SCRIPT} 2>/dev/null | grep -v '2>&1'" | awk '{print $2}')
+
+    if [ "$current_exec" = "$REMOTE_BINARY" ]; then
+        echo "[OK]  Run script references correct binary: $REMOTE_BINARY"
+        return 0
+    else
+        echo "[ERR] Run script has wrong binary path"
+        echo "      Found:    ${current_exec:-<not found>}"
+        echo "      Expected: $REMOTE_BINARY"
+        echo "      Fixing run script..."
+        create_remote_run_script
+        return $?
+    fi
+}
+
+##
+# @brief Create/recreate the remote run script with correct paths
+# @return 0 on success, 1 on failure
+##
+create_remote_run_script() {
+    echo "Creating run script at ${REMOTE_RUN_SCRIPT}..."
+
+    # Create run script using echo commands (more reliable through SSH)
+    run_remote "echo '#!/bin/sh' > ${REMOTE_RUN_SCRIPT}"
+    run_remote "echo 'exec 2>&1' >> ${REMOTE_RUN_SCRIPT}"
+    run_remote "echo '' >> ${REMOTE_RUN_SCRIPT}"
+    run_remote "echo 'export PATH=/usr/qk/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin:/opt:/opt/bin' >> ${REMOTE_RUN_SCRIPT}"
+    run_remote "echo '' >> ${REMOTE_RUN_SCRIPT}"
+    run_remote "echo 'printf \"Start FC-1 Gateway Service...\\n\"' >> ${REMOTE_RUN_SCRIPT}"
+    run_remote "echo '' >> ${REMOTE_RUN_SCRIPT}"
+    run_remote "echo 'cd /usr/qk/etc/sv/FC-1' >> ${REMOTE_RUN_SCRIPT}"
+    run_remote "echo '' >> ${REMOTE_RUN_SCRIPT}"
+    run_remote "echo 'exec ${REMOTE_BINARY}' >> ${REMOTE_RUN_SCRIPT}"
+
+    run_remote "chmod +x ${REMOTE_RUN_SCRIPT}"
+
+    # Verify
+    local verify_exec
+    verify_exec=$(run_remote "grep 'exec.*/FC-1' ${REMOTE_RUN_SCRIPT} 2>/dev/null | grep -v '2>&1'" | awk '{print $2}')
+
+    if [ "$verify_exec" = "$REMOTE_BINARY" ]; then
+        echo "[OK]  Run script created with correct binary path"
+        return 0
+    else
+        echo "[ERR] Failed to create run script correctly"
+        echo "      Got: ${verify_exec:-<empty>}"
+        return 1
+    fi
+}
+
+##
+# @brief Validate all paths and configurations before/after push
+# @return 0 if all valid, 1 if errors found
+##
+validate_all_paths() {
+    local errors=0
+
+    echo ""
+    echo "========================================"
+    echo " Path Validation"
+    echo "========================================"
+
+    # 1. Validate local service script
+    echo ""
+    echo "Checking local fc1_service.sh..."
+    if ! validate_local_service_script; then
+        echo ""
+        echo "Please fix the local fc1_service.sh script."
+        echo "FC1_BIN should be: $REMOTE_BINARY"
+        errors=1
+    else
+        echo "[OK]  Local fc1_service.sh paths are correct"
+    fi
+
+    # 2. Validate remote binary exists
+    echo ""
+    echo "Checking remote binary..."
+    if run_remote "test -x ${REMOTE_BINARY}" 2>/dev/null; then
+        echo "[OK]  Binary exists at ${REMOTE_BINARY}"
+    else
+        echo "[WARN] Binary not found at ${REMOTE_BINARY}"
+    fi
+
+    # 3. Validate remote run script
+    echo ""
+    if ! validate_remote_run_script; then
+        errors=1
+    fi
+
+    # 4. Check for down file
+    echo ""
+    echo "Checking auto-start status..."
+    if run_remote "test -f ${REMOTE_SCRIPT_DIR}/down" 2>/dev/null; then
+        echo "[WARN] Down file exists - service will not auto-start"
+    else
+        echo "[OK]  Auto-start enabled (no down file)"
+    fi
+
+    echo ""
+    echo "========================================"
+
+    return $errors
 }
 
 # Push built binary to target
@@ -110,6 +270,17 @@ push_binary() {
     if [ "$1" = "-run" ]; then
         start_service=true
     fi
+
+    # Pre-flight validation of local scripts
+    echo "Pre-flight validation..."
+    if ! validate_local_service_script; then
+        echo ""
+        echo "ERROR: Local fc1_service.sh has incorrect paths."
+        echo "Please fix before pushing to avoid configuration mismatch."
+        exit 1
+    fi
+    echo "[OK]  Local scripts validated"
+    echo ""
 
     if [ ! -f "$LOCAL_BINARY" ]; then
         echo "Error: Binary not found at $LOCAL_BINARY"
@@ -127,10 +298,22 @@ push_binary() {
     echo "Setting permissions..."
     run_remote "chmod +x ${REMOTE_BINARY}"
 
+    # Validate and fix remote run script if needed
+    echo ""
+    validate_remote_run_script
+
+    # Deploy updated service script to ensure consistency
+    echo ""
+    deploy_script
+
     if [ "$start_service" = true ]; then
+        echo ""
         echo "Starting FC-1 service..."
         run_remote "sv start FC-1"
+        sleep 2
+        run_remote "sv status FC-1"
     else
+        echo ""
         echo "FC-1 service left stopped (use 'push -run' to auto-start)"
     fi
 
@@ -544,6 +727,7 @@ show_help() {
     echo "  deploy      Deploy service script to target (checks OS version first)"
     echo "  push        Push built FC-1 binary to target (checks OS version first)"
     echo "  push -run   Push binary and start FC-1 service"
+    echo "  validate    Validate all paths and scripts (local and remote)"
     echo "  upgrade     Check and upgrade target OS to ${LATEST_OS_VERSION}"
     echo "  fix-eth0    Fix eth0 IP address if USB ethernet is down"
     echo "  ssh         Open SSH session to target"
@@ -604,6 +788,10 @@ case "$1" in
         shift
         push_binary "$@"
         ;;
+    validate)
+        check_target
+        validate_all_paths
+        ;;
     upgrade)
         check_target
         if check_os_version; then
@@ -638,7 +826,14 @@ case "$1" in
     fix-eth0)
         check_target
         echo "Fixing eth0 on target..."
-        run_remote "ip addr flush dev eth0; ip addr add 192.168.7.1/24 dev eth0; ip link set eth0 up"
+        if ! run_remote "ip addr flush dev eth0; ip addr add 192.168.7.1/24 dev eth0; ip link set eth0 up"; then
+            echo ""
+            echo "ERROR: Failed to fix eth0 remotely."
+            echo ""
+            echo "Suggested action - run manually on the target device:"
+            echo "  ip addr flush dev eth0; ip addr add 192.168.7.1/24 dev eth0; ip link set eth0 up"
+            exit 1
+        fi
         echo "Done. Verifying:"
         run_remote "ip addr show eth0 | grep inet"
         ;;

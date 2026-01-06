@@ -123,6 +123,7 @@ core.*
 .env
 .env.local
 .env.*.local
+Working Copy of .env
 
 # Gradle files (from Android project)
 .gradle/

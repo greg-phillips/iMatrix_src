@@ -1,7 +1,7 @@
 # FC-1 Remote Control Script Reference
 
-**Date**: 2026-01-02
-**Document Version**: 1.0
+**Date**: 2026-01-05
+**Document Version**: 1.1
 **Author**: Development Team
 **Status**: Production
 
@@ -209,15 +209,13 @@ scripts/
 Host Machine                              Gateway (192.168.7.1:22222)
 ┌────────────────┐                       ┌─────────────────────────────┐
 │  ./fc1 <cmd>   │                       │                             │
-│       │        │                       │  /tmp/fc1_service.sh        │
-│       ▼        │                       │  (service control)          │
-│  SSH/SCP       │ ──────────────────>   │                             │
+│       │        │                       │  /usr/qk/etc/sv/FC-1/       │
+│       ▼        │                       │  ├── fc1_service.sh         │
+│  SSH/SCP       │ ──────────────────>   │  ├── console (PTY symlink)  │
+│                │                       │  └── expect/ (CLI tools)    │
+│                │                       │                             │
 │                │                       │  /usr/qk/bin/FC-1           │
 │                │                       │  (application binary)       │
-│                │                       │                             │
-│                │                       │  /usr/qk/etc/sv/FC-1/       │
-│                │                       │  ├── console (PTY symlink)  │
-│                │                       │  └── expect/ (CLI tools)    │
 └────────────────┘                       └─────────────────────────────┘
 ```
 
@@ -257,7 +255,10 @@ TARGET_PASS="PasswordQConnect"
 | `LOCAL_BINARY` | `Fleet-Connect-1/build/FC-1` |
 | `REMOTE_BINARY` | `/usr/qk/bin/FC-1` |
 | `REMOTE_EXPECT_DIR` | `/usr/qk/etc/sv/FC-1/expect` |
-| `REMOTE_SCRIPT` | `/tmp/fc1_service.sh` |
+| `REMOTE_SCRIPT` | `/usr/qk/etc/sv/FC-1/fc1_service.sh` |
+
+> **Note:** The service script is stored in a persistent location (`/usr/qk/etc/sv/FC-1/`)
+> that survives reboots. The directory is created automatically during deployment if it doesn't exist.
 
 ### Using Different Targets
 
@@ -431,6 +432,7 @@ whoami
 |------|------|
 | FC-1 Binary | `/usr/qk/bin/FC-1` |
 | Service Directory | `/usr/qk/etc/sv/FC-1/` |
+| Service Script | `/usr/qk/etc/sv/FC-1/fc1_service.sh` |
 | Console Symlink | `/usr/qk/etc/sv/FC-1/console` |
 | Expect Tools | `/usr/qk/etc/sv/FC-1/expect/` |
 | Details File | `/usr/qk/etc/sv/FC-1/FC-1_details.txt` |

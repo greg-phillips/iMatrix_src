@@ -1,0 +1,10 @@
+{
+  "session_id": "627a2bec-4fa6-4dc1-9013-70c38f0b91b4",
+  "prompts": [
+    "read /home/greg/iMatrix/iMatrix_Client/docs/gen/GPS_logging_issue_plan.md and then review log file /home/greg/iMatrix/iMatrix_Client/tools/142994297-1767554644733.geojson and explain why the data contains data like this \\         \"coordinates\": [\n          0,\n          9.183549615799121e-41\n        ] \\ this shold never have been considered valid data.",
+    "review all code and create a plan to enforce validation on all levels",
+    "if the NMEA parsing rejects garbage at the source then the data will never be seen as valid and so are the other layers needed?",
+    "yes, just do the upload layer",
+    "update all documents and commit this "
+  ]
+}

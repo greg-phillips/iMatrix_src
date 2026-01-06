@@ -1,0 +1,11 @@
+{
+  "session_id": "a5da2472-fd81-458e-a66e-0981639cf6d6",
+  "prompts": [
+    "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/program_not_running.yaml",
+    "yes please investigate",
+    "i have run the command: sudo ip route del 10.2.0.0/24 dev eth5",
+    "option 2",
+    "yes",
+    "update the push function of the script to validate all paths and script path reference to ensure this does not occur again. if any are worng correctl them"
+  ]
+}

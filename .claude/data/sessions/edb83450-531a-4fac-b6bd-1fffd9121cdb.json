@@ -1,0 +1,8 @@
+{
+  "session_id": "edb83450-531a-4fac-b6bd-1fffd9121cdb",
+  "prompts": [
+    "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/program_loop.yaml",
+    "go ahead and investigate the issue",
+    "verified, complete "
+  ]
+}

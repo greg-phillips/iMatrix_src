@@ -1,0 +1,16 @@
+# Review the why the program is not creating a log file and provide a plan to fix it
+complexity_level: "simple"
+
+prompt_name: "review_not_creating_log_file"
+date: "2026-01-05"
+branch: "feature/review_not_creating_log_file"
+
+title: "Review the why the program is not creating a log file and provide a plan to fix it"
+
+task: 
+ The software has been deployed using the fc1 script. see: /home/greg/iMatrix/iMatrix_Client/docs/fc1_script_reference.md
+ The host device is on address: 10.2.0.179
+ Use SSH to connect to the host device and review the logs. see: /home/greg/iMatrix/iMatrix_Client/docs/connecting_to_Fleet-Connect-1.md
+ The program is not creating a log file after log cycling. see: /home/greg/iMatrix/iMatrix_Client/docs/logging_system_use.md
+ 
+  Ask any questions you need to before starting the work.

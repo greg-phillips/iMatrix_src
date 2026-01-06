@@ -126,5 +126,37 @@
     "hook_event_name": "Notification",
     "message": "Claude Code needs your attention",
     "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "4caa1c9c-b7f1-4737-bbc4-b8896cd0f354",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/4caa1c9c-b7f1-4737-bbc4-b8896cd0f354.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "hook_event_name": "Notification",
+    "message": "Claude Code needs your attention",
+    "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "4caa1c9c-b7f1-4737-bbc4-b8896cd0f354",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/4caa1c9c-b7f1-4737-bbc4-b8896cd0f354.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "hook_event_name": "Notification",
+    "message": "Claude Code needs your attention",
+    "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "dd2b098a-0487-4e66-9b74-c2607d7c3715",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/dd2b098a-0487-4e66-9b74-c2607d7c3715.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
+  },
+  {
+    "session_id": "dd2b098a-0487-4e66-9b74-c2607d7c3715",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/dd2b098a-0487-4e66-9b74-c2607d7c3715.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
   }
 ]

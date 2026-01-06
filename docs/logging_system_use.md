@@ -1,9 +1,10 @@
 # FC-1 Filesystem Logging System
 
-**Document Version**: 1.0
-**Date**: 2025-12-30
+**Document Version**: 1.1
+**Date**: 2026-01-06
 **Author**: Claude Code
 **Status**: Approved
+**Last Updated**: 2026-01-06
 
 ## Overview
 
@@ -322,4 +323,30 @@ ps aux | grep FC-1
 
 ---
 
-*Last Updated: 2025-12-30*
+## Changelog
+
+### Version 1.1 (2026-01-06)
+
+**Bug Fix: Log file missing after rotation**
+
+Fixed a race condition in the log rotation logic where `/var/log/fc-1.log` would not exist after rotation. The issue was caused by the background thread renaming the NEW file instead of the old one.
+
+**Root Cause**: The async rotation design opened a new file at `fc-1.log`, then signaled a background thread to rename the path. By the time the background thread ran, the path pointed to the new file, which got renamed to the dated name, leaving no `fc-1.log`.
+
+**Fix**: Changed to synchronous rotation - close current file, rename to dated name, then open new file. This ensures `fc-1.log` always exists while logging is active.
+
+**Files Changed**: `iMatrix/cli/filesystem_logger.c`
+
+**Commit**: `3779816c`
+
+### Version 1.0 (2025-12-30)
+
+- Initial implementation of filesystem logging system
+- Automatic log rotation (daily, on restart, at size limit)
+- Retention policy (5 days or 100MB total)
+- Background thread for retention cleanup
+- Thread-safe operation
+
+---
+
+*Last Updated: 2026-01-06*

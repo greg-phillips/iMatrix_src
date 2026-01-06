@@ -6,7 +6,7 @@
 # Usage: ./fc1_service.sh [start|stop|restart|status|run|log]
 #
 
-FC1_BIN="/home/FC-1"
+FC1_BIN="/usr/qk/bin/FC-1"
 FC1_SV_DIR="/usr/qk/etc/sv/FC-1"
 FC1_RUN_SCRIPT="${FC1_SV_DIR}/run"
 FC1_DOWN_FILE="${FC1_SV_DIR}/down"
@@ -77,7 +77,7 @@ printf "Start FC-1 Gateway Service...\n"
 
 cd /usr/qk/etc/sv/FC-1
 
-exec /home/FC-1
+exec /usr/qk/bin/FC-1
 RUNEOF
     chmod +x "$FC1_RUN_SCRIPT"
     echo "Run script created."

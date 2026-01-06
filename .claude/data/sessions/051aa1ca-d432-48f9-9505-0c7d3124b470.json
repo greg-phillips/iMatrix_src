@@ -1,0 +1,10 @@
+{
+  "session_id": "051aa1ca-d432-48f9-9505-0c7d3124b470",
+  "prompts": [
+    "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/review_OBD2_processing.yaml",
+    "go ahead",
+    "yes an show me the code before changing it",
+    "commit it",
+    "push it"
+  ]
+}

@@ -1,0 +1,17 @@
+# Review the OBD2 processing code
+complexity_level: "simple"
+
+prompt_name: "review_OBD2_processing"
+date: "2026-01-04"
+branch: "feature/review_OBD2_processing"
+
+title: "Review the OBD2 processing code"
+
+task: 
+  Review the OBD2 processing code in the FC-1 application.
+  The code is located in the file: Fleet-Connect-1/OBD2
+
+  Review the code and see if there are any issues.
+  Report any issues, check addresses used for requests and responses.
+
+  Ask any questions you need to before starting the work.

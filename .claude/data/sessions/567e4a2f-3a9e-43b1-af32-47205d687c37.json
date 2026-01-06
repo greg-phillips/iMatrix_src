@@ -1,0 +1,6 @@
+{
+  "session_id": "567e4a2f-3a9e-43b1-af32-47205d687c37",
+  "prompts": [
+    "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/GPS_errors_issue.yaml"
+  ]
+}

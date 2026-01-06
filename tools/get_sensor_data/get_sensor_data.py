@@ -1292,6 +1292,7 @@ def prompt_for_date_range() -> Tuple[int, int]:
     print("\n📅 Date/time range required for data download")
     print("\nSupported formats:")
     print("  • Press Enter for last 24 hours (default)")
+    print("  • Negative number: -60 (last 60 minutes from now)")
     print("  • Epoch milliseconds: 1736899200000")
     print("  • Date only: 01/15/25 (assumes midnight to midnight)")
     print("  • Date and time: 01/15/25 14:30")
@@ -1301,7 +1302,7 @@ def prompt_for_date_range() -> Tuple[int, int]:
     start_attempts = 0
     while start_attempts < 3:
         try:
-            start_input = input("📅 Enter start date/time (or Enter for last 24h): ").strip()
+            start_input = input("📅 Enter start date/time (or Enter for last 24h, or -N for last N minutes): ").strip()
 
             if start_input.lower() in ['q', 'quit']:
                 print("👋 Cancelled by user")
@@ -1317,6 +1318,27 @@ def prompt_for_date_range() -> Tuple[int, int]:
                 duration_hours = 24.0
                 print(f"📊 Date range: {duration_hours:.1f} hours")
                 return start_ms, end_ms
+
+            # Handle negative number input - relative minutes from now
+            if start_input.startswith('-'):
+                try:
+                    minutes = int(start_input)  # Will be negative
+                    if minutes >= 0:
+                        raise ValueError("Must be a negative number")
+                    minutes = abs(minutes)
+                    end_ms = int(datetime.now().timestamp() * 1000)
+                    start_ms = end_ms - (minutes * 60 * 1000)  # minutes to ms
+                    print(f"✅ Using last {minutes} minutes:")
+                    print(f"   Start: {format_timestamp(start_ms)}")
+                    print(f"   End:   {format_timestamp(end_ms)}")
+                    duration_hours = minutes / 60.0
+                    if duration_hours >= 1:
+                        print(f"📊 Date range: {duration_hours:.1f} hours")
+                    else:
+                        print(f"📊 Date range: {minutes} minutes")
+                    return start_ms, end_ms
+                except ValueError:
+                    raise ValueError(f"Invalid relative time: {start_input}. Use -N where N is minutes (e.g., -60)")
 
             start_ms = parse_date_input(start_input, default_to_end_of_day=False)
             start_formatted = format_timestamp(start_ms)

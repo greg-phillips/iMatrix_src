@@ -1,0 +1,22 @@
+# Save the VIN, serial number, and MAC address to a file.
+complexity_level: "simple"
+
+prompt_name: "save_vin_serial_number_and_mac"
+date: "2026-01-04"
+branch: "feature/save_vin_serial_number_and_mac"
+
+title: "Save the VIN, serial number, and MAC address to a file."
+
+task: 
+  Save the VIN, serial number, and MAC address to a file.
+  The file name is: /var/vin_serial_number_and_mac.txt
+  The file content is:
+  VIN: 1234567890
+  Serial Number: 1234567890
+  MAC Address: 1234567890, 1234567890, 1234567890,
+  Add a new "app" cli command, save_vin_serial_number_and_mac, to save the VIN, serial number, and MAC address to a file.
+  The CLI has two commands that enter this information, the serial number and MAC address use the QR command. The VIN is entered using the vin command which is part of the app cli.
+  When either of these commands are run update the contents of the file.
+  When the initialization code is run and a new configuration is loaded, set the values for these items from the vlaues in the file.
+  
+  Ask any questions you need to before starting the work.

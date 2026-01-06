@@ -1,0 +1,715 @@
+2026-01-04 17:59:08.850 [INFO    ] obd2_sim: OBD2 Vehicle Simulator v1.0.0
+2026-01-04 17:59:08.851 [INFO    ] obd2_sim: Profile: profiles/BMW_X3_2019.json
+2026-01-04 17:59:08.852 [INFO    ] obd2_sim: Interface: PCAN_USBBUS1
+2026-01-04 17:59:08.852 [DEBUG   ] obd2_sim.profile: Loading profile from: profiles\BMW_X3_2019.json
+2026-01-04 17:59:08.869 [DEBUG   ] obd2_sim.profile: Loaded profile: BMW_X3_2019 (v1.0)
+2026-01-04 17:59:08.870 [DEBUG   ] obd2_sim.profile: Built lookup tables: 23 response entries
+2026-01-04 17:59:08.871 [INFO    ] obd2_sim: Loaded profile: BMW_X3_2019
+2026-01-04 17:59:08.872 [INFO    ] obd2_sim:   VIN: 5UXTS3C5XK0Z02656
+2026-01-04 17:59:08.873 [INFO    ] obd2_sim:   ECUs: 3
+2026-01-04 17:59:08.873 [INFO    ] obd2_sim:   Operating Mode: unknown
+2026-01-04 17:59:08.874 [INFO    ] obd2_sim.simulator: OBD2Simulator initialized for profile: BMW_X3_2019
+2026-01-04 17:59:08.874 [INFO    ] obd2_sim: Starting simulator...
+2026-01-04 17:59:08.875 [INFO    ] obd2_sim.simulator: Starting OBD2 simulator...
+2026-01-04 17:59:09.043 [INFO    ] obd2_sim.simulator: CAN bus initialized: PCAN_USBBUS1 @ 500000 bps
+2026-01-04 17:59:09.044 [DEBUG   ] obd2_sim.broadcast: BroadcastGenerator initialized with 4 messages
+2026-01-04 17:59:09.045 [DEBUG   ] obd2_sim.simulator: All components initialized
+2026-01-04 17:59:09.046 [DEBUG   ] obd2_sim.simulator: Receive loop started
+2026-01-04 17:59:09.047 [DEBUG   ] obd2_sim.broadcast: Started broadcast 0x003C @ 100ms
+2026-01-04 17:59:09.047 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 17:59:09.048 [DEBUG   ] obd2_sim.broadcast: Started broadcast 0x0130 @ 100ms
+2026-01-04 17:59:09.049 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:09.050 [DEBUG   ] obd2_sim.broadcast: Started broadcast 0x0799 @ 500ms
+2026-01-04 17:59:09.050 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:09.051 [DEBUG   ] obd2_sim.broadcast: Started broadcast 0x07C1 @ 1000ms
+2026-01-04 17:59:09.052 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:09.052 [INFO    ] obd2_sim.broadcast: Started 4 broadcast generators
+2026-01-04 17:59:09.053 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 17:59:09.054 [INFO    ] obd2_sim.simulator: Simulator started on PCAN_USBBUS1
+2026-01-04 17:59:09.055 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:09.055 [INFO    ] obd2_sim.simulator: Operating mode: unknown
+2026-01-04 17:59:09.056 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:09.057 [INFO    ] obd2_sim.simulator: ECUs configured: 3
+2026-01-04 17:59:09.057 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:09.058 [INFO    ] obd2_sim: Simulator running. Press Ctrl+C to stop.
+2026-01-04 17:59:09.058 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 17:59:10.682 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 17:59:10.683 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:10.684 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:10.685 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:10.686 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 17:59:10.687 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:10.688 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:10.688 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:10.689 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 17:59:12.853 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 17:59:12.855 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:12.856 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:12.857 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:12.858 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 17:59:12.859 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:12.860 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:12.861 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:12.861 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 17:59:15.034 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 17:59:15.035 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:15.036 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:15.037 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:15.038 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 17:59:15.038 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:15.039 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:15.040 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:15.041 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 17:59:17.529 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 17:59:17.530 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:17.531 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:17.531 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:17.532 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 17:59:17.532 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:17.533 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:17.533 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:17.534 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 17:59:19.669 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 17:59:19.670 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:19.672 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:19.672 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:19.673 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 17:59:19.674 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:19.675 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:19.676 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:19.676 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 17:59:21.852 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 17:59:21.853 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:21.854 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:21.855 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:21.856 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 17:59:21.857 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:21.858 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:21.858 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:21.859 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 17:59:23.999 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 17:59:24.000 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:24.001 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:24.002 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:24.004 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 17:59:24.005 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:24.006 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:24.007 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:24.008 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 17:59:26.181 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 17:59:26.182 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:26.183 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:26.184 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:26.185 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 17:59:26.185 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:26.186 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:26.186 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:26.187 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 17:59:28.320 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 17:59:28.321 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:28.322 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 17:59:28.323 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:28.324 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 17:59:28.325 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:28.326 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 17:59:28.326 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 17:59:28.327 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 17:59:29.817 [INFO    ] obd2_sim: Received signal 2, shutting down...
+2026-01-04 17:59:29.819 [INFO    ] obd2_sim.simulator: Stopping OBD2 simulator...
+2026-01-04 17:59:29.819 [INFO    ] obd2_sim.broadcast: Stopped broadcast generators
+2026-01-04 17:59:29.830 [DEBUG   ] obd2_sim.simulator: Receive loop stopped
+2026-01-04 17:59:30.007 [INFO    ] obd2_sim.simulator: === Simulator Statistics ===
+2026-01-04 17:59:30.008 [INFO    ] obd2_sim.simulator:   Uptime: 21.0 seconds
+2026-01-04 17:59:30.009 [INFO    ] obd2_sim.simulator:   Requests received: 10
+2026-01-04 17:59:30.010 [INFO    ] obd2_sim.simulator:   Responses sent: 10
+2026-01-04 17:59:30.010 [INFO    ] obd2_sim.simulator:   Multi-frame sessions: 10
+2026-01-04 17:59:30.011 [INFO    ] obd2_sim.simulator:   Errors: 0
+2026-01-04 17:59:30.012 [INFO    ] obd2_sim.simulator: Simulator stopped
+2026-01-04 17:59:30.074 [INFO    ] obd2_sim: Simulator stopped
+2026-01-04 18:00:16.624 [INFO    ] obd2_sim: OBD2 Vehicle Simulator v1.0.0
+2026-01-04 18:00:16.625 [INFO    ] obd2_sim: Profile: profiles/BMW_X3_2019.json
+2026-01-04 18:00:16.626 [INFO    ] obd2_sim: Interface: PCAN_USBBUS1
+2026-01-04 18:00:16.626 [DEBUG   ] obd2_sim.profile: Loading profile from: profiles\BMW_X3_2019.json
+2026-01-04 18:00:16.644 [DEBUG   ] obd2_sim.profile: Loaded profile: BMW_X3_2019 (v1.0)
+2026-01-04 18:00:16.645 [DEBUG   ] obd2_sim.profile: Built lookup tables: 23 response entries
+2026-01-04 18:00:16.645 [INFO    ] obd2_sim: Loaded profile: BMW_X3_2019
+2026-01-04 18:00:16.646 [INFO    ] obd2_sim:   VIN: 5UXTS3C5XK0Z02656
+2026-01-04 18:00:16.647 [INFO    ] obd2_sim:   ECUs: 3
+2026-01-04 18:00:16.647 [INFO    ] obd2_sim:   Operating Mode: unknown
+2026-01-04 18:00:16.648 [INFO    ] obd2_sim.simulator: OBD2Simulator initialized for profile: BMW_X3_2019
+2026-01-04 18:00:16.649 [INFO    ] obd2_sim: Starting simulator...
+2026-01-04 18:00:16.650 [INFO    ] obd2_sim.simulator: Starting OBD2 simulator...
+2026-01-04 18:00:16.815 [INFO    ] obd2_sim.simulator: CAN bus initialized: PCAN_USBBUS1 @ 500000 bps
+2026-01-04 18:00:16.816 [DEBUG   ] obd2_sim.broadcast: BroadcastGenerator initialized with 4 messages
+2026-01-04 18:00:16.817 [DEBUG   ] obd2_sim.simulator: All components initialized
+2026-01-04 18:00:16.818 [DEBUG   ] obd2_sim.simulator: Receive loop started
+2026-01-04 18:00:16.818 [DEBUG   ] obd2_sim.broadcast: Started broadcast 0x003C @ 100ms
+2026-01-04 18:00:16.820 [DEBUG   ] obd2_sim.broadcast: Started broadcast 0x0130 @ 100ms
+2026-01-04 18:00:16.821 [DEBUG   ] obd2_sim.broadcast: Started broadcast 0x0799 @ 500ms
+2026-01-04 18:00:16.822 [DEBUG   ] obd2_sim.broadcast: Started broadcast 0x07C1 @ 1000ms
+2026-01-04 18:00:16.823 [INFO    ] obd2_sim.broadcast: Started 4 broadcast generators
+2026-01-04 18:00:16.824 [INFO    ] obd2_sim.simulator: Simulator started on PCAN_USBBUS1
+2026-01-04 18:00:16.825 [INFO    ] obd2_sim.simulator: Operating mode: unknown
+2026-01-04 18:00:16.825 [INFO    ] obd2_sim.simulator: ECUs configured: 3
+2026-01-04 18:00:16.826 [INFO    ] obd2_sim: Simulator running. Press Ctrl+C to stop.
+2026-01-04 18:00:18.147 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:18.148 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:18.149 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:18.150 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:18.151 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:18.153 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:18.153 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:18.155 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:18.156 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:20.338 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:20.340 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:20.341 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:20.342 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:20.343 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:20.344 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:20.345 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:20.345 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:20.346 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:22.577 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:22.578 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:22.579 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:22.580 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:22.580 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:22.581 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:22.582 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:22.583 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:22.583 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:24.882 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:24.883 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:24.884 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:24.885 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:24.886 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:24.887 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:24.888 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:24.888 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:24.889 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:27.043 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:27.044 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:27.045 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:27.046 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:27.047 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:27.049 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:27.050 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:27.051 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:27.051 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:29.234 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:29.235 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:29.236 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:29.237 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:29.238 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:29.240 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:29.241 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:29.242 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:29.243 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:31.461 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:31.462 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:31.463 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:31.464 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:31.465 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:31.465 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:31.466 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:31.467 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:31.467 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:33.646 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:33.647 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:33.648 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:33.649 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:33.649 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:33.650 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:33.651 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:33.651 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:33.652 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:35.820 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:35.821 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:35.823 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:35.824 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:35.825 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:35.825 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:35.826 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:35.827 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:35.828 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:37.988 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:37.989 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:37.990 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:37.991 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:37.992 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:37.992 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:37.993 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:37.994 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:37.994 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:40.161 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:40.162 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:40.162 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:40.163 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:40.164 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:40.164 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:40.165 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:40.166 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:40.166 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:42.452 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:42.453 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:42.454 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:42.455 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:42.456 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:42.457 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:42.458 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:42.458 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:42.459 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:44.608 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:44.610 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:44.611 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:44.611 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:44.612 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:44.613 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:44.613 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:44.614 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:44.615 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:46.792 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:46.793 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:46.794 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:46.795 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:46.796 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:46.796 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:46.797 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:46.798 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:46.799 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:48.975 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:48.976 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:48.977 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:48.978 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:48.979 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:48.980 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:48.981 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:48.981 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:48.982 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:51.158 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:51.159 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:51.160 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:51.160 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:51.161 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:51.162 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:51.163 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:51.163 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:51.164 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:53.308 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:53.309 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:53.310 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:53.311 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:53.312 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:53.313 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:53.313 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:53.314 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:53.315 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:55.493 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:55.495 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:55.496 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:55.497 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:55.498 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:55.499 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:55.499 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:55.500 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:55.501 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:57.630 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:57.632 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:57.633 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:57.634 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:57.635 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:57.636 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:57.637 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:57.638 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:57.639 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:00:59.827 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:00:59.828 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:59.829 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:00:59.830 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:59.831 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:00:59.831 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:59.832 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:00:59.833 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:00:59.833 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:02.199 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:02.200 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:02.201 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:02.202 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:02.203 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:02.203 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:02.204 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:02.205 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:02.205 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:04.346 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:04.347 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:04.348 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:04.349 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:04.350 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:04.351 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:04.352 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:04.354 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:04.355 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:06.541 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:06.543 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:06.544 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:06.545 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:06.546 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:06.548 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:06.548 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:06.549 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:06.550 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:08.685 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:08.686 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:08.690 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:08.691 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:08.692 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:08.693 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:08.694 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:08.695 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:08.696 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:10.881 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:10.882 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:10.883 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:10.884 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:10.885 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:10.886 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:10.887 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:10.888 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:10.889 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:13.021 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:13.022 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:13.024 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:13.025 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:13.026 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:13.027 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:13.028 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:13.029 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:13.030 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:15.204 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:15.205 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:15.206 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:15.207 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:15.208 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:15.209 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:15.210 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:15.211 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:15.212 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:17.352 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:17.353 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:17.355 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:17.355 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:17.356 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:17.357 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:17.358 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:17.359 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:17.359 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:19.637 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:19.638 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:19.639 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:19.640 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:19.641 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:19.642 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:19.643 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:19.644 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:19.645 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:21.877 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:21.878 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:21.879 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:21.880 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:21.881 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:21.881 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:21.882 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:21.883 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:21.884 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:24.076 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:24.078 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:24.079 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:24.080 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:24.081 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:24.082 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:24.083 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:24.084 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:24.085 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:26.215 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:26.216 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:26.217 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:26.218 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:26.219 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:26.220 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:26.221 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:26.223 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:26.224 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:28.412 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:28.413 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:28.414 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:28.415 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:28.416 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:28.417 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:28.418 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:28.419 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:28.420 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:30.552 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:30.554 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:30.555 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:30.556 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:30.557 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:30.558 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:30.559 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:30.560 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:30.561 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:32.723 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:32.724 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:32.725 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:32.726 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:32.727 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:32.728 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:32.728 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:32.729 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:32.729 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:34.867 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:34.868 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:34.869 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:34.870 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:34.871 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:34.871 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:34.872 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:34.873 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:34.873 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:37.250 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:37.252 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:37.252 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:37.253 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:37.254 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:37.255 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:37.255 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:37.256 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:37.256 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:39.519 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:39.520 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:39.521 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:39.522 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:39.523 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:39.523 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:39.524 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:39.525 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:39.525 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:41.698 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:41.699 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:41.700 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:41.701 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:41.702 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:41.703 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:41.704 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:41.705 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:41.705 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:43.880 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:43.881 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:43.882 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:43.883 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:43.884 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:43.884 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:43.885 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:43.886 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:43.886 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:46.022 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:46.023 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:46.024 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:46.024 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:46.025 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:46.025 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:46.026 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:46.027 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:46.027 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:48.219 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:48.220 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:48.221 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:48.222 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:48.223 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:48.223 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:48.224 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:48.225 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:48.226 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:50.359 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:50.360 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:50.361 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:50.362 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:50.363 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:50.364 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:50.365 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:50.366 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:50.367 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:52.474 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:52.475 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:52.476 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:52.477 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:52.478 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:52.479 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:52.480 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:52.480 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:52.481 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:54.608 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:54.609 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:54.611 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:54.611 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:54.612 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:54.613 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:54.614 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:54.615 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:54.615 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:56.886 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:56.888 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:56.889 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:56.890 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:56.891 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:56.892 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:56.893 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:56.894 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:56.895 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:01:59.028 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:01:59.029 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:59.030 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:01:59.031 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:59.032 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:01:59.033 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:59.033 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:01:59.034 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:01:59.035 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:02:01.215 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:02:01.217 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:01.218 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:01.219 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:01.220 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:02:01.221 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:01.221 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:01.222 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:01.223 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:02:03.413 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:02:03.414 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:03.415 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:03.416 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:03.417 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:02:03.418 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:03.418 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:03.419 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:03.419 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:02:05.598 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:02:05.599 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:05.600 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:05.601 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:05.602 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:02:05.603 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:05.604 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:05.605 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:05.605 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:02:07.677 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:02:07.678 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:07.679 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:07.680 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:07.681 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:02:07.681 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:07.682 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:07.683 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:07.683 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:02:09.857 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:02:09.858 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:09.859 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:09.860 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:09.861 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:02:09.862 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:09.862 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:09.863 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:09.864 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:02:11.995 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:02:11.996 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:11.997 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:11.998 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:11.999 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:02:11.999 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:12.000 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:12.001 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:12.001 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:02:14.173 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:02:14.177 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:14.179 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:14.182 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:14.185 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:02:14.188 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:14.190 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:14.192 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:14.194 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:02:16.577 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:02:16.578 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:16.579 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:16.580 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:16.581 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:02:16.581 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:16.582 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:16.582 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:16.583 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:02:18.725 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:02:18.726 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:18.727 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:18.728 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:18.729 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:02:18.730 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:18.730 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:18.731 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:18.731 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:02:20.928 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:02:20.930 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:20.931 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:20.931 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:20.932 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:02:20.933 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:20.933 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:20.934 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:20.934 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:02:23.098 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:02:23.099 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:23.101 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:23.101 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:23.102 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:02:23.103 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:23.103 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:23.104 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:23.105 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:02:25.271 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:02:25.273 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:25.274 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:25.275 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:25.276 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:02:25.277 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:25.277 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:25.278 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:25.279 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:02:27.407 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:02:27.409 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:27.410 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:27.410 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:27.411 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:02:27.412 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:27.413 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:27.413 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:27.414 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:02:29.547 [DEBUG   ] obd2_sim.isotp: Sent to 0x18DAF100: 10 14 49 02 01 35 55 58
+2026-01-04 18:02:29.548 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:29.549 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7E9
+2026-01-04 18:02:29.550 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:29.551 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7E9
+2026-01-04 18:02:29.552 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:29.553 [DEBUG   ] obd2_sim.value_provider: No response for service 0x09 PID 0x02 ECU 0x7EF
+2026-01-04 18:02:29.553 [DEBUG   ] obd2_sim.response: No response for unsupported PID 0x02
+2026-01-04 18:02:29.554 [DEBUG   ] obd2_sim.simulator: No response from ECU 0x7EF
+2026-01-04 18:02:30.500 [INFO    ] obd2_sim: Received signal 2, shutting down...
+2026-01-04 18:02:30.501 [INFO    ] obd2_sim.simulator: Stopping OBD2 simulator...
+2026-01-04 18:02:30.502 [INFO    ] obd2_sim.broadcast: Stopped broadcast generators
+2026-01-04 18:02:30.557 [DEBUG   ] obd2_sim.simulator: Receive loop stopped
+2026-01-04 18:02:30.739 [INFO    ] obd2_sim.simulator: === Simulator Statistics ===
+2026-01-04 18:02:30.740 [INFO    ] obd2_sim.simulator:   Uptime: 133.9 seconds
+2026-01-04 18:02:30.741 [INFO    ] obd2_sim.simulator:   Requests received: 61
+2026-01-04 18:02:30.742 [INFO    ] obd2_sim.simulator:   Responses sent: 61
+2026-01-04 18:02:30.742 [INFO    ] obd2_sim.simulator:   Multi-frame sessions: 61
+2026-01-04 18:02:30.743 [INFO    ] obd2_sim.simulator:   Errors: 0
+2026-01-04 18:02:30.744 [INFO    ] obd2_sim.simulator: Simulator stopped
+2026-01-04 18:02:30.937 [INFO    ] obd2_sim: Simulator stopped

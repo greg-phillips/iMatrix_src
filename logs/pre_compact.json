@@ -150,5 +150,101 @@
     "hook_event_name": "PreCompact",
     "trigger": "auto",
     "custom_instructions": null
+  },
+  {
+    "session_id": "edb83450-531a-4fac-b6bd-1fffd9121cdb",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/edb83450-531a-4fac-b6bd-1fffd9121cdb.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1",
+    "hook_event_name": "PreCompact",
+    "trigger": "auto",
+    "custom_instructions": null
+  },
+  {
+    "session_id": "edb83450-531a-4fac-b6bd-1fffd9121cdb",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/edb83450-531a-4fac-b6bd-1fffd9121cdb.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/iMatrix",
+    "hook_event_name": "PreCompact",
+    "trigger": "auto",
+    "custom_instructions": null
+  },
+  {
+    "session_id": "264ed757-27d9-4f8c-ad88-63d92a3d23db",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/264ed757-27d9-4f8c-ad88-63d92a3d23db.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1",
+    "hook_event_name": "PreCompact",
+    "trigger": "auto",
+    "custom_instructions": null
+  },
+  {
+    "session_id": "2eafc413-91ed-463d-a32e-5ee9c3170849",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/2eafc413-91ed-463d-a32e-5ee9c3170849.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/build",
+    "hook_event_name": "PreCompact",
+    "trigger": "auto",
+    "custom_instructions": null
+  },
+  {
+    "session_id": "4caa1c9c-b7f1-4737-bbc4-b8896cd0f354",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/4caa1c9c-b7f1-4737-bbc4-b8896cd0f354.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/build",
+    "hook_event_name": "PreCompact",
+    "trigger": "auto",
+    "custom_instructions": null
+  },
+  {
+    "session_id": "4caa1c9c-b7f1-4737-bbc4-b8896cd0f354",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/4caa1c9c-b7f1-4737-bbc4-b8896cd0f354.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "hook_event_name": "PreCompact",
+    "trigger": "auto",
+    "custom_instructions": null
+  },
+  {
+    "session_id": "4caa1c9c-b7f1-4737-bbc4-b8896cd0f354",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/4caa1c9c-b7f1-4737-bbc4-b8896cd0f354.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/scripts",
+    "hook_event_name": "PreCompact",
+    "trigger": "auto",
+    "custom_instructions": null
+  },
+  {
+    "session_id": "4caa1c9c-b7f1-4737-bbc4-b8896cd0f354",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/4caa1c9c-b7f1-4737-bbc4-b8896cd0f354.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/scripts",
+    "hook_event_name": "PreCompact",
+    "trigger": "auto",
+    "custom_instructions": null
+  },
+  {
+    "session_id": "051aa1ca-d432-48f9-9505-0c7d3124b470",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/051aa1ca-d432-48f9-9505-0c7d3124b470.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "hook_event_name": "PreCompact",
+    "trigger": "auto",
+    "custom_instructions": null
+  },
+  {
+    "session_id": "dd2b098a-0487-4e66-9b74-c2607d7c3715",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/dd2b098a-0487-4e66-9b74-c2607d7c3715.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/iMatrix",
+    "hook_event_name": "PreCompact",
+    "trigger": "auto",
+    "custom_instructions": null
+  },
+  {
+    "session_id": "dd2b098a-0487-4e66-9b74-c2607d7c3715",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/dd2b098a-0487-4e66-9b74-c2607d7c3715.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/build",
+    "hook_event_name": "PreCompact",
+    "trigger": "auto",
+    "custom_instructions": null
+  },
+  {
+    "session_id": "dd2b098a-0487-4e66-9b74-c2607d7c3715",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/dd2b098a-0487-4e66-9b74-c2607d7c3715.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client/scripts",
+    "hook_event_name": "PreCompact",
+    "trigger": "auto",
+    "custom_instructions": null
   }
 ]

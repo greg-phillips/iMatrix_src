@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "serial": "513973109",
+    "sensor_count": 2,
+    "sensor_ids": [
+      2,
+      3
+    ],
+    "start_time": "2026-01-04T10:50:19.160000Z",
+    "end_time": "2026-01-05T10:50:19.160000Z",
+    "download_time": "2026-01-05T10:50:22.394555Z",
+    "total_data_points": 0
+  },
+  "sensors": [
+    {
+      "sensor_id": 2,
+      "sensor_name": "Latitude",
+      "sensor_units": "Degrees",
+      "statistics": {
+        "min": null,
+        "max": null,
+        "average": null,
+        "count": 0,
+        "first_time": null,
+        "last_time": null,
+        "duration_hours": 0
+      },
+      "data": []
+    },
+    {
+      "sensor_id": 3,
+      "sensor_name": "Longitude",
+      "sensor_units": "Degrees",
+      "statistics": {
+        "min": null,
+        "max": null,
+        "average": null,
+        "count": 0,
+        "first_time": null,
+        "last_time": null,
+        "duration_hours": 0
+      },
+      "data": []
+    }
+  ]
+}

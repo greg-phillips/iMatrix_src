@@ -1,0 +1,23 @@
+# While running the FC-1 application the console messages continue to show with errors
+complexity_level: "simple"
+
+prompt_name: "fix_console_messages"
+date: "2026-01-04"
+branch: "feature/fix_console_messages"
+
+title: "While running the FC-1 application the console messages continue to show with errors"
+
+task: 
+  Connect to the FC-1 application using the screen program.
+  the correct options are: screen /dev/ttyUSB0 115200
+  to exit the screen program press Ctrl+A then "\" then Y
+  Reset the FC-1 application by running the following command: scripts/fc1 restart
+  Monitor all the console messages and see if there are any errors.
+  If there are any errors, fix them by modifying the code in the FC-1 application.
+  If there are no errors, then the task is complete.
+
+  Ask any questions you need to before starting the work.
+
+  reference: /home/greg/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md
+  and /home/greg/iMatrix/iMatrix_Client/docs/fc1_script_reference.md
+  

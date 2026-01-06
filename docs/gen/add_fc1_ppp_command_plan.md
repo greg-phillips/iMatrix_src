@@ -26,7 +26,7 @@ Add a new `ppp` command to the `fc1` remote control script that connects to the 
 ### 2.2 Target Script: `scripts/fc1_service.sh`
 - Runs on gateway device
 - Controls FC-1 service via runsv
-- Located at `/tmp/fc1_service.sh` when deployed
+- Located at `/usr/qk/etc/sv/FC-1/fc1_service.sh` when deployed (persistent across reboots)
 
 ---
 
