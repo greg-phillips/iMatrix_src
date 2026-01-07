@@ -1,0 +1,62 @@
+# Continuing the investigation of the udhcp issue
+complexity_level: "simple"
+
+prompt_name: "udhcp_issues_2"
+date: "2026-01-06"
+branch: "feature/udhcp_issues_2"
+
+title: "Continuing the investigation of the udhcp issue"
+
+task: 
+  The udhcp issue has been investigated and fixes applied however the issue is still occurring.
+  Multiple udhcpc processes are still being created and the network is not stable.
+  Use the same tools and methods as used in the previous investigation to continue the investigation.
+  Use the script fc1 and details in this document to help you: /home/greg/iMatrix/iMatrix_Client/docs/Developer_Debugging_Guide.md
+  Review documents.
+  Connect to device under test, the default device: 192.168.7.1
+  Use the ps command to review the processes running on the device.
+  Create a plan to fix the issue.
+
+  reference:
+● Primary Issue Documents:
+  /home/greg/iMatrix/iMatrix_Client/docs/gen/fix_the_udhcp_issue.md
+  /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/fix_udhcp_issue.yaml
+  /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/udhcp_issues_2.yaml
+
+  Root Cause Analysis:
+  /home/greg/iMatrix/iMatrix_Client/monitoring/udhcpc_root_cause_analysis.md
+  /home/greg/iMatrix/iMatrix_Client/monitoring/critical_findings.md
+  /home/greg/iMatrix/iMatrix_Client/monitoring/network_analysis.md
+
+  udhcpd Implementation Docs:
+  /home/greg/iMatrix/iMatrix_Client/docs/udhcpd/udhcpd_implementation_plan.md
+  /home/greg/iMatrix/iMatrix_Client/docs/udhcpd/implementation_summary.md
+  /home/greg/iMatrix/iMatrix_Client/docs/udhcpd/dhcp_shutdown_integration_plan.md
+  /home/greg/iMatrix/iMatrix_Client/docs/udhcpd/network_reboot_kiss_fix.md
+  /home/greg/iMatrix/iMatrix_Client/docs/udhcpd/udhcp_prompt_1.md
+  /home/greg/iMatrix/iMatrix_Client/docs/udhcpd/udhcpd_gpt5.md
+  /home/greg/iMatrix/iMatrix_Client/docs/udhcpd/udhcpd_gemini.md
+  /home/greg/iMatrix/iMatrix_Client/docs/udhcpd/udhcpd_perplexity.md
+
+  Archived Related Docs:
+  /home/greg/iMatrix/iMatrix_Client/docs/archive/add_check_for_udhcpd_plan.md
+  /home/greg/iMatrix/iMatrix_Client/docs/archive/add_check_for_udhcpd_prompt.md
+
+  Source Code Files:
+  /home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/networking/dhcp_server_config.c
+  /home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/networking/dhcp_server_config.h
+  /home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/networking/process_network.c
+  /home/greg/iMatrix/iMatrix_Client/iMatrix/IMX_Platform/LINUX_Platform/networking/network_provisioning.c
+
+## Questions for Greg
+
+1. **Phase 1 approach:** Can I proceed with disabling the wlan0-dhcp runit service and modifying ifplugd.action? This is the quickest fix and requires no code changes.
+
+2. **Service ownership:** Should wlan0-dhcp-monitor.sh be removed entirely from the fleet, or just disabled on this device?
+
+3. **Testing duration:** How long should we monitor after the fix before considering it successful?
+
+Answers
+1. Yes, proceed with disabling the wlan0-dhcp runit service and modifying ifplugd.action. Also add to the start up code to check if this service present and remove and delelt to provent issues on new equipment.
+2. Yes, remove the wlan0-dhcp-monitor.sh service from the fleet. same as above ensure never an issue again.
+3. use the test functionality to force the wifi to rescan every 5 mintures and verify the issue is resolved. do a 1 hr test to validate.

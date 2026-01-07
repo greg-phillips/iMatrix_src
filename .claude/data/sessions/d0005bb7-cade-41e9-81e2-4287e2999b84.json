@@ -25,6 +25,15 @@
     "the version should be updated corectly on each load, locate the issue in the intitialiation of the device and fix it for future builds look into Fleet-Connect-1/init/imx_init_client.c",
     "continue",
     "contine",
-    "find all documents and scripts that refernce the incorrect path and correct them. provide a list"
+    "find all documents and scripts that refernce the incorrect path and correct them. provide a list",
+    "continue with original mission of finding and fixing the corrruption issue. To be clear outline to me what we are looking for",
+    "i think that the issue occurs during transistion from RAM to disk sectors. Work out a plan to trigger this before the 80% and then how to monitor for this failure",
+    "yes",
+    "why use env var overide. create a command to set a flag for testing. Make it clear in the comments this is for testing and to be removed once the bug is fixed",
+    "proceed",
+    "what are the 4,336 SENSOR_ID MISMATCH events ",
+    "use option 3 to fix and retest",
+    "great. save this with a tag in the repository.",
+    "write a docuemtn that explains all the issues and changes made. remove all the limits on ram memory use and commit the changes. then merge back to the Aptera_1_Clean branch"
   ]
 }

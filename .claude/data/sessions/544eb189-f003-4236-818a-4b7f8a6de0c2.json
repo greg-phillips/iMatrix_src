@@ -9,6 +9,13 @@
     "update the fc1 script to automatically deploy the tools needed",
     "yes",
     "create a very extensive document detailing how to connect to the device under etst and how to use ssh to access and download log files and how to use the fc1 script to send commands like loopstatus to the app cli, how do use the debug flags to set debug options that can provide output in the logs for debugging. reference /home/greg/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md to ptoved additional background. This document wil be used for developers debugging the Fleet-Connect-1 applcation",
-    "/new_dev Maintainer"
+    "/new_dev Maintainer",
+    "/new_dev udhcp_issue",
+    "find all documents the reference the issues we have been trying to fix with the udhcp server",
+    "list files with full paths",
+    "review the build /home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/CMakeLists.txt every time the system is built it should increment the value for BLE_GW_BUILD  in /home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/linux_gateway_build.h",
+    "yes",
+    "continue",
+    "yes"
   ]
 }
