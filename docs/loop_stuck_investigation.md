@@ -1,7 +1,8 @@
 # Handler Stuck Investigation - imatrix_upload() Blocking
 
 **Date Created**: 2025-12-29
-**Status**: IN PROGRESS - Awaiting next occurrence with enhanced diagnostics
+**Date Resolved**: 2026-01-09
+**Status**: RESOLVED - Root cause identified and fixed
 **Priority**: High
 **Affected Component**: iMatrix Upload / Memory Manager (MM2)
 
@@ -307,8 +308,81 @@ The `get_imatrix_ip_address()` DNS lookup could potentially block, but:
 
 ---
 
+## RESOLUTION (2026-01-09)
+
+### Root Cause Identified
+
+The lockup was caused by **sector chain corruption** in the MM2 memory manager during disk spooling operations. This corruption led to:
+- 4,336 `SENSOR_ID MISMATCH` events in logs
+- Cross-sensor chain corruption: `sector=X (owner=A) -> next=Y (owner=B)`
+- Infinite loops or deadlocks when traversing corrupted chains
+
+### Technical Details
+
+**Location**: `iMatrix/cs_ctrl/mm2_disk_spooling.c` - `cleanup_spooled_sectors()` function
+
+**Bug**: The function was calling `free_sector()` directly without:
+1. Updating chain pointers first (leaving dangling references)
+2. Holding the `sensor_lock` (allowing race conditions)
+
+**Race Condition Sequence**:
+```
+T0: Sensor 49 chain: ... -> sector 132 -> sector 1310 -> ...
+T1: cleanup_spooled_sectors() calls free_sector(1310)
+    - sector 1310 freed and returned to free list
+    - BUT chain_table[132].next_sector_id STILL = 1310!
+T2: Another thread allocates sector 1310 for sensor 52
+T3: Chain traversal: sector 132 (owner=49) -> next=1310 (owner=52) = CORRUPTION
+```
+
+### Fix Applied
+
+```c
+static imx_result_t cleanup_spooled_sectors(control_sensor_data_t* csd,
+                                            imatrix_upload_source_t upload_source) {
+    // CRITICAL FIX: Hold sensor_lock during entire cleanup
+    pthread_mutex_lock(&csd->mmcb.sensor_lock);
+
+    for (each sector to free) {
+        // Find previous sector in chain
+        // Update chain pointers to BYPASS this sector
+        set_next_sector_in_chain(prev_sector, next_sector);
+
+        // NOW safe to free - chain no longer references it
+        free_sector(sector_id);
+    }
+
+    pthread_mutex_unlock(&csd->mmcb.sensor_lock);
+}
+```
+
+### Verification Results
+
+| Test | Duration | Corruption Events |
+|------|----------|-------------------|
+| Initial test (aggressive 10% threshold) | 8+ minutes | 0 |
+| Production test (80% threshold) | 1 hour | 0 |
+
+### Files Modified
+
+| File | Change |
+|------|--------|
+| `cs_ctrl/mm2_disk_spooling.c` | Fixed `cleanup_spooled_sectors()` race condition |
+| `cs_ctrl/mm2_api.h` | Removed temporary test code |
+| `cs_ctrl/memory_manager_stats.c` | Removed temporary test CLI command |
+| `cs_ctrl/docs/MM2_Sector_Chain_Corruption_Fix.md` | Comprehensive fix documentation |
+
+### Branch and Tag
+
+- **Branch**: `fix/mm2-sector-chain-corruption`
+- **Tag**: `v1.0.0-mm2-chain-fix`
+- **Merged to**: `Aptera_1_Clean`
+
+---
+
 ## Related Documentation
 
+- **`iMatrix/cs_ctrl/docs/MM2_Sector_Chain_Corruption_Fix.md`** - Detailed fix documentation
 - `docs/archive/MAIN_LOOP_LOCKUP_FIX_SUMMARY.md` - Previous GPS-related lockup fix (Nov 2025)
 - `iMatrix/cs_ctrl/MM2_Developer_Guide.md` - Memory Manager documentation
 - `iMatrix/cs_ctrl/docs/MM2_API_GUIDE.md` - MM2 API reference
@@ -320,7 +394,9 @@ The `get_imatrix_ip_address()` DNS lookup could potentially block, but:
 | Date | Author | Change |
 |------|--------|--------|
 | 2025-12-29 | Claude | Initial investigation, enhanced loopstatus command |
+| 2026-01-07 | Claude | Root cause identified: sector chain corruption in cleanup_spooled_sectors() |
+| 2026-01-09 | Claude | Fix verified with 1-hour production test, merged to Aptera_1_Clean |
 
 ---
 
-**Next Action**: Run system until next lock occurrence, then immediately capture `loopstatus` output with mutex state.
+**Status**: RESOLVED - Fix deployed and verified working in production.
