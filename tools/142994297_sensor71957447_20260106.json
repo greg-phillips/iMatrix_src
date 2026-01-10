@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "serial": "142994297",
+    "sensor_id": 71957447,
+    "sensor_name": "IN:503:SccA_String5Voltage",
+    "sensor_units": "V",
+    "start_time": "2026-01-06T10:49:11.976000Z",
+    "end_time": "2026-01-07T10:49:11.976000Z",
+    "download_time": "2026-01-07T10:49:12.379048Z",
+    "data_points": 0
+  },
+  "statistics": {
+    "min": null,
+    "max": null,
+    "average": null,
+    "count": 0,
+    "first_time": null,
+    "last_time": null,
+    "duration_hours": 0
+  },
+  "data": []
+}

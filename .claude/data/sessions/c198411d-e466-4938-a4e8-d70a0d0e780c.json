@@ -1,0 +1,7 @@
+{
+  "session_id": "c198411d-e466-4938-a4e8-d70a0d0e780c",
+  "prompts": [
+    "read all documents for details on memory management issues. list all documents that are relevant, note timestamps on docuemtns",
+    "list full paths and dates - sort latest date first"
+  ]
+}

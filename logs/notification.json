@@ -382,5 +382,109 @@
     "hook_event_name": "Notification",
     "message": "Claude is waiting for your input",
     "notification_type": "idle_prompt"
+  },
+  {
+    "session_id": "544eb189-f003-4236-818a-4b7f8a6de0c2",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/544eb189-f003-4236-818a-4b7f8a6de0c2.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
+  },
+  {
+    "session_id": "c198411d-e466-4938-a4e8-d70a0d0e780c",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-upload-errors/c198411d-e466-4938-a4e8-d70a0d0e780c.jsonl",
+    "cwd": "/home/greg/iMatrix/upload_errors",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
+  },
+  {
+    "session_id": "c198411d-e466-4938-a4e8-d70a0d0e780c",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-upload-errors/c198411d-e466-4938-a4e8-d70a0d0e780c.jsonl",
+    "cwd": "/home/greg/iMatrix/upload_errors",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
+  },
+  {
+    "session_id": "cc28680b-5c50-4a6a-85c4-7b216630df89",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-upload-errors/cc28680b-5c50-4a6a-85c4-7b216630df89.jsonl",
+    "cwd": "/home/greg/iMatrix/upload_errors",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
+  },
+  {
+    "session_id": "281a162a-303e-44b6-8b2a-6bf7e25e02c8",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/281a162a-303e-44b6-8b2a-6bf7e25e02c8.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
+  },
+  {
+    "session_id": "87d10a5a-3ca0-4835-b4d8-400867f0b868",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-upload-errors/87d10a5a-3ca0-4835-b4d8-400867f0b868.jsonl",
+    "cwd": "/home/greg/iMatrix/upload_errors",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
+  },
+  {
+    "session_id": "aa404c5e-a524-4278-a1fe-70f0c9bdfc1a",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-iMatrix-Client/aa404c5e-a524-4278-a1fe-70f0c9bdfc1a.jsonl",
+    "cwd": "/home/greg/iMatrix/iMatrix_Client",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
+  },
+  {
+    "session_id": "87d10a5a-3ca0-4835-b4d8-400867f0b868",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-upload-errors/87d10a5a-3ca0-4835-b4d8-400867f0b868.jsonl",
+    "cwd": "/home/greg/iMatrix/upload_errors/Fleet-Connect-1/build",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
+  },
+  {
+    "session_id": "87d10a5a-3ca0-4835-b4d8-400867f0b868",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-upload-errors/87d10a5a-3ca0-4835-b4d8-400867f0b868.jsonl",
+    "cwd": "/home/greg/iMatrix/upload_errors",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
+  },
+  {
+    "session_id": "87d10a5a-3ca0-4835-b4d8-400867f0b868",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-upload-errors/87d10a5a-3ca0-4835-b4d8-400867f0b868.jsonl",
+    "cwd": "/home/greg/iMatrix/upload_errors/Fleet-Connect-1/build",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
+  },
+  {
+    "session_id": "d0005bb7-cade-41e9-81e2-4287e2999b84",
+    "transcript_path": "/home/greg/.claude/projects/-home-greg-iMatrix-main-loop-lockup/d0005bb7-cade-41e9-81e2-4287e2999b84.jsonl",
+    "cwd": "/home/greg/iMatrix/main_loop_lockup",
+    "hook_event_name": "Notification",
+    "message": "Claude Code needs your approval for the plan",
+    "notification_type": "permission_prompt"
   }
 ]

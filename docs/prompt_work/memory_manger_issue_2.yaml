@@ -1,0 +1,36 @@
+# Corruption detected in the memory manager sector chain
+complexity_level: "simple"
+
+prompt_name: "memory_manger_issue_2"
+date: "2025-12-30"
+branch: "feature/memory_manger_issue_2"
+
+title: "Corruption detected in the memory manager sector chain."
+
+task: |
+  Determine why curroption is detected in the memory manager sector chain.
+  Note: Log file contains all memory manager debug messages.
+  Review full log file on device before restarting to understand the issue.
+  Plan additional debugging output if needed to track issue.
+  From the log file on the device.
+```
+[00:05:02.501] [MM2-VALIDATE] CORRUPTION: free_sector: sector=381 points to FREED sector=756 (in_use=0)
+[00:05:02.502] [MM2-VALIDATE] CORRUPTION: imx_erase_all_pending: sector=381 points to FREED sector=756 (in_use=0)
+[00:05:02.503] [MM2-VALIDATE] CORRUPTION: free_sector: sector=381 points to FREED sector=756 (in_use=0)
+[00:05:02.503] [MM2-VALIDATE] CORRUPTION: imx_erase_all_pending: sector=381 points to FREED sector=756 (in_use=0)
+[00:05:02.505] [MM2-VALIDATE] CORRUPTION: free_sector: sector=381 points to FREED sector=756 (in_use=0)
+[00:05:02.505] [MM2-VALIDATE] CORRUPTION: imx_erase_all_pending: sector=381 points to FREED sector=756 (in_use=0)
+[00:05:02.506] [MM2-VALIDATE] CORRUPTION: free_sector: sector=381 points to FREED sector=756 (in_use=0)
+[00:05:02.507] [MM2-VALIDATE] CORRUPTION: imx_erase_all_pending: sector=381 points to FREED sector=756 (in_use=0)
+[00:05:02.508] [MM2-VALIDATE] CORRUPTION: free_sector: sector=381 points to FREED sector=756 (in_use=0)
+[00:05:02.509] [MM2-VALIDATE] CORRUPTION: imx_erase_all_pending: sector=381 points to FREED sector=756 (in_use=0)
+```
+references:
+/home/greg/iMatrix/iMatrix_Client/docs/CLI_and_Debug_System_Complete_Guide.md
+/home/greg/iMatrix/iMatrix_Client/docs/Developer_Debugging_Guide.md
+ | Document Date | Full Path                                                                                         | Size  |
+  |---------------|---------------------------------------------------------------------------------------------------|-------|
+  | 2026-01-07    | /home/greg/iMatrix/upload_errors/iMatrix/cs_ctrl/docs/MM2_Sector_Chain_Corruption_Fix.md          | 9KB   |
+  | 2025-12-06    | /home/greg/iMatrix/upload_errors/iMatrix/cs_ctrl/MM2_Developer_Guide.md                           | 38KB  |
+
+Ask any questions you need to before starting the work.

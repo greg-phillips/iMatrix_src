@@ -16,6 +16,7 @@
     "review the build /home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/CMakeLists.txt every time the system is built it should increment the value for BLE_GW_BUILD  in /home/greg/iMatrix/iMatrix_Client/Fleet-Connect-1/linux_gateway_build.h",
     "yes",
     "continue",
-    "yes"
+    "yes",
+    "/new_dev upload_errors"
   ]
 }

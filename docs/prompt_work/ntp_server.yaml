@@ -1,0 +1,26 @@
+# Investigation Flett-Connect-1 NTP Server options
+complexity_level: "simple"
+
+prompt_name: "ntp_server"
+date: "2026-01-09"
+branch: "feature/ntp_server"
+
+title: "Investigation Flett-Connect-1 NTP Server options"
+
+task: 
+  Connect to the Flett-Connect-1 board using SSH and check the NTP server options.
+  Detail the commands in the plan.
+  **Target:** The FC-1 Gateway board.
+  **Problem:** The NTP server is not working.
+  **Objective:** Using the SSH connection, determine the missing configuration files.
+
+## Questions
+
+Ask any questions needed to clarify the task before proceeding.
+
+## Deliverables
+Report on how to configure the NTP server on the Flett-Connect-1 board.
+This needs to be done using the code on startup assuming the the system is a virgin installation without any configuration for NTP Server.
+
+reference documents:
+/home/greg/iMatrix/iMatrix_Client/docs/ssh_access_to_Fleet_Connect.md

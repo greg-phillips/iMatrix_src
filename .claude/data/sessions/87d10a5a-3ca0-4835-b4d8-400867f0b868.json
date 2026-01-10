@@ -1,0 +1,18 @@
+{
+  "session_id": "87d10a5a-3ca0-4835-b4d8-400867f0b868",
+  "prompts": [
+    "/build_imatrix_client_prompt /home/greg/iMatrix/iMatrix_Client/docs/prompt_work/memory_manger_issue_2.yaml",
+    "read and implement /home/greg/iMatrix/iMatrix_Client/docs/gen/memory_manger_issue_2.md",
+    "proceed",
+    "ad to the plan that after every update and build to deploy the new code to the device and use the testing instructions to run and review the logs for errors. If errors detected solve and do until no more errrs detcted over a period of 2 houts",
+    "yes",
+    "read the document /home/greg/iMatrix/iMatrix_Client/docs/Developer_Debugging_Guide.md and /home/greg/iMatrix/iMatrix_Client/docs/fc1_script_reference.md include all information into the plan document and then use this to complete the iterative testing phase",
+    "add to the plan to make a copy of the fc1 script and adapt itfor the local copy of the built image",
+    "add to the pan to check the sytem every 5 minutes and then use tts to update me with the status of each check",
+    "<bash-notification>\n<shell-id>b517404</shell-id>\n<output-file>/tmp/claude/-home-greg-iMatrix-upload-errors/tasks/b517404.output</output-file>\n<status>completed</status>\n<summary>Background command \"Start fresh 2-hour monitor with TTS\" completed (exit code 0).</summary>\nRead the output file to retrieve the output.\n</bash-notification>",
+    "<bash-notification>\n<shell-id>b1ce215</shell-id>\n<output-file>/tmp/claude/-home-greg-iMatrix-upload-errors/tasks/b1ce215.output</output-file>\n<status>completed</status>\n<summary>Background command \"Start corruption monitor in background\" completed (exit code 0).</summary>\nRead the output file to retrieve the output.\n</bash-notification>",
+    "device is online \\ greg@Greg-P1-Laptop:~/iMatrix/iMatrix_Client$ scripts/fc1 status\n*** WARNING ***\nThis is a private system. Unauthorized access is prohibited.\nAll activities may be monitored and recorded.\nUse of this system constitutes consent to monitoring.\n========================================\n FC-1 Service Status\n========================================\n[OK]  Binary: /usr/qk/bin/FC-1\n[OK]  Run script: /usr/qk/etc/sv/FC-1/run\n[OK]  Auto-start: Enabled\n\nService status:\nrun: FC-1: (pid 1729) 1577s\n\n[OK]  Process: Running (PID: 1729)\n========================================",
+    "does the system  need both locks or can it be conssolidated to just one",
+    "yes"
+  ]
+}
